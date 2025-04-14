@@ -123,7 +123,7 @@
     .earlybird-section {
       position: relative;
       width: 100%;
-      max-width: 750px;
+      max-width: 850px;
       margin: 3rem auto 1rem;
       z-index: 2;
     }
@@ -135,27 +135,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 1.5rem;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      padding: 2rem;
-      text-align: center;
-    }
-    
-    .earlybird-content h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #ffffff, #aaaaaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .earlybird-content > p {
-      color: #ccc;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
+      padding: 3.5rem 4.5rem;
     }
     
     .counter-wrapper {
@@ -166,36 +146,53 @@
       gap: 2rem;
     }
     
+    /* Counter styling with fixed width container */
     .counter-container {
-      text-align: center;
+      margin-top: 2.5rem;
+      text-align: left;
+      min-width: 280px;
     }
     
     #nft-counter {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
       background: linear-gradient(135deg, #ffffff, #cccccc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       display: block;
+      width: 280px;
       margin-bottom: 0.25rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      line-height: 1.1;
+      text-align: left;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
     }
     
     .counter-container p {
       font-size: 0.9rem;
       color: #aaa;
       font-weight: 500;
+      width: 280px;
+      text-align: left;
+      margin: 0;
+      padding: 0;
     }
     
-    .earlybird-cta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Button styling */
+    .earlybird-col-left .btn.primary {
+      align-self: flex-start;
+      padding: 0.8rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s;
     }
     
-    .earlybird-cta .btn {
-      margin-bottom: 0.75rem;
+    .earlybird-col-left .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 94, 0, 0.3);
+      opacity: 0.9;
     }
     
     .earlybird-note {
@@ -204,31 +201,187 @@
       opacity: 0.9;
     }
     
-    .earlybird-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+    /* Two-column layout for earlybird section */
+    /* Two-column layout for earlybird section - Inspired by reference design */
+    .earlybird-two-col {
+      display: flex;
+      gap: 5rem;
       align-items: center;
-      margin-top: 1.5rem;
-      width: 100%;
+      margin-top: 0;
     }
     
-    /* Rarity Tabs Styling */
-    .nft-rarity-tabs {
+    .earlybird-col-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Left column styling */
+    .earlybird-col-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0;
+      min-width: 320px;
+    }
+    
+    .title-group {
+      width: 100%;
+      margin-bottom: 2.5rem;
+    }
+    
+    .title-group h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0 0 1.2rem 0;
+      line-height: 1.2;
+      text-align: left;
+      background: linear-gradient(135deg, #ffffff, #aaaaaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .title-group p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      line-height: 1.5;
+    }
+    
+    .button-wrapper {
+      margin-bottom: 2.5rem;
+    }
+    
+    .earlybird-col-right {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
-      width: 100%;
     }
     
-    .rarity-tabs {
+    /* Counter Spotlight - Left column */
+    .counter-spotlight {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       width: 100%;
-      margin: 1.5rem 0;
+      max-width: 320px;
+      padding: 2rem;
+      background: rgba(25, 25, 30, 0.5);
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      align-self: center;
+      margin-top: 0.5rem;
+    }
+    
+    /* NFT Selection area with tabs and message */
+    /* Right column - NFT card */
+    .earlybird-col-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Rank indicators styling - Underline style */
+    .rank-indicators {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      padding: 0.2rem 0 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .rank-tier {
+      color: #999;
+      font-size: 0.75rem;
+      padding: 0.5rem 0.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      outline: none;
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+      position: relative;
+      background: transparent;
+      border: none;
+    }
+    
+    .rank-tier::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .rank-tier:hover {
+      color: #eee;
+    }
+    
+    .rank-tier.active {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    
+    .rank-tier.active[data-rarity="legendary"] {
+      color: #ffd700;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    }
+    
+    .rank-tier.active[data-rarity="legendary"]::after {
+      background: linear-gradient(to right, #ffd700, #ff8c00);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    .rank-tier.active[data-rarity="epic"] {
+      color: #d8b4ff;
+      text-shadow: 0 0 8px rgba(191, 95, 255, 0.4);
+    }
+    
+    .rank-tier.active[data-rarity="epic"]::after {
+      background: linear-gradient(to right, #bf5fff, #8f00ff);
+      box-shadow: 0 0 10px rgba(191, 95, 255, 0.5);
+    }
+    
+    .rank-tier.active[data-rarity="rare"] {
+      color: #80d6ff;
+      text-shadow: 0 0 8px rgba(0, 184, 255, 0.4);
+    }
+    
+    .rank-tier.active[data-rarity="rare"]::after {
+      background: linear-gradient(to right, #00b8ff, #0070ff);
+      box-shadow: 0 0 10px rgba(0, 184, 255, 0.5);
+    }
+    
+    .rank-tier.active[data-rarity="uncommon"] {
+      color: #6beb83;
+      text-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+    }
+    
+    .rank-tier.active[data-rarity="uncommon"]::after {
+      background: linear-gradient(to right, #00e676, #00c853);
+      box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+    }
+    
+    .nft-selection-message {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      text-align: center;
     }
     
     .rarity-tab {
@@ -365,19 +518,31 @@
     
     /* NFT Card Color Variations */
     .legendary-text {
-      color: #ffd700 !important;
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .epic-text {
-      color: #bf5fff !important;
+      background: linear-gradient(135deg, #bf5fff, #8f00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .rare-text {
-      color: #00b8ff !important;
+      background: linear-gradient(135deg, #00b8ff, #0070ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .uncommon-text {
-      color: #00e676 !important;
+      background: linear-gradient(135deg, #00e676, #00c853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     /* Card Display Logic */
@@ -641,10 +806,7 @@
     .nft-card-title {
       font-size: 1.2rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #ffa500, #ff5e00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffffff;
       margin-bottom: 0.25rem;
       position: relative;
       transition: transform 0.3s ease;
@@ -708,7 +870,7 @@
     
     .detail-value {
       font-size: 0.85rem;
-      color: #fff;
+      color: #fff !important;
       font-weight: 600;
       position: relative;
       transition: transform 0.3s ease, text-shadow 0.3s ease;
@@ -873,12 +1035,113 @@
       position: relative;
       width: 100%;
       max-width: 930px;
-      margin: 0 auto 4rem;
+      margin: 0 auto 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 750px;
       padding: 0 20px;
+    }
+    
+    /* Social Proof Section */
+    .social-proof-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 5rem;
+      padding: 0 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .social-proof-header {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .social-proof-header span {
+      color: #ff8c00;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .social-proof-header h3 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0;
+    }
+    
+    .users-scroll-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .users-scroll-container::before,
+    .users-scroll-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 60px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .users-scroll-container::before {
+      left: 0;
+      background: linear-gradient(to right, #0b0b0b, rgba(11, 11, 11, 0));
+    }
+    
+    .users-scroll-container::after {
+      right: 0;
+      background: linear-gradient(to left, #0b0b0b, rgba(11, 11, 11, 0));
+    }
+    
+    .users-scroll-inner {
+      display: flex;
+      gap: 1.5rem;
+      animation: scrollUsers 40s linear infinite;
+      padding: 1rem 0;
+    }
+    
+    @keyframes scrollUsers {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    .user-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .username {
+      font-size: 0.9rem;
+      color: #ccc;
+      font-weight: 500;
+    }
+    
+    .user-avatar:hover .avatar {
+      transform: translateY(-5px);
     }
     
     /* Phone Mockup Styling */
@@ -920,6 +1183,113 @@
       max-width: 700px;
       margin: 0 auto;
     }
+    
+    /* Testimonials Section Styling */
+    .testimonials-section {
+      background: linear-gradient(180deg, rgba(15, 15, 20, 0) 0%, rgba(15, 15, 20, 0.8) 100%);
+      padding: 7rem 2rem;
+    }
+    
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .testimonials-header h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #ffffff, #aaaaaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonials-header p {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .testimonial-card {
+      background: rgba(25, 25, 30, 0.5);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      height: 100%;
+      text-align: left;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .testimonial-content {
+      padding: 2.5rem;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ddd;
+      margin-bottom: 0;
+      flex-grow: 1;
+      text-align: left;
+      padding-bottom: 1.5rem;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      text-align: left;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .author-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+    
+    .author-title {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
 
     /* Card Grid Styling */
     .card-grid {
@@ -960,33 +1330,94 @@
            margin: 2rem auto;
        }
        .earlybird-content {
-           padding: 1.5rem;
+           padding: 2.5rem 1.5rem;
        }
-       .earlybird-grid {
-           grid-template-columns: 1fr;
-           gap: 2rem;
-       }
-       .counter-wrapper {
+       .earlybird-two-col {
            flex-direction: column;
-           gap: 1.5rem;
+           gap: 3rem;
        }
-       .nft-rarity-tabs {
-           margin-top: 1.5rem;
-           gap: 1rem;
+       
+       .earlybird-col-left {
+           padding: 0;
+           min-width: unset;
+           width: 100%;
        }
-       .rarity-tabs {
-           gap: 0.4rem;
-           flex-wrap: wrap;
+       
+       .title-group {
+           margin-bottom: 2rem;
+       }
+       
+       .title-group h2 {
+           text-align: center;
+           width: 100%;
+       }
+       
+       .title-group p {
+           text-align: center;
+           width: 100%;
+       }
+       
+       .button-wrapper {
+           width: 100%;
+           display: flex;
            justify-content: center;
+           margin-bottom: 2rem;
        }
-       .rarity-tab {
-           font-size: 0.75rem;
-           padding: 0.4rem 0.6rem;
-           flex: 0 1 calc(50% - 0.4rem);
-           margin-bottom: 0.4rem;
+       
+       .earlybird-content {
+           padding: 2.5rem 1.5rem;
+       }
+       
+       .counter-container {
+           text-align: center;
+           margin: 2rem auto 0;
+       }
+       
+       .earlybird-col-left .btn.primary {
+           align-self: center;
+           margin-top: 0.5rem;
+       }
+       .earlybird-col-left h2,
+       .earlybird-description {
+           text-align: center;
+           max-width: 100%;
+           margin-left: auto;
+           margin-right: auto;
+       }
+       .counter-container {
+           text-align: center;
+           margin: 1.5rem auto 0;
+           width: 100%;
+           min-width: unset;
+       }
+       
+       #nft-counter {
+           width: auto;
+           text-align: center;
+       }
+       
+       .counter-container p {
+           width: auto;
+           text-align: center;
+           margin: 0 auto;
+       }
+       
+       .earlybird-col-left .btn.primary {
+           align-self: center;
+       }
+       .rank-indicators {
+           gap: 0.8rem;
+           margin-bottom: 1rem;
+           padding: 0.2rem 0 0.4rem;
+           justify-content: space-around;
+       }
+       .rank-tier {
+           font-size: 0.7rem;
+           padding: 0.35rem 0;
        }
        .nft-cards-container {
            height: 390px;
+           margin: 0 auto;
        }
        
        .feature-card {
@@ -1035,6 +1466,24 @@
             padding: 0.4rem 1rem;
             font-size: 0.85rem;
         }
+        
+        /* Testimonials responsive */
+        .testimonials-section {
+            padding: 5rem 1.5rem;
+        }
+        
+        .testimonials-header {
+            margin-bottom: 3rem;
+        }
+        
+        .testimonials-header h2 {
+            font-size: 2.2rem;
+        }
+        
+        .testimonials-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
     }
 
 
@@ -1050,6 +1499,23 @@
       .hero {
           padding: 4rem 0 2rem 0;
       }
+      
+      .social-proof-header h3 {
+          font-size: 1.4rem;
+      }
+      
+      .social-proof-header span {
+          font-size: 0.85rem;
+      }
+      
+      .avatar {
+          width: 48px;
+          height: 48px;
+      }
+      
+      .username {
+          font-size: 0.8rem;
+      }
       .earlybird-content h2 {
          font-size: 1.5rem;
       }
@@ -1058,7 +1524,56 @@
          margin-bottom: 1.2rem;
       }
       #nft-counter {
-         font-size: 2.5rem;
+         font-size: 3rem;
+      }
+      .counter-spotlight {
+         padding: 1rem;
+         margin: 1rem auto 1.5rem;
+      }
+      .counter-container {
+         margin-bottom: 1.2rem;
+      }
+      .counter-container p {
+         font-size: 0.85rem;
+      }
+      
+      /* Testimonials for mobile */
+      .testimonials-section {
+         padding: 4rem 1rem;
+      }
+      
+      .testimonials-header h2 {
+         font-size: 1.8rem;
+      }
+      
+      .testimonials-header p {
+         font-size: 0.95rem;
+      }
+      
+      .testimonials-grid {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+      }
+      
+      .testimonial-card {
+         max-width: 320px;
+         margin: 0 auto;
+      }
+      
+      .testimonial-content {
+         padding: 1.5rem;
+      }
+      
+      .testimonial-text {
+         font-size: 0.95rem;
+         margin-bottom: 0;
+         padding-bottom: 1.5rem;
+         text-align: left;
+      }
+      
+      .author-image {
+         width: 40px;
+         height: 40px;
       }
       /* Further adjust header for very small screens if needed */
       .header-logo {
@@ -1229,30 +1744,116 @@
       </div>
     </div>
     
+    <div class="social-proof-section">
+      <div class="social-proof-header">
+        <span>Join our growing community</span>
+        <h3>Over 50,000+ Bitcoin users trust BitNet</h3>
+      </div>
+      
+      <div class="users-scroll-container">
+        <div class="users-scroll-inner">
+          <!-- First set of users -->
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #ff8c00"></div>
+            <span class="username">@btc_max</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #bf5fff"></div>
+            <span class="username">@sats_stacker</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00b8ff"></div>
+            <span class="username">@lightning_node</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00e676"></div>
+            <span class="username">@ordinal_fan</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #ff5e00"></div>
+            <span class="username">@nft_collector</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #8f00ff"></div>
+            <span class="username">@bitcoin_lisa</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #0070ff"></div>
+            <span class="username">@satoshi_disciple</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00c853"></div>
+            <span class="username">@onchain_analyst</span>
+          </div>
+          
+          <!-- Duplicate set for infinite scroll effect -->
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #ff8c00"></div>
+            <span class="username">@btc_max</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #bf5fff"></div>
+            <span class="username">@sats_stacker</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00b8ff"></div>
+            <span class="username">@lightning_node</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00e676"></div>
+            <span class="username">@ordinal_fan</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #ff5e00"></div>
+            <span class="username">@nft_collector</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #8f00ff"></div>
+            <span class="username">@bitcoin_lisa</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #0070ff"></div>
+            <span class="username">@satoshi_disciple</span>
+          </div>
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #00c853"></div>
+            <span class="username">@onchain_analyst</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="earlybird-section">
       <div class="earlybird-content">
-        <h2>Secure Your Early Access</h2>
-        <p>Join the waitlist for exclusive benefits • Early adopters receive free NFT inscription</p>
-        
-        <div class="rarity-tabs">
-          <button class="rarity-tab active" data-rarity="legendary">Top 1,000</button>
-          <button class="rarity-tab" data-rarity="epic">Top 10,000</button>
-          <button class="rarity-tab" data-rarity="rare">Top 100,000</button>
-          <button class="rarity-tab" data-rarity="uncommon">Top 1,000,000</button>
-        </div>
-        
-        <div class="earlybird-grid">
-          <div class="counter-wrapper">
+        <!-- Two-column layout inspired by the reference design -->
+        <div class="earlybird-two-col">
+          
+          <!-- Left column: Access info, CTA button and counter -->
+          <div class="earlybird-col-left">
+            <div class="title-group">
+              <h2>Secure Your Early Access</h2>
+              <p>Join the waitlist for exclusive benefits • Early adopters receive free NFT inscription</p>
+            </div>
+            
+            <div class="button-wrapper">
+              <a href="#register" class="btn primary">Reserve Your Spot</a>
+            </div>
+            
             <div class="counter-container">
               <span id="nft-counter">1,000,000</span>
               <p>limited spots remaining</p>
             </div>
-            <div class="earlybird-cta">
-              <a href="#register" class="btn primary">Reserve Your Spot</a>
-            </div>
           </div>
           
-          <div class="nft-rarity-tabs">
+          <!-- Right column: NFT card with tabs above -->
+          <div class="earlybird-col-right">
+            <!-- Rank tiers above card -->
+            <div class="rank-indicators">
+              <button class="rank-tier active" data-rarity="legendary">Top 1,000</button>
+              <button class="rank-tier" data-rarity="epic">Top 10,000</button>
+              <button class="rank-tier" data-rarity="rare">Top 100,000</button>
+              <button class="rank-tier" data-rarity="uncommon">Top 1,000,000</button>
+            </div>
             
             <div class="nft-cards-container">
               <div id="legendary-card" class="nft-card active">
@@ -1340,6 +1941,129 @@
               </div>
               
               <div class="nft-card-shadow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <!-- Mission Section -->
+  <section id="mission" class="section mission-section">
+    <div class="mission-container">
+      <div class="mission-graphics">
+        <div class="mission-graphic-element sphere"></div>
+        <div class="mission-graphic-element cube"></div>
+        <div class="mission-graphic-element pyramid"></div>
+        <div class="mission-bg-glow"></div>
+      </div>
+      
+      <div class="mission-content">
+        <div class="mission-header">
+          <span class="mission-subtitle">Our Mission</span>
+          <h2>Empowering Financial Freedom Through Bitcoin</h2>
+        </div>
+        
+        <div class="mission-body">
+          <p>At BitNet, we believe in a future where everyone has the power to control their own financial destiny. We're building tools that make Bitcoin accessible to all, revolutionizing how people send, save, and interact with money in the digital age.</p>
+          
+          <div class="mission-values">
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>Security First</h3>
+                <p>Your bitcoin deserves the strongest protection possible. We build with security as our foundation.</p>
+              </div>
+            </div>
+            
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>User Empowerment</h3>
+                <p>We design intuitive experiences that put you in control of your financial future.</p>
+              </div>
+            </div>
+            
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="2" x2="12" y2="6"></line>
+                  <line x1="12" y1="18" x2="12" y2="22"></line>
+                  <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                  <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                  <line x1="2" y1="12" x2="6" y2="12"></line>
+                  <line x1="18" y1="12" x2="22" y2="12"></line>
+                  <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                  <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>Innovation</h3>
+                <p>We're building on the cutting edge of Bitcoin technology to create experiences that weren't possible before.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section testimonials-section">
+    <div class="testimonials-container">
+      <div class="testimonials-header">
+        <h2>What Our Users Say</h2>
+        <p>Join thousands of satisfied BitNet users worldwide</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"BitNet has completely changed how I interact with Bitcoin. The lightning wallet makes transactions instant, and the UI is incredibly intuitive."</p>
+            <div class="testimonial-author">
+              <div class="author-image" style="background-color: #ff8c00;"></div>
+              <div class="author-info">
+                <span class="author-name">Atash Hauschild</span>
+                <span class="author-title">Web3 Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"As an early adopter, I was thrilled to get access to BitNet's NFT marketplace. The interface is smooth, and the transaction speeds are impressive."</p>
+            <div class="testimonial-author">
+              <div class="author-image" style="background-color: #bf5fff;"></div>
+              <div class="author-info">
+                <span class="author-name">Robin Göpper</span>
+                <span class="author-title">Crypto Investor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"The security features on BitNet are top-notch. I love how they've combined modern design with robust protection for my Bitcoin assets."</p>
+            <div class="testimonial-author">
+              <div class="author-image" style="background-color: #00b8ff;"></div>
+              <div class="author-info">
+                <span class="author-name">Jonah Ike</span>
+                <span class="author-title">Security Consultant</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1451,26 +2175,33 @@
       return Math.floor(Math.random() * 100) + 50;
     }
     
-    // Function to update the counter with comma formatting
+    // Function to update the counter with fixed width
     function updateCounter() {
       if (currentValue > minValue) {
         currentValue -= randomDecrement();
         if (currentValue < minValue) currentValue = minValue;
       }
       
-      // Format with commas
-      counterElement.textContent = currentValue.toLocaleString('en-US');
+      // Format with commas and maintain consistent width
+      const formattedValue = currentValue.toLocaleString('en-US');
+      counterElement.textContent = formattedValue;
+      
+      // Ensure the counter has consistent width by using monospace font
+      counterElement.style.fontFeatureSettings = "'tnum'";
+      counterElement.style.fontVariantNumeric = "tabular-nums";
     }
     
-    // Initial display
+    // Initial display with fixed width
     counterElement.textContent = currentValue.toLocaleString('en-US');
+    counterElement.style.fontFeatureSettings = "'tnum'";
+    counterElement.style.fontVariantNumeric = "tabular-nums";
     
     // Update counter every 1-2 seconds
     setInterval(updateCounter, Math.floor(Math.random() * 1000) + 1000);
     
     // NFT Rarity tabs functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const rarityTabs = document.querySelectorAll('.rarity-tab');
+      const rarityTabs = document.querySelectorAll('.rank-tier');
       const nftCards = document.querySelectorAll('.nft-card');
       
       // Function to switch active tab and card
@@ -1480,7 +2211,7 @@
         nftCards.forEach(card => card.classList.remove('active'));
         
         // Add active class to selected tab and card
-        document.querySelector(`.rarity-tab[data-rarity="${rarity}"]`).classList.add('active');
+        document.querySelector(`.rank-tier[data-rarity="${rarity}"]`).classList.add('active');
         document.querySelector(`#${rarity}-card`).classList.add('active');
       }
       
