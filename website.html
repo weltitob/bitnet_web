@@ -22,6 +22,33 @@
       color: #fff;
       line-height: 1.6;
     }
+    
+    /* Metrics Row */
+    .metrics-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+      text-align: center;
+      gap: 0.5rem;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .metric-item {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #ccc;
+      letter-spacing: 0.01em;
+      padding: 0 0.5rem;
+    }
+    
+    .metric-separator {
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
 
     /* Header Styling - Updated Structure */
     header {
@@ -82,7 +109,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 6rem 0 2rem 0;
+      padding: 4rem 0 2rem 0;
       background: linear-gradient(145deg, #101010, #0b0b0b);
       overflow: hidden;
       width: 100%;
@@ -102,7 +129,7 @@
     .hero p {
       margin: 1.2rem auto 0;
       font-size: 1.1rem;
-      max-width: 600px;
+      max-width: 800px;
       color: #ccc;
       z-index: 1;
       position: relative;
@@ -1488,6 +1515,19 @@
 
 
     @media (max-width: 600px) {
+      .metrics-row {
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        gap: 0.5rem;
+      }
+      
+      .metric-separator {
+        display: none;
+      }
+      
+      .metric-item {
+        font-size: 0.8rem;
+      }
       .hero h1 {
         font-size: 2rem;
         line-height: 1.3;
@@ -1655,6 +1695,13 @@
   </header>
 
   <section class="hero">
+    <div class="metrics-row">
+      <span class="metric-item">Self-Custody</span>
+      <span class="metric-separator">|</span>
+      <span class="metric-item">Lightning-Fast</span>
+      <span class="metric-separator">|</span>
+      <span class="metric-item">Open & Decentralized</span>
+    </div>
     <div class="chart-line">
       <svg
         viewBox="0 0 1300 280"
@@ -1694,8 +1741,8 @@
         />
       </svg>
     </div>
-    <h1>Step into Bitcoin's Future with the Next-Generation Wallet.</h1>
-    <p>Step into the next generation with the first wallet designed for the Bitcoin of tomorrow. Secure, seamless, and intuitive.</p>
+    <h1>We're Flipping the Script: Bitcoin-First Web3 That Works.</h1>
+    <p>Web3 capabilities for Bitcoin—secure, seamless, and truly Bitcoin-native.</p>
     <div class="hero-buttons">
       <a href="#get-started" class="btn primary">Get Started</a> <a href="#learn-more" class="btn secondary">Learn More</a>
     </div>
@@ -1724,8 +1771,8 @@
           </svg>
         </div>
         <div class="feature-content">
-          <h3>Modern Web3</h3>
-          <p>Next-generation Bitcoin capabilities</p>
+          <h3>Bitcoin-Native Web3</h3>
+          <p>Web3 built for Bitcoin, not the other way around</p>
         </div>
       </div>
       
@@ -1953,20 +2000,17 @@
   <section id="mission" class="section mission-section">
     <div class="mission-container">
       <div class="mission-graphics">
-        <div class="mission-graphic-element sphere"></div>
-        <div class="mission-graphic-element cube"></div>
-        <div class="mission-graphic-element pyramid"></div>
         <div class="mission-bg-glow"></div>
       </div>
       
       <div class="mission-content">
         <div class="mission-header">
           <span class="mission-subtitle">Our Mission</span>
-          <h2>Empowering Financial Freedom Through Bitcoin</h2>
+          <h2>Bitcoin Freedom for Everyone</h2>
         </div>
         
         <div class="mission-body">
-          <p>At BitNet, we believe in a future where everyone has the power to control their own financial destiny. We're building tools that make Bitcoin accessible to all, revolutionizing how people send, save, and interact with money in the digital age.</p>
+          <p>Making Bitcoin accessible to all by reimagining how you send, save, and use money in the digital age.</p>
           
           <div class="mission-values">
             <div class="mission-value">
@@ -1978,7 +2022,7 @@
               </div>
               <div class="value-content">
                 <h3>Security First</h3>
-                <p>Your bitcoin deserves the strongest protection possible. We build with security as our foundation.</p>
+                <p>Strongest protection for your bitcoin, built into our foundation.</p>
               </div>
             </div>
             
@@ -1990,7 +2034,7 @@
               </div>
               <div class="value-content">
                 <h3>User Empowerment</h3>
-                <p>We design intuitive experiences that put you in control of your financial future.</p>
+                <p>You own your assets. We're giving power back to the players, not the platforms.</p>
               </div>
             </div>
             
@@ -2009,7 +2053,48 @@
               </div>
               <div class="value-content">
                 <h3>Innovation</h3>
-                <p>We're building on the cutting edge of Bitcoin technology to create experiences that weren't possible before.</p>
+                <p>Cutting-edge Bitcoin technology enabling previously impossible experiences.</p>
+              </div>
+            </div>
+            
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>Decentralized</h3>
+                <p>True to Bitcoin's spirit, with no central control or single point of failure.</p>
+              </div>
+            </div>
+            
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>Self-Custody</h3>
+                <p>Your keys, your coins. Complete ownership without third-party dependencies.</p>
+              </div>
+            </div>
+            
+            <div class="mission-value">
+              <div class="value-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h3>User-Friendly</h3>
+                <p>Complex Bitcoin technology made simple with an intuitive interface.</p>
               </div>
             </div>
           </div>
@@ -2059,39 +2144,6 @@
       z-index: -1;
     }
     
-    .mission-graphic-element {
-      position: absolute;
-      opacity: 0.15;
-      filter: blur(2px);
-    }
-    
-    .mission-graphic-element.sphere {
-      top: 10%;
-      right: 15%;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, #ff8800, #ff5e00);
-      border-radius: 50%;
-    }
-    
-    .mission-graphic-element.cube {
-      bottom: 15%;
-      left: 10%;
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, #8f00ff, #6b00ff);
-      transform: rotate(45deg);
-    }
-    
-    .mission-graphic-element.pyramid {
-      top: 40%;
-      left: 20%;
-      width: 0;
-      height: 0;
-      border-left: 75px solid transparent;
-      border-right: 75px solid transparent;
-      border-bottom: 130px solid rgba(0, 150, 255, 0.3);
-    }
     
     .mission-content {
       max-width: 900px;
@@ -2100,7 +2152,7 @@
     
     .mission-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
     
     .mission-subtitle {
@@ -2110,19 +2162,8 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       position: relative;
-    }
-    
-    .mission-subtitle::after {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 2px;
-      background: linear-gradient(90deg, #ff8c00, transparent);
-      bottom: -0.5rem;
-      left: 50%;
-      transform: translateX(-50%);
     }
     
     .mission-header h2 {
@@ -2137,16 +2178,16 @@
     
     .mission-body {
       color: #ddd;
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.5;
       text-align: center;
     }
     
     .mission-values {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     
     .mission-value {
@@ -2154,7 +2195,7 @@
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 1rem;
-      padding: 1.75rem;
+      padding: 1.5rem;
       transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -2162,6 +2203,7 @@
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
+      min-height: 200px;
     }
     
     .mission-value:hover {
@@ -2172,16 +2214,16 @@
     
     .value-icon {
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #ff8a00, #ff5e00);
       color: white;
       border-radius: 8px;
-      padding: 6px;
-      margin-bottom: 1.2rem;
+      padding: 8px;
+      margin-bottom: 1.5rem;
       transition: transform 0.2s ease;
       box-shadow: 0 2px 8px rgba(255, 94, 0, 0.3);
       align-self: flex-start;
@@ -2193,16 +2235,25 @@
     }
     
     .value-content h3 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      font-weight: 600;
       color: #fff;
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: 0.01em;
     }
     
     .value-content p {
-      font-size: 0.95rem;
-      color: #bbb;
+      font-size: 0.9rem;
+      color: #aaa;
       margin: 0;
       line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    @media (max-width: 992px) {
+      .mission-values {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     
     @media (max-width: 768px) {
@@ -2219,7 +2270,11 @@
       }
       
       .mission-values {
-        gap: 1.5rem;
+        gap: 1.25rem;
+      }
+      
+      .mission-value {
+        min-height: 180px;
       }
     }
     
@@ -2242,27 +2297,30 @@
       
       .mission-values {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
       }
       
       .mission-value {
-        padding: 1.5rem;
+        padding: 1.25rem;
         max-width: 350px;
         margin: 0 auto;
+        min-height: auto;
       }
       
       .value-icon {
         width: 40px;
         height: 40px;
         margin-bottom: 1.2rem;
+        padding: 6px;
       }
       
       .value-content h3 {
         font-size: 1.2rem;
+        margin-bottom: 0.5rem;
       }
       
       .value-content p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
     }
   </style>
