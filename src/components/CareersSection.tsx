@@ -8,7 +8,7 @@ const CareersSection = () => {
         </div>
         
         <div className="careers-content">
-          <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '800px', textAlign: 'center' }}>We're seeking exceptional creators and innovators passionate about our mission: an open, accessible, and empowering Bitcoin for all. Help us fix Bitcoin, help fix the world.</p>
+          <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '1000px', textAlign: 'center' }}>We're seeking exceptional creators and innovators passionate about our mission: an open, accessible, and empowering Bitcoin for all. Help us fix Bitcoin, help fix the world.</p>
           
           <div className="job-positions">
             <div className="job-card">
@@ -84,7 +84,7 @@ const CareersSection = () => {
         }
         
         .careers-content > p {
-          max-width: 800px;
+          max-width: 1000px;
           margin: 0 auto 4rem;
         }
         

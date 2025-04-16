@@ -8,6 +8,8 @@ import CareersSection from './components/CareersSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import EarlybirdPage from './pages/Earlybird'
+import EarlybirdMobilePage from './pages/EarlybirdMobile'
+import InvestorRelations from './pages/InvestorRelations'
 import './App.css'
 
 const HomePage = () => {
@@ -33,6 +35,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/earlybird" element={<EarlybirdPage />} />
+        <Route path="/mobile/earlybird" element={<EarlybirdMobilePage />} />
+        <Route path="/investors" element={<InvestorRelations />} />
       </Routes>
     </Router>
   );

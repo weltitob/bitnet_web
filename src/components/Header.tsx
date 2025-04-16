@@ -194,6 +194,20 @@ const Header = () => {
             Jobs
           </a>
           <a 
+            href="/investors" 
+            style={{
+              textDecoration: 'none',
+              color: '#fff',
+              fontWeight: 600,
+              fontSize: responsiveStyles.navLink.fontSize,
+              transition: 'color 0.3s',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+          >
+            Investors
+          </a>
+          <a 
             href="#contact" 
             style={{
               textDecoration: 'none',

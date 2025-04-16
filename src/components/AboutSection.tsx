@@ -12,7 +12,7 @@ const AboutSection = () => {
         </div>
         
         <div className="about-content">
-          <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '800px', textAlign: 'center' }}>BitNet is a team of passionate Bitcoin developers, designers, and strategists dedicated to creating the most user-friendly and powerful Bitcoin wallet experience. We believe in a future where Bitcoin is accessible to everyone, regardless of technical expertise.</p>
+          <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '1000px', textAlign: 'center' }}>BitNet is a team of passionate Bitcoin developers, designers, and strategists dedicated to creating the most user-friendly and powerful Bitcoin wallet experience. We believe in a future where Bitcoin is accessible to everyone, regardless of technical expertise.</p>
           
           <div className="about-team-grid">
             <div className="team-member">
@@ -84,7 +84,7 @@ const AboutSection = () => {
         }
         
         .about-content p {
-          max-width: 800px;
+          max-width: 1000px;
           margin: 0 auto 4rem;
         }
         
