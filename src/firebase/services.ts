@@ -1,8 +1,9 @@
 import { db } from './config';
 import { collection, addDoc, serverTimestamp, Timestamp, query, where, getDocs } from 'firebase/firestore';
 
-// Collection reference - use same collection name as in Flutter app
+// Collection references
 const earlybirdRef = collection(db, 'earlybird_email_list');
+const messagesRef = collection(db, 'website_messages');
 
 /**
  * Add a new earlybird signup to Firestore
@@ -45,6 +46,37 @@ export const checkExistingEmail = async (email: string): Promise<boolean> => {
     return !querySnapshot.empty;
   } catch (error) {
     console.error('Error checking existing email:', error);
+    throw error;
+  }
+};
+
+/**
+ * Interface for website contact message data
+ */
+export interface ContactMessage {
+  email: string;
+  subject: string;
+  message: string;
+}
+
+/**
+ * Add a new contact message to Firestore
+ * @param messageData - The message data containing email, subject, and message
+ * @returns Promise with the document ID
+ */
+export const sendContactMessage = async (messageData: ContactMessage) => {
+  try {
+    // Add new document with message data and timestamp
+    const docRef = await addDoc(messagesRef, {
+      ...messageData,
+      timestamp: Timestamp.now(),
+      status: 'unread',
+    });
+    
+    console.log('Contact message sent:', messageData.email);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error sending contact message:', error);
     throw error;
   }
 };

@@ -258,6 +258,8 @@ const HeroSection = () => {
       <div className="phone-features-container">
         <div className="mockup">
           <div className="dynamic-island"></div>
+          <div className="volume-up"></div>
+          <div className="volume-down"></div>
           <img src="/assets/down.jpeg" alt="BitNet Mobile App" className="screen-content" />
         </div>
         

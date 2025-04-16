@@ -1,4 +1,12 @@
+import { useState } from 'react';
+import { sendContactMessage } from '../firebase/services';
+
 const ContactSection = () => {
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState<{ success: boolean; message: string } | null>(null);
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
@@ -57,23 +65,106 @@ const ContactSection = () => {
           
           <div className="contact-form">
             <h3>Send Us a Message</h3>
-            <form>
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              
+              // Validate form
+              if (!email || !subject || !message) {
+                setSendStatus({
+                  success: false,
+                  message: 'Please fill in all fields'
+                });
+                return;
+              }
+              
+              // Basic email validation
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(email)) {
+                setSendStatus({
+                  success: false,
+                  message: 'Please enter a valid email address'
+                });
+                return;
+              }
+              
+              // Send message to Firebase
+              try {
+                setIsSending(true);
+                await sendContactMessage({
+                  email,
+                  subject,
+                  message
+                });
+                
+                // Success
+                setSendStatus({
+                  success: true,
+                  message: 'Your message has been sent successfully!'
+                });
+                
+                // Clear form
+                setEmail('');
+                setSubject('');
+                setMessage('');
+              } catch (error) {
+                console.error('Error sending message:', error);
+                setSendStatus({
+                  success: false,
+                  message: 'Failed to send message. Please try again later.'
+                });
+              } finally {
+                setIsSending(false);
+              }
+            }}>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="Your email address" />
+                <input 
+                  type="email" 
+                  id="email" 
+                  placeholder="Your email address" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
               
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
-                <input type="text" id="subject" placeholder="What's this about?" />
+                <input 
+                  type="text" 
+                  id="subject" 
+                  placeholder="What's this about?" 
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  required
+                />
               </div>
               
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows={5} placeholder="Tell us more..."></textarea>
+                <textarea 
+                  id="message" 
+                  rows={5} 
+                  placeholder="Tell us more..." 
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                ></textarea>
               </div>
               
-              <button type="submit" className="btn primary">Send Message</button>
+              {sendStatus && (
+                <div className={`form-status ${sendStatus.success ? 'success' : 'error'}`}>
+                  {sendStatus.message}
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                className="btn primary"
+                disabled={isSending}
+              >
+                {isSending ? 'Sending...' : 'Send Message'}
+              </button>
             </form>
           </div>
         </div>
@@ -339,6 +430,32 @@ const ContactSection = () => {
           .contact-method {
             padding: 1.5rem;
           }
+        }
+        
+        /* Status message styling */
+        .form-status {
+          margin-bottom: 1.5rem;
+          padding: 0.75rem 1rem;
+          border-radius: 0.5rem;
+          font-size: 0.95rem;
+          transition: all 0.3s ease;
+        }
+        
+        .form-status.success {
+          background: rgba(0, 200, 83, 0.15);
+          border: 1px solid rgba(0, 200, 83, 0.3);
+          color: #2ecc71;
+        }
+        
+        .form-status.error {
+          background: rgba(231, 76, 60, 0.15);
+          border: 1px solid rgba(231, 76, 60, 0.3);
+          color: #e74c3c;
+        }
+        
+        button:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
         }
         
         @media (max-width: 600px) {
