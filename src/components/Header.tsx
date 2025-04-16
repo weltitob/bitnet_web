@@ -3,15 +3,24 @@ import logo from '../assets/logoclean.png'
 
 const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false)
+      }
     }
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
 
   // Responsive style adjustments
   const getResponsiveStyles = () => {
@@ -137,113 +146,240 @@ const Header = () => {
           BitNet
         </h1>
       </div>
-      <div 
-        className="header-right"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: responsiveStyles.headerRight.gap,
-        }}
-      >
-        <nav 
+      
+      {/* Hamburger menu for mobile */}
+      {windowWidth <= 768 && (
+        <div 
+          onClick={toggleMobileMenu}
+          style={{
+            cursor: 'pointer',
+            zIndex: 1002,
+            padding: '8px',
+          }}
+        >
+          <div style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#fff',
+            margin: '5px 0',
+            transition: 'all 0.3s',
+            transform: mobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+          }}></div>
+          <div style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#fff',
+            margin: '5px 0',
+            transition: 'all 0.3s',
+            opacity: mobileMenuOpen ? 0 : 1,
+          }}></div>
+          <div style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#fff',
+            margin: '5px 0',
+            transition: 'all 0.3s',
+            transform: mobileMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+          }}></div>
+        </div>
+      )}
+      
+      {/* Desktop navigation */}
+      {windowWidth > 768 && (
+        <div 
+          className="header-right"
           style={{
             display: 'flex',
-            gap: responsiveStyles.nav.gap,
+            alignItems: 'center',
+            gap: responsiveStyles.headerRight.gap,
           }}
         >
-          <a 
-            href="#about" 
+          <nav 
             style={{
-              textDecoration: 'none',
-              color: '#fff',
-              fontWeight: 600,
-              fontSize: responsiveStyles.navLink.fontSize,
-              transition: 'color 0.3s',
+              display: 'flex',
+              gap: responsiveStyles.nav.gap,
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
           >
-            About
-          </a>
+            <a 
+              href="#about" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              About
+            </a>
+            <a 
+              href="#jobs" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Jobs
+            </a>
+            <a 
+              href="/investors" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Investors
+            </a>
+            <a 
+              href="#contact" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Contact
+            </a>
+          </nav>
           <a 
-            href="#insights" 
+            href="#get-started" 
+            className="btn primary header-btn"
             style={{
-              textDecoration: 'none',
+              padding: responsiveStyles.headerBtn.padding,
+              fontSize: responsiveStyles.headerBtn.fontSize,
+              background: 'linear-gradient(135deg, #ffa500, #ff5e00)',
               color: '#fff',
+              borderRadius: '9999px',
               fontWeight: 600,
-              fontSize: responsiveStyles.navLink.fontSize,
-              transition: 'color 0.3s',
+              textDecoration: 'none',
+              transition: 'opacity 0.3s',
+              display: 'inline-block',
+              textAlign: 'center',
+              border: '1px solid transparent',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Insights
+            Get Started
           </a>
+        </div>
+      )}
+      
+      {/* Mobile menu overlay */}
+      {windowWidth <= 768 && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          backgroundColor: '#0b0b0b',
+          zIndex: 1001,
+          display: mobileMenuOpen ? 'flex' : 'none',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transition: 'all 0.3s',
+        }}>
+          <nav 
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2rem',
+              alignItems: 'center',
+              marginBottom: '2rem',
+            }}
+          >
+            <a 
+              href="#about" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </a>
+            <a 
+              href="#jobs" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Jobs
+            </a>
+            <a 
+              href="/investors" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Investors
+            </a>
+            <a 
+              href="#contact" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </nav>
           <a 
-            href="#jobs" 
+            href="#get-started" 
+            className="btn primary header-btn"
             style={{
-              textDecoration: 'none',
+              padding: '0.6rem 1.5rem',
+              fontSize: '1rem',
+              background: 'linear-gradient(135deg, #ffa500, #ff5e00)',
               color: '#fff',
+              borderRadius: '9999px',
               fontWeight: 600,
-              fontSize: responsiveStyles.navLink.fontSize,
-              transition: 'color 0.3s',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
-          >
-            Jobs
-          </a>
-          <a 
-            href="/investors" 
-            style={{
               textDecoration: 'none',
-              color: '#fff',
-              fontWeight: 600,
-              fontSize: responsiveStyles.navLink.fontSize,
-              transition: 'color 0.3s',
+              display: 'inline-block',
+              textAlign: 'center',
+              border: '1px solid transparent',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            onClick={() => setMobileMenuOpen(false)}
           >
-            Investors
+            Get Started
           </a>
-          <a 
-            href="#contact" 
-            style={{
-              textDecoration: 'none',
-              color: '#fff',
-              fontWeight: 600,
-              fontSize: responsiveStyles.navLink.fontSize,
-              transition: 'color 0.3s',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
-          >
-            Contact
-          </a>
-        </nav>
-        <a 
-          href="#get-started" 
-          className="btn primary header-btn"
-          style={{
-            padding: responsiveStyles.headerBtn.padding,
-            fontSize: responsiveStyles.headerBtn.fontSize,
-            background: 'linear-gradient(135deg, #ffa500, #ff5e00)',
-            color: '#fff',
-            borderRadius: '9999px',
-            fontWeight: 600,
-            textDecoration: 'none',
-            transition: 'opacity 0.3s',
-            display: 'inline-block',
-            textAlign: 'center',
-            border: '1px solid transparent',
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
-          onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-        >
-          Get Started
-        </a>
-      </div>
+        </div>
+      )}
     </header>
   )
 }

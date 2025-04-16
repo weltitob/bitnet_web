@@ -20,15 +20,16 @@ const TestimonialsSection = () => {
           <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto', maxWidth: '650px', textAlign: 'center' }}>Be among the first to experience the future of Bitcoin</p>
         </div>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
+        <div className="testimonials-grid" style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap',
           gap: '2.5rem',
           maxWidth: '1100px',
-          margin: '0 auto'
+          margin: '0 auto',
+          justifyContent: 'center'
         }}>
           {/* Testimonial 1 */}
-          <div style={{ 
+          <div className="testimonial-card" style={{ 
             background: 'rgba(20, 20, 25, 0.6)',
             backdropFilter: 'blur(10px)',
             borderRadius: '1rem',
@@ -39,8 +40,9 @@ const TestimonialsSection = () => {
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: '380px',
-            margin: '0 auto'
+            width: '100%',
+            maxWidth: '330px',
+            flexBasis: 'calc(33.333% - 2.5rem)'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-8px)';
@@ -70,7 +72,7 @@ const TestimonialsSection = () => {
           </div>
           
           {/* Testimonial 2 */}
-          <div style={{ 
+          <div className="testimonial-card" style={{ 
             background: 'rgba(20, 20, 25, 0.6)',
             backdropFilter: 'blur(10px)',
             borderRadius: '1rem',
@@ -81,8 +83,9 @@ const TestimonialsSection = () => {
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: '380px',
-            margin: '0 auto'
+            width: '100%',
+            maxWidth: '330px',
+            flexBasis: 'calc(33.333% - 2.5rem)'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-8px)';
@@ -112,7 +115,7 @@ const TestimonialsSection = () => {
           </div>
           
           {/* Testimonial 3 */}
-          <div style={{ 
+          <div className="testimonial-card" style={{ 
             background: 'rgba(20, 20, 25, 0.6)',
             backdropFilter: 'blur(10px)',
             borderRadius: '1rem',
@@ -123,8 +126,9 @@ const TestimonialsSection = () => {
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: '380px',
-            margin: '0 auto'
+            width: '100%',
+            maxWidth: '330px',
+            flexBasis: 'calc(33.333% - 2.5rem)'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-8px)';
@@ -167,21 +171,56 @@ const TestimonialsSection = () => {
           margin: 0 auto;
         }
         
+        .testimonial-card {
+          flex: 1 0 calc(33.333% - 2.5rem);
+          min-width: 300px;
+        }
+        
         @media (max-width: 960px) {
+          .testimonial-card {
+            flex: 1 0 calc(50% - 2rem);
+            padding: 2rem !important;
+            min-width: 280px;
+          }
+          
           .testimonials-grid {
-            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+          }
+          
+          .testimonial-card p {
+            font-size: 1.05rem !important;
+            margin-bottom: 2rem !important;
           }
         }
         
         @media (max-width: 640px) {
           .testimonials-grid {
-            grid-template-columns: 1fr;
-            max-width: 320px;
-            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+          }
+          
+          .testimonial-card {
+            flex: 1 0 100%;
+            max-width: 340px;
+            padding: 1.75rem !important;
           }
           
           .testimonials-section {
             padding: 4rem 1.5rem;
+          }
+          
+          .testimonial-card p {
+            font-size: 1rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .testimonials-header h2 {
+            font-size: 1.75rem;
+          }
+          
+          .testimonials-header p {
+            font-size: 1rem !important;
           }
         }
       `}</style>

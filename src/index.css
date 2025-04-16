@@ -107,6 +107,7 @@ nav a:hover {
   color: #ccc;
   letter-spacing: 0.01em;
   padding: 0 0.5rem;
+  white-space: nowrap;
 }
 
 .metric-separator {
@@ -1520,18 +1521,22 @@ footer {
 
 
 @media (max-width: 600px) {
-  .metrics-row {
+  .hero-buttons {
     flex-direction: column;
-    margin-bottom: 1.5rem;
-    gap: 0.5rem;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1.2rem;
   }
   
-  .metric-separator {
+  .hero-buttons .btn {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .metrics-row {
     display: none;
-  }
-  
-  .metric-item {
-    font-size: 0.8rem;
   }
   
   .hero h1 {
