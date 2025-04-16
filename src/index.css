@@ -1539,6 +1539,16 @@ footer {
     display: none;
   }
   
+  .earlybird-section {
+    width: 95%;
+    margin: 1.5rem auto;
+  }
+  
+  .earlybird-content {
+    padding: 1.5rem 1rem;
+    width: 100%;
+  }
+  
   .hero h1 {
     font-size: 2rem;
     line-height: 1.3;

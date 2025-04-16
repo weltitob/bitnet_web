@@ -117,20 +117,21 @@ const EarlybirdMobilePage = () => {
           </div>
           
           {/* Main Content */}
-          <div style={{ flex: 1, padding: '24px 16px' }}>
+          <div style={{ flex: 1, padding: '20px 10px' }}>
             <div style={{
+              width: '100%',
+              padding: '10px 5px',
+              textAlign: 'center',
               background: 'rgba(20, 20, 25, 0.7)',
               backdropFilter: 'blur(15px)',
               borderRadius: '16px',
               border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-              padding: '24px',
-              textAlign: 'center'
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
             }}>
               <div style={{ marginBottom: '24px' }}>
                 <span style={{
                   color: '#ff8c00',
-                  fontSize: '14px',
+                  fontSize: '15px',
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
@@ -143,17 +144,17 @@ const EarlybirdMobilePage = () => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  margin: '0 0 8px 0',
+                  margin: '0 0 12px 0',
                   lineHeight: 1.2
                 }}>Be an earlybird - get rewarded later.</h2>
-                <p style={{ color: '#aaa', fontSize: '16px', margin: '0 auto', maxWidth: '300px' }}>
+                <p style={{ color: '#aaa', fontSize: '16px', margin: '0 auto', maxWidth: '320px', lineHeight: '1.4' }}>
                   Join the mailing list and be the first when we launch our services.
                 </p>
               </div>
               
               {!submitted ? (
-                <form onSubmit={handleSubmit} style={{ marginBottom: '24px' }}>
-                  <div style={{ marginBottom: '16px' }}>
+                <form onSubmit={handleSubmit} style={{ marginBottom: '24px', width: '100%', padding: '0 15px' }}>
+                  <div style={{ marginBottom: '15px' }}>
                     <input
                       type="email"
                       value={email}
@@ -161,7 +162,7 @@ const EarlybirdMobilePage = () => {
                       placeholder="Your email address"
                       style={{
                         width: '100%',
-                        padding: '14px 16px',
+                        padding: '14px 18px',
                         borderRadius: '999px',
                         background: 'rgba(30, 30, 35, 0.7)',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -176,7 +177,7 @@ const EarlybirdMobilePage = () => {
                     type="submit" 
                     disabled={loading}
                     style={{
-                      padding: '12px 0',
+                      padding: '14px 0',
                       width: '100%',
                       borderRadius: '999px',
                       fontWeight: '600',
@@ -185,7 +186,8 @@ const EarlybirdMobilePage = () => {
                       color: 'white',
                       border: 'none',
                       cursor: loading ? 'not-allowed' : 'pointer',
-                      opacity: loading ? 0.7 : 1
+                      opacity: loading ? 0.7 : 1,
+                      boxShadow: '0 4px 12px rgba(255, 94, 0, 0.3)'
                     }}
                   >
                     {loading ? 'Processing...' : 'Notify me!'}
@@ -195,12 +197,13 @@ const EarlybirdMobilePage = () => {
                 <div style={{ 
                   background: 'rgba(0, 180, 0, 0.1)', 
                   border: '1px solid rgba(0, 180, 0, 0.3)', 
-                  padding: '16px', 
+                  padding: '18px', 
                   borderRadius: '16px',
-                  marginBottom: '24px'
+                  marginBottom: '24px',
+                  margin: '0 15px'
                 }}>
                   <h3 style={{ color: '#4ade80', marginBottom: '8px', fontSize: '18px' }}>Thank You!</h3>
-                  <p style={{ color: '#ddd', fontSize: '14px' }}>We saved your email and will notify you on launch day!</p>
+                  <p style={{ color: '#ddd', fontSize: '15px', lineHeight: '1.4' }}>We saved your email and will notify you on launch day!</p>
                 </div>
               )}
               
@@ -208,14 +211,15 @@ const EarlybirdMobilePage = () => {
                 background: 'rgba(255, 140, 0, 0.1)',
                 border: '1px solid rgba(255, 140, 0, 0.2)',
                 borderRadius: '16px',
-                padding: '16px'
+                padding: '18px',
+                margin: '0 15px 15px'
               }}>
-                <h3 style={{ color: '#ff8c00', marginBottom: '8px', fontSize: '16px' }}>Early Adopter Bonus</h3>
-                <p style={{ color: '#ddd', fontSize: '14px', lineHeight: '1.5' }}>The first 1,000 users who sign up will receive special benefits when our platform launches.</p>
-                <div style={{ marginTop: '12px' }}>
+                <h3 style={{ color: '#ff8c00', marginBottom: '8px', fontSize: '18px' }}>Early Adopter Bonus</h3>
+                <p style={{ color: '#ddd', fontSize: '15px', lineHeight: '1.5' }}>The first 1,000 users who sign up will receive special benefits when our platform launches.</p>
+                <div style={{ marginTop: '15px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ color: '#aaa', fontSize: '12px' }}>Spots remaining:</span>
-                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '14px' }}>1,000,000</span>
+                    <span style={{ color: '#aaa', fontSize: '13px' }}>Spots remaining:</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '15px' }}>1,000,000</span>
                   </div>
                   <div style={{ 
                     height: '6px', 
