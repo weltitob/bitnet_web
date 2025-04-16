@@ -1,0 +1,1684 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Global Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+  background: #0b0b0b;
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styling - Updated Structure */
+header {
+  display: flex;
+  justify-content: space-between; /* Pushes title left, group right */
+  align-items: center; /* Vertically aligns items */
+  padding: 1.2rem 2rem;
+  background-color: #0b0b0b;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #1f1f1f;
+}
+/* Logo and Title Layout */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.header-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+/* Wrapper for right-side elements */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between nav block and button */
+}
+
+/* Navigation Styling - Added flex & gap */
+header nav { /* Target nav specifically within the header */
+   display: flex;
+   gap: 1.5rem; /* Add space BETWEEN nav links */
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #aaa;
+}
+
+/* Hero Section Styling */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  background: linear-gradient(145deg, #101010, #0b0b0b);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Metrics Row */
+.metrics-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  gap: 0.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.metric-item {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ccc;
+  letter-spacing: 0.01em;
+  padding: 0 0.5rem;
+}
+
+.metric-separator {
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+
+/* Hero Headline Styling */
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+  max-width: 850px;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 1rem;
+  margin-bottom: 0;
+}
+.hero p {
+  margin: 1.2rem auto 0;
+  font-size: 1.1rem;
+  max-width: 800px;
+  color: #ccc;
+  z-index: 1;
+  position: relative;
+  padding: 0 1rem;
+}
+.hero-buttons {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* Early Bird Section Styling */
+.earlybird-section {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: 3rem auto 1rem;
+  z-index: 2;
+}
+
+.earlybird-content {
+  background: rgba(20, 20, 25, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 3.5rem 4.5rem;
+}
+
+.counter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Counter styling with fixed width container */
+.counter-container {
+  margin-top: 2.5rem;
+  text-align: left;
+  min-width: 280px;
+}
+
+#nft-counter {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  width: 280px;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  line-height: 1.1;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.counter-container p {
+  font-size: 0.9rem;
+  color: #aaa;
+  font-weight: 500;
+  width: 280px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styling */
+.earlybird-col-left .btn.primary {
+  align-self: flex-start;
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s;
+  min-width: unset; /* Remove min-width for earlybird buttons */
+}
+
+.earlybird-col-left .btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 94, 0, 0.3);
+  opacity: 0.9;
+}
+
+.earlybird-note {
+  font-size: 0.8rem;
+  color: #aaa;
+  opacity: 0.9;
+}
+
+/* Two-column layout for earlybird section */
+/* Two-column layout for earlybird section - Inspired by reference design */
+.earlybird-two-col {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  margin-top: 0;
+}
+
+.earlybird-col-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left column styling */
+.earlybird-col-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  min-width: 320px;
+}
+
+.title-group {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.title-group h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.2;
+  text-align: left;
+  background: linear-gradient(135deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-group p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.button-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.earlybird-col-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Counter Spotlight - Left column */
+.counter-spotlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 2rem;
+  background: rgba(25, 25, 30, 0.5);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+/* NFT Selection area with tabs and message */
+/* Right column - NFT card */
+.earlybird-col-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Rank indicators styling - Underline style */
+.rank-indicators {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  padding: 0.2rem 0 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rank-tier {
+  color: #999;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  outline: none;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  background: transparent;
+  border: none;
+}
+
+.rank-tier::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.rank-tier:hover {
+  color: #eee;
+}
+
+.rank-tier.active {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.rank-tier.active[data-rarity="legendary"] {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.rank-tier.active[data-rarity="legendary"]::after {
+  background: linear-gradient(to right, #ffd700, #ff8c00);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.rank-tier.active[data-rarity="epic"] {
+  color: #d8b4ff;
+  text-shadow: 0 0 8px rgba(191, 95, 255, 0.4);
+}
+
+.rank-tier.active[data-rarity="epic"]::after {
+  background: linear-gradient(to right, #bf5fff, #8f00ff);
+  box-shadow: 0 0 10px rgba(191, 95, 255, 0.5);
+}
+
+.rank-tier.active[data-rarity="rare"] {
+  color: #80d6ff;
+  text-shadow: 0 0 8px rgba(0, 184, 255, 0.4);
+}
+
+.rank-tier.active[data-rarity="rare"]::after {
+  background: linear-gradient(to right, #00b8ff, #0070ff);
+  box-shadow: 0 0 10px rgba(0, 184, 255, 0.5);
+}
+
+.rank-tier.active[data-rarity="uncommon"] {
+  color: #6beb83;
+  text-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+}
+
+.rank-tier.active[data-rarity="uncommon"]::after {
+  background: linear-gradient(to right, #00e676, #00c853);
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+.nft-selection-message {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.rarity-tab {
+  background: rgba(30, 30, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  outline: none;
+  flex: 1;
+  text-align: center;
+}
+
+.rarity-tab:hover {
+  background: rgba(40, 40, 50, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ddd;
+}
+
+.rarity-tab.active[data-rarity="legendary"] {
+  background: linear-gradient(135deg, rgba(255, 150, 0, 0.2), rgba(255, 90, 0, 0.2));
+  border-color: rgba(255, 150, 0, 0.4);
+  color: #ffc107;
+}
+
+.rarity-tab.active[data-rarity="epic"] {
+  background: linear-gradient(135deg, rgba(170, 50, 255, 0.2), rgba(120, 0, 255, 0.2));
+  border-color: rgba(170, 50, 255, 0.4);
+  color: #c09aff;
+}
+
+.rarity-tab.active[data-rarity="rare"] {
+  background: linear-gradient(135deg, rgba(0, 150, 255, 0.2), rgba(0, 100, 255, 0.2));
+  border-color: rgba(0, 150, 255, 0.4);
+  color: #56ccf2;
+}
+
+.rarity-tab.active[data-rarity="uncommon"] {
+  background: linear-gradient(135deg, rgba(0, 200, 100, 0.2), rgba(0, 160, 80, 0.2));
+  border-color: rgba(0, 200, 100, 0.4);
+  color: #6beb83;
+}
+
+/* NFT Cards Container */
+.nft-cards-container {
+  position: relative;
+  width: 260px;
+  height: 390px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.nft-card-shadow {
+  position: absolute;
+  width: 260px;
+  height: 20px;
+  bottom: -20px;
+  left: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+  opacity: 0.6;
+  transition: all 0.6s ease;
+  filter: blur(8px);
+  z-index: 0;
+  transform: scale(0.9);
+}
+
+/* Shadow effects on hover */
+#legendary-card:hover ~ .nft-card-shadow {
+  opacity: 0.8;
+  transform: translateX(5px) scale(1);
+  filter: blur(10px);
+  background: radial-gradient(ellipse at center, rgba(255, 153, 0, 0.2) 0%, transparent 70%);
+}
+
+#epic-card:hover ~ .nft-card-shadow {
+  opacity: 0.8;
+  transform: translateX(5px) scale(1);
+  filter: blur(10px);
+  background: radial-gradient(ellipse at center, rgba(170, 50, 255, 0.2) 0%, transparent 70%);
+}
+
+#rare-card:hover ~ .nft-card-shadow {
+  opacity: 0.8;
+  transform: translateX(5px) scale(1);
+  filter: blur(10px);
+  background: radial-gradient(ellipse at center, rgba(0, 150, 255, 0.2) 0%, transparent 70%);
+}
+
+#uncommon-card:hover ~ .nft-card-shadow {
+  opacity: 0.8;
+  transform: translateX(5px) scale(1);
+  filter: blur(10px);
+  background: radial-gradient(ellipse at center, rgba(0, 200, 100, 0.2) 0%, transparent 70%);
+}
+
+/* Rarity Badge */
+.rarity-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.rarity-badge.legendary {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #fff;
+}
+
+.rarity-badge.epic {
+  background: linear-gradient(135deg, #bf5fff, #8f00ff);
+  color: #fff;
+}
+
+.rarity-badge.rare {
+  background: linear-gradient(135deg, #00b8ff, #0070ff);
+  color: #fff;
+}
+
+.rarity-badge.uncommon {
+  background: linear-gradient(135deg, #00e676, #00c853);
+  color: #fff;
+}
+
+/* NFT Card Color Variations */
+.legendary-text {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.epic-text {
+  background: linear-gradient(135deg, #bf5fff, #8f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rare-text {
+  background: linear-gradient(135deg, #00b8ff, #0070ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.uncommon-text {
+  background: linear-gradient(135deg, #00e676, #00c853);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Display Logic */
+.nft-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 390px;
+  display: none;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateZ(0);
+}
+
+.nft-card.active {
+  display: block;
+}
+
+/* Hover transformations for each card */
+.nft-card:hover {
+  transform: translateY(-15px) rotateY(12deg) rotateX(5deg);
+  height: 390px; /* Maintain the same height when hovered */
+}
+
+/* Image Variations */
+.rare-image img {
+  filter: hue-rotate(-15deg) saturate(0.9) brightness(0.9);
+}
+
+.uncommon-image img {
+  filter: hue-rotate(15deg) saturate(0.8) brightness(0.85);
+}
+
+/* Fix height of images */
+.nft-card-image, .nft-card-info {
+  flex-shrink: 0;
+}
+
+.nft-card {
+  width: 260px;
+  height: 390px;
+  background: rgba(30, 30, 40, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 
+              0 0 0 rgba(255, 153, 0, 0);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              border-color 0.6s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1;
+}
+
+/* Default hover effect */
+.nft-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Legendary hover effect */
+#legendary-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(255, 153, 0, 0.4);
+  border-color: rgba(255, 153, 0, 0.6);
+}
+
+/* Epic hover effect */
+#epic-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(170, 50, 255, 0.4);
+  border-color: rgba(170, 50, 255, 0.6);
+}
+
+/* Rare hover effect */
+#rare-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(0, 150, 255, 0.4);
+  border-color: rgba(0, 150, 255, 0.6);
+}
+
+/* Uncommon hover effect */
+#uncommon-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(0, 200, 100, 0.4);
+  border-color: rgba(0, 200, 100, 0.6);
+}
+
+/* Base card sweep effect */
+.nft-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(-45deg);
+  transition: transform 1.2s ease;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.nft-card:hover::before {
+  transform: rotate(-45deg) translateY(100%);
+  opacity: 1;
+}
+
+/* Legendary sweep effect (gold tint) */
+#legendary-card::before {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 223, 0, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Epic sweep effect (purple tint) */
+#epic-card::before {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(200, 150, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Rare sweep effect (blue tint) */
+#rare-card::before {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(100, 200, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Uncommon sweep effect (green tint) */
+#uncommon-card::before {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(150, 255, 180, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.nft-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(50, 50, 60, 0.5) 0%, rgba(20, 20, 25, 0.8) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  border-radius: 15px 15px 0 0;
+  padding: 12px;
+}
+
+/* Card-specific image backgrounds */
+#legendary-card .nft-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 153, 0, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 15px 15px 0 0;
+}
+
+#epic-card .nft-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(170, 50, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 15px 15px 0 0;
+}
+
+#rare-card .nft-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 150, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 15px 15px 0 0;
+}
+
+#uncommon-card .nft-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 200, 100, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 15px 15px 0 0;
+}
+
+.nft-card:hover .nft-card-image::after {
+  opacity: 1;
+}
+
+.nft-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s ease;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+  transform: none !important;
+  border-radius: 12px;
+}
+
+.nft-card:hover .nft-card-image img {
+  transform: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)) 
+          brightness(1.1);
+}
+
+.nft-card-info {
+  padding: 1.25rem;
+}
+
+.nft-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.nft-card:hover .nft-card-title {
+  transform: translateX(5px);
+}
+
+.nft-card-subtitle {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nft-card:hover .nft-card-subtitle {
+  opacity: 0.9;
+  transform: translateX(5px);
+}
+
+.nft-card-details {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  transition: transform 0.4s ease;
+}
+
+.nft-card:hover .nft-card-details {
+  transform: translateY(-3px);
+}
+
+.nft-detail {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease;
+}
+
+.nft-card:hover .nft-detail:nth-child(1) {
+  transform: translateY(-2px);
+  transition-delay: 0.05s;
+}
+
+.nft-card:hover .nft-detail:nth-child(2) {
+  transform: translateY(-2px);
+  transition-delay: 0.1s;
+}
+
+.detail-label {
+  font-size: 0.7rem;
+  color: #999;
+  margin-bottom: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+.nft-card:hover .detail-label {
+  color: #bbb;
+}
+
+.detail-value {
+  font-size: 0.85rem;
+  color: #fff !important;
+  font-weight: 600;
+  position: relative;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nft-card:hover .detail-value {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  transform: translateX(2px);
+}
+
+/* Feature Cards Styling */
+.feature-card {
+  position: absolute;
+  width: 280px;
+  padding: 1.5rem;
+  text-align: left;
+  z-index: 2;
+  background: rgba(20, 20, 25, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  overflow: visible;
+}
+.feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.feature-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.left-card.revealed {
+  transform: translateY(-50%);
+}
+.right-card.revealed {
+  transform: translateY(-50%);
+}
+.feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff8a00, #ff5e00);
+  color: white;
+  border-radius: 8px;
+  padding: 6px;
+  margin-bottom: 0;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 94, 0, 0.3);
+  align-self: flex-start;
+}
+.feature-content {
+  width: 100%;
+  margin-top: 12px;
+}
+.feature-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.feature-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  padding: 0;
+}
+
+/* Positioning for each card - relative to container */
+.feature-card {
+  position: absolute;
+  transition: all 0.3s ease-out;
+}
+
+.left-card {
+  top: 38%;
+  left: 100px;
+  transform: translateY(-50%);
+}
+.right-card {
+  top: 20%;
+  right: 80px;
+  transform: translateY(-50%);
+}
+.bottom-card {
+  bottom: 100px;
+  right: 130px;
+}
+
+
+/* Button Styling (Base) */
+.btn {
+  padding: 0.65rem 3rem; /* Default padding (mostly for hero buttons) */
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, opacity 0.3s, border 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  display: inline-block; /* Ensure proper spacing/alignment */
+  text-align: center;
+  min-width: 180px; /* Ensure both buttons have the same minimum width */
+}
+/* Primary Button Style (Orange Gradient) */
+.btn.primary {
+  background: linear-gradient(135deg, #ffa500, #ff5e00);
+  color: #fff;
+  border-color: transparent;
+}
+.btn.primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 94, 0, 0.3);
+  transition: all 0.3s ease;
+}
+/* Secondary Button Style (Glass) */
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+/* Specific Style for Header Button */
+.header-btn {
+   padding: 0.5rem 1.2rem; /* Smaller padding for header */
+   font-size: 0.9rem; /* Match nav link font size */
+   min-width: unset; /* Remove min-width for header buttons */
+}
+
+
+/* Static Chart Line Styling */
+.chart-line {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: -10px; /* Extend slightly beyond right edge */
+  width: calc(100% + 10px); /* Add extra width */
+  height: 280px;
+  z-index: 0;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+
+/* Phone and Features Container */
+.phone-features-container {
+  position: relative;
+  width: 100%;
+  max-width: 930px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 790px;
+  padding: 0 20px;
+}
+
+/* Social Proof Section */
+.social-proof-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-proof-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.social-proof-header span {
+  color: #ff8c00;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.social-proof-header h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0;
+}
+
+.users-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.users-scroll-container::before,
+.users-scroll-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.users-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0b0b0b, rgba(11, 11, 11, 0));
+}
+
+.users-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0b0b0b, rgba(11, 11, 11, 0));
+}
+
+.users-scroll-inner {
+  display: flex;
+  gap: 1.5rem;
+  animation: scrollUsers 40s linear infinite;
+  padding: 1rem 0;
+}
+
+@keyframes scrollUsers {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.user-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.username {
+  font-size: 0.9rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.user-avatar:hover .avatar {
+  transform: translateY(-5px);
+}
+
+/* Phone Mockup Styling */
+.mockup {
+  width: 330px;
+  height: 660px;
+  background: #111;
+  border: 8px solid #333;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  z-index: 1;
+}
+/* Notch/Speaker simulation */
+.mockup::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  background: #444;
+  border-radius: 3px;
+}
+
+/* General Section Styling */
+.section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.section p {
+  color: #bbb;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Testimonials Section Styling */
+.testimonials-section {
+  background: linear-gradient(180deg, rgba(15, 15, 20, 0) 0%, rgba(15, 15, 20, 0.8) 100%);
+  padding: 7rem 2rem;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonials-header h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.testimonials-header p {
+  font-size: 1.1rem;
+  color: #aaa;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.testimonial-card {
+  background: rgba(25, 25, 30, 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100%;
+  text-align: left;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-content {
+  padding: 2.5rem;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 0;
+  flex-grow: 1;
+  text-align: left;
+  padding-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  text-align: left;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.author-title {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Card Grid Styling */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  text-align: left;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer Styling */
+footer {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #0b0b0b;
+  border-top: 1px solid #222;
+}
+
+/* Responsive Design (Mobile) */
+@media (max-width: 900px) {
+   .phone-features-container {
+       flex-direction: column;
+       min-height: auto;
+   }
+   
+   .earlybird-section {
+       width: 90%;
+       margin: 2rem auto;
+   }
+   .earlybird-content {
+       padding: 2.5rem 1.5rem;
+   }
+   .earlybird-two-col {
+       flex-direction: column;
+       gap: 3rem;
+   }
+   
+   .earlybird-col-left {
+       padding: 0;
+       min-width: unset;
+       width: 100%;
+   }
+   
+   .title-group {
+       margin-bottom: 2rem;
+   }
+   
+   .title-group h2 {
+       text-align: center;
+       width: 100%;
+   }
+   
+   .title-group p {
+       text-align: center;
+       width: 100%;
+   }
+   
+   .button-wrapper {
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       margin-bottom: 2rem;
+   }
+   
+   .earlybird-content {
+       padding: 2.5rem 1.5rem;
+   }
+   
+   .counter-container {
+       text-align: center;
+       margin: 2rem auto 0;
+   }
+   
+   .earlybird-col-left .btn.primary {
+       align-self: center;
+       margin-top: 0.5rem;
+   }
+   .earlybird-col-left h2,
+   .earlybird-description {
+       text-align: center;
+       max-width: 100%;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   .counter-container {
+       text-align: center;
+       margin: 1.5rem auto 0;
+       width: 100%;
+       min-width: unset;
+   }
+   
+   #nft-counter {
+       width: auto;
+       text-align: center;
+   }
+   
+   .counter-container p {
+       width: auto;
+       text-align: center;
+       margin: 0 auto;
+   }
+   
+   .earlybird-col-left .btn.primary {
+       align-self: center;
+   }
+   .rank-indicators {
+       gap: 0.8rem;
+       margin-bottom: 1rem;
+       padding: 0.2rem 0 0.4rem;
+       justify-content: space-around;
+   }
+   .rank-tier {
+       font-size: 0.7rem;
+       padding: 0.35rem 0;
+   }
+   .nft-cards-container {
+       height: 390px;
+       margin: 0 auto;
+   }
+   
+   .feature-card {
+       position: relative;
+       left: auto !important;
+       top: auto !important;
+       right: auto !important;
+       bottom: auto !important;
+       transform: none !important;
+       width: 85%;
+       max-width: 320px;
+       margin: 0.75rem auto;
+   }
+   
+   .mockup {
+       margin: 2rem auto;
+   }
+   
+   .hero {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+}
+
+@media (max-width: 768px) { /* Adjust header layout for smaller screens */
+    header {
+        padding: 1rem;
+    }
+    .header-logo {
+        height: 28px;
+    }
+    .header-left {
+        gap: 0.6rem;
+    }
+    .header-right {
+        gap: 1rem; /* Reduce gap between nav and button */
+    }
+    header nav {
+        gap: 1rem; /* Reduce gap between nav links */
+    }
+    nav a {
+        font-size: 0.85rem;
+    }
+    .header-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Testimonials responsive */
+    .testimonials-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .testimonials-header {
+        margin-bottom: 3rem;
+    }
+    
+    .testimonials-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+  .metrics-row {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+  }
+  
+  .metric-separator {
+    display: none;
+  }
+  
+  .metric-item {
+    font-size: 0.8rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    max-width: 95%;
+  }
+  .hero p {
+     font-size: 1rem;
+  }
+  .hero {
+      padding: 4rem 0 2rem 0;
+  }
+  
+  .social-proof-header h3 {
+      font-size: 1.4rem;
+  }
+  
+  .social-proof-header span {
+      font-size: 0.85rem;
+  }
+  
+  .avatar {
+      width: 48px;
+      height: 48px;
+  }
+  
+  .username {
+      font-size: 0.8rem;
+  }
+  .earlybird-content h2 {
+     font-size: 1.5rem;
+  }
+  .earlybird-content > p {
+     font-size: 0.95rem;
+     margin-bottom: 1.2rem;
+  }
+  #nft-counter {
+     font-size: 3rem;
+  }
+  .counter-spotlight {
+     padding: 1rem;
+     margin: 1rem auto 1.5rem;
+  }
+  .counter-container {
+     margin-bottom: 1.2rem;
+  }
+  .counter-container p {
+     font-size: 0.85rem;
+  }
+  
+  /* Testimonials for mobile */
+  .testimonials-section {
+     padding: 4rem 1rem;
+  }
+  
+  .testimonials-header h2 {
+     font-size: 1.8rem;
+  }
+  
+  .testimonials-header p {
+     font-size: 0.95rem;
+  }
+  
+  .testimonials-grid {
+     grid-template-columns: 1fr;
+     gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+     max-width: 320px;
+     margin: 0 auto;
+  }
+  
+  .testimonial-content {
+     padding: 1.5rem;
+  }
+  
+  .testimonial-text {
+     font-size: 0.95rem;
+     margin-bottom: 0;
+     padding-bottom: 1.5rem;
+     text-align: left;
+  }
+  
+  .author-image {
+     width: 40px;
+     height: 40px;
+  }
+  /* Further adjust header for very small screens if needed */
+  .header-logo {
+      height: 24px;
+  }
+  header h1 {
+      font-size: 1.3rem;
+  }
+  header nav {
+        gap: 0.8rem; /* Further reduce gap between nav links */
+  }
+  nav a {
+    font-size: 0.8rem;
+  }
+   .header-right {
+        gap: 0.8rem; /* Further reduce gap between nav and button */
+    }
+   .header-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+  .feature-card {
+      padding: 1rem;
+      gap: 0.6rem;
+  }
+  .feature-icon {
+      width: 32px;
+      height: 32px;
+      padding: 5px;
+  }
+  .feature-content {
+      margin-top: 6px;
+  }
+  .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+  }
+  .feature-card p {
+      font-size: 0.75rem;
+  }
+  .mockup {
+    width: 264px;
+    height: 528px;
+  }
+  .section {
+      padding: 3rem 1rem;
+  }
+  /* header padding already adjusted in 768px query */
+
+  .btn { /* Adjust base button padding for mobile */
+    padding: 0.6rem 2.5rem;
+    min-width: 150px; /* Smaller minimum width for mobile */
+  }
+   .header-btn { /* Ensure header button padding overrides base mobile padding */
+         padding: 0.3rem 0.8rem;
+         font-size: 0.8rem;
+    }
+  .chart-line {
+    top: 30%;
+  }
+}

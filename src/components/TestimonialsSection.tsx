@@ -1,0 +1,192 @@
+import atashImage from '../assets/feedbackimages/atash.png';
+import robinImage from '../assets/feedbackimages/robin.png';
+import jonahImage from '../assets/feedbackimages/jonah.png';
+
+const TestimonialsSection = () => {
+  return (
+    <section id="testimonials" className="testimonials-section">
+      <div className="testimonials-container">
+        <div className="testimonials-header" style={{ marginBottom: '3rem' }}>
+          <span style={{
+            color: '#ff8c00',
+            fontSize: '1rem',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            marginBottom: '1rem',
+            display: 'block'
+          }}>User Feedback</span>
+          <h2>What Our Users Say</h2>
+          <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto', maxWidth: '650px', textAlign: 'center' }}>Be among the first to experience the future of Bitcoin</p>
+        </div>
+        
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gap: '2.5rem',
+          maxWidth: '1100px',
+          margin: '0 auto'
+        }}>
+          {/* Testimonial 1 */}
+          <div style={{ 
+            background: 'rgba(20, 20, 25, 0.6)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            padding: '2.5rem',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: '380px',
+            margin: '0 auto'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
+          }}
+          >
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ 
+                color: '#ddd', 
+                fontSize: '1.15rem', 
+                lineHeight: '1.6',
+                margin: '0 0 2.5rem 0', 
+                flex: 1 
+              }}>"BitNet feels like Bitcoin has finally been taken to the next level. It's simpler and cleaner than anything I've experienced before in the crypto space."</p>
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
+                <img src={atashImage} alt="Atash Hauschild" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                <div>
+                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Atash Hauschild</span>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Bitcoiner & ITler</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Testimonial 2 */}
+          <div style={{ 
+            background: 'rgba(20, 20, 25, 0.6)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            padding: '2.5rem',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: '380px',
+            margin: '0 auto'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
+          }}
+          >
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ 
+                color: '#ddd', 
+                fontSize: '1.15rem', 
+                lineHeight: '1.6',
+                margin: '0 0 2.5rem 0', 
+                flex: 1 
+              }}>"BitNet made entering the crypto world so much easier than I expected. As a beginner, I was able to quickly start using Bitcoin without any technical hurdles."</p>
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
+                <img src={robinImage} alt="Robin Göpper" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                <div>
+                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Robin Göpper</span>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Cryptobeginner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Testimonial 3 */}
+          <div style={{ 
+            background: 'rgba(20, 20, 25, 0.6)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            padding: '2.5rem',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: '380px',
+            margin: '0 auto'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
+          }}
+          >
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ 
+                color: '#ddd', 
+                fontSize: '1.15rem', 
+                lineHeight: '1.6',
+                margin: '0 0 2.5rem 0', 
+                flex: 1 
+              }}>"BitNet opens up new creative possibilities for my art while providing solid investment options. The NFT marketplace is intuitive and perfect for showcasing digital creations."</p>
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
+                <img src={jonahImage} alt="Jonah Ike" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                <div>
+                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Jonah Ike</span>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Investor & Artist</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <style jsx>{`
+        .testimonials-section {
+          padding: 6rem 2rem;
+          position: relative;
+          background: linear-gradient(180deg, rgba(15, 15, 20, 0.8) 0%, rgba(15, 15, 20, 0) 100%);
+        }
+        
+        .testimonials-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        @media (max-width: 960px) {
+          .testimonials-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .testimonials-grid {
+            grid-template-columns: 1fr;
+            max-width: 320px;
+            margin: 0 auto;
+          }
+          
+          .testimonials-section {
+            padding: 4rem 1.5rem;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+export default TestimonialsSection
