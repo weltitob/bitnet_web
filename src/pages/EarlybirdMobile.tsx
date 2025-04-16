@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { addEarlybirdSignup } from '../firebase/services';
 
 const EarlybirdMobilePage = () => {

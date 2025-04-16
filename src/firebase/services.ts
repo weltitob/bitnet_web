@@ -1,5 +1,5 @@
 import { db } from './config';
-import { collection, addDoc, serverTimestamp, Timestamp, query, where, getDocs } from 'firebase/firestore';
+import { collection, addDoc, Timestamp, query, where, getDocs } from 'firebase/firestore';
 
 // Collection references
 const earlybirdRef = collection(db, 'earlybird_email_list');

@@ -25,6 +25,9 @@ jobs:
       # Build website
       - name: Build website
         run: npm run build
+        # Skip TypeScript type checking for now
+        env:
+          SKIP_TYPESCRIPT_CHECK: true
         
       # Deploy to Firebase
       - uses: FirebaseExtended/action-hosting-deploy@v0

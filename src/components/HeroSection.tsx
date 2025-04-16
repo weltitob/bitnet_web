@@ -65,7 +65,7 @@ const HeroSection = () => {
     
     // Add click event listeners to tabs
     rarityTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
+      tab.addEventListener('click', function(this: HTMLElement) {
         const rarity = this.getAttribute('data-rarity');
         if (rarity) switchRarity(rarity);
       });
@@ -128,7 +128,7 @@ const HeroSection = () => {
       window.removeEventListener('scroll', revealCards);
       
       rarityTabs.forEach(tab => {
-        tab.removeEventListener('click', function() {
+        tab.removeEventListener('click', function(this: HTMLElement) {
           const rarity = this.getAttribute('data-rarity');
           if (rarity) switchRarity(rarity);
         });
