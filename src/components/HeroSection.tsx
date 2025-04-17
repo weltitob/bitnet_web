@@ -226,9 +226,9 @@ const HeroSection = () => {
         <span className="metric-item">Open & Decentralized</span>
       </div>
       <h1>We're Flipping the Script: Bitcoin-First Web3 That Works.</h1>
-      <p>Web3 capabilities for Bitcoin—secure, seamless, and truly Bitcoin-native.</p>
+      <p>We believe if we fix Bitcoin, we can fix the world.</p>
       <div className="hero-buttons">
-        <a href="#get-started" className="btn primary" style={{
+        <a href="/earlybird" className="btn primary" style={{
           padding: '0.65rem 3rem', 
           minWidth: '180px', 
           borderRadius: '999px', 
@@ -241,7 +241,7 @@ const HeroSection = () => {
           height: '48px',
           boxSizing: 'border-box'
         }}>Get Started</a>
-        <a href="#learn-more" className="btn secondary" style={{
+        <a href="#mission" className="btn secondary" style={{
           padding: '0.65rem 3rem', 
           minWidth: '180px', 
           borderRadius: '999px', 

@@ -26,7 +26,8 @@ const TestimonialsSection = () => {
           gap: '2.5rem',
           maxWidth: '1100px',
           margin: '0 auto',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'stretch'
         }}>
           {/* Testimonial 1 */}
           <div className="testimonial-card" style={{ 
@@ -59,8 +60,11 @@ const TestimonialsSection = () => {
                 fontSize: '1.15rem', 
                 lineHeight: '1.6',
                 margin: '0 0 2.5rem 0', 
-                flex: 1 
-              }}>"BitNet feels like Bitcoin has finally been taken to the next level. It's simpler and cleaner than anything I've experienced before in the crypto space."</p>
+                flex: 1,
+                minHeight: '150px',
+                display: 'flex',
+                alignItems: 'flex-start'
+              }}>"I've tried a lot of Bitcoin wallets, but BitNet just feels different. It's so much easier to use and finally makes Bitcoin feel modern."</p>
               <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
                 <img src={atashImage} alt="Atash Hauschild" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
                 <div>
@@ -102,8 +106,11 @@ const TestimonialsSection = () => {
                 fontSize: '1.15rem', 
                 lineHeight: '1.6',
                 margin: '0 0 2.5rem 0', 
-                flex: 1 
-              }}>"BitNet made entering the crypto world so much easier than I expected. As a beginner, I was able to quickly start using Bitcoin without any technical hurdles."</p>
+                flex: 1,
+                minHeight: '150px',
+                display: 'flex',
+                alignItems: 'flex-start'
+              }}>"I was always intimidated by crypto until I found BitNet. Now I can actually use Bitcoin without feeling lost in technical jargon."</p>
               <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
                 <img src={robinImage} alt="Robin Göpper" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
                 <div>
@@ -145,8 +152,11 @@ const TestimonialsSection = () => {
                 fontSize: '1.15rem', 
                 lineHeight: '1.6',
                 margin: '0 0 2.5rem 0', 
-                flex: 1 
-              }}>"BitNet opens up new creative possibilities for my art while providing solid investment options. The NFT marketplace is intuitive and perfect for showcasing digital creations."</p>
+                flex: 1,
+                minHeight: '150px',
+                display: 'flex',
+                alignItems: 'flex-start'
+              }}>"BitNet's NFT marketplace is a game-changer for me. It's simple to use and helps my art reach the right people."</p>
               <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
                 <img src={jonahImage} alt="Jonah Ike" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
                 <div>
@@ -174,6 +184,7 @@ const TestimonialsSection = () => {
         .testimonial-card {
           flex: 1 0 calc(33.333% - 2.5rem);
           min-width: 300px;
+          height: 350px !important; /* Adjusted height for the more concise testimonials */
         }
         
         @media (max-width: 960px) {
@@ -190,6 +201,7 @@ const TestimonialsSection = () => {
           .testimonial-card p {
             font-size: 1.05rem !important;
             margin-bottom: 2rem !important;
+            minHeight: 130px !important;
           }
         }
         
@@ -204,6 +216,7 @@ const TestimonialsSection = () => {
             flex: 1 0 100%;
             max-width: 340px;
             padding: 1.75rem !important;
+            height: 320px !important;
           }
           
           .testimonials-section {
@@ -213,6 +226,7 @@ const TestimonialsSection = () => {
           .testimonial-card p {
             font-size: 1rem !important;
             margin-bottom: 1.5rem !important;
+            minHeight: 120px !important;
           }
           
           .testimonials-header h2 {

@@ -258,7 +258,7 @@ const Header = () => {
             </a>
           </nav>
           <a 
-            href="#get-started" 
+            href="/earlybird" 
             className="btn primary header-btn"
             style={{
               padding: responsiveStyles.headerBtn.padding,
@@ -360,7 +360,7 @@ const Header = () => {
             </a>
           </nav>
           <a 
-            href="#get-started" 
+            href="/earlybird" 
             className="btn primary header-btn"
             style={{
               padding: '0.6rem 1.5rem',
