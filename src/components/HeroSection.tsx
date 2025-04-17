@@ -272,7 +272,7 @@ const HeroSection = () => {
             
             {/* Safe area image overlay */}
             <img 
-              src="/src/assets/mobilephone/safearea.png" 
+              src="/assets/mobilephone/safearea.png" 
               alt="iPhone Safe Area" 
               style={{
                 width: '100%',
@@ -295,7 +295,7 @@ const HeroSection = () => {
           
           {/* Screenshot */}
           <img 
-            src="/src/assets/mobilephone/chart_up.jpeg" 
+            src="/assets/mobilephone/chart_up.jpeg" 
             alt="BitNet Mobile App" 
             style={{
               width: '100%',

@@ -3,21 +3,50 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Preload all models to avoid loading errors later
+// This will cache the models so they're available when needed
+const modelPaths = [
+  '/assets/nfts/21_0524221030.glb',
+  '/assets/nfts/lightning.glb', 
+  '/assets/nfts/logo_bitnet_wb_0524221043.glb',
+  '/assets/nfts/carot_0524221015.glb'
+];
+
+// Attempt to preload models (will silently fail if paths are wrong)
+modelPaths.forEach(path => {
+  try {
+    useGLTF.preload(path);
+  } catch (e) {
+    console.warn(`Failed to preload model: ${path}`, e);
+  }
+});
+
 // Model component to display a single GLB
 function Model({ path, rotation = [0, 0, 0], scale = 1.5, position = [0, 0, 0] }) {
   const group = useRef();
   const [modelError, setModelError] = useState(false);
   
-  // Use error boundary pattern for GLTF loading
-  const { scene } = useGLTF(path, undefined, 
-    // Success callback
-    undefined,
-    // Error callback
-    (error) => {
-      console.error(`Error loading model from ${path}:`, error);
-      setModelError(true);
-    }
-  );
+  // Try to load the model with error handling
+  let gltfResult;
+  try {
+    gltfResult = useGLTF(path, undefined, 
+      // Success callback
+      undefined,
+      // Error callback
+      (error) => {
+        console.error(`Error loading model from ${path}:`, error);
+        setModelError(true);
+      }
+    );
+  } catch (error) {
+    console.error(`Failed to load model ${path}:`, error);
+    setModelError(true);
+    // Provide an empty scene as fallback
+    gltfResult = { scene: new THREE.Scene() };
+  }
+  
+  // Destructure safely
+  const { scene } = gltfResult || { scene: new THREE.Scene() };
 
   // Auto-rotation effect
   useFrame((state) => {
@@ -56,10 +85,16 @@ function Model({ path, rotation = [0, 0, 0], scale = 1.5, position = [0, 0, 0] }
   );
 }
 
+// Global state to manage 3D rendering across all components 
+// This prevents WebGL context loss by only loading 3D models when needed
+const use3DModels = false; // Set to false to prevent 3D models from loading
+
 // Main ModelViewer component
 export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', height = 200 }) {
   // State to track if there's a complete Canvas error
   const [canvasError, setCanvasError] = useState(false);
+  // State to track if we should render 3D content
+  const [render3D, setRender3D] = useState(use3DModels);
 
   // Error boundary for the entire canvas
   useEffect(() => {
@@ -79,37 +114,66 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
     return () => window.removeEventListener('error', handleError);
   }, []);
 
-  // Show a fallback if the entire canvas fails
-  if (canvasError) {
-    return (
+  // Static fallback image for the model
+  const renderFallback = (message = "Load 3D Model") => (
+    <div style={{ 
+      width: '100%', 
+      height, 
+      backgroundColor,
+      borderRadius: '8px 8px 0 0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#aaa',
+      flexDirection: 'column'
+    }}>
       <div style={{ 
-        width: '100%', 
-        height, 
-        backgroundColor,
-        borderRadius: '8px 8px 0 0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#aaa'
-      }}>
-        <div style={{ textAlign: 'center', padding: '10px' }}>
-          <svg 
-            width="40" 
-            height="40" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            style={{ margin: '0 auto 10px' }}
-          >
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-            <line x1="12" y1="9" x2="12" y2="13"></line>
-            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-          </svg>
-          <p style={{ margin: 0, fontSize: '12px' }}>3D Model Preview Unavailable</p>
-        </div>
+        textAlign: 'center', 
+        padding: '10px',
+        background: 'rgba(255,255,255,0.05)',
+        borderRadius: '8px',
+        width: '80%',
+        cursor: !canvasError ? 'pointer' : 'default'
+      }}
+      onClick={() => {
+        if (!canvasError) setRender3D(true);
+      }}
+      >
+        <svg 
+          width="40" 
+          height="40" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          style={{ margin: '0 auto 10px' }}
+        >
+          {canvasError ? (
+            // Error icon
+            <>
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </>
+          ) : (
+            // 3D cube icon
+            <>
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </>
+          )}
+        </svg>
+        <p style={{ margin: 0, fontSize: '12px' }}>
+          {canvasError ? "3D Model Unavailable" : message}
+        </p>
       </div>
-    );
+    </div>
+  );
+  
+  // If 3D rendering is disabled or there's an error, show the fallback
+  if (canvasError || !render3D) {
+    return renderFallback();
   }
 
   // Try-catch wrapped canvas renderer
@@ -120,7 +184,8 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
         height, 
         backgroundColor,
         borderRadius: '8px 8px 0 0',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative'
       }}>
         <Canvas
           camera={{ position: [0, 0, 4], fov: 50 }}
@@ -159,39 +224,31 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
             <Environment preset="city" />
           </Suspense>
         </Canvas>
+        
+        {/* Toggle button to disable 3D and save resources */}
+        <button 
+          onClick={() => setRender3D(false)} 
+          style={{
+            position: 'absolute',
+            top: '8px',
+            right: '8px',
+            background: 'rgba(0,0,0,0.5)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '4px 8px',
+            fontSize: '10px',
+            cursor: 'pointer',
+            zIndex: 10
+          }}
+        >
+          Disable 3D
+        </button>
       </div>
     );
   } catch (err) {
     console.error('ModelViewer render error:', err);
-    // Return the same fallback as above
-    return (
-      <div style={{ 
-        width: '100%', 
-        height, 
-        backgroundColor,
-        borderRadius: '8px 8px 0 0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#aaa'
-      }}>
-        <div style={{ textAlign: 'center', padding: '10px' }}>
-          <svg 
-            width="40" 
-            height="40" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            style={{ margin: '0 auto 10px' }}
-          >
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-            <line x1="12" y1="9" x2="12" y2="13"></line>
-            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-          </svg>
-          <p style={{ margin: 0, fontSize: '12px' }}>3D Model Preview Unavailable</p>
-        </div>
-      </div>
-    );
+    setCanvasError(true);
+    return renderFallback("3D Loading Failed");
   }
 }
