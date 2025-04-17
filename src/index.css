@@ -1192,18 +1192,9 @@ nav a:hover {
   display: flex;
   flex-direction: column;
 }
-/* Notch/Speaker simulation - adding back for iPhone design */
+/* Notch/Speaker simulation - removed */
 .mockup::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 28px;
-  background: #000;
-  border-radius: 20px;
-  z-index: 4;
+  display: none; /* Remove any unexpected elements */
 }
 /* Dynamic Island styling */
 .dynamic-island {
