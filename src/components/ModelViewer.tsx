@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -46,20 +46,22 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
         gl={{ preserveDrawingBuffer: true }}
         style={{ width: '100%', height: '100%' }}
       >
-        <PresentationControls
-          global
-          rotation={[0, 0, 0]}
-          polar={[-Math.PI / 4, Math.PI / 4]}
-          azimuth={[-Math.PI / 4, Math.PI / 4]}
-          config={{ mass: 2, tension: 400 }}
-          snap={{ mass: 4, tension: 300 }}
-        >
-          <ambientLight intensity={0.5} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} />
-          <Model path={modelPath} />
-        </PresentationControls>
-        <Environment preset="city" />
+        <Suspense fallback={null}>
+          <PresentationControls
+            global
+            rotation={[0, 0, 0]}
+            polar={[-Math.PI / 4, Math.PI / 4]}
+            azimuth={[-Math.PI / 4, Math.PI / 4]}
+            config={{ mass: 2, tension: 400 }}
+            snap={{ mass: 4, tension: 300 }}
+          >
+            <ambientLight intensity={0.5} />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
+            <pointLight position={[-10, -10, -10]} intensity={0.5} />
+            <Model path={modelPath} />
+          </PresentationControls>
+          <Environment preset="city" />
+        </Suspense>
       </Canvas>
     </div>
   );

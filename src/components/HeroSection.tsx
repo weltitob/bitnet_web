@@ -319,7 +319,7 @@ const HeroSection = () => {
           ref={el => featureCardsRef.current.leftCard = el}
           className="feature-card left-card"
           style={{
-            top: '50%',
+            top: '45%',
             left: '80px',
             transform: 'translateY(-50%)',
             position: 'absolute',
@@ -349,7 +349,7 @@ const HeroSection = () => {
           ref={el => featureCardsRef.current.rightCard = el}
           className="feature-card right-card"
           style={{
-            top: '30%',
+            top: '25%',
             right: '60px',
             transform: 'translateY(-50%)',
             position: 'absolute',
@@ -381,7 +381,7 @@ const HeroSection = () => {
           ref={el => featureCardsRef.current.bottomCard = el}
           className="feature-card bottom-card"
           style={{
-            bottom: '100px',
+            bottom: '115px',
             right: '130px',
             position: 'absolute',
             width: '280px'
@@ -524,10 +524,10 @@ const HeroSection = () => {
                 <div id="legendary-card" className="nft-card active">
                   <div className="rarity-badge legendary">Legendary</div>
                   <div className="nft-card-image">
-                    <ModelViewer modelPath="/src/assets/nfts/logo_bitnet_wb_0524221043.glb" backgroundColor="#181820" height={200} />
+                    <ModelViewer modelPath="./src/assets/nfts/21_0524221030.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
-                    <div className="nft-card-title">Genesis Stone</div>
+                    <div className="nft-card-title">21 Million NFT</div>
                     <div className="nft-card-subtitle">Early Adopter NFT</div>
                     <div className="nft-card-details">
                       <div className="nft-detail">
@@ -545,7 +545,7 @@ const HeroSection = () => {
                 <div id="epic-card" className="nft-card">
                   <div className="rarity-badge epic">Epic</div>
                   <div className="nft-card-image">
-                    <ModelViewer modelPath="/src/assets/nfts/lightning.glb" backgroundColor="#181820" height={200} />
+                    <ModelViewer modelPath="./src/assets/nfts/lightning.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
                     <div className="nft-card-title">Lightning NFT</div>
@@ -566,10 +566,10 @@ const HeroSection = () => {
                 <div id="rare-card" className="nft-card">
                   <div className="rarity-badge rare">Rare</div>
                   <div className="nft-card-image rare-image">
-                    <ModelViewer modelPath="/src/assets/nfts/21_0524221030.glb" backgroundColor="#181820" height={200} />
+                    <ModelViewer modelPath="./src/assets/nfts/logo_bitnet_wb_0524221043.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
-                    <div className="nft-card-title">21 Million NFT</div>
+                    <div className="nft-card-title">Genesis Stone</div>
                     <div className="nft-card-subtitle">Early Adopter NFT</div>
                     <div className="nft-card-details">
                       <div className="nft-detail">
@@ -587,7 +587,7 @@ const HeroSection = () => {
                 <div id="uncommon-card" className="nft-card">
                   <div className="rarity-badge uncommon">Uncommon</div>
                   <div className="nft-card-image uncommon-image">
-                    <ModelViewer modelPath="/src/assets/nfts/carot_0524221015.glb" backgroundColor="#181820" height={200} />
+                    <ModelViewer modelPath="./src/assets/nfts/carot_0524221015.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
                     <div className="nft-card-title">Carrot NFT</div>

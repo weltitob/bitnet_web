@@ -1,3 +1,5 @@
+import logo from '../assets/logoclean.png'
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -5,7 +7,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/src/assets/logoclean.png" alt="BitNet Logo" className="logo-image" />
+              <img src={logo} alt="BitNet Logo" className="logo-image" />
               <h3>BitNet</h3>
             </div>
             <p className="brand-description">Fix Bitcoin. Fix the world.</p>
