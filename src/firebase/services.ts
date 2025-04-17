@@ -88,8 +88,11 @@ export const sendContactMessage = async (messageData: ContactMessage) => {
  */
 export const getEarlybirdSignupCount = async (): Promise<number> => {
   try {
+    // Use getCountFromServer for more efficient counting, especially with large collections
     const snapshot = await getCountFromServer(earlybirdRef);
-    return snapshot.data().count;
+    const count = snapshot.data().count;
+    console.log('Fetched earlybird count:', count);
+    return count;
   } catch (error) {
     console.error('Error getting earlybird signup count:', error);
     // Return 0 as fallback to avoid breaking the UI
@@ -122,7 +125,7 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
 
   // Animation effect to count down from 1,000,000 to actual remaining
   useEffect(() => {
-    if (!loading && !animationComplete) {
+    if (!loading && !animationComplete && remainingSpots < totalSpots) {
       let startValue = totalSpots;
       const endValue = remainingSpots;
       const duration = 3000; // 3 seconds
@@ -145,6 +148,9 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
       }, stepTime);
       
       return () => clearInterval(animationTimer);
+    } else if (!loading && !animationComplete && remainingSpots === totalSpots) {
+      // If there are no signups yet, just mark animation as complete
+      setAnimationComplete(true);
     }
   }, [loading, remainingSpots, animationComplete, totalSpots]);
 
@@ -164,7 +170,7 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
         setError(false);
         
         // Set initial displayed value based on animation state
-        setDisplayedRemaining(animationComplete ? calculatedRemaining : totalSpots);
+        setDisplayedRemaining(totalSpots);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching initial signup count:', err);
@@ -183,12 +189,12 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
     const unsubscribe = onSnapshot(
       earlybirdRef,
       (snapshot) => {
-        // Do a quick animation for real-time updates
-        if (!loading && animationComplete) {
-          const newCount = snapshot.size;
-          setSignupCount(newCount);
-          const newRemaining = calculateRemainingSpots(newCount, totalSpots);
-          
+        const newCount = snapshot.size;
+        setSignupCount(newCount);
+        const newRemaining = calculateRemainingSpots(newCount, totalSpots);
+        
+        // If initial animation is complete, handle real-time updates
+        if (animationComplete) {
           // Only animate if the number actually decreased
           if (newRemaining < remainingSpots) {
             // Animate with a quick transition (500ms)
@@ -211,14 +217,15 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
                 setDisplayedRemaining(newRemaining);
               }
             }, stepTime);
-          } else {
+          } else if (newRemaining !== remainingSpots) {
+            // Update immediately if not decreasing or same
             setDisplayedRemaining(newRemaining);
           }
-          
-          setRemainingSpots(newRemaining);
-          setError(false);
-          console.log("Real-time update detected: New count =", newCount);
         }
+          
+        setRemainingSpots(newRemaining);
+        setError(false);
+        console.log("Real-time update detected: New count =", newCount);
       },
       (error) => {
         console.error("Real-time listener error:", error);
@@ -228,7 +235,7 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
     
     // Clean up listener on unmount
     return () => unsubscribe();
-  }, [totalSpots, animationComplete, loading]);
+  }, [totalSpots, animationComplete]);
 
   return {
     signupCount,

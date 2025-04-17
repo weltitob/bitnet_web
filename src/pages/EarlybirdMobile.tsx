@@ -234,7 +234,7 @@ const EarlybirdMobilePage = () => {
                       height: '100%', 
                       background: 'linear-gradient(to right, #ff8a00, #ff5e00)',
                       borderRadius: '3px',
-                      transition: 'width 0.3s ease-in-out'
+                      transition: 'width 0.5s ease-in-out'
                     }}></div>
                   </div>
                 </div>

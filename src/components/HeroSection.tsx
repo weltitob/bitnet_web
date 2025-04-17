@@ -11,8 +11,8 @@ const HeroSection = () => {
   const cardsRevealedRef = useRef(false);
   const { formattedRemaining, loading } = useEarlybirdCount();
 
+  // NFT Counter animation - update when data changes
   useEffect(() => {
-    // NFT Counter animation - now using real data from Firebase
     const counterElement = document.getElementById('nft-counter');
     
     // Initial display with fixed width
@@ -22,8 +22,14 @@ const HeroSection = () => {
       // Ensure the counter has consistent width by using monospace font
       counterElement.style.fontFeatureSettings = "'tnum'";
       counterElement.style.fontVariantNumeric = "tabular-nums";
+      counterElement.style.fontFamily = "monospace, sans-serif";
+      counterElement.style.minWidth = "120px"; // Ensure consistent width
+      counterElement.style.display = "inline-block"; // Keep it as a block to maintain width
     }
-    
+  }, [formattedRemaining, loading]); // Re-run when formattedRemaining changes
+  
+  // NFT Rarity tabs and card reveal animations
+  useEffect(() => {
     // NFT Rarity tabs functionality
     const rarityTabs = document.querySelectorAll('.rank-tier');
     const nftCards = document.querySelectorAll('.nft-card');
@@ -112,7 +118,7 @@ const HeroSection = () => {
         });
       });
     };
-  }, [loading, formattedRemaining]);
+  }, []); // These animations only run once on mount
 
   // Feature card hover handlers
   const handleCardMouseEnter = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
