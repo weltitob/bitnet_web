@@ -8,6 +8,32 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 14px;
+  background-color: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #141414;
+  border-radius: 0;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #444444 #141414;
+}
+
 /* Body Styling */
 body {
   background: #0b0b0b;
