@@ -157,7 +157,17 @@ const EarlybirdPage = () => {
               <div className="spots-counter" style={{ marginTop: '1rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ color: '#aaa', fontSize: '0.9rem' }}>Spots remaining:</span>
-                  <span id="spots-counter" style={{ color: '#fff', fontWeight: '600', fontSize: '1.1rem' }}>
+                  <span id="spots-counter" style={{ 
+                    color: '#fff', 
+                    fontWeight: '600', 
+                    fontSize: '1.1rem',
+                    fontFeatureSettings: "'tnum'",
+                    fontVariantNumeric: "tabular-nums",
+                    fontFamily: "'JetBrains Mono', monospace, sans-serif",
+                    minWidth: "120px",
+                    display: "inline-block",
+                    textAlign: "right"
+                  }}>
                     {countLoading ? "Loading..." : formattedRemaining}
                   </span>
                 </div>

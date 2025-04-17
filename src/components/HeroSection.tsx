@@ -16,17 +16,26 @@ const HeroSection = () => {
     const counterElement = document.getElementById('nft-counter');
     
     // Initial display with fixed width
-    if (counterElement && !loading) {
-      counterElement.textContent = formattedRemaining;
+    if (counterElement) {
+      // Always set the content, even during loading (show loading state or current value)
+      counterElement.textContent = loading ? "Loading..." : formattedRemaining;
       
-      // Ensure the counter has consistent width by using monospace font
+      // Consistent styling for the counter
       counterElement.style.fontFeatureSettings = "'tnum'";
       counterElement.style.fontVariantNumeric = "tabular-nums";
-      counterElement.style.fontFamily = "monospace, sans-serif";
-      counterElement.style.minWidth = "120px"; // Ensure consistent width
+      counterElement.style.fontFamily = "'JetBrains Mono', monospace, sans-serif";
+      counterElement.style.minWidth = "140px"; // Ensure consistent width
       counterElement.style.display = "inline-block"; // Keep it as a block to maintain width
+      counterElement.style.transition = "color 0.3s ease"; // Smooth transition for color changes
+      
+      // Visual feedback based on counter state
+      if (loading) {
+        counterElement.style.color = "#888";
+      } else {
+        counterElement.style.color = ""; // Reset to default
+      }
     }
-  }, [formattedRemaining, loading]); // Re-run when formattedRemaining changes
+  }, [formattedRemaining, loading]); // Re-run when formattedRemaining or loading changes
   
   // NFT Rarity tabs and card reveal animations
   useEffect(() => {

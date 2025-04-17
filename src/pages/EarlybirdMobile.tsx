@@ -220,7 +220,19 @@ const EarlybirdMobilePage = () => {
                 <div style={{ marginTop: '15px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ color: '#aaa', fontSize: '13px' }}>Spots remaining:</span>
-                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '15px' }}>{countLoading ? "Loading..." : formattedRemaining}</span>
+                    <span style={{ 
+                      color: '#fff', 
+                      fontWeight: '600', 
+                      fontSize: '15px',
+                      fontFeatureSettings: "'tnum'",
+                      fontVariantNumeric: "tabular-nums",
+                      fontFamily: "'JetBrains Mono', monospace, sans-serif",
+                      minWidth: "90px",
+                      display: "inline-block",
+                      textAlign: "right"
+                    }}>
+                      {countLoading ? "Loading..." : formattedRemaining}
+                    </span>
                   </div>
                   <div style={{ 
                     height: '6px', 
