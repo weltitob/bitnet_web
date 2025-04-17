@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a1a20" />
+  <path d="M100 40L160 80L100 120L40 80L100 40Z" stroke="#ff8c00" fill="none" stroke-width="2" />
+  <path d="M40 80V160L100 200V120" stroke="#ff8c00" fill="none" stroke-width="2" />
+  <path d="M160 80V160L100 200" stroke="#ff8c00" fill="none" stroke-width="2" />
+  <path d="M100 40V120" stroke="#ff8c00" fill="none" stroke-width="2" />
+  <text x="100" y="170" fill="#aaa" font-family="sans-serif" font-size="10" text-anchor="middle">3D Model Preview</text>
+</svg>

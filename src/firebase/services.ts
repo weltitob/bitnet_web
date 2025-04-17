@@ -256,60 +256,97 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
   
   // Effect for initial data fetch - only runs once
   useEffect(() => {
+    let isMounted = true; // Track if component is mounted
+    
     // Initial count fetch
     const fetchInitialCount = async () => {
       try {
         dispatch({ type: 'START_LOADING' });
         
         const count = await getEarlybirdSignupCount();
-        // Store for comparison
-        lastFetchedCountRef.current = count ?? 0;
         
-        dispatch({ 
-          type: 'INITIAL_DATA_LOADED', 
-          payload: { count: count ?? 0 } 
-        });
+        // Only update state if the component is still mounted
+        if (isMounted) {
+          // Store for comparison
+          lastFetchedCountRef.current = count ?? 0;
+          
+          dispatch({ 
+            type: 'INITIAL_DATA_LOADED', 
+            payload: { count: count ?? 0 } 
+          });
+        }
       } catch (err) {
         console.error('Error fetching initial signup count:', err);
-        dispatch({ type: 'ERROR' });
+        if (isMounted) {
+          dispatch({ type: 'ERROR' });
+        }
       }
     };
 
     fetchInitialCount();
     
-    // Set up real-time listener for updates
-    const unsubscribe = onSnapshot(
-      earlybirdRef,
-      (snapshot) => {
-        try {
-          const newCount = snapshot.size;
-          
-          console.log("Real-time update: Count =", newCount, "Previous =", lastFetchedCountRef.current);
-          
-          // Only process if this is different from our last known count
-          // This helps prevent unnecessary re-renders
-          if (newCount !== lastFetchedCountRef.current) {
-            lastFetchedCountRef.current = newCount;
-            
-            dispatch({
-              type: 'REAL_TIME_UPDATE',
-              payload: { count: newCount }
-            });
-          }
-        } catch (error) {
-          console.error("Error processing real-time update:", error);
-        }
-      },
-      (error) => {
-        console.error("Real-time listener error:", error);
-        dispatch({ type: 'ERROR' });
+    // Safe wrapper to handle async listener callbacks
+    const safeDispatch = (action) => {
+      // Only dispatch if component is still mounted
+      if (isMounted) {
+        dispatch(action);
       }
-    );
+    };
+    
+    // Set up real-time listener for updates with better error handling
+    let unsubscribe;
+    try {
+      unsubscribe = onSnapshot(
+        earlybirdRef,
+        (snapshot) => {
+          try {
+            if (!isMounted) return; // Skip processing if unmounted
+            
+            const newCount = snapshot.size;
+            console.log("Real-time update: Count =", newCount, "Previous =", lastFetchedCountRef.current);
+            
+            // Only process if this is different from our last known count
+            if (newCount !== lastFetchedCountRef.current) {
+              lastFetchedCountRef.current = newCount;
+              
+              safeDispatch({
+                type: 'REAL_TIME_UPDATE',
+                payload: { count: newCount }
+              });
+            }
+          } catch (error) {
+            console.error("Error processing real-time update:", error);
+          }
+        },
+        (error) => {
+          // Log but handle gracefully to prevent unhandled promise rejections
+          if (error && error.message?.includes("message channel closed")) {
+            console.log("Firebase connection closed - this is normal during navigation");
+          } else {
+            console.error("Firebase listener error:", error);
+            if (isMounted) {
+              dispatch({ type: 'ERROR' });
+            }
+          }
+        }
+      );
+    } catch (e) {
+      console.error("Error setting up Firebase listener:", e);
+    }
     
     // Clean up listener on unmount
     return () => {
+      isMounted = false;
       clearAnimationTimer();
-      unsubscribe();
+      
+      // Safely unsubscribe from Firebase listener
+      if (unsubscribe) {
+        try {
+          unsubscribe();
+        } catch (e) {
+          console.log("Error during Firebase unsubscribe (this is normal):", e.message);
+        }
+      }
     };
   }, [totalSpots]); // Only depends on totalSpots which shouldn't change
   
