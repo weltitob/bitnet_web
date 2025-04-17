@@ -1,5 +1,6 @@
 import { db } from './config';
-import { collection, addDoc, Timestamp, query, where, getDocs } from 'firebase/firestore';
+import { collection, addDoc, Timestamp, query, where, getDocs, getCountFromServer, onSnapshot } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
 
 // Collection references
 const earlybirdRef = collection(db, 'earlybird_email_list');
@@ -79,4 +80,163 @@ export const sendContactMessage = async (messageData: ContactMessage) => {
     console.error('Error sending contact message:', error);
     throw error;
   }
+};
+
+/**
+ * Get the count of earlybird signups
+ * @returns Promise with the count of signups
+ */
+export const getEarlybirdSignupCount = async (): Promise<number> => {
+  try {
+    const snapshot = await getCountFromServer(earlybirdRef);
+    return snapshot.data().count;
+  } catch (error) {
+    console.error('Error getting earlybird signup count:', error);
+    // Return 0 as fallback to avoid breaking the UI
+    return 0;
+  }
+};
+
+/**
+ * Calculate the remaining spots based on total available and current signups
+ * @param signupCount - The current count of signups
+ * @param totalSpots - The total number of spots available (default: 1000000)
+ * @returns The number of remaining spots
+ */
+export const calculateRemainingSpots = (signupCount: number, totalSpots: number = 1000000): number => {
+  const remaining = totalSpots - signupCount;
+  return remaining > 0 ? remaining : 0;
+};
+
+/**
+ * Custom hook for getting the earlybird signup count with animation
+ * @returns An object containing the signup count, remaining spots, and loading state
+ */
+export const useEarlybirdCount = (totalSpots: number = 1000000) => {
+  const [signupCount, setSignupCount] = useState(0);
+  const [remainingSpots, setRemainingSpots] = useState(totalSpots);
+  const [displayedRemaining, setDisplayedRemaining] = useState(totalSpots);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  // Animation effect to count down from 1,000,000 to actual remaining
+  useEffect(() => {
+    if (!loading && !animationComplete) {
+      let startValue = totalSpots;
+      const endValue = remainingSpots;
+      const duration = 3000; // 3 seconds
+      const stepTime = 30; // update every 30ms
+      const totalSteps = duration / stepTime;
+      const stepSize = Math.ceil((startValue - endValue) / totalSteps);
+      
+      let currentStep = 0;
+      const animationTimer = setInterval(() => {
+        currentStep++;
+        const nextValue = Math.max(startValue - stepSize, endValue);
+        startValue = nextValue;
+        setDisplayedRemaining(nextValue);
+        
+        if (nextValue <= endValue || currentStep >= totalSteps) {
+          clearInterval(animationTimer);
+          setDisplayedRemaining(endValue);
+          setAnimationComplete(true);
+        }
+      }, stepTime);
+      
+      return () => clearInterval(animationTimer);
+    }
+  }, [loading, remainingSpots, animationComplete, totalSpots]);
+
+  useEffect(() => {
+    // Initial count fetch
+    const fetchInitialCount = async () => {
+      try {
+        setLoading(true);
+        const count = await getEarlybirdSignupCount();
+        
+        // Default to 0 if count is undefined or null
+        const safeCount = count ?? 0;
+        
+        setSignupCount(safeCount);
+        const calculatedRemaining = calculateRemainingSpots(safeCount, totalSpots);
+        setRemainingSpots(calculatedRemaining);
+        setError(false);
+        
+        // Set initial displayed value based on animation state
+        setDisplayedRemaining(animationComplete ? calculatedRemaining : totalSpots);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching initial signup count:', err);
+        // Use fallback values on error
+        setSignupCount(0);
+        setRemainingSpots(totalSpots);
+        setDisplayedRemaining(totalSpots);
+        setError(true);
+        setLoading(false);
+      }
+    };
+
+    fetchInitialCount();
+    
+    // Set up real-time listener for new signups
+    const unsubscribe = onSnapshot(
+      earlybirdRef,
+      (snapshot) => {
+        // Do a quick animation for real-time updates
+        if (!loading && animationComplete) {
+          const newCount = snapshot.size;
+          setSignupCount(newCount);
+          const newRemaining = calculateRemainingSpots(newCount, totalSpots);
+          
+          // Only animate if the number actually decreased
+          if (newRemaining < remainingSpots) {
+            // Animate with a quick transition (500ms)
+            const current = remainingSpots;
+            const diff = current - newRemaining;
+            const steps = 10; // 10 steps
+            const stepSize = Math.ceil(diff / steps);
+            const stepTime = 50; // 50ms per step, total 500ms
+            
+            let currentValue = current;
+            let stepCount = 0;
+            
+            const quickTimer = setInterval(() => {
+              stepCount++;
+              currentValue = Math.max(currentValue - stepSize, newRemaining);
+              setDisplayedRemaining(currentValue);
+              
+              if (currentValue <= newRemaining || stepCount >= steps) {
+                clearInterval(quickTimer);
+                setDisplayedRemaining(newRemaining);
+              }
+            }, stepTime);
+          } else {
+            setDisplayedRemaining(newRemaining);
+          }
+          
+          setRemainingSpots(newRemaining);
+          setError(false);
+          console.log("Real-time update detected: New count =", newCount);
+        }
+      },
+      (error) => {
+        console.error("Real-time listener error:", error);
+        setError(true);
+      }
+    );
+    
+    // Clean up listener on unmount
+    return () => unsubscribe();
+  }, [totalSpots, animationComplete, loading]);
+
+  return {
+    signupCount,
+    remainingSpots,
+    loading,
+    error,
+    displayedRemaining,
+    animationComplete,
+    formattedRemaining: displayedRemaining.toLocaleString('en-US')
+  };
 };

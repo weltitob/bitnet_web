@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { addEarlybirdSignup } from '../firebase/services';
+import { addEarlybirdSignup, useEarlybirdCount } from '../firebase/services';
 
 const EarlybirdMobilePage = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { formattedRemaining, loading: countLoading } = useEarlybirdCount();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -219,7 +220,7 @@ const EarlybirdMobilePage = () => {
                 <div style={{ marginTop: '15px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ color: '#aaa', fontSize: '13px' }}>Spots remaining:</span>
-                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '15px' }}>1,000,000</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '15px' }}>{countLoading ? "Loading..." : formattedRemaining}</span>
                   </div>
                   <div style={{ 
                     height: '6px', 
@@ -229,10 +230,11 @@ const EarlybirdMobilePage = () => {
                     overflow: 'hidden' 
                   }}>
                     <div style={{ 
-                      width: '90%', 
+                      width: countLoading ? '10%' : `${Math.min(100 - (parseInt(formattedRemaining.replace(/,/g, '')) / 1000000) * 100, 100)}%`, 
                       height: '100%', 
                       background: 'linear-gradient(to right, #ff8a00, #ff5e00)',
-                      borderRadius: '3px'
+                      borderRadius: '3px',
+                      transition: 'width 0.3s ease-in-out'
                     }}></div>
                   </div>
                 </div>

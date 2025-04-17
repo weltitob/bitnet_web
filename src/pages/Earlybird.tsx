@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { addEarlybirdSignup } from '../firebase/services';
+import { addEarlybirdSignup, useEarlybirdCount } from '../firebase/services';
 
 const EarlybirdPage = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { formattedRemaining, loading: countLoading } = useEarlybirdCount();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -156,7 +157,9 @@ const EarlybirdPage = () => {
               <div className="spots-counter" style={{ marginTop: '1rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ color: '#aaa', fontSize: '0.9rem' }}>Spots remaining:</span>
-                  <span id="spots-counter" style={{ color: '#fff', fontWeight: '600', fontSize: '1.1rem' }}>1,000,000</span>
+                  <span id="spots-counter" style={{ color: '#fff', fontWeight: '600', fontSize: '1.1rem' }}>
+                    {countLoading ? "Loading..." : formattedRemaining}
+                  </span>
                 </div>
                 <div style={{ 
                   height: '8px', 
@@ -166,10 +169,11 @@ const EarlybirdPage = () => {
                   overflow: 'hidden' 
                 }}>
                   <div style={{ 
-                    width: '90%', 
+                    width: countLoading ? '10%' : `${Math.min(100 - (parseInt(formattedRemaining.replace(/,/g, '')) / 1000000) * 100, 100)}%`, 
                     height: '100%', 
                     background: 'linear-gradient(to right, #ff8a00, #ff5e00)',
-                    borderRadius: '4px'
+                    borderRadius: '4px',
+                    transition: 'width 0.3s ease-in-out'
                   }}></div>
                 </div>
               </div>

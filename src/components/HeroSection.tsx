@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import ModelViewer from './ModelViewer'
+import { useEarlybirdCount } from '../firebase/services'
 
 const HeroSection = () => {
   const featureCardsRef = useRef<{ [key: string]: HTMLDivElement | null }>({
@@ -8,43 +9,20 @@ const HeroSection = () => {
     bottomCard: null
   });
   const cardsRevealedRef = useRef(false);
+  const { formattedRemaining, loading } = useEarlybirdCount();
 
   useEffect(() => {
-    // NFT Counter animation
+    // NFT Counter animation - now using real data from Firebase
     const counterElement = document.getElementById('nft-counter');
-    let currentValue = 1000000;
-    const minValue = 100000;
-    
-    // Create a random decrement between 50-150 for each step
-    const randomDecrement = () => Math.floor(Math.random() * 100) + 50;
-    
-    // Function to update the counter with fixed width
-    const updateCounter = () => {
-      if (currentValue > minValue) {
-        currentValue -= randomDecrement();
-        if (currentValue < minValue) currentValue = minValue;
-      }
-      
-      // Format with commas and maintain consistent width
-      if (counterElement) {
-        const formattedValue = currentValue.toLocaleString('en-US');
-        counterElement.textContent = formattedValue;
-        
-        // Ensure the counter has consistent width by using monospace font
-        counterElement.style.fontFeatureSettings = "'tnum'";
-        counterElement.style.fontVariantNumeric = "tabular-nums";
-      }
-    };
     
     // Initial display with fixed width
-    if (counterElement) {
-      counterElement.textContent = currentValue.toLocaleString('en-US');
+    if (counterElement && !loading) {
+      counterElement.textContent = formattedRemaining;
+      
+      // Ensure the counter has consistent width by using monospace font
       counterElement.style.fontFeatureSettings = "'tnum'";
       counterElement.style.fontVariantNumeric = "tabular-nums";
     }
-    
-    // Update counter every 1-2 seconds
-    const interval = setInterval(updateCounter, Math.floor(Math.random() * 1000) + 1000);
     
     // NFT Rarity tabs functionality
     const rarityTabs = document.querySelectorAll('.rank-tier');
@@ -125,7 +103,6 @@ const HeroSection = () => {
     
     // Clean up
     return () => {
-      clearInterval(interval);
       window.removeEventListener('scroll', revealCards);
       
       rarityTabs.forEach(tab => {
@@ -135,7 +112,7 @@ const HeroSection = () => {
         });
       });
     };
-  }, []);
+  }, [loading, formattedRemaining]);
 
   // Feature card hover handlers
   const handleCardMouseEnter = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
