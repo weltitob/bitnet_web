@@ -1,5 +1,5 @@
 import tobiasImage from '../assets/team/tobias.jpeg';
-import izakImage from '../assets/team/izak.png';
+import izakImage from '../assets/team/izak.jpg';
 import ulrichImage from '../assets/team/ulrich.png';
 
 const AboutSection = () => {

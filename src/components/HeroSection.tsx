@@ -256,11 +256,62 @@ const HeroSection = () => {
       </div>
 
       <div className="phone-features-container">
-        <div className="mockup">
-          <div className="dynamic-island"></div>
-          <div className="volume-up"></div>
-          <div className="volume-down"></div>
-          <img src="/assets/down.jpeg" alt="BitNet Mobile App" className="screen-content" />
+        <div className="mockup" style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* Safe area container */}
+          <div style={{
+            height: 80,
+            position: 'relative',
+            backgroundColor: '#0e210d' /* Match the spacer color */
+          }}>
+            {/* Dynamic Island */}
+            <div className="dynamic-island" style={{ zIndex: 4 }}></div>
+            
+            {/* Top right box overlay */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              width: '22px',
+              height: '51px',
+              backgroundColor: '#0e210d',
+              zIndex: 5
+            }}></div>
+            
+            {/* Safe area image overlay */}
+            <img 
+              src="/src/assets/mobilephone/safearea.png" 
+              alt="iPhone Safe Area" 
+              style={{
+                width: '100%',
+                height: 'auto',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                zIndex: 3,
+                mixBlendMode: 'screen'
+              }}
+            />
+          </div>
+          
+          {/* Green spacer that matches the top of the chart */}
+          <div style={{
+            height: '50px',
+            backgroundColor: '#0e210d', /* Exact color match provided */
+            zIndex: 1
+          }}></div>
+          
+          {/* Screenshot */}
+          <img 
+            src="/src/assets/mobilephone/chart_up.jpeg" 
+            alt="BitNet Mobile App" 
+            style={{
+              width: '100%',
+              flex: 1,
+              objectFit: 'cover',
+              objectPosition: 'top center',
+              zIndex: 1
+            }} 
+          />
         </div>
         
         <div 
