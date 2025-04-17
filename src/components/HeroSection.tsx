@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import ModelViewer from './ModelViewer'
 
 const HeroSection = () => {
   const featureCardsRef = useRef<{ [key: string]: HTMLDivElement | null }>({
@@ -523,7 +524,7 @@ const HeroSection = () => {
                 <div id="legendary-card" className="nft-card active">
                   <div className="rarity-badge legendary">Legendary</div>
                   <div className="nft-card-image">
-                    <img src="/genisisstone.webp" alt="Genesis Stone NFT" />
+                    <ModelViewer modelPath="/src/assets/nfts/logo_bitnet_wb_0524221043.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
                     <div className="nft-card-title">Genesis Stone</div>
@@ -544,10 +545,10 @@ const HeroSection = () => {
                 <div id="epic-card" className="nft-card">
                   <div className="rarity-badge epic">Epic</div>
                   <div className="nft-card-image">
-                    <img src="/hotdog.webp" alt="Digital Hotdog NFT" />
+                    <ModelViewer modelPath="/src/assets/nfts/lightning.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
-                    <div className="nft-card-title">Digital Hotdog</div>
+                    <div className="nft-card-title">Lightning NFT</div>
                     <div className="nft-card-subtitle">Early Adopter NFT</div>
                     <div className="nft-card-details">
                       <div className="nft-detail">
@@ -565,10 +566,10 @@ const HeroSection = () => {
                 <div id="rare-card" className="nft-card">
                   <div className="rarity-badge rare">Rare</div>
                   <div className="nft-card-image rare-image">
-                    <img src="/genisisstone.webp" alt="Precious Stone NFT" />
+                    <ModelViewer modelPath="/src/assets/nfts/21_0524221030.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
-                    <div className="nft-card-title">Precious Stone</div>
+                    <div className="nft-card-title">21 Million NFT</div>
                     <div className="nft-card-subtitle">Early Adopter NFT</div>
                     <div className="nft-card-details">
                       <div className="nft-detail">
@@ -586,10 +587,10 @@ const HeroSection = () => {
                 <div id="uncommon-card" className="nft-card">
                   <div className="rarity-badge uncommon">Uncommon</div>
                   <div className="nft-card-image uncommon-image">
-                    <img src="/hotdog.webp" alt="Basic Hotdog NFT" />
+                    <ModelViewer modelPath="/src/assets/nfts/carot_0524221015.glb" backgroundColor="#181820" height={200} />
                   </div>
                   <div className="nft-card-info">
-                    <div className="nft-card-title">Basic Hotdog</div>
+                    <div className="nft-card-title">Carrot NFT</div>
                     <div className="nft-card-subtitle">Early Adopter NFT</div>
                     <div className="nft-card-details">
                       <div className="nft-detail">

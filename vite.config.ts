@@ -11,4 +11,16 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    sourcemap: true,
+  },
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei'],
+    exclude: ['@emotion/react/jsx-dev-runtime', '@emotion/react/jsx-runtime']
+  },
+  resolve: {
+    alias: {
+      'three': 'three'
+    }
+  }
 })
