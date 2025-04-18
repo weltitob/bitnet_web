@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import EarlybirdPage from './pages/Earlybird'
 import EarlybirdMobilePage from './pages/EarlybirdMobile'
 import InvestorRelations from './pages/InvestorRelations'
+import FixBitcoin from './pages/FixBitcoin'
 import './App.css'
 
 const HomePage = () => {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/earlybird" element={<EarlybirdPage />} />
         <Route path="/mobile/earlybird" element={<EarlybirdMobilePage />} />
         <Route path="/investors" element={<InvestorRelations />} />
+        <Route path="/fixbitcoin" element={<FixBitcoin />} />
       </Routes>
     </Router>
   );
