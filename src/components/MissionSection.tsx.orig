@@ -13,7 +13,7 @@ const MissionSection = () => {
           </div>
           
           <div className="mission-body">
-            <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 2.5rem', maxWidth: '800px', textAlign: 'center' }}>Making Bitcoin accessible to all by reimagining how you send, save, and use money in the digital age.</p>
+            <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '800px', textAlign: 'center' }}>Making Bitcoin accessible to all by reimagining how you send, save, and use money in the digital age.</p>
             
             <div className="mission-values">
               <div className="mission-value">
@@ -44,14 +44,19 @@ const MissionSection = () => {
               <div className="mission-value">
                 <div className="value-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="12 4 4 8 12 12 20 8 12 4"></polyline>
-                    <polyline points="4 12 12 16 20 12"></polyline>
-                    <polyline points="4 16 12 20 20 16"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="6"></line>
+                    <line x1="12" y1="18" x2="12" y2="22"></line>
+                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                    <line x1="2" y1="12" x2="6" y2="12"></line>
+                    <line x1="18" y1="12" x2="22" y2="12"></line>
+                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
                   </svg>
                 </div>
                 <div className="value-content">
-                  <h3>Sound Money</h3>
-                  <p>Preserving Bitcoin's core principles while expanding its everyday utility.</p>
+                  <h3>Innovation</h3>
+                  <p>Cutting-edge Bitcoin technology enabling previously impossible experiences.</p>
                 </div>
               </div>
               
@@ -84,33 +89,16 @@ const MissionSection = () => {
               <div className="mission-value">
                 <div className="value-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <polyline points="16 3 12 7 8 3"></polyline>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
                   </svg>
                 </div>
                 <div className="value-content">
-                  <h3>Financial Freedom</h3>
-                  <p>Enabling direct peer-to-peer commerce without third-party gatekeepers.</p>
+                  <h3>User-Friendly</h3>
+                  <p>Complex Bitcoin technology made simple with an intuitive interface.</p>
                 </div>
-              </div>
-            </div>
-            
-            <div className="fix-bitcoin-banner" style={{ marginTop: '3rem' }}>
-              <div className="fix-bitcoin-content">
-                <div className="fix-bitcoin-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12" y2="16" />
-                  </svg>
-                </div>
-                <div className="fix-bitcoin-text">
-                  <h4>
-                    <span style={{ color: '#ff8c00' }}>Fix Bitcoin</span>. Fix the <span style={{ color: '#ff8c00' }}>World</span>.
-                  </h4>
-                  <p>Learn why we believe Bitcoin will fix the world</p>
-                </div>
-                <a href="/fixbitcoin" className="fix-bitcoin-button">Learn More</a>
               </div>
             </div>
           </div>

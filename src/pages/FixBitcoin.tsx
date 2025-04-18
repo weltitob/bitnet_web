@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const FixBitcoin = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
-      <main style={{ flexGrow: 1, padding: '4rem 2rem', background: '#0b0b0b' }}>
+      <main style={{ flexGrow: 1, padding: 'clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem)', background: '#0b0b0b' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {/* Hero Header */}
           <div style={{ 
@@ -16,11 +26,12 @@ const FixBitcoin = () => {
           }}>
             <div style={{
               position: 'absolute',
-              top: '-100px',
+              top: isMobile ? '-50px' : '-100px',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '600px',
-              height: '600px',
+              width: '90%',
+              maxWidth: '600px',
+              height: isMobile ? '400px' : '600px',
               background: 'radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, rgba(255, 140, 0, 0) 70%)',
               borderRadius: '50%',
               zIndex: 0
@@ -28,32 +39,25 @@ const FixBitcoin = () => {
             
             <div style={{ position: 'relative', zIndex: 1 }}>
               <h1 style={{ 
-                fontSize: '4.5rem', 
-                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
                 marginBottom: '0',
                 fontWeight: '800'
               }}>
-                ⚡ Fix Bitcoin.
+                ⚡ <span style={{ color: '#ff8c00' }}>Fix Bitcoin.</span>
               </h1>
               <h1 style={{ 
-                fontSize: '4.5rem', 
-                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
                 marginTop: '0',
-                fontWeight: '800'
+                fontWeight: '800',
+                color: 'white'
               }}>
-                Fix the World.
+                Fix the <span style={{ color: '#ff8c00' }}>World.</span>
               </h1>
               <p style={{ 
                 color: '#aaa', 
-                fontSize: '1.5rem', 
+                fontSize: 'clamp(1rem, 3vw, 1.5rem)', 
                 margin: '1rem auto 0', 
-                maxWidth: '850px',
+                maxWidth: '90%',
                 fontWeight: '300',
                 letterSpacing: '0.5px'
               }}>
@@ -65,18 +69,19 @@ const FixBitcoin = () => {
           {/* Introduction */}
           <div style={{
             textAlign: 'center',
-            maxWidth: '900px',
+            maxWidth: '90%',
             margin: '0 auto 5rem',
             position: 'relative'
           }}>
             <p style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1.1rem, 4vw, 1.5rem)',
               lineHeight: '1.7',
               color: '#e0e0e0',
               fontWeight: '300',
-              fontStyle: 'italic'
+              fontStyle: 'italic',
+              padding: '0 10px'
             }}>
-              "The world doesn't change with elections — it changes when people<br/>opt out of broken systems. Bitcoin is that opt-out."
+              "The world doesn't change with elections — it changes when people opt out of broken systems. Bitcoin is that opt-out."
             </p>
           </div>
 
@@ -110,8 +115,8 @@ const FixBitcoin = () => {
                 position: 'absolute',
                 top: '0',
                 right: '0',
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
                 background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
                 zIndex: 0
               }}></div>
@@ -119,7 +124,8 @@ const FixBitcoin = () => {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
                   marginBottom: '2rem'
                 }}>
                   <div style={{
@@ -133,7 +139,8 @@ const FixBitcoin = () => {
                     color: 'white',
                     borderRadius: '8px',
                     padding: '8px',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
                   }}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -143,23 +150,23 @@ const FixBitcoin = () => {
                     </svg>
                   </div>
                   <h2 style={{ 
-                    fontSize: '2.4rem', 
+                    fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', 
                     margin: 0,
                     color: '#fff',
                     fontWeight: '700',
                   }}>
-                    The System is Broken — and So is Society
+                    The <span style={{ color: '#ff8c00' }}>System is Broken</span> — and So is <span style={{ color: '#ff8c00' }}>Society</span>
                   </h2>
                 </div>
                 
                 <p style={{ 
-                  fontSize: '1.3rem', 
+                  fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', 
                   lineHeight: '1.6', 
                   marginBottom: '2rem', 
                   fontWeight: '300',
                   color: '#ff8c00'
                 }}>
-                  A broken financial system leads to a broken society
+                  A <span style={{ color: '#ff8c00', fontWeight: '500' }}>broken financial system</span> leads to a <span style={{ color: '#ff8c00', fontWeight: '500' }}>broken society</span>
                 </p>
                 
                 <ul style={{ 
@@ -167,7 +174,7 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
                   gap: '1.5rem'
                 }}>
                   {[
@@ -231,8 +238,8 @@ const FixBitcoin = () => {
                 position: 'absolute',
                 bottom: '0',
                 left: '0',
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
                 background: 'radial-gradient(circle at bottom left, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
                 zIndex: 0
               }}></div>
@@ -240,7 +247,8 @@ const FixBitcoin = () => {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
                   marginBottom: '2rem'
                 }}>
                   <div style={{
@@ -254,7 +262,8 @@ const FixBitcoin = () => {
                     color: 'white',
                     borderRadius: '8px',
                     padding: '8px',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
                   }}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -263,12 +272,12 @@ const FixBitcoin = () => {
                     </svg>
                   </div>
                   <h2 style={{ 
-                    fontSize: '2.4rem', 
+                    fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', 
                     margin: 0,
                     color: '#fff',
                     fontWeight: '700',
                   }}>
-                    Big Tech Was Not the Solution — It Became the Curse
+                    <span style={{ color: '#ff8c00' }}>Big Tech</span> Was Not the Solution — It Became the <span style={{ color: '#ff8c00' }}>Curse</span>
                   </h2>
                 </div>
                 
@@ -277,7 +286,7 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
                   gap: '1.5rem'
                 }}>
                   {[
@@ -341,8 +350,8 @@ const FixBitcoin = () => {
                 position: 'absolute',
                 top: '0',
                 right: '0',
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
                 background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
                 zIndex: 0
               }}></div>
@@ -350,7 +359,8 @@ const FixBitcoin = () => {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
                   marginBottom: '2rem'
                 }}>
                   <div style={{
@@ -364,7 +374,8 @@ const FixBitcoin = () => {
                     color: 'white',
                     borderRadius: '8px',
                     padding: '8px',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
                   }}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -373,12 +384,12 @@ const FixBitcoin = () => {
                     </svg>
                   </div>
                   <h2 style={{ 
-                    fontSize: '2.4rem', 
+                    fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', 
                     margin: 0,
                     color: '#fff',
                     fontWeight: '700',
                   }}>
-                    The Financial Elites Robbed the People
+                    The <span style={{ color: '#ff8c00' }}>Financial Elites</span> Robbed the <span style={{ color: '#ff8c00' }}>People</span>
                   </h2>
                 </div>
                 
@@ -387,7 +398,7 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
                   gap: '1.5rem'
                 }}>
                   {[
@@ -451,8 +462,8 @@ const FixBitcoin = () => {
                 position: 'absolute',
                 bottom: '0',
                 left: '0',
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
                 background: 'radial-gradient(circle at bottom left, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
                 zIndex: 0
               }}></div>
@@ -460,7 +471,8 @@ const FixBitcoin = () => {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
                   marginBottom: '2rem'
                 }}>
                   <div style={{
@@ -474,7 +486,8 @@ const FixBitcoin = () => {
                     color: 'white',
                     borderRadius: '8px',
                     padding: '8px',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
                   }}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -482,12 +495,12 @@ const FixBitcoin = () => {
                     </svg>
                   </div>
                   <h2 style={{ 
-                    fontSize: '2.4rem', 
+                    fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', 
                     margin: 0,
                     color: '#fff',
                     fontWeight: '700',
                   }}>
-                    We Need Better Tech — Not Just More of It
+                    We Need <span style={{ color: '#ff8c00' }}>Better Tech</span> — Not Just <span style={{ color: '#ff8c00' }}>More of It</span>
                   </h2>
                 </div>
                 
@@ -496,7 +509,7 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
                   gap: '1.5rem'
                 }}>
                   {[
@@ -536,11 +549,12 @@ const FixBitcoin = () => {
           }}>
             <div style={{
               position: 'absolute',
-              top: '-200px',
+              top: isMobile ? '-100px' : '-200px',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '800px',
-              height: '800px',
+              width: '90%',
+              maxWidth: '800px',
+              height: isMobile ? '500px' : '800px',
               background: 'radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0) 70%)',
               borderRadius: '50%',
               zIndex: 0
@@ -548,14 +562,14 @@ const FixBitcoin = () => {
             
             <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, marginBottom: '3rem' }}>
               <h2 style={{ 
-                fontSize: '3rem', 
+                fontSize: 'clamp(2rem, 5vw, 3rem)', 
                 background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 marginBottom: '1.5rem'
               }}>
-                Enter Bitcoin: The Technology of Freedom
+                Enter <span style={{ WebkitTextFillColor: '#ff8c00', color: '#ff8c00' }}>Bitcoin</span>: The Technology of <span style={{ WebkitTextFillColor: '#ff8c00', color: '#ff8c00' }}>Freedom</span>
               </h2>
               <div style={{ 
                 width: '80px', 
@@ -568,7 +582,7 @@ const FixBitcoin = () => {
             
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))',
               gap: '2rem',
               position: 'relative',
               zIndex: 1
@@ -670,8 +684,8 @@ const FixBitcoin = () => {
                     </svg>
                   </div>
                   <h3 style={{ 
-                    fontSize: '1.5rem', 
-                    color: '#fff',
+                    fontSize: 'clamp(1.2rem, 4vw, 1.5rem)', 
+                    color: '#ff8c00',
                     marginBottom: '1rem',
                     fontWeight: '600'
                   }}>
@@ -721,8 +735,8 @@ const FixBitcoin = () => {
                 position: 'absolute',
                 top: '0',
                 right: '0',
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
                 background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
                 zIndex: 0
               }}></div>
@@ -733,10 +747,14 @@ const FixBitcoin = () => {
                   marginBottom: '3rem'
                 }}>
                   <h2 style={{ 
-                    fontSize: '3rem', 
+                    fontSize: 'clamp(2rem, 5vw, 3rem)', 
                     color: '#fff',
                     fontWeight: '700',
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    display: 'flex',
+                    flexDirection: isMobile ? 'column' : 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}>
                     <div style={{
                       display: 'inline-flex',
@@ -747,20 +765,23 @@ const FixBitcoin = () => {
                       background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
                       color: 'white',
                       borderRadius: '8px',
-                      marginRight: '1rem',
+                      marginRight: isMobile ? '0' : '1rem',
+                      marginBottom: isMobile ? '1rem' : '0',
                       boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
                     }}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                       </svg>
                     </div>
-                    Fix the Money. Fix the Incentives. Fix the World.
+                    <span>
+                      <span style={{ color: '#ff8c00' }}>Fix the Money.</span> <span>Fix the Incentives.</span> <span style={{ color: '#ff8c00' }}>Fix the World.</span>
+                    </span>
                   </h2>
                 </div>
                 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
                   gap: '2rem'
                 }}>
                   {[
@@ -808,8 +829,9 @@ const FixBitcoin = () => {
               top: '0',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '600px',
-              height: '600px',
+              width: '90%',
+              maxWidth: '600px',
+              height: isMobile ? '400px' : '600px',
               background: 'radial-gradient(circle, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
               borderRadius: '50%',
               zIndex: 0
@@ -817,11 +839,12 @@ const FixBitcoin = () => {
             
             <div style={{ position: 'relative', zIndex: 1 }}>
               <h2 style={{ 
-                fontSize: '3.5rem', 
+                fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', 
                 color: '#fff',
                 marginBottom: '3rem',
                 fontWeight: '800',
                 display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
@@ -834,22 +857,26 @@ const FixBitcoin = () => {
                   background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
                   color: 'white',
                   borderRadius: '12px',
-                  marginRight: '1rem',
+                  marginRight: isMobile ? '0' : '1rem',
+                  marginBottom: isMobile ? '1rem' : '0',
                   boxShadow: '0 4px 16px rgba(255, 94, 0, 0.3)'
                 }}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                   </svg>
                 </div>
-                Join the Movement
+                <span>
+                  <span style={{ color: '#ff8c00' }}>Join</span> the <span style={{ color: '#ff8c00' }}>Movement</span>
+                </span>
               </h2>
               
               <div style={{ 
-                fontSize: '1.8rem',
+                fontSize: 'clamp(1.3rem, 4vw, 1.8rem)',
                 fontWeight: '300',
                 lineHeight: '2',
                 color: '#e0e0e0',
-                marginBottom: '3rem'
+                marginBottom: '3rem',
+                padding: '0 10px'
               }}>
                 <p>We don't ask for permission</p>
                 <p>We don't beg for reform</p>
@@ -862,11 +889,11 @@ const FixBitcoin = () => {
                   href="/"
                   style={{
                     display: 'inline-block',
-                    padding: '1rem 3rem',
+                    padding: isMobile ? '0.8rem 2rem' : '1rem 3rem',
                     background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
                     color: '#fff',
                     borderRadius: '9999px',
-                    fontSize: '1.3rem',
+                    fontSize: isMobile ? '1.1rem' : '1.3rem',
                     fontWeight: '600',
                     textDecoration: 'none',
                     transition: 'all 0.3s',
