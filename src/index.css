@@ -34,6 +34,97 @@
   scrollbar-color: #444444 #141414;
 }
 
+/* Fix Bitcoin Banner Styles */
+.fix-bitcoin-banner {
+  background: rgba(25, 25, 35, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.2rem;
+  margin: 1.5rem auto 2.5rem;
+  max-width: 800px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fix-bitcoin-banner:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.fix-bitcoin-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fix-bitcoin-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff8a00, #ff5e00);
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(255, 94, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.fix-bitcoin-text {
+  flex-grow: 1;
+}
+
+.fix-bitcoin-text h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.3rem 0;
+}
+
+.fix-bitcoin-text p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0;
+}
+
+.fix-bitcoin-button {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #ff8a00, #ff5e00);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.fix-bitcoin-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .fix-bitcoin-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .fix-bitcoin-button {
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* Body Styling */
 body {
   background: #0b0b0b;

@@ -630,11 +630,44 @@ const FixBitcoin = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
                 }}>
                   <div style={{
-                    fontSize: '3rem',
-                    marginBottom: '1rem',
-                    color: '#ff8c00'
+                    width: '60px',
+                    height: '60px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '10px',
+                    marginBottom: '1.2rem',
+                    boxShadow: '0 4px 12px rgba(255, 94, 0, 0.3)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 94, 0, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 94, 0, 0.3)';
                   }}>
-                    {feature.icon}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      {feature.icon === "💰" && <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />}
+                      {feature.icon === "🏠" && <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />}
+                      {feature.icon === "⚡" && <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />}
+                      {feature.icon === "🔐" && (<>
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </>)}
+                      {feature.icon === "🌐" && (<>
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </>)}
+                      {feature.icon === "⏳" && (<>
+                        <path d="M6.8 21.8A10 10 0 0 1 2 10C2 4.5 6.5 0 12 0s10 4.5 10 10a10 10 0 0 1-4.8 11.8" />
+                        <path d="M12 6v6l4 2" />
+                      </>)}
+                    </svg>
                   </div>
                   <h3 style={{ 
                     fontSize: '1.5rem', 
