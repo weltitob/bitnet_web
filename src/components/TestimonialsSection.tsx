@@ -55,21 +55,58 @@ const TestimonialsSection = () => {
           }}
           >
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <p style={{ 
-                color: '#ddd', 
-                fontSize: '1.15rem', 
-                lineHeight: '1.6',
-                margin: '0 0 2.5rem 0', 
-                flex: 1,
-                minHeight: '150px',
+              <div style={{ 
+                position: 'relative',
+                flex: '1 1 auto',
                 display: 'flex',
-                alignItems: 'flex-start'
-              }}>"I've tried a lot of Bitcoin wallets, but BitNet just feels different. It's so much easier to use and finally makes Bitcoin feel modern."</p>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
-                <img src={atashImage} alt="Atash Hauschild" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                flexDirection: 'column'
+              }}>
+                <p style={{ 
+                  color: '#ddd', 
+                  fontSize: '1.15rem', 
+                  lineHeight: '1.6',
+                  margin: '0',
+                  position: 'relative',
+                  flex: '1 0 auto'
+                }}>
+                  I've tried a lot of Bitcoin wallets, but BitNet just feels different. It's so much easier to use and finally makes Bitcoin feel modern.
+                </p>
+              </div>
+              
+              <div style={{ 
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
+                paddingTop: '1.75rem', 
+                marginTop: '2rem',
+                display: 'flex', 
+                alignItems: 'center',
+                height: '85px',  /* Fixed height for all author sections */
+                flexShrink: 0    /* Prevent shrinking */
+              }}>
+                <img 
+                  src={atashImage} 
+                  alt="Atash Hauschild" 
+                  style={{
+                    width: '56px', 
+                    height: '56px', 
+                    borderRadius: '50%', 
+                    objectFit: 'cover', 
+                    marginRight: '1.25rem'
+                  }} 
+                />
                 <div>
-                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Atash Hauschild</span>
-                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Bitcoiner & ITler</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 600, 
+                    color: '#fff',
+                    marginBottom: '0.3rem'
+                  }}>Atash Hauschild</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '0.9rem', 
+                    color: '#aaa',
+                    fontWeight: '300'
+                  }}>Bitcoiner & ITler</span>
                 </div>
               </div>
             </div>
@@ -101,21 +138,58 @@ const TestimonialsSection = () => {
           }}
           >
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <p style={{ 
-                color: '#ddd', 
-                fontSize: '1.15rem', 
-                lineHeight: '1.6',
-                margin: '0 0 2.5rem 0', 
-                flex: 1,
-                minHeight: '150px',
+              <div style={{ 
+                position: 'relative',
+                flex: '1 1 auto',
                 display: 'flex',
-                alignItems: 'flex-start'
-              }}>"I was always intimidated by crypto until I found BitNet. Now I can actually use Bitcoin without feeling lost in technical jargon."</p>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
-                <img src={robinImage} alt="Robin Göpper" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                flexDirection: 'column'
+              }}>
+                <p style={{ 
+                  color: '#ddd', 
+                  fontSize: '1.15rem', 
+                  lineHeight: '1.6',
+                  margin: '0',
+                  position: 'relative',
+                  flex: '1 0 auto'
+                }}>
+                  I was always intimidated by crypto until I found BitNet. Now I can actually use Bitcoin without feeling lost in technical jargon.
+                </p>
+              </div>
+              
+              <div style={{ 
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
+                paddingTop: '1.75rem', 
+                marginTop: '2rem',
+                display: 'flex', 
+                alignItems: 'center',
+                height: '85px',  /* Fixed height for all author sections */
+                flexShrink: 0    /* Prevent shrinking */
+              }}>
+                <img 
+                  src={robinImage} 
+                  alt="Robin Göpper" 
+                  style={{
+                    width: '56px', 
+                    height: '56px', 
+                    borderRadius: '50%', 
+                    objectFit: 'cover', 
+                    marginRight: '1.25rem'
+                  }} 
+                />
                 <div>
-                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Robin Göpper</span>
-                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Cryptobeginner</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 600, 
+                    color: '#fff',
+                    marginBottom: '0.3rem'
+                  }}>Robin Göpper</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '0.9rem', 
+                    color: '#aaa',
+                    fontWeight: '300'
+                  }}>Cryptobeginner</span>
                 </div>
               </div>
             </div>
@@ -147,21 +221,58 @@ const TestimonialsSection = () => {
           }}
           >
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <p style={{ 
-                color: '#ddd', 
-                fontSize: '1.15rem', 
-                lineHeight: '1.6',
-                margin: '0 0 2.5rem 0', 
-                flex: 1,
-                minHeight: '150px',
+              <div style={{ 
+                position: 'relative',
+                flex: '1 1 auto',
                 display: 'flex',
-                alignItems: 'flex-start'
-              }}>"BitNet's NFT marketplace is a game-changer for me. It's simple to use and helps my art reach the right people."</p>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1.75rem', display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
-                <img src={jonahImage} alt="Jonah Ike" style={{width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', marginRight: '1.25rem'}} />
+                flexDirection: 'column'
+              }}>
+                <p style={{ 
+                  color: '#ddd', 
+                  fontSize: '1.15rem', 
+                  lineHeight: '1.6',
+                  margin: '0',
+                  position: 'relative',
+                  flex: '1 0 auto'
+                }}>
+                  BitNet's NFT marketplace is a game-changer for me. It's simple to use and helps my art reach the right people.
+                </p>
+              </div>
+              
+              <div style={{ 
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
+                paddingTop: '1.75rem', 
+                marginTop: '2rem',
+                display: 'flex', 
+                alignItems: 'center',
+                height: '85px',  /* Fixed height for all author sections */
+                flexShrink: 0    /* Prevent shrinking */
+              }}>
+                <img 
+                  src={jonahImage} 
+                  alt="Jonah Ike" 
+                  style={{
+                    width: '56px', 
+                    height: '56px', 
+                    borderRadius: '50%', 
+                    objectFit: 'cover', 
+                    marginRight: '1.25rem'
+                  }} 
+                />
                 <div>
-                  <span style={{ display: 'block', fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Jonah Ike</span>
-                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#999' }}>Investor & Artist</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 600, 
+                    color: '#fff',
+                    marginBottom: '0.3rem'
+                  }}>Jonah Ike</span>
+                  <span style={{ 
+                    display: 'block', 
+                    fontSize: '0.9rem', 
+                    color: '#aaa',
+                    fontWeight: '300'
+                  }}>Investor & Artist</span>
                 </div>
               </div>
             </div>
@@ -184,7 +295,7 @@ const TestimonialsSection = () => {
         .testimonial-card {
           flex: 1 0 calc(33.333% - 2.5rem);
           min-width: 300px;
-          height: 350px !important; /* Adjusted height for the more concise testimonials */
+          height: 400px !important; /* Increased height for the testimonials */
         }
         
         @media (max-width: 960px) {
@@ -200,8 +311,6 @@ const TestimonialsSection = () => {
           
           .testimonial-card p {
             font-size: 1.05rem !important;
-            margin-bottom: 2rem !important;
-            minHeight: 130px !important;
           }
         }
         
@@ -216,7 +325,7 @@ const TestimonialsSection = () => {
             flex: 1 0 100%;
             max-width: 340px;
             padding: 1.75rem !important;
-            height: 320px !important;
+            height: 360px !important;
           }
           
           .testimonials-section {
@@ -225,8 +334,6 @@ const TestimonialsSection = () => {
           
           .testimonial-card p {
             font-size: 1rem !important;
-            margin-bottom: 1.5rem !important;
-            minHeight: 120px !important;
           }
           
           .testimonials-header h2 {

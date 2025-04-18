@@ -407,24 +407,6 @@ const HeroSection = () => {
           <h3>Revolutionary Bitcoin-native platform coming soon</h3>
         </div>
         
-        <div className="fix-bitcoin-banner">
-          <div className="fix-bitcoin-content">
-            <div className="fix-bitcoin-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <line x1="12" y1="16" x2="12" y2="16" />
-              </svg>
-            </div>
-            <div className="fix-bitcoin-text">
-              <h4>
-                <span style={{ color: '#ff8c00' }}>Fix Bitcoin</span>. Fix the <span style={{ color: '#ff8c00' }}>World</span>.
-              </h4>
-              <p>Learn why we believe Bitcoin will fix the world</p>
-            </div>
-            <a href="/fixbitcoin" className="fix-bitcoin-button">Learn More</a>
-          </div>
-        </div>
         
         <div className="users-scroll-container">
           <div className="users-scroll-inner">
@@ -506,7 +488,7 @@ const HeroSection = () => {
             
             {/* Left column: Access info, CTA button and counter */}
             <div className="earlybird-col-left">
-              <div className="title-group">
+              <div className="title-group" style={{ maxWidth: "450px", width: "100%" }}>
                 <h2>Be an earlybird - get rewarded later.</h2>
                 <p>Join the mailing list and be the first when we launch our services.</p>
               </div>
