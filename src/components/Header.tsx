@@ -215,6 +215,20 @@ const Header = () => {
               About
             </a>
             <a 
+              href={window.location.pathname === '/' ? '#mission' : '/#mission'} 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Mission
+            </a>
+            <a 
               href={window.location.pathname === '/' ? '#jobs' : '/#jobs'} 
               style={{
                 textDecoration: 'none',
@@ -318,6 +332,19 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               About
+            </a>
+            <a 
+              href={window.location.pathname === '/' ? '#mission' : '/#mission'} 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Mission
             </a>
             <a 
               href={window.location.pathname === '/' ? '#jobs' : '/#jobs'} 

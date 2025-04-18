@@ -233,7 +233,7 @@ const HeroSection = () => {
           height: '48px',
           boxSizing: 'border-box'
         }}>Get Started</a>
-        <a href="#mission" className="btn secondary" style={{
+        <a href="/fixbitcoin" className="btn secondary" style={{
           padding: '0.65rem 3rem', 
           minWidth: '180px', 
           borderRadius: '999px', 
