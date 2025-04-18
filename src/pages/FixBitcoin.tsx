@@ -8,919 +8,850 @@ const FixBitcoin = () => {
       <Header />
       <main style={{ flexGrow: 1, padding: '4rem 2rem', background: '#0b0b0b' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h1 style={{ 
-              fontSize: '3rem', 
-              background: 'linear-gradient(135deg, #ff8a00, #e52e71)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              marginBottom: '1.5rem',
-              display: 'inline-block'
-            }}>
-              ⚡ Fix Bitcoin. Fix the World.
-            </h1>
-            <p style={{ 
-              color: '#ddd', 
-              fontSize: '1.3rem', 
-              margin: '0 auto', 
-              maxWidth: '850px', 
-              textAlign: 'center',
-              fontWeight: '300'
-            }}>
-              Why Hyperbitcoinization Will Fix the World
-            </p>
-          </div>
-
-          {/* Intro Section with Hero Glass Card */}
+          {/* Hero Header */}
           <div style={{ 
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+            textAlign: 'center', 
             marginBottom: '4rem',
-            position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
+            position: 'relative'
           }}>
-            {/* Red glow effect */}
             <div style={{
               position: 'absolute',
-              top: '-150px',
-              right: '-150px',
-              width: '400px',
-              height: '400px',
-              background: 'radial-gradient(circle, rgba(229, 46, 113, 0.15) 0%, rgba(229, 46, 113, 0) 70%)',
-              borderRadius: '50%',
-              zIndex: 0
-            }}></div>
-            
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <div style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ 
-                    marginRight: '0.5rem',
-                    fontSize: '3rem',
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>🌍</span>
-                  <span>The System is Broken — and So is Society</span>
-                </div>
-              </div>
-              
-              <p style={{ fontSize: '1.2rem', lineHeight: '1.7', marginBottom: '1.5rem', fontWeight: '300' }}>
-                A broken financial system leads to a broken society
-              </p>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7'
-              }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  The rich keep getting richer — not because they're smarter, but because the rules are written in their favor
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  The gap between rich and poor isn't just widening, it's becoming a chasm that swallows opportunity
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Wages are stagnant, debt is rising, and the middle class is disappearing
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Young generations are born into debt, locked out of owning homes, land, or a future
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8a00, #e52e71)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Governments inflate money supply, eroding your savings — while they tell you inflation is good
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Big Tech Section */}
-          <div style={{ 
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '4rem',
-            position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
-          }}>
-            {/* Blue glow effect */}
-            <div style={{
-              position: 'absolute',
-              top: '-150px',
-              left: '-150px',
-              width: '400px',
-              height: '400px',
-              background: 'radial-gradient(circle, rgba(76, 149, 223, 0.15) 0%, rgba(76, 149, 223, 0) 70%)',
-              borderRadius: '50%',
-              zIndex: 0
-            }}></div>
-            
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <div style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ 
-                    marginRight: '0.5rem',
-                    fontSize: '3rem',
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>👎</span>
-                  <span>Big Tech Was Not the Solution — It Became the Curse</span>
-                </div>
-              </div>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7'
-              }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  We were promised liberation — instead we got surveillance, censorship, and addiction
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Technology didn't empower the individual — it enslaved them to algorithms and subscription traps
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Tech platforms and "Everything-as-a-Service" robbed people of ownership — you rent your software, your music, even your data
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  The user became the product — privacy became a relic, and attention the currency of control
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4a8eff, #2d68c4)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  AI and automation, instead of freeing us, devalued human labor — making people less essential in the economy they built
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Financial Elites Section */}
-          <div style={{ 
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '4rem',
-            position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
-          }}>
-            {/* Gold glow effect */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-150px',
-              right: '-150px',
-              width: '400px',
-              height: '400px',
-              background: 'radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0) 70%)',
-              borderRadius: '50%',
-              zIndex: 0
-            }}></div>
-            
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <div style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ 
-                    marginRight: '0.5rem',
-                    fontSize: '3rem',
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>🏦</span>
-                  <span>The Financial Elites Robbed the People</span>
-                </div>
-              </div>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7'
-              }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Banks and credit card companies are middlemen taxing every transaction with no value given
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Bailouts go to bankers — while everyday people get left behind, or worse, blamed
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  A system where Coachella tickets are 60% financed and billion-dollar banks get free money…
-                  <br/>…while the average person can't afford rent — is a system in decay
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Buying power is political power — when people lose that, they lose their voice
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ffd700, #b8860b)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  You don't live in a true democracy if you can't vote with your money
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Better Tech Section */}
-          <div style={{ 
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '4rem',
-            position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
-          }}>
-            {/* Orange glow effect */}
-            <div style={{
-              position: 'absolute',
-              top: '-150px',
-              right: '-150px',
-              width: '400px',
-              height: '400px',
+              top: '-100px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '600px',
+              height: '600px',
               background: 'radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, rgba(255, 140, 0, 0) 70%)',
               borderRadius: '50%',
               zIndex: 0
             }}></div>
             
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <div style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ 
-                    marginRight: '0.5rem',
-                    fontSize: '3rem',
-                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>🔥</span>
-                  <span>We Need Better Tech — Not Just More of It</span>
-                </div>
-              </div>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7'
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <h1 style={{ 
+                fontSize: '4.5rem', 
+                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '0',
+                fontWeight: '800'
               }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Technology should serve the people, not extract from them
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  We must build systems that distribute power, not centralize it
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  The next wave of tech must put ownership, privacy, and freedom back into the hands of individuals
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  We don't reject technology — we reject corrupted incentives
-                </li>
-              </ul>
+                ⚡ Fix Bitcoin.
+              </h1>
+              <h1 style={{ 
+                fontSize: '4.5rem', 
+                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginTop: '0',
+                fontWeight: '800'
+              }}>
+                Fix the World.
+              </h1>
+              <p style={{ 
+                color: '#aaa', 
+                fontSize: '1.5rem', 
+                margin: '1rem auto 0', 
+                maxWidth: '850px',
+                fontWeight: '300',
+                letterSpacing: '0.5px'
+              }}>
+                Why Hyperbitcoinization Will Fix the World
+              </p>
             </div>
           </div>
 
-          {/* Bitcoin Solution Section */}
-          <div style={{ 
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '4rem',
-            position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
+          {/* Introduction */}
+          <div style={{
+            textAlign: 'center',
+            maxWidth: '900px',
+            margin: '0 auto 5rem',
+            position: 'relative'
           }}>
-            {/* Green glow effect */}
+            <p style={{
+              fontSize: '1.5rem',
+              lineHeight: '1.7',
+              color: '#e0e0e0',
+              fontWeight: '300',
+              fontStyle: 'italic'
+            }}>
+              "The world doesn't change with elections — it changes when people<br/>opt out of broken systems. Bitcoin is that opt-out."
+            </p>
+          </div>
+
+          {/* System is Broken Card */}
+          <div style={{ 
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
+            position: 'relative',
+            background: 'rgba(25, 25, 35, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+          }}>
+            <div style={{
+              padding: '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '2rem'
+                }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    marginRight: '1.5rem',
+                    boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </div>
+                  <h2 style={{ 
+                    fontSize: '2.4rem', 
+                    margin: 0,
+                    color: '#fff',
+                    fontWeight: '700',
+                  }}>
+                    The System is Broken — and So is Society
+                  </h2>
+                </div>
+                
+                <p style={{ 
+                  fontSize: '1.3rem', 
+                  lineHeight: '1.6', 
+                  marginBottom: '2rem', 
+                  fontWeight: '300',
+                  color: '#ff8c00'
+                }}>
+                  A broken financial system leads to a broken society
+                </p>
+                
+                <ul style={{ 
+                  listStyleType: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gap: '1.5rem'
+                }}>
+                  {[
+                    "The rich keep getting richer — not because they're smarter, but because the rules are written in their favor",
+                    "The gap between rich and poor isn't just widening, it's becoming a chasm that swallows opportunity",
+                    "Wages are stagnant, debt is rising, and the middle class is disappearing",
+                    "Young generations are born into debt, locked out of owning homes, land, or a future",
+                    "Governments inflate money supply, eroding your savings — while they tell you inflation is good"
+                  ].map((text, index) => (
+                    <li key={index} style={{
+                      position: 'relative',
+                      paddingLeft: '2rem',
+                      fontSize: '1.1rem',
+                      lineHeight: '1.7',
+                      color: '#e0e0e0'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '0.6rem',
+                        width: '8px',
+                        height: '8px',
+                        background: '#ff8c00',
+                        borderRadius: '50%'
+                      }}></span>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Big Tech Section */}
+          <div style={{ 
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
+            position: 'relative',
+            background: 'rgba(25, 25, 35, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+          }}>
+            <div style={{
+              padding: '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle at bottom left, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '2rem'
+                }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    marginRight: '1.5rem',
+                    boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"></path>
+                      <path d="M22 8h-10"></path>
+                    </svg>
+                  </div>
+                  <h2 style={{ 
+                    fontSize: '2.4rem', 
+                    margin: 0,
+                    color: '#fff',
+                    fontWeight: '700',
+                  }}>
+                    Big Tech Was Not the Solution — It Became the Curse
+                  </h2>
+                </div>
+                
+                <ul style={{ 
+                  listStyleType: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gap: '1.5rem'
+                }}>
+                  {[
+                    "We were promised liberation — instead we got surveillance, censorship, and addiction",
+                    "Technology didn't empower the individual — it enslaved them to algorithms and subscription traps",
+                    "Tech platforms and \"Everything-as-a-Service\" robbed people of ownership — you rent your software, your music, even your data",
+                    "The user became the product — privacy became a relic, and attention the currency of control",
+                    "AI and automation, instead of freeing us, devalued human labor — making people less essential in the economy they built"
+                  ].map((text, index) => (
+                    <li key={index} style={{
+                      position: 'relative',
+                      paddingLeft: '2rem',
+                      fontSize: '1.1rem',
+                      lineHeight: '1.7',
+                      color: '#e0e0e0'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '0.6rem',
+                        width: '8px',
+                        height: '8px',
+                        background: '#ff8c00',
+                        borderRadius: '50%'
+                      }}></span>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Financial Elites Section */}
+          <div style={{ 
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
+            position: 'relative',
+            background: 'rgba(25, 25, 35, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+          }}>
+            <div style={{
+              padding: '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '2rem'
+                }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    marginRight: '1.5rem',
+                    boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                  </div>
+                  <h2 style={{ 
+                    fontSize: '2.4rem', 
+                    margin: 0,
+                    color: '#fff',
+                    fontWeight: '700',
+                  }}>
+                    The Financial Elites Robbed the People
+                  </h2>
+                </div>
+                
+                <ul style={{ 
+                  listStyleType: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gap: '1.5rem'
+                }}>
+                  {[
+                    "Banks and credit card companies are middlemen taxing every transaction with no value given",
+                    "Bailouts go to bankers — while everyday people get left behind, or worse, blamed",
+                    "A system where Coachella tickets are 60% financed and billion-dollar banks get free money while the average person can't afford rent — is a system in decay",
+                    "Buying power is political power — when people lose that, they lose their voice",
+                    "You don't live in a true democracy if you can't vote with your money"
+                  ].map((text, index) => (
+                    <li key={index} style={{
+                      position: 'relative',
+                      paddingLeft: '2rem',
+                      fontSize: '1.1rem',
+                      lineHeight: '1.7',
+                      color: '#e0e0e0'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '0.6rem',
+                        width: '8px',
+                        height: '8px',
+                        background: '#ff8c00',
+                        borderRadius: '50%'
+                      }}></span>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Better Tech Section */}
+          <div style={{ 
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
+            position: 'relative',
+            background: 'rgba(25, 25, 35, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+          }}>
+            <div style={{
+              padding: '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle at bottom left, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '2rem'
+                }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    marginRight: '1.5rem',
+                    boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                    </svg>
+                  </div>
+                  <h2 style={{ 
+                    fontSize: '2.4rem', 
+                    margin: 0,
+                    color: '#fff',
+                    fontWeight: '700',
+                  }}>
+                    We Need Better Tech — Not Just More of It
+                  </h2>
+                </div>
+                
+                <ul style={{ 
+                  listStyleType: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gap: '1.5rem'
+                }}>
+                  {[
+                    "Technology should serve the people, not extract from them",
+                    "We must build systems that distribute power, not centralize it",
+                    "The next wave of tech must put ownership, privacy, and freedom back into the hands of individuals",
+                    "We don't reject technology — we reject corrupted incentives"
+                  ].map((text, index) => (
+                    <li key={index} style={{
+                      position: 'relative',
+                      paddingLeft: '2rem',
+                      fontSize: '1.1rem',
+                      lineHeight: '1.7',
+                      color: '#e0e0e0'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '0.6rem',
+                        width: '8px',
+                        height: '8px',
+                        background: '#ff8c00',
+                        borderRadius: '50%'
+                      }}></span>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Bitcoin Solution - Feature Section */}
+          <div style={{ 
+            position: 'relative',
+            marginBottom: '5rem',
+          }}>
             <div style={{
               position: 'absolute',
-              bottom: '-150px',
-              left: '-150px',
-              width: '400px',
-              height: '400px',
-              background: 'radial-gradient(circle, rgba(76, 217, 100, 0.15) 0%, rgba(76, 217, 100, 0) 70%)',
+              top: '-200px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '800px',
+              height: '800px',
+              background: 'radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0) 70%)',
               borderRadius: '50%',
               zIndex: 0
             }}></div>
             
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <h2 style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  textAlign: 'center'
-                }}>
-                  Enter Bitcoin: The Technology of Freedom
-                </h2>
-              </div>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.2rem',
-                lineHeight: '1.7'
+            <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, marginBottom: '3rem' }}>
+              <h2 style={{ 
+                fontSize: '3rem', 
+                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '1.5rem'
               }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
+                Enter Bitcoin: The Technology of Freedom
+              </h2>
+              <div style={{ 
+                width: '80px', 
+                height: '4px', 
+                background: 'linear-gradient(to right, #ff8c00, #ff5500)', 
+                margin: '0 auto 3rem',
+                borderRadius: '2px' 
+              }}></div>
+            </div>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+              gap: '2rem',
+              position: 'relative',
+              zIndex: 1
+            }}>
+              {[
+                {
+                  icon: "💰",
+                  title: "Save Again",
+                  desc: "With Bitcoin, people can save again — in a currency that can't be printed away"
+                },
+                {
+                  icon: "🏠",
+                  title: "Own Again",
+                  desc: "With Bitcoin, people can own again — truly own, without counterparty risk"
+                },
+                {
+                  icon: "⚡",
+                  title: "Have Power Again",
+                  desc: "With Bitcoin, people have power again — not just to consume, but to build"
+                },
+                {
+                  icon: "🔐",
+                  title: "Digital Property",
+                  desc: "Bitcoin is digital property, incorruptible money, and a parallel system of trust"
+                },
+                {
+                  icon: "🌐",
+                  title: "Inclusive by Design",
+                  desc: "It is inclusive by design — no ID, no gatekeepers, no borders"
+                },
+                {
+                  icon: "⏳",
+                  title: "Long-term Thinking",
+                  desc: "It restores long-term thinking — when money holds value, time matters again"
+                }
+              ].map((feature, index) => (
+                <div key={index} style={{
+                  borderRadius: '20px',
+                  background: 'rgba(25, 25, 35, 0.7)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  padding: '2rem',
+                  boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
+                  transition: 'transform 0.3s, box-shadow 0.3s, border-color 0.3s',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 140, 0, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
                 }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  With Bitcoin, people can save again — in a currency that can't be printed away
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  With Bitcoin, people can own again — truly own, without counterparty risk
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  With Bitcoin, people have power again — not just to consume, but to build
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Bitcoin is digital property, incorruptible money, and a parallel system of trust
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  It is inclusive by design — no ID, no gatekeepers, no borders
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  It restores long-term thinking — when money holds value, time matters again
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #4cd964, #2e8a3a)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  It is not just a currency — it's a peaceful revolution
-                </li>
-              </ul>
+                  <div style={{
+                    fontSize: '3rem',
+                    marginBottom: '1rem',
+                    color: '#ff8c00'
+                  }}>
+                    {feature.icon}
+                  </div>
+                  <h3 style={{ 
+                    fontSize: '1.5rem', 
+                    color: '#fff',
+                    marginBottom: '1rem',
+                    fontWeight: '600'
+                  }}>
+                    {feature.title}
+                  </h3>
+                  <p style={{
+                    fontSize: '1.1rem',
+                    lineHeight: '1.6',
+                    color: '#e0e0e0',
+                    margin: 0,
+                    flexGrow: 1
+                  }}>
+                    {feature.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Fix the World Section */}
           <div style={{ 
-            borderRadius: '20px',
+            borderRadius: '24px',
             overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '4rem',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
             position: 'relative',
-            background: 'rgba(25, 25, 35, 0.6)',
+            background: 'linear-gradient(135deg, rgba(25, 25, 35, 0.8), rgba(15, 15, 20, 0.8))',
             backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
-            color: '#e0e0e0'
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
-            {/* Purple glow effect */}
             <div style={{
-              position: 'absolute',
-              top: '-150px',
-              right: '-150px',
-              width: '400px',
-              height: '400px',
-              background: 'radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(138, 43, 226, 0) 70%)',
-              borderRadius: '50%',
-              zIndex: 0
-            }}></div>
-            
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-              <div style={{ marginBottom: '2rem' }}>
+              padding: '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle at top right, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center'
+                  textAlign: 'center',
+                  marginBottom: '3rem'
                 }}>
-                  <span style={{ 
-                    marginRight: '0.5rem',
-                    fontSize: '3rem',
-                    background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>🛠️</span>
-                  <span>Fix the Money. Fix the Incentives. Fix the World.</span>
+                  <h2 style={{ 
+                    fontSize: '3rem', 
+                    color: '#fff',
+                    fontWeight: '700',
+                    marginBottom: '1rem'
+                  }}>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '50px',
+                      height: '50px',
+                      background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                      color: 'white',
+                      borderRadius: '8px',
+                      marginRight: '1rem',
+                      boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                    }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                      </svg>
+                    </div>
+                    Fix the Money. Fix the Incentives. Fix the World.
+                  </h2>
+                </div>
+                
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+                  gap: '2rem'
+                }}>
+                  {[
+                    "The world doesn't change with elections — it changes when people opt out of broken systems",
+                    "Bitcoin is an opt-out. A silent protest. A peaceful exit.",
+                    "You can't build a just society on a corrupt foundation — fix the money first",
+                    "Bitcoin isn't a trend — it's a once-in-a-civilization invention that lets humanity start fresh"
+                  ].map((text, index) => (
+                    <div key={index} style={{
+                      padding: '1.5rem',
+                      borderRadius: '16px',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(255, 255, 255, 0.05)',
+                      fontSize: '1.2rem',
+                      lineHeight: '1.6',
+                      color: '#e0e0e0',
+                      transition: 'transform 0.3s, background 0.3s',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.background = 'rgba(255, 140, 0, 0.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                    }}>
+                      {text}
+                    </div>
+                  ))}
                 </div>
               </div>
-              
-              <ul style={{ 
-                listStyleType: 'none', 
-                padding: 0, 
-                margin: '0 0 2rem 0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7'
-              }}>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #9b59b6, #8e44ad)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  The world doesn't change with elections — it changes when people opt out of broken systems
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #9b59b6, #8e44ad)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Bitcoin is an opt-out. A silent protest. A peaceful exit.
-                </li>
-                <li style={{ 
-                  marginBottom: '1.2rem', 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #9b59b6, #8e44ad)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  You can't build a just society on a corrupt foundation — fix the money first
-                </li>
-                <li style={{ 
-                  paddingLeft: '2rem', 
-                  position: 'relative' 
-                }}>
-                  <span style={{ 
-                    position: 'absolute', 
-                    left: 0, 
-                    top: '0.35rem', 
-                    width: '10px', 
-                    height: '10px', 
-                    background: 'linear-gradient(135deg, #9b59b6, #8e44ad)', 
-                    borderRadius: '50%' 
-                  }}></span>
-                  Bitcoin isn't a trend — it's a once-in-a-civilization invention that lets humanity start fresh
-                </li>
-              </ul>
             </div>
           </div>
 
           {/* Call to Action */}
           <div style={{
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            marginBottom: '3rem',
-            position: 'relative',
-            background: 'linear-gradient(135deg, rgba(25, 25, 35, 0.8), rgba(15, 15, 20, 0.8))',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '3rem',
             textAlign: 'center',
-            color: '#e0e0e0'
+            padding: '5rem 1rem',
+            position: 'relative',
+            margin: '0 auto 4rem',
+            maxWidth: '900px'
           }}>
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{
-                fontSize: '2.8rem',
-                marginBottom: '1.5rem',
+            <div style={{
+              position: 'absolute',
+              top: '0',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '600px',
+              height: '600px',
+              background: 'radial-gradient(circle, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+              borderRadius: '50%',
+              zIndex: 0
+            }}></div>
+            
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <h2 style={{ 
+                fontSize: '3.5rem', 
                 color: '#fff',
+                marginBottom: '3rem',
+                fontWeight: '800',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <span style={{ 
-                  marginRight: '0.8rem',
-                  fontSize: '3.2rem',
-                  background: 'linear-gradient(135deg, #ff8a00, #e52e71)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>✊</span>
-                <span>Join the Movement.</span>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '60px',
+                  height: '60px',
+                  background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                  color: 'white',
+                  borderRadius: '12px',
+                  marginRight: '1rem',
+                  boxShadow: '0 4px 16px rgba(255, 94, 0, 0.3)'
+                }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+                Join the Movement
+              </h2>
+              
+              <div style={{ 
+                fontSize: '1.8rem',
+                fontWeight: '300',
+                lineHeight: '2',
+                color: '#e0e0e0',
+                marginBottom: '3rem'
+              }}>
+                <p>We don't ask for permission</p>
+                <p>We don't beg for reform</p>
+                <p>We build the future we want</p>
+                <p>One block at a time</p>
               </div>
-            </div>
-            
-            <div style={{ 
-              maxWidth: '700px', 
-              margin: '0 auto 2rem',
-              fontSize: '1.4rem',
-              lineHeight: '2',
-              fontWeight: '300'
-            }}>
-              <p>We don't ask for permission</p>
-              <p>We don't beg for reform</p>
-              <p>We build the future we want</p>
-              <p>One block at a time</p>
-            </div>
-            
-            <div style={{ marginTop: '2.5rem' }}>
-              <a
-                href="/"
-                style={{
-                  display: 'inline-block',
-                  padding: '0.8rem 2.5rem',
-                  background: 'linear-gradient(135deg, #ff8a00, #e52e71)',
-                  color: '#fff',
-                  borderRadius: '9999px',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  textDecoration: 'none',
-                  transition: 'all 0.3s',
-                  border: '1px solid transparent',
-                  boxShadow: '0 4px 20px rgba(229, 46, 113, 0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = '0.9';
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 6px 25px rgba(229, 46, 113, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '1';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(229, 46, 113, 0.3)';
-                }}
-              >
-                Return to Home
-              </a>
+              
+              <div style={{ marginTop: '3rem' }}>
+                <a
+                  href="/"
+                  style={{
+                    display: 'inline-block',
+                    padding: '1rem 3rem',
+                    background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                    color: '#fff',
+                    borderRadius: '9999px',
+                    fontSize: '1.3rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s',
+                    border: '1px solid transparent',
+                    boxShadow: '0 6px 25px rgba(255, 140, 0, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(255, 140, 0, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 6px 25px rgba(255, 140, 0, 0.3)';
+                  }}
+                >
+                  Return to Home
+                </a>
+              </div>
             </div>
           </div>
         </div>
