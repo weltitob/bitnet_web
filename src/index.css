@@ -1271,7 +1271,7 @@ nav a:hover {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto 5rem;
-  padding: 0 20px;
+  padding: 2rem 20px 0; /* Added top padding */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1588,6 +1588,7 @@ footer {
    .phone-features-container {
        flex-direction: column;
        min-height: auto;
+       position: relative;
    }
    
    .earlybird-section {
@@ -1686,8 +1687,9 @@ footer {
        margin: 0 auto;
    }
    
+   /* Feature cards - stacked in mobile view */
    .feature-card {
-       position: relative;
+       position: static;
        left: auto !important;
        top: auto !important;
        right: auto !important;
@@ -1696,6 +1698,45 @@ footer {
        width: 85%;
        max-width: 320px;
        margin: 0.75rem auto;
+       opacity: 1; /* Make them visible by default on mobile */
+   }
+   
+   /* Create a mobile feature cards container */
+   .mobile-feature-cards {
+       display: flex;
+       flex-direction: column;
+       gap: 1.5rem;
+       width: 100%;
+       padding: 0 1.25rem;
+       margin-top: 2rem; /* More space between phone and cards */
+       margin-bottom: 4rem; /* More space after feature cards before next section */
+   }
+   
+   /* Make mobile feature cards larger */
+   .mobile-feature-cards .feature-card {
+       width: 92%;
+       max-width: 450px;
+       margin: 0 auto;
+       padding: 1.8rem;
+   }
+   
+   /* Make mobile feature card icons larger */
+   .mobile-feature-cards .feature-icon {
+       width: 50px;
+       height: 50px;
+       padding: 10px;
+       margin-bottom: 1rem;
+   }
+   
+   /* Make mobile feature card text larger */
+   .mobile-feature-cards h3 {
+       font-size: 1.35rem !important;
+       margin-bottom: 0.7rem !important;
+   }
+   
+   .mobile-feature-cards p {
+       font-size: 1rem !important;
+       line-height: 1.6 !important;
    }
    
    .mockup {
@@ -1781,6 +1822,16 @@ footer {
   .earlybird-content {
     padding: 1.5rem 1rem;
     width: 100%;
+  }
+  
+  /* Adjust feature cards for very small screens */
+  .mobile-feature-cards .feature-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .mobile-feature-cards {
+    padding: 0 0.8rem;
   }
   
   .hero h1 {

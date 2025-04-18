@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ModelViewer from './ModelViewer'
 import { useEarlybirdCount } from '../firebase/services'
 
@@ -75,8 +75,8 @@ const HeroSection = () => {
     
     // Reveal cards one by one
     const revealCards = () => {
-      // Exit if cards are already revealed
-      if (cardsRevealedRef.current) return;
+      // If we're on mobile or already revealed, exit
+      if (isMobile || cardsRevealedRef.current) return;
       
       const heroSection = document.querySelector('.hero');
       
@@ -129,8 +129,63 @@ const HeroSection = () => {
     };
   }, []); // These animations only run once on mount
 
+  // Check if we're on mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  const [wasRecentlyMobile, setWasRecentlyMobile] = useState(false);
+
+  // Track window resize to update mobile state
+  useEffect(() => {
+    const handleResize = () => {
+      const newIsMobile = window.innerWidth <= 900;
+      
+      // If we're transitioning from mobile to desktop
+      if (isMobile && !newIsMobile) {
+        setWasRecentlyMobile(true);
+        
+        // Force cards to be visible when switching to desktop
+        setTimeout(() => {
+          const cards = [
+            featureCardsRef.current.leftCard,
+            featureCardsRef.current.rightCard,
+            featureCardsRef.current.bottomCard
+          ];
+          
+          cards.forEach(card => {
+            if (card) {
+              card.style.opacity = '1';
+              if (card === featureCardsRef.current.leftCard) {
+                card.style.transform = 'translateY(-50%)';
+              } else if (card === featureCardsRef.current.rightCard) {
+                card.style.transform = 'translateY(-50%)';
+              } else if (card === featureCardsRef.current.bottomCard) {
+                card.style.transform = 'translateY(0)';
+              }
+            }
+          });
+          
+          // Set revealed state to true
+          cardsRevealedRef.current = true;
+        }, 100);
+      }
+      
+      setIsMobile(newIsMobile);
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobile]);
+
   // Feature card hover handlers
   const handleCardMouseEnter = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
+    // Skip transforms on mobile
+    if (isMobile) return;
+    
     if (card && cardsRevealedRef.current) {
       if (card === featureCardsRef.current.leftCard) {
         // Left card is at top 50%
@@ -150,6 +205,9 @@ const HeroSection = () => {
   };
   
   const handleCardMouseLeave = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
+    // Skip transforms on mobile
+    if (isMobile) return;
+    
     if (card && cardsRevealedRef.current) {
       if (card === featureCardsRef.current.leftCard) {
         // Left card is at top 50%
@@ -248,24 +306,32 @@ const HeroSection = () => {
         }}>Learn More</a>
       </div>
 
-      <div className="phone-features-container">
-        <div className="mockup" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="phone-features-container" style={{ flexDirection: isMobile ? 'column' : 'row' }}>
+        {/* Mockup phone */}
+        <div className="mockup" style={{ 
+          display: 'flex', 
+          flexDirection: 'column'
+        }}>
           {/* Safe area container */}
           <div style={{
-            height: 80,
+            height: isMobile ? 60 : 80,
             position: 'relative',
             backgroundColor: '#0e210d' /* Match the spacer color */
           }}>
             {/* Dynamic Island */}
-            <div className="dynamic-island" style={{ zIndex: 4 }}></div>
+            <div className="dynamic-island" style={{ 
+              zIndex: 4,
+              width: isMobile ? '100px' : '126px',
+              height: isMobile ? '28px' : '34px'
+            }}></div>
             
             {/* Top right box overlay */}
             <div style={{
               position: 'absolute',
               top: 0,
               right: 0,
-              width: '22px',
-              height: '51px',
+              width: isMobile ? '18px' : '22px',
+              height: isMobile ? '42px' : '51px',
               backgroundColor: '#0e210d',
               zIndex: 5
             }}></div>
@@ -288,7 +354,7 @@ const HeroSection = () => {
           
           {/* Green spacer that matches the top of the chart */}
           <div style={{
-            height: '50px',
+            height: isMobile ? '40px' : '50px',
             backgroundColor: '#0e210d', /* Exact color match provided */
             zIndex: 1
           }}></div>
@@ -307,99 +373,152 @@ const HeroSection = () => {
           />
         </div>
         
-        <div 
-          ref={el => featureCardsRef.current.leftCard = el}
-          className="feature-card left-card"
-          style={{
-            top: '45%',
-            left: '80px',
-            transform: 'translateY(-50%)',
-            position: 'absolute',
-            width: '280px'
-          }}
-          onMouseEnter={() => handleCardMouseEnter(
-            featureCardsRef.current.leftCard,
-            document.querySelector('.left-card .feature-icon') as HTMLDivElement
-          )}
-          onMouseLeave={() => handleCardMouseLeave(
-            featureCardsRef.current.leftCard,
-            document.querySelector('.left-card .feature-icon') as HTMLDivElement
-          )}
-        >
-          <div className="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <div className="feature-content">
-            <h3>Instant Payments</h3>
-            <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
-          </div>
-        </div>
-        
-        <div 
-          ref={el => featureCardsRef.current.rightCard = el}
-          className="feature-card right-card"
-          style={{
-            top: '25%',
-            right: '60px',
-            transform: 'translateY(-50%)',
-            position: 'absolute',
-            width: '280px'
-          }}
-          onMouseEnter={() => handleCardMouseEnter(
-            featureCardsRef.current.rightCard,
-            document.querySelector('.right-card .feature-icon') as HTMLDivElement
-          )}
-          onMouseLeave={() => handleCardMouseLeave(
-            featureCardsRef.current.rightCard,
-            document.querySelector('.right-card .feature-icon') as HTMLDivElement
-          )}
-        >
-          <div className="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M2 12h20"></path>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          </div>
-          <div className="feature-content">
-            <h3>Bitcoin Made Better</h3>
-            <p>Web3 apps and digital collectibles, all on Bitcoin</p>
-          </div>
-        </div>
-        
-        <div 
-          ref={el => featureCardsRef.current.bottomCard = el}
-          className="feature-card bottom-card"
-          style={{
-            bottom: '115px',
-            right: '130px',
-            position: 'absolute',
-            width: '280px'
-          }}
-          onMouseEnter={() => handleCardMouseEnter(
-            featureCardsRef.current.bottomCard,
-            document.querySelector('.bottom-card .feature-icon') as HTMLDivElement
-          )}
-          onMouseLeave={() => handleCardMouseLeave(
-            featureCardsRef.current.bottomCard,
-            document.querySelector('.bottom-card .feature-icon') as HTMLDivElement
-          )}
-        >
-          <div className="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-          </div>
-          <div className="feature-content">
-            <h3>Marketplace</h3>
-            <p>Buy, sell, and collect digital treasures on Bitcoin</p>
-          </div>
-        </div>
+        {/* For desktop layout - positioned cards */}
+        {!isMobile && (
+          <>
+            <div 
+              ref={el => featureCardsRef.current.leftCard = el}
+              className="feature-card left-card"
+              style={{
+                top: '45%',
+                left: '80px',
+                transform: 'translateY(-50%)',
+                position: 'absolute',
+                width: '280px'
+              }}
+              onMouseEnter={() => handleCardMouseEnter(
+                featureCardsRef.current.leftCard,
+                document.querySelector('.left-card .feature-icon') as HTMLDivElement
+              )}
+              onMouseLeave={() => handleCardMouseLeave(
+                featureCardsRef.current.leftCard,
+                document.querySelector('.left-card .feature-icon') as HTMLDivElement
+              )}
+            >
+              <div className="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <div className="feature-content">
+                <h3>Instant Payments</h3>
+                <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
+              </div>
+            </div>
+            
+            <div 
+              ref={el => featureCardsRef.current.rightCard = el}
+              className="feature-card right-card"
+              style={{
+                top: '25%',
+                right: '60px',
+                transform: 'translateY(-50%)',
+                position: 'absolute',
+                width: '280px'
+              }}
+              onMouseEnter={() => handleCardMouseEnter(
+                featureCardsRef.current.rightCard,
+                document.querySelector('.right-card .feature-icon') as HTMLDivElement
+              )}
+              onMouseLeave={() => handleCardMouseLeave(
+                featureCardsRef.current.rightCard,
+                document.querySelector('.right-card .feature-icon') as HTMLDivElement
+              )}
+            >
+              <div className="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M2 12h20"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div className="feature-content">
+                <h3>Bitcoin Made Better</h3>
+                <p>Web3 apps and digital collectibles, all on Bitcoin</p>
+              </div>
+            </div>
+            
+            <div 
+              ref={el => featureCardsRef.current.bottomCard = el}
+              className="feature-card bottom-card"
+              style={{
+                bottom: '115px',
+                right: '130px',
+                position: 'absolute',
+                width: '280px'
+              }}
+              onMouseEnter={() => handleCardMouseEnter(
+                featureCardsRef.current.bottomCard,
+                document.querySelector('.bottom-card .feature-icon') as HTMLDivElement
+              )}
+              onMouseLeave={() => handleCardMouseLeave(
+                featureCardsRef.current.bottomCard,
+                document.querySelector('.bottom-card .feature-icon') as HTMLDivElement
+              )}
+            >
+              <div className="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </div>
+              <div className="feature-content">
+                <h3>Marketplace</h3>
+                <p>Buy, sell, and collect digital treasures on Bitcoin</p>
+              </div>
+            </div>
+          </>
+        )}
       </div>
+        
+      {/* For mobile layout - stacked cards in separate container below phone */}
+      {isMobile && (
+        <div className="mobile-feature-cards">
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div className="feature-content">
+              <h3>Instant Payments</h3>
+              <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
+            </div>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div className="feature-content">
+              <h3>Bitcoin Made Better</h3>
+              <p>Web3 apps and digital collectibles, all on Bitcoin</p>
+            </div>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <div className="feature-content">
+              <h3>Marketplace</h3>
+              <p>Buy, sell, and collect digital treasures on Bitcoin</p>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Add extra spacing only in mobile view */}
+      {isMobile && <div style={{ height: '1.5rem' }}></div>}
       
       <div className="social-proof-section">
         <div className="social-proof-header">
