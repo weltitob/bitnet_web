@@ -29,25 +29,29 @@ const FixBitcoin = () => {
             <div style={{ position: 'relative', zIndex: 1 }}>
               <h1 style={{ 
                 fontSize: '4.5rem', 
-                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                color: '#fff',
                 marginBottom: '0',
                 fontWeight: '800'
               }}>
-                ⚡ Fix Bitcoin.
+                ⚡ <span style={{ 
+                  background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>Fix Bitcoin</span>.
               </h1>
               <h1 style={{ 
                 fontSize: '4.5rem', 
-                background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                color: '#fff',
                 marginTop: '0',
                 fontWeight: '800'
               }}>
-                Fix the World.
+                Fix the <span style={{ 
+                  background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>World</span>.
               </h1>
               <p style={{ 
                 color: '#aaa', 
@@ -777,15 +781,20 @@ const FixBitcoin = () => {
                       fontSize: '1.2rem',
                       lineHeight: '1.6',
                       color: '#e0e0e0',
-                      transition: 'transform 0.3s, background 0.3s',
+                      transition: 'transform 0.3s, background 0.3s, box-shadow 0.3s',
+                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)',
+                      position: 'relative',
+                      zIndex: 1
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-5px)';
                       e.currentTarget.style.background = 'rgba(255, 140, 0, 0.05)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.2)';
                     }}>
                       {text}
                     </div>

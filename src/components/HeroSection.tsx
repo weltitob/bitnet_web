@@ -417,7 +417,9 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="fix-bitcoin-text">
-              <h4>Fix Bitcoin. Fix the World.</h4>
+              <h4>
+                <span style={{ color: '#ff8c00' }}>Fix Bitcoin</span>. Fix the <span style={{ color: '#ff8c00' }}>World</span>.
+              </h4>
               <p>Learn why we believe Bitcoin will fix the world</p>
             </div>
             <a href="/fixbitcoin" className="fix-bitcoin-button">Learn More</a>
