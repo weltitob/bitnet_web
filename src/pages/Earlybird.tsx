@@ -55,7 +55,7 @@ const EarlybirdPage = () => {
           minHeight: 'calc(100vh - 200px)'
         }}>
           <div className="signup-container" style={{
-            maxWidth: '800px',
+            maxWidth: '1050px',
             width: '100%',
             background: 'rgba(20, 20, 25, 0.7)',
             backdropFilter: 'blur(15px)',
@@ -84,7 +84,7 @@ const EarlybirdPage = () => {
                 margin: '0 0 0.5rem 0',
                 lineHeight: 1.2
               }}>Be an earlybird - get rewarded later.</h2>
-              <p style={{ color: '#aaa', fontSize: '1.1rem', margin: '0 auto', maxWidth: '600px', textAlign: 'center' }}>
+              <p style={{ color: '#aaa', fontSize: '1.1rem', margin: '0 auto', maxWidth: '800px', textAlign: 'center' }}>
                 Join the mailing list and be the first when we launch our services.
               </p>
             </div>

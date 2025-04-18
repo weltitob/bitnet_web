@@ -148,7 +148,7 @@ const EarlybirdMobilePage = () => {
                   margin: '0 0 12px 0',
                   lineHeight: 1.2
                 }}>Be an earlybird - get rewarded later.</h2>
-                <p style={{ color: '#aaa', fontSize: '16px', margin: '0 auto', maxWidth: '320px', lineHeight: '1.4' }}>
+                <p style={{ color: '#aaa', fontSize: '16px', margin: '0 auto', maxWidth: '340px', lineHeight: '1.4' }}>
                   Join the mailing list and be the first when we launch our services.
                 </p>
               </div>
