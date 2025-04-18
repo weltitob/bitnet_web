@@ -257,15 +257,30 @@ const Footer = () => {
             gap: 2rem 1rem;
           }
           
+          .footer-brand {
+            align-items: center;
+            text-align: center;
+          }
+          
+          .brand-description {
+            text-align: center;
+          }
+          
+          .footer-social {
+            justify-content: center;
+          }
+          
           .footer-bottom {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 1rem;
+            text-align: center;
           }
           
           .footer-bottom-links {
             flex-wrap: wrap;
             gap: 1rem;
+            justify-content: center;
           }
         }
       `}</style>

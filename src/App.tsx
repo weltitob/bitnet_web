@@ -36,7 +36,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/earlybird" element={<EarlybirdPage />} />
-        <Route path="/mobile/earlybird" element={<EarlybirdMobilePage />} />
         <Route path="/investors" element={<InvestorRelations />} />
         <Route path="/fixbitcoin" element={<FixBitcoin />} />
       </Routes>

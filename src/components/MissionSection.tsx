@@ -162,6 +162,7 @@ const MissionSection = () => {
         .mission-content {
           max-width: 1050px;
           width: 100%;
+          margin: 0 auto;
         }
         
         .mission-header {

@@ -215,9 +215,9 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Lightning-Fast</span>
         <span className="metric-separator">|</span>
-        <span className="metric-item">Open & Decentralized</span>
+        <span className="metric-item">Community-driven</span>
       </div>
-      <h1>We're Flipping the Script: Bitcoin-First Web3 That Works.</h1>
+      <h1>We're <span style={{ color: '#ff8c00' }}>Flipping</span> the Script: Bitcoin-First Web3 That <span style={{ color: '#ff8c00' }}>Works</span>.</h1>
       <p>We believe if we fix Bitcoin, we can fix the world.</p>
       <div className="hero-buttons">
         <a href="/earlybird" className="btn primary" style={{

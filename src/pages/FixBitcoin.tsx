@@ -17,7 +17,7 @@ const FixBitcoin = () => {
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
       <main style={{ flexGrow: 1, padding: 'clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem)', background: '#0b0b0b' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1050px', margin: '0 auto' }}>
           {/* Hero Header */}
           <div style={{ 
             textAlign: 'center', 
@@ -69,7 +69,7 @@ const FixBitcoin = () => {
           {/* Introduction */}
           <div style={{
             textAlign: 'center',
-            maxWidth: '90%',
+            maxWidth: '1050px',
             margin: '0 auto 5rem',
             position: 'relative'
           }}>
@@ -822,7 +822,7 @@ const FixBitcoin = () => {
             padding: '5rem 1rem',
             position: 'relative',
             margin: '0 auto 4rem',
-            maxWidth: '900px'
+            maxWidth: '1050px'
           }}>
             <div style={{
               position: 'absolute',
