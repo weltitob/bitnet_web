@@ -179,7 +179,7 @@ const ContactSection = () => {
         }
         
         .contact-container {
-          max-width: 1200px;
+          max-width: 1050px;
           margin: 0 auto;
           position: relative;
           z-index: 2;
