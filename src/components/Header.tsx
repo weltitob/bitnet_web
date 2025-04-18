@@ -201,7 +201,7 @@ const Header = () => {
             }}
           >
             <a 
-              href="#about" 
+              href={window.location.pathname === '/' ? '#about' : '/#about'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -215,7 +215,7 @@ const Header = () => {
               About
             </a>
             <a 
-              href="#jobs" 
+              href={window.location.pathname === '/' ? '#jobs' : '/#jobs'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -243,7 +243,7 @@ const Header = () => {
               Investors
             </a>
             <a 
-              href="#contact" 
+              href={window.location.pathname === '/' ? '#contact' : '/#contact'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -307,7 +307,7 @@ const Header = () => {
             }}
           >
             <a 
-              href="#about" 
+              href={window.location.pathname === '/' ? '#about' : '/#about'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -320,7 +320,7 @@ const Header = () => {
               About
             </a>
             <a 
-              href="#jobs" 
+              href={window.location.pathname === '/' ? '#jobs' : '/#jobs'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -346,7 +346,7 @@ const Header = () => {
               Investors
             </a>
             <a 
-              href="#contact" 
+              href={window.location.pathname === '/' ? '#contact' : '/#contact'} 
               style={{
                 textDecoration: 'none',
                 color: '#fff',

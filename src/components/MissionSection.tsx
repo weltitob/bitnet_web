@@ -95,24 +95,26 @@ const MissionSection = () => {
               </div>
             </div>
             
-            <div className="fix-bitcoin-banner" style={{ marginTop: '3rem' }}>
-              <div className="fix-bitcoin-content">
-                <div className="fix-bitcoin-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12" y2="16" />
-                  </svg>
+            <a href="/fixbitcoin" style={{ textDecoration: 'none' }}>
+              <div className="fix-bitcoin-banner" style={{ marginTop: '3rem', cursor: 'pointer' }}>
+                <div className="fix-bitcoin-content">
+                  <div className="fix-bitcoin-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12" y2="16" />
+                    </svg>
+                  </div>
+                  <div className="fix-bitcoin-text">
+                    <h4>
+                      <span style={{ color: '#ff8c00' }}>Fix Bitcoin</span>. Fix the <span style={{ color: '#ff8c00' }}>World</span>.
+                    </h4>
+                    <p>Learn why we believe Bitcoin will fix the world</p>
+                  </div>
+                  <div className="fix-bitcoin-button">Learn More</div>
                 </div>
-                <div className="fix-bitcoin-text">
-                  <h4>
-                    <span style={{ color: '#ff8c00' }}>Fix Bitcoin</span>. Fix the <span style={{ color: '#ff8c00' }}>World</span>.
-                  </h4>
-                  <p>Learn why we believe Bitcoin will fix the world</p>
-                </div>
-                <a href="/fixbitcoin" className="fix-bitcoin-button">Learn More</a>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

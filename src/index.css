@@ -341,7 +341,7 @@ nav a:hover {
 .earlybird-section {
   position: relative;
   width: 100%;
-  max-width: 850px;
+  max-width: 1050px;
   margin: 3rem auto 1rem;
   z-index: 2;
 }
@@ -1592,6 +1592,7 @@ footer {
    
    .earlybird-section {
        width: 90%;
+       max-width: 1050px;
        margin: 2rem auto;
    }
    .earlybird-content {
@@ -1773,6 +1774,7 @@ footer {
   
   .earlybird-section {
     width: 95%;
+    max-width: 1050px;
     margin: 1.5rem auto;
   }
   
