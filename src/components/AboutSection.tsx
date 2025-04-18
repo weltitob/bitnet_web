@@ -19,6 +19,9 @@ const AboutSection = () => {
               <img src={tobiasImage} alt="Tobias Welti" className="member-image" style={{ objectFit: 'cover' }} />
               <h3>Tobias Welti</h3>
               <span>Techlead, Founder & CEO</span>
+              <a href="https://whoistobi.com" target="_blank" rel="noopener noreferrer" className="founder-website">
+                whoistobi.com
+              </a>
             </div>
             
             <div className="team-member">
@@ -132,6 +135,37 @@ const AboutSection = () => {
         .team-member span {
           font-size: 0.9rem;
           color: #aaa;
+        }
+        
+        .founder-website {
+          font-size: 0.85rem;
+          color: #ff8c00;
+          margin-top: 0.5rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+        
+        .founder-website:hover {
+          color: #ffa533;
+        }
+        
+        .founder-website::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: -2px;
+          left: 0;
+          background-color: #ff8c00;
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          transition: transform 0.3s ease;
+        }
+        
+        .founder-website:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
         }
         
         @media (max-width: 992px) {

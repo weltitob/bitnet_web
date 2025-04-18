@@ -406,7 +406,7 @@ const FixBitcoin = () => {
                     "Bailouts go to bankers — while everyday people get left behind, or worse, blamed",
                     "A system where Coachella tickets are 60% financed and billion-dollar banks get free money while the average person can't afford rent — is a system in decay",
                     "Buying power is political power — when people lose that, they lose their voice",
-                    "You don't live in a true democracy if you can't vote with your money"
+                    "The money printers don't work for you — they dilute your savings while the well-connected get first access to fresh capital, by design"
                   ].map((text, index) => (
                     <li key={index} style={{
                       position: 'relative',
