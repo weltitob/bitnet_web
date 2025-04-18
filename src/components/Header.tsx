@@ -29,8 +29,14 @@ const Header = () => {
         header: {
           padding: '1rem',
         },
+        container: {
+          padding: '0',
+        },
         headerLogo: {
-          height: '24px',
+          height: '28px',
+        },
+        headerTitle: {
+          fontSize: '1.2rem',
         },
         headerLeft: {
           gap: '0.6rem',
@@ -45,8 +51,8 @@ const Header = () => {
           fontSize: '0.8rem',
         },
         headerBtn: {
-          padding: '0.3rem 0.8rem',
-          fontSize: '0.8rem',
+          padding: '0.4rem 0.9rem',
+          fontSize: '0.85rem',
         }
       }
     } else if (windowWidth <= 768) {
@@ -54,11 +60,17 @@ const Header = () => {
         header: {
           padding: '1rem',
         },
+        container: {
+          padding: '0',
+        },
         headerLogo: {
-          height: '28px',
+          height: '30px',
+        },
+        headerTitle: {
+          fontSize: '1.3rem',
         },
         headerLeft: {
-          gap: '0.6rem',
+          gap: '0.7rem',
         },
         headerRight: {
           gap: '1rem',
@@ -70,18 +82,24 @@ const Header = () => {
           fontSize: '0.85rem',
         },
         headerBtn: {
-          padding: '0.4rem 1rem',
-          fontSize: '0.85rem',
+          padding: '0.45rem 1.1rem',
+          fontSize: '0.9rem',
         }
       }
     }
 
     return {
       header: {
-        padding: '1.2rem 2rem',
+        padding: '1.2rem 0',
+      },
+      container: {
+        padding: '0 0.5rem',
       },
       headerLogo: {
-        height: '32px',
+        height: '34px',
+      },
+      headerTitle: {
+        fontSize: '1.55rem',
       },
       headerLeft: {
         gap: '0.8rem',
@@ -110,7 +128,7 @@ const Header = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: responsiveStyles.header.padding,
+        padding: windowWidth <= 600 ? '1.2rem 1rem' : windowWidth <= 768 ? '1.25rem 1.5rem' : '1.3rem 2rem',
         backgroundColor: '#0b0b0b',
         position: 'sticky',
         top: 0,
@@ -118,8 +136,16 @@ const Header = () => {
         borderBottom: '1px solid #1f1f1f',
       }}
     >
-      <div 
-        className="header-left"
+      <div className="header-container" style={{
+        maxWidth: '1200px',
+        width: '100%',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}>
+        <div 
+          className="header-left"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -139,7 +165,7 @@ const Header = () => {
         />
         <h1 
           style={{
-            fontSize: '1.5rem',
+            fontSize: responsiveStyles.headerTitle.fontSize,
             fontWeight: 700,
           }}
         >
@@ -407,6 +433,7 @@ const Header = () => {
           </a>
         </div>
       )}
+      </div>
     </header>
   )
 }
