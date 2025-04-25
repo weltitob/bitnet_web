@@ -185,28 +185,44 @@ const InvestorRelations = () => {
               }}></div>
               
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: isMobile ? 'column' : 'row', 
+                  alignItems: isMobile ? 'center' : 'flex-start', 
+                  marginBottom: '1.5rem' 
+                }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '15px',
+                    width: isMobile ? '50px' : '60px',
+                    height: isMobile ? '50px' : '60px',
+                    borderRadius: isMobile ? '12px' : '15px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 5px 15px rgba(255, 140, 0, 0.3)'
                   }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="white" strokeWidth="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={isMobile ? "26" : "30"} height={isMobile ? "26" : "30"} fill="none" stroke="white" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
                       <line x1="12" y1="16" x2="12" y2="12" />
                       <line x1="12" y1="8" x2="12" y2="8" />
                     </svg>
                   </div>
-                  <h2 style={{ margin: 0, fontSize: '1.8rem', color: '#ffffff' }}>The Current State of Bitcoin</h2>
+                  <h2 style={{ 
+                    margin: 0, 
+                    fontSize: isMobile ? '1.6rem' : '1.8rem', 
+                    color: '#ffffff',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>The Current State of Bitcoin</h2>
                 </div>
                 
-                <p style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                <p style={{ 
+                  fontSize: isMobile ? '1rem' : '1.1rem', 
+                  lineHeight: '1.6', 
+                  marginBottom: '1rem',
+                  textAlign: isMobile ? 'center' : 'left' 
+                }}>
                   Bitcoin has established itself as the world's premier digital store of value, but its potential as a dynamic financial layer remains largely untapped. The current ecosystem faces several challenges that restrict its widespread adoption and daily utility.
                 </p>
               </div>
