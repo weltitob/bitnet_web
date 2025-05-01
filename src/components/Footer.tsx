@@ -28,29 +28,29 @@ const Footer = () => {
           
           <div className="footer-links">
             <div className="footer-links-column">
-              <h4>Product</h4>
+              <h4>BitNet</h4>
               <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#download">Download</a></li>
+                <li><a href="/#hero">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#mission">Mission</a></li>
               </ul>
             </div>
             
             <div className="footer-links-column">
-              <h4>Company</h4>
+              <h4>Connect</h4>
               <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#jobs">Careers</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/#contact">Contact Us</a></li>
+                <li><a href="https://t.me/weltitob" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+                <li><a href="https://x.com/BitNet69" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
               </ul>
             </div>
             
             <div className="footer-links-column">
-              <h4>Resources</h4>
+              <h4>More Info</h4>
               <ul>
-                <li><a href="#docs">Documentation</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#support">Support</a></li>
+                <li><a href="/fixbitcoin">Fix Bitcoin Initiative</a></li>
+                <li><a href="/investorrelations">Investor Relations</a></li>
+                <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
               </ul>
             </div>
           </div>
@@ -61,9 +61,8 @@ const Footer = () => {
             <p>&copy; {new Date().getFullYear()} BitNet. All rights reserved.</p>
           </div>
           <div className="footer-bottom-links">
-            <a href="#terms">Terms of Service</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#cookies">Cookie Policy</a>
+            <a href="mailto:contact@mybitnet.com">Contact</a>
+            <a href="https://t.me/weltitob" target="_blank" rel="noopener noreferrer">Support</a>
           </div>
         </div>
       </div>
