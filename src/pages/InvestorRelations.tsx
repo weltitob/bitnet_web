@@ -126,7 +126,7 @@ const InvestorRelations = () => {
                 
                 <div style={{
                   display: 'flex',
-                  alignItems: isMobile ? 'flex-start' : 'center',
+                  alignItems: isMobile ? 'center' : 'center',
                   flexDirection: isMobile ? 'column' : 'row',
                   padding: isMobile ? '0.8rem' : '1rem',
                   background: 'rgba(255, 255, 255, 0.04)',
@@ -142,7 +142,8 @@ const InvestorRelations = () => {
                       borderRadius: '10px',
                       marginRight: isMobile ? '0' : '1rem',
                       marginBottom: isMobile ? '0.8rem' : '0',
-                      objectFit: 'cover'
+                      objectFit: 'cover',
+                      alignSelf: isMobile ? 'center' : 'auto'
                     }}
                   />
                   <div style={{ textAlign: isMobile ? 'center' : 'left', width: isMobile ? '100%' : 'auto' }}>
