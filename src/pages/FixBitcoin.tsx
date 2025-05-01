@@ -106,7 +106,7 @@ const FixBitcoin = () => {
             e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
             <div style={{
-              padding: '3.5rem',
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
               color: '#e0e0e0',
               position: 'relative',
             }}>
@@ -126,7 +126,7 @@ const FixBitcoin = () => {
                   display: 'flex',
                   flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'flex-start' : 'center',
-                  marginBottom: '2rem'
+                  marginBottom: isMobile ? '1.5rem' : '2rem'
                 }}>
                   <div style={{
                     flexShrink: 0,
@@ -174,8 +174,8 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
-                  gap: '1.5rem'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1.2rem' : '1.5rem'
                 }}>
                   {[
                     "The rich keep getting richer — not because they're smarter, but because the rules are written in their favor",
@@ -186,17 +186,18 @@ const FixBitcoin = () => {
                   ].map((text, index) => (
                     <li key={index} style={{
                       position: 'relative',
-                      paddingLeft: '2rem',
-                      fontSize: '1.1rem',
+                      paddingLeft: isMobile ? '1.8rem' : '2rem',
+                      fontSize: isMobile ? '1.05rem' : '1.1rem',
                       lineHeight: '1.7',
-                      color: '#e0e0e0'
+                      color: '#e0e0e0',
+                      marginBottom: isMobile ? '0.5rem' : '0'
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
-                        top: '0.6rem',
-                        width: '8px',
-                        height: '8px',
+                        top: isMobile ? '0.5rem' : '0.6rem',
+                        width: isMobile ? '7px' : '8px',
+                        height: isMobile ? '7px' : '8px',
                         background: '#ff8c00',
                         borderRadius: '50%'
                       }}></span>
@@ -229,7 +230,7 @@ const FixBitcoin = () => {
             e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
             <div style={{
-              padding: '3.5rem',
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
               color: '#e0e0e0',
               position: 'relative',
             }}>
@@ -249,7 +250,7 @@ const FixBitcoin = () => {
                   display: 'flex',
                   flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'flex-start' : 'center',
-                  marginBottom: '2rem'
+                  marginBottom: isMobile ? '1.5rem' : '2rem'
                 }}>
                   <div style={{
                     flexShrink: 0,
@@ -286,8 +287,8 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
-                  gap: '1.5rem'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1.2rem' : '1.5rem'
                 }}>
                   {[
                     "We were promised liberation — instead we got surveillance, censorship, and addiction",
@@ -298,17 +299,18 @@ const FixBitcoin = () => {
                   ].map((text, index) => (
                     <li key={index} style={{
                       position: 'relative',
-                      paddingLeft: '2rem',
-                      fontSize: '1.1rem',
+                      paddingLeft: isMobile ? '1.8rem' : '2rem',
+                      fontSize: isMobile ? '1.05rem' : '1.1rem',
                       lineHeight: '1.7',
-                      color: '#e0e0e0'
+                      color: '#e0e0e0',
+                      marginBottom: isMobile ? '0.5rem' : '0'
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
-                        top: '0.6rem',
-                        width: '8px',
-                        height: '8px',
+                        top: isMobile ? '0.5rem' : '0.6rem',
+                        width: isMobile ? '7px' : '8px',
+                        height: isMobile ? '7px' : '8px',
                         background: '#ff8c00',
                         borderRadius: '50%'
                       }}></span>
@@ -341,7 +343,7 @@ const FixBitcoin = () => {
             e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
             <div style={{
-              padding: '3.5rem',
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
               color: '#e0e0e0',
               position: 'relative',
             }}>
@@ -361,7 +363,7 @@ const FixBitcoin = () => {
                   display: 'flex',
                   flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'flex-start' : 'center',
-                  marginBottom: '2rem'
+                  marginBottom: isMobile ? '1.5rem' : '2rem'
                 }}>
                   <div style={{
                     flexShrink: 0,
@@ -398,8 +400,8 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
-                  gap: '1.5rem'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1.2rem' : '1.5rem'
                 }}>
                   {[
                     "Banks and credit card companies are middlemen taxing every transaction with no value given",
@@ -410,17 +412,18 @@ const FixBitcoin = () => {
                   ].map((text, index) => (
                     <li key={index} style={{
                       position: 'relative',
-                      paddingLeft: '2rem',
-                      fontSize: '1.1rem',
+                      paddingLeft: isMobile ? '1.8rem' : '2rem',
+                      fontSize: isMobile ? '1.05rem' : '1.1rem',
                       lineHeight: '1.7',
-                      color: '#e0e0e0'
+                      color: '#e0e0e0',
+                      marginBottom: isMobile ? '0.5rem' : '0'
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
-                        top: '0.6rem',
-                        width: '8px',
-                        height: '8px',
+                        top: isMobile ? '0.5rem' : '0.6rem',
+                        width: isMobile ? '7px' : '8px',
+                        height: isMobile ? '7px' : '8px',
                         background: '#ff8c00',
                         borderRadius: '50%'
                       }}></span>
@@ -453,7 +456,7 @@ const FixBitcoin = () => {
             e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
             <div style={{
-              padding: '3.5rem',
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
               color: '#e0e0e0',
               position: 'relative',
             }}>
@@ -473,7 +476,7 @@ const FixBitcoin = () => {
                   display: 'flex',
                   flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'flex-start' : 'center',
-                  marginBottom: '2rem'
+                  marginBottom: isMobile ? '1.5rem' : '2rem'
                 }}>
                   <div style={{
                     flexShrink: 0,
@@ -509,8 +512,8 @@ const FixBitcoin = () => {
                   padding: 0,
                   margin: 0,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
-                  gap: '1.5rem'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1.2rem' : '1.5rem'
                 }}>
                   {[
                     "Technology should serve the people, not extract from them",
@@ -520,17 +523,18 @@ const FixBitcoin = () => {
                   ].map((text, index) => (
                     <li key={index} style={{
                       position: 'relative',
-                      paddingLeft: '2rem',
-                      fontSize: '1.1rem',
+                      paddingLeft: isMobile ? '1.8rem' : '2rem',
+                      fontSize: isMobile ? '1.05rem' : '1.1rem',
                       lineHeight: '1.7',
-                      color: '#e0e0e0'
+                      color: '#e0e0e0',
+                      marginBottom: isMobile ? '0.5rem' : '0'
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
-                        top: '0.6rem',
-                        width: '8px',
-                        height: '8px',
+                        top: isMobile ? '0.5rem' : '0.6rem',
+                        width: isMobile ? '7px' : '8px',
+                        height: isMobile ? '7px' : '8px',
                         background: '#ff8c00',
                         borderRadius: '50%'
                       }}></span>
@@ -726,7 +730,7 @@ const FixBitcoin = () => {
             e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
           }}>
             <div style={{
-              padding: '3.5rem',
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
               color: '#e0e0e0',
               position: 'relative',
             }}>
@@ -765,24 +769,28 @@ const FixBitcoin = () => {
                       background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
                       color: 'white',
                       borderRadius: '8px',
-                      marginRight: isMobile ? '0' : '1rem',
+                      marginRight: isMobile ? '0' : '1.5rem',
                       marginBottom: isMobile ? '1rem' : '0',
-                      boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                      boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)',
+                      flexShrink: 0
                     }}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                       </svg>
                     </div>
-                    <span>
-                      <span style={{ color: '#ff8c00' }}>Fix the Money.</span> <span>Fix the Incentives.</span> <span style={{ color: '#ff8c00' }}>Fix the World.</span>
+                    <span style={{ display: 'inline-block', lineHeight: '1.3' }}>
+                      <span>Fix the <span style={{ color: '#ff8c00' }}>Money</span>.</span><br style={{ display: isMobile ? 'none' : 'block' }} />
+                      <span>Fix the <span style={{ color: '#ff8c00' }}>Incentives</span>.</span><br style={{ display: isMobile ? 'none' : 'block' }} />
+                      <span>Fix the <span style={{ color: '#ff8c00' }}>World</span>.</span>
                     </span>
                   </h2>
                 </div>
                 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
-                  gap: '2rem'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1rem' : '2rem',
+                  width: '100%'
                 }}>
                   {[
                     "The world doesn't change with elections — it changes when people opt out of broken systems",
@@ -791,14 +799,18 @@ const FixBitcoin = () => {
                     "Bitcoin isn't a trend — it's a once-in-a-civilization invention that lets humanity start fresh"
                   ].map((text, index) => (
                     <div key={index} style={{
-                      padding: '1.5rem',
+                      padding: isMobile ? '1.4rem 1.7rem' : '1.5rem',
                       borderRadius: '16px',
                       background: 'rgba(255, 255, 255, 0.03)',
                       border: '1px solid rgba(255, 255, 255, 0.05)',
-                      fontSize: '1.2rem',
+                      fontSize: isMobile ? '1.15rem' : '1.2rem',
                       lineHeight: '1.6',
                       color: '#e0e0e0',
                       transition: 'transform 0.3s, background 0.3s',
+                      width: '100%',
+                      boxSizing: 'border-box',
+                      marginLeft: 'auto',
+                      marginRight: 'auto'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-5px)';
