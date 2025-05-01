@@ -121,7 +121,7 @@ const InvestorRelations = () => {
                 </div>
                 
                 <p style={{ fontSize: isMobile ? '1rem' : '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                  BitNet is driving a fundamental shift: elevating Bitcoin from a passive store of value to a dynamic, high-velocity payment platform. Our tech delivers sub-2-second transactions with fees under $0.01 and seamless web3 integration, unlocking Bitcoin's massive $1.2T network for real-world utility.
+                  BitNet is driving a fundamental shift: elevating Bitcoin from a passive store of value to a dynamic, high-velocity payment platform. Our tech delivers transactions in less than a second with fees under $0.01 and seamless web3 integration, unlocking Bitcoin's massive $1.2T network for real-world utility.
                 </p>
                 
                 <div style={{
@@ -488,7 +488,7 @@ const InvestorRelations = () => {
                   marginBottom: '1.5rem',
                   textAlign: isMobile ? 'center' : 'left' 
                 }}>
-                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>sub-2-second transactions</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
+                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>transactions in less than a second</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
                 </p>
                 
                 <div style={{
@@ -818,7 +818,7 @@ const InvestorRelations = () => {
               maxWidth: '600px',
               margin: '0 auto 2rem'
             }}>
-              BitNet is building the future where Bitcoin can fulfill its promise as a universal financial layer for the internet. Be part of this transformation as an investor.
+              We're positioning Bitcoin as the digital trust layer of the internet—a vision that will reshape finance as we know it. Join us as we build the financial infrastructure of tomorrow.
             </p>
             <div style={{ 
               display: 'flex', 
