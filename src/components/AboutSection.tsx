@@ -31,8 +31,8 @@ const AboutSection = () => {
             </div>
             
             <div className="team-member">
-              <img src={ulrichImage} alt="Ulrich Müller" className="member-image" style={{ objectFit: 'cover' }} />
-              <h3>Ulrich Müller</h3>
+              <img src={ulrichImage} alt="Edwin Daitche" className="member-image" style={{ objectFit: 'cover' }} />
+              <h3>Edwin Daitche</h3>
               <span>IT Security & Infrastructure Specialist</span>
             </div>
           </div>
