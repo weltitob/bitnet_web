@@ -9,6 +9,7 @@ const HeroSection = () => {
     bottomCard: null
   });
   const cardsRevealedRef = useRef(false);
+  const phoneRef = useRef<HTMLDivElement>(null);
   const { formattedRemaining, loading } = useEarlybirdCount();
 
   // NFT Counter animation - update when data changes
@@ -36,6 +37,39 @@ const HeroSection = () => {
       }
     }
   }, [formattedRemaining, loading]); // Re-run when formattedRemaining or loading changes
+  
+  // Text reveal and phone animation
+  useEffect(() => {
+    // Elements to animate
+    const metricsRow = document.querySelector('.metrics-row');
+    const heroHeading = document.querySelector('.hero h1');
+    const heroSubheading = document.querySelector('.hero p');
+    const heroCta = document.querySelector('.hero-buttons');
+    const mockupPhone = phoneRef.current;
+    
+    // Immediately hide all elements that will be animated
+    if (metricsRow) metricsRow.classList.add('animate-hidden');
+    if (heroHeading) heroHeading.classList.add('animate-hidden');
+    if (heroSubheading) heroSubheading.classList.add('animate-hidden');
+    if (heroCta) heroCta.classList.add('animate-hidden');
+    if (mockupPhone) mockupPhone.classList.add('animate-hidden');
+    
+    // Function to trigger sequential fade-in
+    const startHeroAnimation = () => {
+      // Sequential reveal with increasing delays
+      setTimeout(() => metricsRow?.classList.add('animate-reveal'), 100);
+      setTimeout(() => heroHeading?.classList.add('animate-reveal'), 500);
+      setTimeout(() => heroSubheading?.classList.add('animate-reveal'), 800);
+      setTimeout(() => heroCta?.classList.add('animate-reveal'), 1100);
+      setTimeout(() => mockupPhone?.classList.add('animate-reveal'), 1400);
+    };
+    
+    // Start animations after a brief initial delay
+    setTimeout(startHeroAnimation, 300);
+    
+    // We don't need scroll effects for the phone anymore
+    return () => {};
+  }, []); // Only run once on component mount
   
   // NFT Rarity tabs and card reveal animations
   useEffect(() => {
@@ -234,7 +268,10 @@ const HeroSection = () => {
           preserveAspectRatio="none"
           width="130%"
           height="100%"
-          style={{marginLeft: '-10%', marginRight: '-10%'}}
+          style={{
+            marginLeft: '-10%', 
+            marginRight: '-10%'
+          }}
         >
           {/* Add filter for glow effect */}
           <defs>
@@ -268,16 +305,16 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="metrics-row">
+      <div className="metrics-row animate-hidden">
         <span className="metric-item">Self-Custody</span>
         <span className="metric-separator">|</span>
         <span className="metric-item">Lightning-Fast</span>
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      <h1>Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
-      <p>Fix Bitcoin. Fix the world. One Block at a Time.</p>
-      <div className="hero-buttons">
+      <h1 className="animate-hidden">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
+      <p className="animate-hidden">Fix Bitcoin. Fix the world. One Block at a Time.</p>
+      <div className="hero-buttons animate-hidden">
         <a href="/earlybird" className="btn primary" style={{
           padding: '0.65rem 3rem', 
           minWidth: '180px', 
@@ -306,12 +343,18 @@ const HeroSection = () => {
         }}>Learn More</a>
       </div>
 
-      <div className="phone-features-container" style={{ flexDirection: isMobile ? 'column' : 'row' }}>
+      <div className="phone-features-container" style={{ 
+        flexDirection: isMobile ? 'column' : 'row'
+      }}>
         {/* Mockup phone */}
-        <div className="mockup" style={{ 
-          display: 'flex', 
-          flexDirection: 'column'
-        }}>
+        <div 
+          ref={phoneRef}
+          className="mockup animate-hidden" 
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'column'
+          }}
+        >
           {/* Safe area container */}
           <div style={{
             height: isMobile ? 60 : 80,
@@ -723,6 +766,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Styles are now in the App.css file */}
     </section>
   )
 }

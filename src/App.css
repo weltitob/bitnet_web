@@ -1,5 +1,6 @@
 /* Add any custom styles not covered by Tailwind here */
 
+/* Animation keyframes */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -7,6 +8,20 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* Hero section animations */
+.animate-hidden {
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  /* Set will-change for better performance */
+  will-change: opacity, transform;
+}
+
+.animate-reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* Utility classes that might be complex for Tailwind */
