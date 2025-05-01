@@ -26,8 +26,8 @@ const ContactSection = () => {
               </div>
               <div className="contact-details">
                 <h3>Chat With Us</h3>
-                <p>Our team is available on our community Discord for quick questions and support.</p>
-                <a href="#discord" className="contact-link">Join Discord</a>
+                <p>Connect directly with our founder Tobias Welti for questions or assistance.</p>
+                <a href="https://t.me/weltitob" className="contact-link" target="_blank" rel="noopener noreferrer">Chat on Telegram</a>
               </div>
             </div>
             
@@ -55,9 +55,7 @@ const ContactSection = () => {
                 <h3>Follow Us</h3>
                 <p>Stay updated with our latest news and developments on social media.</p>
                 <div className="social-links">
-                  <a href="#twitter" className="social-link">Twitter</a>
-                  <a href="#linkedin" className="social-link">LinkedIn</a>
-                  <a href="#github" className="social-link">GitHub</a>
+                  <a href="https://x.com/BitNet69" className="social-link" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
                 </div>
               </div>
             </div>

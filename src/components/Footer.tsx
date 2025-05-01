@@ -13,31 +13,14 @@ const Footer = () => {
             <p className="brand-description">Fix Bitcoin. Fix the world.</p>
             
             <div className="footer-social">
-              <a href="#twitter" className="social-icon" aria-label="Twitter">
+              <a href="https://x.com/BitNet69" className="social-icon" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                  <path d="M4 4l7.05 8.5L4 19h2.5l5.45-5.5L16.5 19H20l-7.05-8.5L20 4h-2.5l-5.45 5.5L7.5 4z"></path>
                 </svg>
               </a>
-              <a href="#linkedin" className="social-icon" aria-label="LinkedIn">
+              <a href="https://t.me/weltitob" className="social-icon" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a href="#github" className="social-icon" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-              </a>
-              <a href="#discord" className="social-icon" aria-label="Discord">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
-                  <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
-                  <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
-                  <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                  <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.666c-.81.375-1.323 1.237-.875 1.85.304.42.889.62 1.446.624.34.001 1.034-.234 1.034-.234l3.832-1.788c.93-.43 1.538.394.809.81l-5.29 3.968c-.728.552-.677 1.3-.233 1.718.448.414 1.133.453 1.588.236l1.732-.992c.843-.48 1.75.238 1.343.983l-1.86 3.402c-.463.847.4 1.45 1.243 1.107l.792-.398c.807-.406 1.672.39 1.323 1.147l-1.866 4.058c-.508 1.103.611 2.049 1.677 1.362l12.313-7.924c.866-.56 1.067-1.9.405-2.7L23.38 5.397c-.252-.304-.51-.555-1.098-.63-.206-.027-1.084-.334-1.084-.334z"></path>
                 </svg>
               </a>
             </div>
