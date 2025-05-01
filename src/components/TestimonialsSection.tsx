@@ -235,7 +235,7 @@ const TestimonialsSection = () => {
                   position: 'relative',
                   flex: '1 0 auto'
                 }}>
-                  BitNet's NFT marketplace is a game-changer for me. It's simple to use and helps my art reach the right people.
+                  BitNet's NFT marketplace has completely changed how I share my work. It's intuitive and connects my art with people who truly appreciate it.
                 </p>
               </div>
               
@@ -272,7 +272,7 @@ const TestimonialsSection = () => {
                     fontSize: '0.9rem', 
                     color: '#aaa',
                     fontWeight: '300'
-                  }}>Investor & Artist</span>
+                  }}>NFT Artist</span>
                 </div>
               </div>
             </div>
