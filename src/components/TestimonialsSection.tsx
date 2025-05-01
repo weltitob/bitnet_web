@@ -152,7 +152,7 @@ const TestimonialsSection = () => {
                   position: 'relative',
                   flex: '1 0 auto'
                 }}>
-                  I was always intimidated by crypto until I found BitNet. Now I can actually use Bitcoin without feeling lost in technical jargon.
+                  BitNet made Bitcoin so easy to understand. The app looks clean and everything just makes sense. Now I actually enjoy using crypto instead of feeling confused by it.
                 </p>
               </div>
               
