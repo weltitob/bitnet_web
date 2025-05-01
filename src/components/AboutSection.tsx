@@ -19,9 +19,6 @@ const AboutSection = () => {
               <img src={tobiasImage} alt="Tobias Welti" className="member-image" style={{ objectFit: 'cover' }} />
               <h3>Tobias Welti</h3>
               <span>Techlead, Founder & CEO</span>
-              <a href="https://whoistobi.com" target="_blank" rel="noopener noreferrer" className="founder-website">
-                whoistobi.com
-              </a>
             </div>
             
             <div className="team-member">
