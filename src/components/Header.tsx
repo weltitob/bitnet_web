@@ -128,7 +128,7 @@ const Header = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: windowWidth <= 600 ? '1.2rem 1rem' : windowWidth <= 768 ? '1.25rem 1.5rem' : '1.3rem 2rem',
+        padding: windowWidth <= 600 ? '1.2rem 2rem' : windowWidth <= 768 ? '1.25rem 2rem' : '1.3rem 2rem',
         backgroundColor: '#0b0b0b',
         position: 'sticky',
         top: 0,
