@@ -575,6 +575,129 @@ const AIStrategy = () => {
             </div>
           </div>
 
+          {/* Metaverse Section */}
+          <div style={{ 
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            marginBottom: '5rem',
+            position: 'relative',
+            background: 'rgba(25, 25, 35, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+          }}>
+            <div style={{
+              padding: isMobile ? '2.5rem 2rem' : '3.5rem',
+              color: '#e0e0e0',
+              position: 'relative',
+            }}>
+              {/* Orange corner glow */}
+              <div style={{
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+                width: isMobile ? '150px' : '300px',
+                height: isMobile ? '150px' : '300px',
+                background: 'radial-gradient(circle at bottom left, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%)',
+                zIndex: 0
+              }}></div>
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
+                  marginBottom: isMobile ? '1.5rem' : '2rem'
+                }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #ff8a00, #ff5e00)',
+                    color: 'white',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
+                    boxShadow: '0 2px 8px rgba(255, 94, 0, 0.3)'
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                  </div>
+                  <h2 style={{ 
+                    fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', 
+                    margin: 0,
+                    color: '#fff',
+                    fontWeight: '700',
+                  }}>
+                    <span style={{ color: '#ff8c00' }}>Metaverse</span> Without <span style={{ color: '#ff8c00' }}>Dystopia</span>
+                  </h2>
+                </div>
+                
+                <p style={{ 
+                  fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', 
+                  lineHeight: '1.6', 
+                  marginBottom: '2rem', 
+                  fontWeight: '300'
+                }}>
+                  The convergence of AI and Bitcoin enables a metaverse where ownership and freedom can truly exist:
+                </p>
+                
+                <ul style={{ 
+                  listStyleType: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))',
+                  gap: isMobile ? '1.2rem' : '1.5rem'
+                }}>
+                  {[
+                    "A true metaverse can emerge with AI and internet-native money and assets, allowing people to maintain ownership and financial sovereignty",
+                    "Without Bitcoin, corporate interests control digital realities, dictating rules and extracting value from users",
+                    "Bitcoin provides the foundation for a metaverse where people can truly own their digital assets instead of renting them from platforms",
+                    "The combination of AI and Bitcoin enables a self-sovereign digital existence, free from the gatekeepers who would control access",
+                    "Digital scarcity through Bitcoin ensures that digital wealth and value creation remain in users' hands rather than being infinitely duplicated by platform owners"
+                  ].map((text, index) => (
+                    <li key={index} style={{
+                      position: 'relative',
+                      paddingLeft: isMobile ? '1.8rem' : '2rem',
+                      fontSize: isMobile ? '1.05rem' : '1.1rem',
+                      lineHeight: '1.7',
+                      color: '#e0e0e0',
+                      marginBottom: isMobile ? '0.5rem' : '0'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: isMobile ? '0.5rem' : '0.6rem',
+                        width: isMobile ? '7px' : '8px',
+                        height: isMobile ? '7px' : '8px',
+                        background: '#ff8c00',
+                        borderRadius: '50%'
+                      }}></span>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Our Approach Section */}
           <div style={{ 
             borderRadius: '24px',
