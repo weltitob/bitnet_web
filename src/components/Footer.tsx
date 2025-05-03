@@ -12,7 +12,6 @@ const Footer = () => {
             </div>
             <p className="brand-description">Fix Bitcoin. Fix the world.</p>
             
-            {/* Social icons commented out
             <div className="footer-social">
               <a href="https://x.com/BitNet69" className="social-icon" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,7 +24,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            */}
           </div>
           
           <div className="footer-links">
@@ -42,10 +40,8 @@ const Footer = () => {
               <h4>Connect</h4>
               <ul>
                 <li><a href="/#contact">Contact Us</a></li>
-                {/* Social links commented out
                 <li><a href="https://t.me/weltitob" target="_blank" rel="noopener noreferrer">Telegram</a></li>
                 <li><a href="https://x.com/BitNet69" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-                */}
               </ul>
             </div>
             
@@ -67,9 +63,7 @@ const Footer = () => {
           </div>
           <div className="footer-bottom-links">
             <a href="mailto:contact@mybitnet.com">Contact</a>
-            {/* Support link commented out
             <a href="https://t.me/weltitob" target="_blank" rel="noopener noreferrer">Support</a>
-            */}
           </div>
         </div>
       </div>
