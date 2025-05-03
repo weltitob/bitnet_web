@@ -53,6 +53,7 @@ const Footer = () => {
               <h4>More Info</h4>
               <ul>
                 <li><a href="/fixbitcoin">Fix Bitcoin Initiative</a></li>
+                <li><a href="/aistrategy">AI & Bitcoin Strategy</a></li>
                 <li><a href="/investorrelations">Investor Relations</a></li>
                 <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
               </ul>
