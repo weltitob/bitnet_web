@@ -353,23 +353,23 @@ const HeroSection = () => {
           style={{ 
             display: 'flex', 
             flexDirection: 'column',
-            width: '350px',  // Consistent width regardless of view
-            height: '725px', // Consistent height regardless of view
+            width: '330px',  // Reverting to previous width
+            height: '690px', // Reverting to previous height
             transform: isMobile ? 'scale(0.85)' : 'scale(1)', // Scale down on mobile instead of changing dimensions
             transformOrigin: 'center top'
           }}
         >
           {/* Safe area container */}
           <div style={{
-            height: 80, // Consistent height
+            height: 65, // Previous height
             position: 'relative',
             backgroundColor: '#0e210d' /* Match the spacer color */
           }}>
             {/* Dynamic Island */}
             <div className="dynamic-island" style={{ 
               zIndex: 4,
-              width: '126px', // Consistent width
-              height: '34px'  // Consistent height
+              width: '120px', // Previous width
+              height: '30px'  // Previous height
             }}></div>
 
             {/* Top right box overlay */}
@@ -377,8 +377,8 @@ const HeroSection = () => {
               position: 'absolute',
               top: 0,
               right: 0,
-              width: '22px',  // Consistent width
-              height: '51px', // Consistent height
+              width: '18px',  // Previous width
+              height: '42px', // Previous height
               backgroundColor: '#0e210d',
               zIndex: 5
             }}></div>
@@ -401,7 +401,7 @@ const HeroSection = () => {
 
           {/* Green spacer that matches the top of the chart */}
           <div style={{
-            height: '50px', // Consistent height
+            height: '40px', // Previous height
             backgroundColor: '#0e210d', /* Exact color match provided */
             zIndex: 1
           }}></div>
