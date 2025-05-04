@@ -27,13 +27,21 @@ const AboutUs = () => {
             <div className="team-grid">
               <div className="you-team-member"> {/*Added You as a team member*/}
                 <div className="you-avatar">
-                  {/* Replace with actual avatar or icon */}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" clipRule="evenodd" />
+                  {/* Person with crown icon */}
+                  <div className="crown-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="crown">
+                      <path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                      <path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                      <path d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                    </svg>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="person">
+                    <path d="M8 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM16 15a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1h8z" />
                   </svg>
                 </div>
                 <h3>You</h3>
                 <span>Customer is King</span>
+                <a href="/submit-idea" className="small-ideas-link">Got an idea? Share it!</a>
               </div>
 
               <div className="team-member">
@@ -55,8 +63,7 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="team-action">
-              <p>Got an idea to share?</p>
-              <a href="/submit-idea" className="ideas-link">Submit Your Idea</a> {/* Added link to submit ideas */}
+              <p>Join us on our mission to revolutionize Bitcoin</p>
             </div>
           </div>
 
@@ -496,15 +503,50 @@ const AboutUs = () => {
           transition: all 0.3s ease;
         }
 
-        .you-avatar svg {
+        .you-avatar {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .you-avatar .person {
           width: 80px;
           height: 80px;
           opacity: 0.9;
+        }
+        
+        .crown-icon {
+          position: absolute;
+          top: -25px;
+          z-index: 2;
+        }
+        
+        .crown-icon .crown {
+          width: 40px;
+          height: 40px;
+          color: gold;
+          filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
         }
 
         .you-team-member:hover .you-avatar {
           transform: scale(1.05);
           box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
+        }
+        
+        .small-ideas-link {
+          font-size: 0.8rem;
+          color: #ff8c00;
+          margin-top: 0.5rem;
+          display: inline-block;
+          transition: all 0.3s ease;
+          text-decoration: none;
+        }
+        
+        .small-ideas-link:hover {
+          color: #ffa533;
+          transform: translateY(-2px);
+          text-decoration: underline;
         }
 
         .team-action {
