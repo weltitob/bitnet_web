@@ -41,7 +41,7 @@ const AboutUs = () => {
                 </div>
                 <h3>You</h3>
                 <span>Customer is King</span>
-                <a href="/submit-idea" className="small-ideas-link">Got an idea? Share it!</a>
+                <a href="/ideas" className="small-ideas-link">Got an idea? Share it!</a>
               </div>
 
               <div className="team-member">
