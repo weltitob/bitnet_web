@@ -227,7 +227,7 @@ const Header = () => {
             }}
           >
             <a 
-              href={window.location.pathname === '/' ? '#about' : '/#about'} 
+              href="/about" 
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -347,7 +347,7 @@ const Header = () => {
             }}
           >
             <a 
-              href={window.location.pathname === '/' ? '#about' : '/#about'} 
+              href="/about" 
               style={{
                 textDecoration: 'none',
                 color: '#fff',

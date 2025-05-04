@@ -15,6 +15,7 @@ import AIStrategy from './pages/AIStrategy'
 import APIDocumentation from './pages/APIDocumentation'
 import DeveloperPortal from './pages/DeveloperPortal'
 import IdeasSubmission from './pages/IdeasSubmission'; // Added IdeasSubmission page
+import AboutUs from './pages/AboutUs'; // Added AboutUs page
 import './App.css'
 
 const HomePage = () => {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/api" element={<APIDocumentation />} />
         <Route path="/developer-portal" element={<DeveloperPortal />} />
         <Route path="/ideas" element={<IdeasSubmission />} /> {/* Added route for IdeasSubmission */}
+        <Route path="/about" element={<AboutUs />} /> {/* Added route for AboutUs */}
       </Routes>
     </Router>
   );
