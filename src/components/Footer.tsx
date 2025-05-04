@@ -15,11 +15,10 @@ const Footer = () => {
           
           <div className="footer-links">
             <div className="footer-links-column">
-              <h4>BitNet</h4>
+              <h4>API</h4>
               <ul>
-                <li><a href="/#hero">Home</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#mission">Mission</a></li>
+                <li><a href="/developer-portal">Developer Portal</a></li>
+                <li><a href="/api">API Documentation</a></li>
               </ul>
             </div>
             
@@ -39,14 +38,6 @@ const Footer = () => {
                 <li><a href="/aistrategy">AI & Bitcoin Strategy</a></li>
                 <li><a href="/investorrelations">Investor Relations</a></li>
                 <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-links-column">
-              <h4>API</h4>
-              <ul>
-                <li><a href="/developer-portal">Developer Portal</a></li>
-                <li><a href="/api">API Documentation</a></li>
               </ul>
             </div>
           </div>
