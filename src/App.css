@@ -51,7 +51,7 @@
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 125px;
+  width: 95px; /* Narrower for iPhone 16 style */
   height: 32px;
   background-color: #000;
   border-radius: 20px;

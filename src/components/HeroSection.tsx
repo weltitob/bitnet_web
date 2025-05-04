@@ -368,8 +368,8 @@ const HeroSection = () => {
             {/* Dynamic Island */}
             <div className="dynamic-island" style={{ 
               zIndex: 4,
-              width: '120px', // Previous width
-              height: '30px'  // Previous height
+              width: '95px', // Narrower width for iPhone 16 style
+              height: '30px'  // Keeping the same height
             }}></div>
 
             {/* Top right box overlay */}
