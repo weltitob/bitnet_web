@@ -76,7 +76,7 @@ const DeveloperPortal = () => {
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
-                        background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'
+                        background: 'linear-gradient(135deg, #ff8c00, #ff5e00)'
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -98,7 +98,7 @@ const DeveloperPortal = () => {
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
-                        background: 'linear-gradient(135deg, #4cd964, #2e8a3a)'
+                        background: 'linear-gradient(135deg, #ff8c00, #ff5e00)'
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -120,7 +120,7 @@ const DeveloperPortal = () => {
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
-                        background: 'linear-gradient(135deg, #a855f7, #6b21a8)'
+                        background: 'linear-gradient(135deg, #ff8c00, #ff5e00)'
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
@@ -525,10 +525,12 @@ const DeveloperPortal = () => {
         
         .account-type-option:hover .account-type-icon {
           transform: translateY(-5px);
+          box-shadow: 0 6px 15px rgba(255, 140, 0, 0.25);
         }
         
         .account-type-option.selected .account-type-icon {
-          box-shadow: 0 8px 16px rgba(255, 140, 0, 0.25);
+          box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+          transform: translateY(-8px);
         }
         
         .option-content {
