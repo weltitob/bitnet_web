@@ -176,17 +176,17 @@ const Footer = () => {
 
         .submit-idea-btn {
           margin-top: 1rem;
-          padding: 0.8rem 1.5rem;
+          padding: 0.65rem 1.2rem;
           background: linear-gradient(135deg, #ff8a00, #ff5e00);
           color: white;
           text-decoration: none;
-          border-radius: 10px;
+          border-radius: 8px;
           transition: all 0.3s ease;
           display: inline-block;
-          font-weight: 600;
-          font-size: 0.95rem;
+          font-weight: 500;
+          font-size: 0.88rem;
           letter-spacing: 0.01em;
-          box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+          box-shadow: 0 4px 10px rgba(255, 94, 0, 0.2);
           border: none;
           position: relative;
           overflow: hidden;
@@ -199,14 +199,14 @@ const Footer = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
           opacity: 0;
           transition: opacity 0.3s ease;
         }
 
         .submit-idea-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 20px rgba(255, 94, 0, 0.3);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(255, 94, 0, 0.25);
         }
         
         .submit-idea-btn:hover:before {
