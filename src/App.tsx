@@ -52,20 +52,3 @@ function App() {
 }
 
 export default App
-
-// Placeholder for IdeasSubmission.tsx -  Requires Firebase integration
-//This component needs a more complete implementation with Firebase integration for database interaction.
-//This is a basic placeholder.
-const IdeasSubmission = () => {
-    return (
-      <div>
-        <h1>Submit Your Idea</h1>
-        <form>
-          {/* Add form elements here */}
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    );
-  };
-
-export default IdeasSubmission;
