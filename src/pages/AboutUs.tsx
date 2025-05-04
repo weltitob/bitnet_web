@@ -63,7 +63,6 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="team-action">
-              <p>Join us on our mission to revolutionize Bitcoin</p>
             </div>
           </div>
 
