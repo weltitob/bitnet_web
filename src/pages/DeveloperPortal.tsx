@@ -75,6 +75,14 @@ const DeveloperPortal = () => {
                         checked={accountType === 'individual'} 
                         onChange={handleAccountTypeChange}
                       />
+                      <div className="account-type-icon" style={{
+                        background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </div>
                       <div className="option-content">
                         <h4>Individual</h4>
                         <p>Personal projects and small applications</p>
@@ -89,6 +97,14 @@ const DeveloperPortal = () => {
                         checked={accountType === 'organization'} 
                         onChange={handleAccountTypeChange}
                       />
+                      <div className="account-type-icon" style={{
+                        background: 'linear-gradient(135deg, #4cd964, #2e8a3a)'
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </div>
                       <div className="option-content">
                         <h4>Organization</h4>
                         <p>Business and enterprise applications</p>
@@ -103,6 +119,18 @@ const DeveloperPortal = () => {
                         checked={accountType === 'ai-agent'} 
                         onChange={handleAccountTypeChange}
                       />
+                      <div className="account-type-icon" style={{
+                        background: 'linear-gradient(135deg, #a855f7, #6b21a8)'
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
+                          <circle cx="9" cy="10" r="2"></circle>
+                          <circle cx="15" cy="10" r="2"></circle>
+                          <path d="M8 16s1.5 2 4 2 4-2 4-2"></path>
+                          <line x1="3" y1="12" x2="6" y2="12"></line>
+                          <line x1="18" y1="12" x2="21" y2="12"></line>
+                        </svg>
+                      </div>
                       <div className="option-content">
                         <h4>AI Agent</h4>
                         <p>Autonomous AI systems and agents</p>
@@ -466,6 +494,7 @@ const DeveloperPortal = () => {
           transition: all 0.3s ease;
           display: flex;
           flex-direction: column;
+          align-items: center;
         }
         
         .account-type-option.selected {
@@ -482,8 +511,29 @@ const DeveloperPortal = () => {
           opacity: 0;
         }
         
+        .account-type-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.25rem;
+          transition: transform 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .account-type-option:hover .account-type-icon {
+          transform: translateY(-5px);
+        }
+        
+        .account-type-option.selected .account-type-icon {
+          box-shadow: 0 8px 16px rgba(255, 140, 0, 0.25);
+        }
+        
         .option-content {
           margin-left: 0;
+          text-align: center;
         }
         
         .option-content h4 {
