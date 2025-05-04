@@ -26,7 +26,6 @@ const HomePage = () => {
         <HeroSection />
         <MissionSection />
         <TestimonialsSection />
-        <AboutSection />
         <CareersSection />
         <ContactSection />
       </main>

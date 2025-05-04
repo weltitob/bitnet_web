@@ -22,13 +22,7 @@ const AboutUs = () => {
         </div>
 
         <div className="about-us-container">
-          <div className="about-us-mission">
-            <div className="about-us-card">
-              <h2>Our Mission</h2>
-              <p>We're not just creating a wallet; we're building a gateway to a world where you truly own your financial future. BitNet is committed to making Bitcoin more accessible, secure, and practical for everyday use.</p>
-            </div>
-          </div>
-
+          {/* Customer section first */}
           <div className="about-you-section">
             <h2>You</h2>
             <p>The Customer is King</p>
@@ -37,6 +31,39 @@ const AboutUs = () => {
             </div>
           </div>
           
+          {/* Team section second - with landing page UI */}
+          <div className="about-us-team">
+            <h2>Our Team</h2>
+            <div className="team-grid">
+              <div className="team-member">
+                <img src={tobiasImage} alt="Tobias Welti" className="member-image" />
+                <h3>Tobias Welti</h3>
+                <span>Techlead, Founder & CEO</span>
+              </div>
+              
+              <div className="team-member">
+                <img src={izakImage} alt="Izak Abdullah Al" className="member-image" />
+                <h3>Izak Abdullah Al</h3>
+                <span>Fullstack Developer</span>
+              </div>
+              
+              <div className="team-member">
+                <img src={ulrichImage} alt="Edwin Daitche" className="member-image" />
+                <h3>Edwin Daitche</h3>
+                <span>IT Security & Infrastructure Specialist</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Our Mission section */}
+          <div className="about-us-mission">
+            <div className="about-us-card">
+              <h2>Our Mission</h2>
+              <p>We're not just creating a wallet; we're building a gateway to a world where you truly own your financial future. BitNet is committed to making Bitcoin more accessible, secure, and practical for everyday use.</p>
+            </div>
+          </div>
+          
+          {/* Values section third */}
           <div className="about-us-section">
             <h2>Our Values</h2>
             <div className="values-grid">
@@ -88,44 +115,7 @@ const AboutUs = () => {
             </div>
           </div>
           
-          <div className="about-us-team">
-            <h2>Our Team</h2>
-            <div className="team-grid">
-              <div className="team-member">
-                <div className="member-image-container">
-                  <img src={tobiasImage} alt="Tobias Welti" className="member-image" />
-                </div>
-                <div className="member-info">
-                  <h3>Tobias Welti</h3>
-                  <span>Techlead, Founder & CEO</span>
-                  <p>Pioneering the vision for BitNet, Tobias brings extensive experience in both blockchain development and entrepreneurship.</p>
-                </div>
-              </div>
-              
-              <div className="team-member">
-                <div className="member-image-container">
-                  <img src={izakImage} alt="Izak Abdullah Al" className="member-image" />
-                </div>
-                <div className="member-info">
-                  <h3>Izak Abdullah Al</h3>
-                  <span>Fullstack Developer</span>
-                  <p>A talented developer with a passion for creating seamless user experiences and robust backend systems.</p>
-                </div>
-              </div>
-              
-              <div className="team-member">
-                <div className="member-image-container">
-                  <img src={ulrichImage} alt="Edwin Daitche" className="member-image" />
-                </div>
-                <div className="member-info">
-                  <h3>Edwin Daitche</h3>
-                  <span>IT Security & Infrastructure Specialist</span>
-                  <p>With a background in cybersecurity, Edwin ensures that BitNet maintains the highest standards of security.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+          {/* Timeline section last */}
           <div className="about-us-journey">
             <h2>Our Journey</h2>
             <div className="journey-timeline">
@@ -346,67 +336,64 @@ const AboutUs = () => {
           line-height: 1.6;
         }
         
+        /* Team section matching the landing page style */
         .about-us-team {
           margin-bottom: 4rem;
+          text-align: center;
+        }
+        
+        .about-us-team h2 {
+          font-size: 2.5rem;
+          background: linear-gradient(135deg, #ffffff, #aaaaaa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 3rem;
         }
         
         .team-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 3rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 4rem;
+          max-width: 900px;
+          margin: 0 auto;
         }
         
         .team-member {
-          background: rgba(25, 25, 35, 0.6);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          border-radius: 16px;
-          overflow: hidden;
-          transition: transform 0.3s, box-shadow 0.3s;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: transform 0.3s ease;
         }
         
         .team-member:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .member-image-container {
-          height: 250px;
-          overflow: hidden;
-          position: relative;
+          transform: translateY(-10px);
         }
         
         .member-image {
-          width: 100%;
-          height: 100%;
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          transition: box-shadow 0.3s ease, transform 0.3s ease;
           object-fit: cover;
-          transition: transform 0.5s;
         }
         
         .team-member:hover .member-image {
-          transform: scale(1.05);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
         
-        .member-info {
-          padding: 1.5rem;
-        }
-        
-        .member-info h3 {
-          font-size: 1.5rem;
-          margin: 0 0 0.5rem;
+        .team-member h3 {
+          font-size: 1.3rem;
           color: #fff;
+          margin: 0 0 0.3rem 0;
         }
         
-        .member-info span {
-          display: block;
-          color: #ff8c00;
+        .team-member span {
           font-size: 0.9rem;
-          margin-bottom: 1rem;
-        }
-        
-        .member-info p {
           color: #aaa;
-          line-height: 1.6;
-          margin: 0;
         }
         
         .about-us-journey {
@@ -495,7 +482,8 @@ const AboutUs = () => {
           
           .about-us-card h2,
           .about-you-section h2,
-          .about-us-section h2 {
+          .about-us-section h2,
+          .about-us-team h2 {
             font-size: 2rem;
           }
           
@@ -505,6 +493,11 @@ const AboutUs = () => {
           
           .about-you-section > p {
             font-size: 1.3rem;
+          }
+          
+          .team-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
           }
           
           .journey-timeline::before {
@@ -541,7 +534,8 @@ const AboutUs = () => {
           
           .about-us-card h2,
           .about-you-section h2,
-          .about-us-section h2 {
+          .about-us-section h2,
+          .about-us-team h2 {
             font-size: 1.8rem;
           }
           
@@ -554,8 +548,15 @@ const AboutUs = () => {
             font-size: 1.2rem;
           }
           
-          .member-image-container {
-            height: 200px;
+          .team-grid {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 3rem;
+            max-width: 300px;
+          }
+          
+          .member-image {
+            width: 130px;
+            height: 130px;
           }
         }
       `}</style>
