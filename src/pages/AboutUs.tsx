@@ -62,8 +62,6 @@ const AboutUs = () => {
                 <span>IT Security & Infrastructure Specialist</span>
               </div>
             </div>
-            <div className="team-action">
-            </div>
           </div>
 
           
@@ -82,7 +80,7 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <h3>Customer Focus</h3>
-                <p>We don't have users — we have customers. Each is an individual human being deserving of respect, not a number on a screen. Their success is our success.</p>
+                <p>We don't have users — we have customers. Each is an individual human being deserving of respect, not a number on a screen. Their satisfaction is ours.</p>
               </div>
 
               <div className="value-card">
@@ -118,36 +116,6 @@ const AboutUs = () => {
                 </div>
                 <h3>Freedom</h3>
                 <p>We don't micromanage. We empower our team to be inspired, generate ideas, and work autonomously. We encourage, enable, and trust our people to do their best work.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Timeline section last */}
-          <div className="about-us-journey">
-            <h2>Our Journey</h2>
-            <div className="journey-timeline">
-              <div className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <h3>2023</h3>
-                  <p>BitNet founded with a vision to revolutionize Bitcoin self-custody.</p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <h3>2024</h3>
-                  <p>Development of core product.</p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <h3>2025</h3>
-                  <p>Testing and iterating on the product for a small test user group pre-launch.</p>
-                </div>
               </div>
             </div>
           </div>
