@@ -132,7 +132,7 @@ const AboutUs = () => {
                 <div className="timeline-dot"></div>
                 <div className="timeline-content">
                   <h3>2024</h3>
-                  <p>Development of core technology and initial product launch.</p>
+                  <p>Development of core product.</p>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ const AboutUs = () => {
                 <div className="timeline-dot"></div>
                 <div className="timeline-content">
                   <h3>2025</h3>
-                  <p>Expanding to global markets and adding new features to transform the Bitcoin experience.</p>
+                  <p>Testing and iterating on the product for a small test user group pre-launch.</p>
                 </div>
               </div>
             </div>
