@@ -378,7 +378,7 @@ const HeroSection = () => {
               top: 0,
               right: 0,
               width: '18px',  // Previous width
-              height: '42px', // Previous height
+              height: '50px', // Increased height to cover more area
               backgroundColor: '#0e210d',
               zIndex: 5
             }}></div>
