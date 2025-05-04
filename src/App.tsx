@@ -12,6 +12,7 @@ import EarlybirdMobilePage from './pages/EarlybirdMobile'
 import InvestorRelations from './pages/InvestorRelations'
 import FixBitcoin from './pages/FixBitcoin'
 import AIStrategy from './pages/AIStrategy'
+import APIDocumentation from './pages/APIDocumentation'
 import './App.css'
 
 const HomePage = () => {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/investors" element={<InvestorRelations />} />
         <Route path="/fixbitcoin" element={<FixBitcoin />} />
         <Route path="/aistrategy" element={<AIStrategy />} />
+        <Route path="/api" element={<APIDocumentation />} />
       </Routes>
     </Router>
   );
