@@ -21,16 +21,7 @@ const AboutUs = () => {
         </div>
 
         <div className="about-us-container">
-          {/* Customer section first */}
-          <div className="about-you-section">
-            <h2>You</h2>
-            <p>The Customer is King</p>
-            <div className="about-you-content">
-              <p>At BitNet, everything we build starts and ends with you. Your feedback shapes our product, your needs drive our innovation, and your financial freedom is our mission. We exist to serve you with the best Bitcoin experience possible.</p>
-            </div>
-          </div>
-
-          {/* Team section second - with landing page UI */}
+          {/* Team section first - with landing page UI */}
           <div className="about-us-team">
             <h2>Our Team</h2>
             <div className="team-grid">
@@ -42,7 +33,7 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <h3>You</h3>
-                <span>Employee</span>
+                <span>Customer is King</span>
               </div>
 
               <div className="team-member">
@@ -66,6 +57,15 @@ const AboutUs = () => {
             <div className="team-action">
               <p>Got an idea to share?</p>
               <a href="/submit-idea" className="ideas-link">Submit Your Idea</a> {/* Added link to submit ideas */}
+            </div>
+          </div>
+
+          {/* Customer section after team */}
+          <div className="about-you-section">
+            <h2>You</h2>
+            <p>The Customer is King</p>
+            <div className="about-you-content">
+              <p>At BitNet, everything we build starts and ends with you. Your feedback shapes our product, your needs drive our innovation, and your financial freedom is our mission. We exist to serve you with the best Bitcoin experience possible.</p>
             </div>
           </div>
 
