@@ -11,6 +11,12 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    allowedHosts: [
+      'd4053f76-1225-4330-b6bb-78dfe25c9053-00-2nvw6ckq8g991.kirk.replit.dev',
+      '.replit.dev'  // This will allow all replit.dev subdomains
+    ]
+  },
   build: {
     sourcemap: true,
   },
