@@ -352,20 +352,24 @@ const HeroSection = () => {
           className="mockup animate-hidden" 
           style={{ 
             display: 'flex', 
-            flexDirection: 'column'
+            flexDirection: 'column',
+            width: '350px',  // Consistent width regardless of view
+            height: '725px', // Consistent height regardless of view
+            transform: isMobile ? 'scale(0.85)' : 'scale(1)', // Scale down on mobile instead of changing dimensions
+            transformOrigin: 'center top'
           }}
         >
           {/* Safe area container */}
           <div style={{
-            height: isMobile ? 60 : 80,
+            height: 80, // Consistent height
             position: 'relative',
             backgroundColor: '#0e210d' /* Match the spacer color */
           }}>
             {/* Dynamic Island */}
             <div className="dynamic-island" style={{ 
               zIndex: 4,
-              width: isMobile ? '100px' : '126px',
-              height: isMobile ? '28px' : '34px'
+              width: '126px', // Consistent width
+              height: '34px'  // Consistent height
             }}></div>
 
             {/* Top right box overlay */}
@@ -373,8 +377,8 @@ const HeroSection = () => {
               position: 'absolute',
               top: 0,
               right: 0,
-              width: isMobile ? '18px' : '22px',
-              height: isMobile ? '42px' : '51px',
+              width: '22px',  // Consistent width
+              height: '51px', // Consistent height
               backgroundColor: '#0e210d',
               zIndex: 5
             }}></div>
@@ -397,7 +401,7 @@ const HeroSection = () => {
 
           {/* Green spacer that matches the top of the chart */}
           <div style={{
-            height: isMobile ? '40px' : '50px',
+            height: '50px', // Consistent height
             backgroundColor: '#0e210d', /* Exact color match provided */
             zIndex: 1
           }}></div>
