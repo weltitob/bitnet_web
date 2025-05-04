@@ -1,5 +1,5 @@
 import { db } from './config';
-import { collection, addDoc, Timestamp, query, where, getDocs, getCountFromServer, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, Timestamp, query, where, getDocs, getCountFromServer, onSnapshot, doc, updateDoc, orderBy, increment } from 'firebase/firestore';
 import { useState, useEffect, useRef } from 'react';
 import * as React from 'react';
 
@@ -110,6 +110,125 @@ export const getEarlybirdSignupCount = async (): Promise<number> => {
 export const calculateRemainingSpots = (signupCount: number, totalSpots: number = 1000000): number => {
   const remaining = totalSpots - signupCount;
   return remaining > 0 ? remaining : 0;
+};
+
+// Collection reference for user ideas
+const ideasRef = collection(db, 'user_ideas');
+
+/**
+ * Interface for idea submission data
+ */
+export interface IdeaSubmission {
+  name: string;
+  email: string;
+  title: string;
+  description: string;
+  category: string;
+  votes: number;
+}
+
+/**
+ * Add a new idea to Firestore
+ * @param ideaData - The idea data containing name, email, title, description and category
+ * @returns Promise with the document ID
+ */
+export const submitIdea = async (ideaData: Omit<IdeaSubmission, 'votes'>) => {
+  try {
+    // Add new document with idea data, timestamp and initial vote count
+    const docRef = await addDoc(ideasRef, {
+      ...ideaData,
+      timestamp: Timestamp.now(),
+      votes: 0,
+    });
+    
+    console.log('Idea submitted:', ideaData.title);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error submitting idea:', error);
+    throw error;
+  }
+};
+
+/**
+ * Vote for an idea by ID
+ * @param ideaId - The ID of the idea to vote for
+ * @returns Promise resolving to success status
+ */
+export const voteForIdea = async (ideaId: string) => {
+  try {
+    const ideaRef = doc(db, 'user_ideas', ideaId);
+    await updateDoc(ideaRef, {
+      votes: increment(1)
+    });
+    return true;
+  } catch (error) {
+    console.error('Error voting for idea:', error);
+    throw error;
+  }
+};
+
+/**
+ * Get all ideas sorted by votes
+ * @returns Promise with ideas array
+ */
+export const getIdeasByVotes = async () => {
+  try {
+    const ideasQuery = query(ideasRef, orderBy('votes', 'desc'));
+    const querySnapshot = await getDocs(ideasQuery);
+    
+    return querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    })) as (IdeaSubmission & { id: string })[];
+  } catch (error) {
+    console.error('Error getting ideas:', error);
+    throw error;
+  }
+};
+
+/**
+ * Custom hook for getting ideas with real-time updates
+ */
+export const useIdeas = () => {
+  const [ideas, setIdeas] = useState<(IdeaSubmission & { id: string })[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  
+  useEffect(() => {
+    let isMounted = true;
+    setLoading(true);
+    
+    const ideasQuery = query(ideasRef, orderBy('votes', 'desc'));
+    
+    const unsubscribe = onSnapshot(
+      ideasQuery,
+      (snapshot) => {
+        if (!isMounted) return;
+        
+        const ideasData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as (IdeaSubmission & { id: string })[];
+        
+        setIdeas(ideasData);
+        setLoading(false);
+      },
+      (err) => {
+        console.error("Error fetching ideas:", err);
+        if (isMounted) {
+          setError(true);
+          setLoading(false);
+        }
+      }
+    );
+    
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
+  }, []);
+  
+  return { ideas, loading, error };
 };
 
 /**

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, increment } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // Using the BitNet project configuration

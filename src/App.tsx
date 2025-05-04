@@ -14,6 +14,7 @@ import FixBitcoin from './pages/FixBitcoin'
 import AIStrategy from './pages/AIStrategy'
 import APIDocumentation from './pages/APIDocumentation'
 import DeveloperPortal from './pages/DeveloperPortal'
+import IdeasSubmission from './pages/IdeasSubmission'; // Added IdeasSubmission page
 import './App.css'
 
 const HomePage = () => {
@@ -44,9 +45,27 @@ function App() {
         <Route path="/aistrategy" element={<AIStrategy />} />
         <Route path="/api" element={<APIDocumentation />} />
         <Route path="/developer-portal" element={<DeveloperPortal />} />
+        <Route path="/ideas" element={<IdeasSubmission />} /> {/* Added route for IdeasSubmission */}
       </Routes>
     </Router>
   );
 }
 
 export default App
+
+// Placeholder for IdeasSubmission.tsx -  Requires Firebase integration
+//This component needs a more complete implementation with Firebase integration for database interaction.
+//This is a basic placeholder.
+const IdeasSubmission = () => {
+    return (
+      <div>
+        <h1>Submit Your Idea</h1>
+        <form>
+          {/* Add form elements here */}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  };
+
+export default IdeasSubmission;
