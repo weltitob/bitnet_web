@@ -37,9 +37,16 @@ const Footer = () => {
               <ul>
                 <li><a href="/fixbitcoin">Fix Bitcoin Initiative</a></li>
                 <li><a href="/aistrategy">AI & Bitcoin Strategy</a></li>
-                <li><a href="/api">API Documentation</a></li>
                 <li><a href="/investorrelations">Investor Relations</a></li>
                 <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
+              </ul>
+            </div>
+            
+            <div className="footer-links-column">
+              <h4>API</h4>
+              <ul>
+                <li><a href="/developer-portal">Developer Portal</a></li>
+                <li><a href="/api">API Documentation</a></li>
               </ul>
             </div>
           </div>

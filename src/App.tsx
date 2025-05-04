@@ -13,6 +13,7 @@ import InvestorRelations from './pages/InvestorRelations'
 import FixBitcoin from './pages/FixBitcoin'
 import AIStrategy from './pages/AIStrategy'
 import APIDocumentation from './pages/APIDocumentation'
+import DeveloperPortal from './pages/DeveloperPortal'
 import './App.css'
 
 const HomePage = () => {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/fixbitcoin" element={<FixBitcoin />} />
         <Route path="/aistrategy" element={<AIStrategy />} />
         <Route path="/api" element={<APIDocumentation />} />
+        <Route path="/developer-portal" element={<DeveloperPortal />} />
       </Routes>
     </Router>
   );
