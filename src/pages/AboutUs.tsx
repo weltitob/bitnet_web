@@ -60,22 +60,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* Customer section after team */}
-          <div className="about-you-section">
-            <h2>You</h2>
-            <p>The Customer is King</p>
-            <div className="about-you-content">
-              <p>At BitNet, everything we build starts and ends with you. Your feedback shapes our product, your needs drive our innovation, and your financial freedom is our mission. We exist to serve you with the best Bitcoin experience possible.</p>
-            </div>
-          </div>
-
-          {/* Our Mission section */}
-          <div className="about-us-mission">
-            <div className="about-us-card">
-              <h2>Our Mission</h2>
-              <p>We're not just creating a wallet; we're building a gateway to a world where you truly own your financial future. BitNet is committed to making Bitcoin more accessible, secure, and practical for everyday use.</p>
-            </div>
-          </div>
+          
 
           {/* Values section third */}
           <div className="about-us-section">
