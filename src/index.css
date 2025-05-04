@@ -1985,3 +1985,10 @@ footer {
     top: 18%; /* Move chart higher in mobile view only */
   }
 }
+
+/* Chart position at glass box breakpoint where layout changes to stacked */
+@media (max-width: 900px) {
+  .chart-line {
+    top: 15%; /* Moved even higher at the exact layout change breakpoint */
+  }
+}
