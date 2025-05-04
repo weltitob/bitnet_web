@@ -79,41 +79,8 @@ const AboutUs = () => {
 
           {/* Values section third */}
           <div className="about-us-section">
-            <h2>Our Values</h2>
+            <h2>Our Team Values</h2>
             <div className="values-grid">
-              <div className="value-card">
-                <div className="value-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                </div>
-                <h3>Self-Custody</h3>
-                <p>We believe that you should always have full control of your Bitcoin. No third parties, no intermediaries.</p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                  </svg>
-                </div>
-                <h3>Security</h3>
-                <p>Security is non-negotiable. We use cutting-edge technology to protect your assets.</p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <h3>Speed</h3>
-                <p>Fast transactions and responsive interfaces for a seamless Bitcoin experience.</p>
-              </div>
-
               <div className="value-card">
                 <div className="value-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -123,8 +90,43 @@ const AboutUs = () => {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <h3>Community-Driven</h3>
-                <p>We listen to our community and adapt based on your feedback and needs.</p>
+                <h3>Customer Focus</h3>
+                <p>We don't have users — we have customers. Each is an individual human being deserving of respect, not a number on a screen. Their success is our success.</p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6l-12 12"></path>
+                    <path d="M6 6l12 12"></path>
+                  </svg>
+                </div>
+                <h3>Fast Failure</h3>
+                <p>We embrace mistakes as learning opportunities. We move quickly, test ideas, fail fast, adapt faster, and continuously improve through honest feedback.</p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2m16 0-2-5H8l-2 5"></path>
+                    <path d="M12 4v9"></path>
+                    <path d="M12 16v2"></path>
+                  </svg>
+                </div>
+                <h3>Work Hard & Play Hard</h3>
+                <p>We're a high-performing team that believes in celebrating wins. Our environment is energetic, ambitious, and filled with young, fun people who enjoy what they do.</p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"></path>
+                    <path d="M12 8v8"></path>
+                    <path d="M8 12h8"></path>
+                  </svg>
+                </div>
+                <h3>Freedom</h3>
+                <p>We don't micromanage. We empower our team to be inspired, generate ideas, and work autonomously. We encourage, enable, and trust our people to do their best work.</p>
               </div>
             </div>
           </div>
