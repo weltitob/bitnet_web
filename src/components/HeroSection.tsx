@@ -401,7 +401,7 @@ const HeroSection = () => {
 
           {/* Green spacer that matches the top of the chart */}
           <div style={{
-            height: '40px', // Previous height
+            height: '20px', // Reduced height to move chart higher
             backgroundColor: '#0e210d', /* Exact color match provided */
             zIndex: 1
           }}></div>
