@@ -1243,7 +1243,7 @@ nav a:hover {
 /* Static Chart Line Styling */
 .chart-line {
   position: absolute;
-  top: 18%; /* Adjusted from 25% to move chart higher */
+  top: 25%; /* Original desktop position */
   left: 0;
   right: -10px; /* Extend slightly beyond right edge */
   width: calc(100% + 10px); /* Add extra width */
@@ -1982,6 +1982,6 @@ footer {
          font-size: 0.8rem;
     }
   .chart-line {
-    top: 22%; /* Adjusted from 30% to move chart higher in mobile view */
+    top: 18%; /* Move chart higher in mobile view only */
   }
 }
