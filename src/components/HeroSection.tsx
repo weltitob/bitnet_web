@@ -15,12 +15,12 @@ const HeroSection = () => {
   // NFT Counter animation - update when data changes
   useEffect(() => {
     const counterElement = document.getElementById('nft-counter');
-    
+
     // Initial display with fixed width
     if (counterElement) {
       // Always set the content, even during loading (show loading state or current value)
       counterElement.textContent = loading ? "Loading..." : formattedRemaining;
-      
+
       // Consistent styling for the counter
       counterElement.style.fontFeatureSettings = "'tnum'";
       counterElement.style.fontVariantNumeric = "tabular-nums";
@@ -28,7 +28,7 @@ const HeroSection = () => {
       counterElement.style.minWidth = "140px"; // Ensure consistent width
       counterElement.style.display = "inline-block"; // Keep it as a block to maintain width
       counterElement.style.transition = "color 0.3s ease"; // Smooth transition for color changes
-      
+
       // Visual feedback based on counter state
       if (loading) {
         counterElement.style.color = "#888";
@@ -37,7 +37,7 @@ const HeroSection = () => {
       }
     }
   }, [formattedRemaining, loading]); // Re-run when formattedRemaining or loading changes
-  
+
   // Text reveal and phone animation
   useEffect(() => {
     // Elements to animate
@@ -46,14 +46,14 @@ const HeroSection = () => {
     const heroSubheading = document.querySelector('.hero p');
     const heroCta = document.querySelector('.hero-buttons');
     const mockupPhone = phoneRef.current;
-    
+
     // Immediately hide all elements that will be animated
     if (metricsRow) metricsRow.classList.add('animate-hidden');
     if (heroHeading) heroHeading.classList.add('animate-hidden');
     if (heroSubheading) heroSubheading.classList.add('animate-hidden');
     if (heroCta) heroCta.classList.add('animate-hidden');
     if (mockupPhone) mockupPhone.classList.add('animate-hidden');
-    
+
     // Function to trigger sequential fade-in
     const startHeroAnimation = () => {
       // Sequential reveal with increasing delays
@@ -63,34 +63,34 @@ const HeroSection = () => {
       setTimeout(() => heroCta?.classList.add('animate-reveal'), 1100);
       setTimeout(() => mockupPhone?.classList.add('animate-reveal'), 1400);
     };
-    
+
     // Start animations after a brief initial delay
     setTimeout(startHeroAnimation, 300);
-    
+
     // We don't need scroll effects for the phone anymore
     return () => {};
   }, []); // Only run once on component mount
-  
+
   // NFT Rarity tabs and card reveal animations
   useEffect(() => {
     // NFT Rarity tabs functionality
     const rarityTabs = document.querySelectorAll('.rank-tier');
     const nftCards = document.querySelectorAll('.nft-card');
-    
+
     // Function to switch active tab and card
     const switchRarity = (rarity: string) => {
       // Remove active class from all tabs and cards
       rarityTabs.forEach(tab => tab.classList.remove('active'));
       nftCards.forEach(card => card.classList.remove('active'));
-      
+
       // Add active class to selected tab and card
       const selectedTab = document.querySelector(`.rank-tier[data-rarity="${rarity}"]`);
       const selectedCard = document.querySelector(`#${rarity}-card`);
-      
+
       if (selectedTab) selectedTab.classList.add('active');
       if (selectedCard) selectedCard.classList.add('active');
     };
-    
+
     // Add click event listeners to tabs
     rarityTabs.forEach(tab => {
       tab.addEventListener('click', function(this: HTMLElement) {
@@ -106,25 +106,25 @@ const HeroSection = () => {
       // Only return true if we've scrolled at least 100px
       return rect.top <= (windowHeight * threshold) && window.scrollY > 100;
     };
-    
+
     // Reveal cards one by one
     const revealCards = () => {
       // If we're on mobile or already revealed, exit
       if (isMobile || cardsRevealedRef.current) return;
-      
+
       const heroSection = document.querySelector('.hero');
-      
+
       // Check if we've scrolled enough to reveal cards
       if (heroSection && isInViewport(heroSection as HTMLElement, 0.6)) {
         cardsRevealedRef.current = true;
-        
+
         // Define the order of appearance
         const cardOrder = [
           featureCardsRef.current.rightCard,  // First
           featureCardsRef.current.leftCard,   // Second
           featureCardsRef.current.bottomCard  // Last
         ];
-        
+
         // Reveal in the specified order
         cardOrder.forEach((card, index) => {
           if (card) {
@@ -149,11 +149,11 @@ const HeroSection = () => {
 
     // Add scroll listener for card reveals
     window.addEventListener('scroll', revealCards);
-    
+
     // Clean up
     return () => {
       window.removeEventListener('scroll', revealCards);
-      
+
       rarityTabs.forEach(tab => {
         tab.removeEventListener('click', function(this: HTMLElement) {
           const rarity = this.getAttribute('data-rarity');
@@ -171,11 +171,11 @@ const HeroSection = () => {
   useEffect(() => {
     const handleResize = () => {
       const newIsMobile = window.innerWidth <= 900;
-      
+
       // If we're transitioning from mobile to desktop
       if (isMobile && !newIsMobile) {
         setWasRecentlyMobile(true);
-        
+
         // Force cards to be visible when switching to desktop
         setTimeout(() => {
           const cards = [
@@ -183,7 +183,7 @@ const HeroSection = () => {
             featureCardsRef.current.rightCard,
             featureCardsRef.current.bottomCard
           ];
-          
+
           cards.forEach(card => {
             if (card) {
               card.style.opacity = '1';
@@ -196,21 +196,21 @@ const HeroSection = () => {
               }
             }
           });
-          
+
           // Set revealed state to true
           cardsRevealedRef.current = true;
         }, 100);
       }
-      
+
       setIsMobile(newIsMobile);
     };
-    
+
     // Set initial value
     handleResize();
-    
+
     // Add event listener
     window.addEventListener('resize', handleResize);
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
@@ -219,7 +219,7 @@ const HeroSection = () => {
   const handleCardMouseEnter = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
     // Skip transforms on mobile
     if (isMobile) return;
-    
+
     if (card && cardsRevealedRef.current) {
       if (card === featureCardsRef.current.leftCard) {
         // Left card is at top 50%
@@ -231,17 +231,17 @@ const HeroSection = () => {
         // Bottom card
         card.style.transform = 'translateY(-5px)';
       }
-      
+
       if (icon) {
         icon.style.transform = 'scale(1.1)';
       }
     }
   };
-  
+
   const handleCardMouseLeave = (card: HTMLDivElement | null, icon: HTMLDivElement | null) => {
     // Skip transforms on mobile
     if (isMobile) return;
-    
+
     if (card && cardsRevealedRef.current) {
       if (card === featureCardsRef.current.leftCard) {
         // Left card is at top 50%
@@ -253,7 +253,7 @@ const HeroSection = () => {
         // Bottom card
         card.style.transform = 'translateY(0)';
       }
-      
+
       if (icon) {
         icon.style.transform = 'scale(1)';
       }
@@ -279,21 +279,21 @@ const HeroSection = () => {
               <feGaussianBlur stdDeviation="10" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
-            
+
             {/* Gradient for the glow */}
             <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#4ade80" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#4ade80" stopOpacity="0" />
             </linearGradient>
           </defs>
-          
+
           {/* Area fill with gradient for glow effect */}
           <path
             d="M0,220 C65,200 130,240 195,190 C260,140 325,190 390,150 C455,130 520,190 585,160 C650,130 715,180 780,140 C845,100 910,120 975,90 C1040,60 1105,50 1170,30 C1235,10 1300,5 1300,5 L1300,280 L0,280 Z"
             fill="url(#glowGradient)"
             opacity="0.6"
           />
-          
+
           {/* Main chart line with glow */}
           <path
             d="M0,220 C65,200 130,240 195,190 C260,140 325,190 390,150 C455,130 520,190 585,160 C650,130 715,180 780,140 C845,100 910,120 975,90 C1040,60 1105,50 1170,30 C1235,10 1300,5 1300,5"
@@ -367,7 +367,7 @@ const HeroSection = () => {
               width: isMobile ? '100px' : '126px',
               height: isMobile ? '28px' : '34px'
             }}></div>
-            
+
             {/* Top right box overlay */}
             <div style={{
               position: 'absolute',
@@ -378,7 +378,7 @@ const HeroSection = () => {
               backgroundColor: '#0e210d',
               zIndex: 5
             }}></div>
-            
+
             {/* Safe area image overlay */}
             <img 
               src="/assets/mobilephone/safearea.png" 
@@ -394,14 +394,14 @@ const HeroSection = () => {
               }}
             />
           </div>
-          
+
           {/* Green spacer that matches the top of the chart */}
           <div style={{
             height: isMobile ? '40px' : '50px',
             backgroundColor: '#0e210d', /* Exact color match provided */
             zIndex: 1
           }}></div>
-          
+
           {/* Screenshot */}
           <img 
             src="/assets/mobilephone/chart_up.jpeg" 
@@ -415,7 +415,7 @@ const HeroSection = () => {
             }} 
           />
         </div>
-        
+
         {/* For desktop layout - positioned cards */}
         {!isMobile && (
           <>
@@ -448,7 +448,7 @@ const HeroSection = () => {
                 <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
               </div>
             </div>
-            
+
             <div 
               ref={el => featureCardsRef.current.rightCard = el}
               className="feature-card right-card"
@@ -480,7 +480,7 @@ const HeroSection = () => {
                 <p>Web3 apps and digital collectibles, all on Bitcoin</p>
               </div>
             </div>
-            
+
             <div 
               ref={el => featureCardsRef.current.bottomCard = el}
               className="feature-card bottom-card"
@@ -514,7 +514,7 @@ const HeroSection = () => {
           </>
         )}
       </div>
-        
+
       {/* For mobile layout - stacked cards in separate container below phone */}
       {isMobile && (
         <div className="mobile-feature-cards">
@@ -529,7 +529,7 @@ const HeroSection = () => {
               <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
             </div>
           </div>
-          
+
           <div className="feature-card">
             <div className="feature-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -543,7 +543,7 @@ const HeroSection = () => {
               <p>Web3 apps and digital collectibles, all on Bitcoin</p>
             </div>
           </div>
-          
+
           <div className="feature-card">
             <div className="feature-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -559,17 +559,17 @@ const HeroSection = () => {
           </div>
         </div>
       )}
-      
+
       {/* Add extra spacing only in mobile view */}
       {isMobile && <div style={{ height: '1.5rem' }}></div>}
-      
+
       <div className="social-proof-section">
         <div className="social-proof-header">
           <span>Limited Early Access</span>
           <h3>Revolutionary Bitcoin-native platform coming soon</h3>
         </div>
-        
-        
+
+
         <div className="users-scroll-container">
           <div className="users-scroll-inner">
             {/* First set of users */}
@@ -605,7 +605,7 @@ const HeroSection = () => {
               <div className="avatar" style={{backgroundColor: '#00c853'}}></div>
               <span className="username">@onchain_analyst</span>
             </div>
-            
+
             {/* Duplicate set for infinite scroll effect */}
             <div className="user-avatar">
               <div className="avatar" style={{backgroundColor: '#ff8c00'}}></div>
@@ -642,29 +642,29 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="earlybird-section">
         <div className="earlybird-content">
           {/* Two-column layout inspired by the reference design */}
           <div className="earlybird-two-col">
-            
+
             {/* Left column: Access info, CTA button and counter */}
             <div className="earlybird-col-left">
               <div className="title-group" style={{ maxWidth: "450px", width: "100%" }}>
                 <h2>Be an earlybird - get rewarded later.</h2>
                 <p>Join the mailing list and be the first when we launch our services.</p>
               </div>
-              
+
               <div className="button-wrapper">
                 <a href="/earlybird" className="btn primary">Reserve Your Spot</a>
               </div>
-              
+
               <div className="counter-container">
                 <span id="nft-counter">1,000,000</span>
                 <p>limited spots remaining</p>
               </div>
             </div>
-            
+
             {/* Right column: NFT card with tabs above */}
             <div className="earlybird-col-right">
               {/* Rank tiers above card */}
@@ -674,7 +674,7 @@ const HeroSection = () => {
                 <button className="rank-tier" data-rarity="rare">Top 100,000</button>
                 <button className="rank-tier" data-rarity="uncommon">Top 1,000,000</button>
               </div>
-              
+
               <div className="nft-cards-container">
                 <div id="legendary-card" className="nft-card active">
                   <div className="rarity-badge legendary">Legendary</div>
@@ -696,7 +696,7 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div id="epic-card" className="nft-card">
                   <div className="rarity-badge epic">Epic</div>
                   <div className="nft-card-image">
@@ -717,7 +717,7 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div id="rare-card" className="nft-card">
                   <div className="rarity-badge rare">Rare</div>
                   <div className="nft-card-image rare-image">
@@ -738,7 +738,7 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div id="uncommon-card" className="nft-card">
                   <div className="rarity-badge uncommon">Uncommon</div>
                   <div className="nft-card-image uncommon-image">
@@ -759,7 +759,7 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="nft-card-shadow"></div>
               </div>
             </div>

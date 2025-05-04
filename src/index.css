@@ -1251,6 +1251,8 @@ nav a:hover {
   z-index: 0;
   transform: translateY(-50%);
   overflow: visible;
+  /* Ensure chart position remains consistent across all screen sizes */
+  min-height: 280px;
 }
 
 /* Phone and Features Container */
