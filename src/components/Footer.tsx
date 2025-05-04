@@ -177,15 +177,21 @@ const Footer = () => {
         .submit-idea-btn {
           margin-top: 1rem;
           padding: 0.8rem 1.5rem;
-          background-color: #ff8c00;
+          background: linear-gradient(135deg, #ff8a00, #ff5e00);
           color: white;
           text-decoration: none;
-          border-radius: 4px;
-          transition: background-color 0.3s ease;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          display: inline-block;
+          font-weight: 500;
+          box-shadow: 0 3px 10px rgba(255, 94, 0, 0.2);
+          border: 1px solid rgba(255, 140, 0, 0.3);
         }
 
         .submit-idea-btn:hover {
-          background-color: #e67e22;
+          background: linear-gradient(135deg, #ff7a00, #ff5000);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(255, 94, 0, 0.3);
         }
 
 
