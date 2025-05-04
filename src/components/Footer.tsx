@@ -180,18 +180,37 @@ const Footer = () => {
           background: linear-gradient(135deg, #ff8a00, #ff5e00);
           color: white;
           text-decoration: none;
-          border-radius: 8px;
+          border-radius: 10px;
           transition: all 0.3s ease;
           display: inline-block;
-          font-weight: 500;
-          box-shadow: 0 3px 10px rgba(255, 94, 0, 0.2);
-          border: 1px solid rgba(255, 140, 0, 0.3);
+          font-weight: 600;
+          font-size: 0.95rem;
+          letter-spacing: 0.01em;
+          box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+          border: none;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .submit-idea-btn:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+          opacity: 0;
+          transition: opacity 0.3s ease;
         }
 
         .submit-idea-btn:hover {
-          background: linear-gradient(135deg, #ff7a00, #ff5000);
-          transform: translateY(-2px);
-          box-shadow: 0 6px 15px rgba(255, 94, 0, 0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(255, 94, 0, 0.3);
+        }
+        
+        .submit-idea-btn:hover:before {
+          opacity: 1;
         }
 
 
