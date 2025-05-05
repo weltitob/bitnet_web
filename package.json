@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.14.0",
     "@react-three/drei": "^9.99.5",
     "@react-three/fiber": "^8.15.19",
-    "firebase": "^11.6.0",
+    "firebase": "^11.6.1",
     "new": "^0.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
