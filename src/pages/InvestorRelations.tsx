@@ -121,12 +121,12 @@ const InvestorRelations = () => {
                 </div>
                 
                 <p style={{ fontSize: isMobile ? '1rem' : '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                  BitNet is driving a fundamental shift: elevating Bitcoin from a passive store of value to a dynamic, high-velocity payment platform. Our tech delivers sub-2-second transactions with fees under $0.01 and seamless web3 integration, unlocking Bitcoin's massive $1.2T network for real-world utility.
+                  BitNet is driving a fundamental shift: elevating Bitcoin from a passive store of value to a dynamic, high-velocity payment platform. Our tech delivers transactions in less than a second with fees under $0.01 and seamless web3 integration, unlocking Bitcoin's massive $1.2T network for real-world utility.
                 </p>
                 
                 <div style={{
                   display: 'flex',
-                  alignItems: isMobile ? 'flex-start' : 'center',
+                  alignItems: isMobile ? 'center' : 'center',
                   flexDirection: isMobile ? 'column' : 'row',
                   padding: isMobile ? '0.8rem' : '1rem',
                   background: 'rgba(255, 255, 255, 0.04)',
@@ -142,7 +142,8 @@ const InvestorRelations = () => {
                       borderRadius: '10px',
                       marginRight: isMobile ? '0' : '1rem',
                       marginBottom: isMobile ? '0.8rem' : '0',
-                      objectFit: 'cover'
+                      objectFit: 'cover',
+                      alignSelf: isMobile ? 'center' : 'auto'
                     }}
                   />
                   <div style={{ textAlign: isMobile ? 'center' : 'left', width: isMobile ? '100%' : 'auto' }}>
@@ -185,28 +186,44 @@ const InvestorRelations = () => {
               }}></div>
               
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: isMobile ? 'column' : 'row', 
+                  alignItems: isMobile ? 'center' : 'flex-start', 
+                  marginBottom: '1.5rem' 
+                }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '15px',
+                    width: isMobile ? '50px' : '60px',
+                    height: isMobile ? '50px' : '60px',
+                    borderRadius: isMobile ? '12px' : '15px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 5px 15px rgba(255, 140, 0, 0.3)'
                   }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="white" strokeWidth="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={isMobile ? "26" : "30"} height={isMobile ? "26" : "30"} fill="none" stroke="white" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
                       <line x1="12" y1="16" x2="12" y2="12" />
                       <line x1="12" y1="8" x2="12" y2="8" />
                     </svg>
                   </div>
-                  <h2 style={{ margin: 0, fontSize: '1.8rem', color: '#ffffff' }}>The Current State of Bitcoin</h2>
+                  <h2 style={{ 
+                    margin: 0, 
+                    fontSize: isMobile ? '1.6rem' : '1.8rem', 
+                    color: '#ffffff',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>The Current State of Bitcoin</h2>
                 </div>
                 
-                <p style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                <p style={{ 
+                  fontSize: isMobile ? '1rem' : '1.1rem', 
+                  lineHeight: '1.6', 
+                  marginBottom: '1rem',
+                  textAlign: isMobile ? 'center' : 'left' 
+                }}>
                   Bitcoin has established itself as the world's premier digital store of value, but its potential as a dynamic financial layer remains largely untapped. The current ecosystem faces several challenges that restrict its widespread adoption and daily utility.
                 </p>
               </div>
@@ -426,32 +443,53 @@ const InvestorRelations = () => {
               }}></div>
               
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: isMobile ? 'column' : 'row', 
+                  alignItems: isMobile ? 'center' : 'flex-start', 
+                  marginBottom: '1.5rem' 
+                }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #4a8eff, #2d68c4)',
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '15px',
+                    width: isMobile ? '50px' : '60px',
+                    height: isMobile ? '50px' : '60px',
+                    borderRadius: isMobile ? '12px' : '15px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 5px 15px rgba(42, 104, 196, 0.3)'
                   }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="white" strokeWidth="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={isMobile ? "26" : "30"} height={isMobile ? "26" : "30"} fill="none" stroke="white" strokeWidth="2">
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                       <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
                   </div>
-                  <h2 style={{ margin: 0, fontSize: '1.8rem', color: '#ffffff' }}>The BitNet Solution</h2>
+                  <h2 style={{ 
+                    margin: 0, 
+                    fontSize: isMobile ? '1.6rem' : '1.8rem', 
+                    color: '#ffffff',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>The BitNet Solution</h2>
                 </div>
                 
-                <p style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                <p style={{ 
+                  fontSize: isMobile ? '1rem' : '1.1rem', 
+                  lineHeight: '1.6', 
+                  marginBottom: '1.5rem',
+                  textAlign: isMobile ? 'center' : 'left' 
+                }}>
                   BitNet is pioneering the first comprehensive solution that brings Web3 capabilities to Bitcoin through Taproot Assets. As the <strong style={{ color: '#fff' }}>first mover</strong> in this space, we're revolutionizing how people interact with the world's largest cryptocurrency network.
                 </p>
                 
-                <p style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>sub-2-second transactions</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
+                <p style={{ 
+                  fontSize: isMobile ? '1rem' : '1.1rem', 
+                  lineHeight: '1.6', 
+                  marginBottom: '1.5rem',
+                  textAlign: isMobile ? 'center' : 'left' 
+                }}>
+                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>transactions in less than a second</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
                 </p>
                 
                 <div style={{
@@ -460,26 +498,42 @@ const InvestorRelations = () => {
                   borderRadius: '12px',
                   marginTop: '1.5rem'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    flexDirection: isMobile ? 'column' : 'row',
+                    alignItems: isMobile ? 'center' : 'flex-start', 
+                    marginBottom: '1rem' 
+                  }}>
                     <div style={{
                       background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '10px',
+                      width: isMobile ? '35px' : '40px',
+                      height: isMobile ? '35px' : '40px',
+                      borderRadius: isMobile ? '8px' : '10px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginRight: '1rem',
+                      marginRight: isMobile ? '0' : '1rem',
+                      marginBottom: isMobile ? '0.8rem' : '0',
                       flexShrink: 0,
                       boxShadow: '0 5px 15px rgba(255, 94, 0, 0.2)'
                     }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" strokeWidth="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={isMobile ? "18" : "20"} height={isMobile ? "18" : "20"} fill="none" stroke="white" strokeWidth="2">
                         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                       </svg>
                     </div>
-                    <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#fff' }}>Innovation Leadership</h4>
+                    <h4 style={{ 
+                      margin: 0, 
+                      fontSize: isMobile ? '1.1rem' : '1.2rem', 
+                      color: '#fff',
+                      textAlign: isMobile ? 'center' : 'left'
+                    }}>Innovation Leadership</h4>
                   </div>
-                  <p style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
+                  <p style={{ 
+                    margin: 0, 
+                    fontSize: isMobile ? '1rem' : '1.1rem', 
+                    lineHeight: '1.6',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>
                     BitNet is the <strong style={{ color: '#ff8c00' }}>first to market</strong> with a complete platform integrating Taproot Assets, bringing the full spectrum of Web3 capabilities to Bitcoin. This positions us at the forefront of a massive technological shift that's just beginning to gain momentum.
                   </p>
                 </div>
@@ -701,27 +755,42 @@ const InvestorRelations = () => {
               }}></div>
               
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'center' : 'flex-start', 
+                  marginBottom: '1.5rem' 
+                }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '12px',
+                    width: isMobile ? '45px' : '50px',
+                    height: isMobile ? '45px' : '50px',
+                    borderRadius: isMobile ? '10px' : '12px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginRight: '1.5rem',
+                    marginRight: isMobile ? '0' : '1.5rem',
+                    marginBottom: isMobile ? '1rem' : '0',
                     boxShadow: '0 5px 15px rgba(255, 140, 0, 0.2)'
                   }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={isMobile ? "22" : "24"} height={isMobile ? "22" : "24"} fill="none" stroke="white" strokeWidth="2">
                       <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
                       <path d="M17 6h6v6"></path>
                     </svg>
                   </div>
-                  <h3 style={{ margin: 0, fontSize: '1.6rem', color: '#fff' }}>Market Momentum</h3>
+                  <h3 style={{ 
+                    margin: 0, 
+                    fontSize: isMobile ? '1.5rem' : '1.6rem', 
+                    color: '#fff',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>Market Momentum</h3>
                 </div>
                 
-                <p style={{ lineHeight: '1.6' }}>
+                <p style={{ 
+                  lineHeight: '1.6',
+                  fontSize: isMobile ? '1rem' : '1.1rem',
+                  textAlign: isMobile ? 'center' : 'left'
+                }}>
                   User feedback from our initial testing has been gold, and recent developments like Tether's Bitcoin integration via Taproot Assets Protocol perfectly align with our strategy. The momentum is building, and BitNet is ready to capitalize on fast and easy payments, digital assets and tokens coming to bitcoin in a big way.
                 </p>
               </div>
@@ -750,7 +819,7 @@ const InvestorRelations = () => {
               maxWidth: '600px',
               margin: '0 auto 2rem'
             }}>
-              BitNet is building the future where Bitcoin can fulfill its promise as a universal financial layer for the internet. Be part of this transformation as an investor.
+              We're positioning Bitcoin as the digital trust layer of the internet—a vision that will reshape finance as we know it. Join us as we build the financial infrastructure of tomorrow.
             </p>
             <div style={{ 
               display: 'flex', 

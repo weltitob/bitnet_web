@@ -11,6 +11,11 @@ import EarlybirdPage from './pages/Earlybird'
 import EarlybirdMobilePage from './pages/EarlybirdMobile'
 import InvestorRelations from './pages/InvestorRelations'
 import FixBitcoin from './pages/FixBitcoin'
+import AIStrategy from './pages/AIStrategy'
+import APIDocumentation from './pages/APIDocumentation'
+import DeveloperPortal from './pages/DeveloperPortal'
+import IdeasSubmission from './pages/IdeasSubmission'; // Added IdeasSubmission page
+import AboutUs from './pages/AboutUs'; // Added AboutUs page
 import './App.css'
 
 const HomePage = () => {
@@ -21,7 +26,6 @@ const HomePage = () => {
         <HeroSection />
         <MissionSection />
         <TestimonialsSection />
-        <AboutSection />
         <CareersSection />
         <ContactSection />
       </main>
@@ -38,6 +42,11 @@ function App() {
         <Route path="/earlybird" element={<EarlybirdPage />} />
         <Route path="/investors" element={<InvestorRelations />} />
         <Route path="/fixbitcoin" element={<FixBitcoin />} />
+        <Route path="/aistrategy" element={<AIStrategy />} />
+        <Route path="/api" element={<APIDocumentation />} />
+        <Route path="/developer-portal" element={<DeveloperPortal />} />
+        <Route path="/ideas" element={<IdeasSubmission />} /> {/* Added route for IdeasSubmission */}
+        <Route path="/about" element={<AboutUs />} /> {/* Added route for AboutUs */}
       </Routes>
     </Router>
   );

@@ -190,7 +190,7 @@
     text-align: center;
     gap: 0.8rem;
   }
-  
+
   .fix-bitcoin-button {
     margin-top: 0.5rem;
     width: 100%;
@@ -845,7 +845,7 @@ nav a:hover {
 #rare-card:hover {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
               0 0 25px rgba(0, 150, 255, 0.4);
-  border-color: rgba(0, 150, 255, 0.6);
+  border-color: rgbargba(0, 150, 255, 0.6);
 }
 
 /* Uncommon hover effect */
@@ -1243,7 +1243,7 @@ nav a:hover {
 /* Static Chart Line Styling */
 .chart-line {
   position: absolute;
-  top: 25%;
+  top: 25%; /* Original desktop position */
   left: 0;
   right: -10px; /* Extend slightly beyond right edge */
   width: calc(100% + 10px); /* Add extra width */
@@ -1251,6 +1251,8 @@ nav a:hover {
   z-index: 0;
   transform: translateY(-50%);
   overflow: visible;
+  /* Ensure chart position remains consistent across all screen sizes */
+  min-height: 280px;
 }
 
 /* Phone and Features Container */
@@ -1590,7 +1592,7 @@ footer {
        min-height: auto;
        position: relative;
    }
-   
+
    .earlybird-section {
        width: 90%;
        max-width: 1050px;
@@ -1603,43 +1605,43 @@ footer {
        flex-direction: column;
        gap: 3rem;
    }
-   
+
    .earlybird-col-left {
        padding: 0;
        min-width: unset;
        width: 100%;
    }
-   
+
    .title-group {
        margin-bottom: 2rem;
    }
-   
+
    .title-group h2 {
        text-align: center;
        width: 100%;
    }
-   
+
    .title-group p {
        text-align: center;
        width: 100%;
    }
-   
+
    .button-wrapper {
        width: 100%;
        display: flex;
        justify-content: center;
        margin-bottom: 2rem;
    }
-   
+
    .earlybird-content {
        padding: 2.5rem 1.5rem;
    }
-   
+
    .counter-container {
        text-align: center;
        margin: 2rem auto 0;
    }
-   
+
    .earlybird-col-left .btn.primary {
        align-self: center;
        margin-top: 0.5rem;
@@ -1657,18 +1659,18 @@ footer {
        width: 100%;
        min-width: unset;
    }
-   
+
    #nft-counter {
        width: auto;
        text-align: center;
    }
-   
+
    .counter-container p {
        width: auto;
        text-align: center;
        margin: 0 auto;
    }
-   
+
    .earlybird-col-left .btn.primary {
        align-self: center;
    }
@@ -1686,7 +1688,7 @@ footer {
        height: 390px;
        margin: 0 auto;
    }
-   
+
    /* Feature cards - stacked in mobile view */
    .feature-card {
        position: static;
@@ -1700,7 +1702,7 @@ footer {
        margin: 0.75rem auto;
        opacity: 1; /* Make them visible by default on mobile */
    }
-   
+
    /* Create a mobile feature cards container */
    .mobile-feature-cards {
        display: flex;
@@ -1711,7 +1713,7 @@ footer {
        margin-top: 2rem; /* More space between phone and cards */
        margin-bottom: 4rem; /* More space after feature cards before next section */
    }
-   
+
    /* Make mobile feature cards larger */
    .mobile-feature-cards .feature-card {
        width: 92%;
@@ -1719,7 +1721,7 @@ footer {
        margin: 0 auto;
        padding: 1.8rem;
    }
-   
+
    /* Make mobile feature card icons larger */
    .mobile-feature-cards .feature-icon {
        width: 50px;
@@ -1727,22 +1729,22 @@ footer {
        padding: 10px;
        margin-bottom: 1rem;
    }
-   
+
    /* Make mobile feature card text larger */
    .mobile-feature-cards h3 {
        font-size: 1.35rem !important;
        margin-bottom: 0.7rem !important;
    }
-   
+
    .mobile-feature-cards p {
        font-size: 1rem !important;
        line-height: 1.6 !important;
    }
-   
+
    .mockup {
        margin: 2rem auto;
    }
-   
+
    .hero {
        display: flex;
        flex-direction: column;
@@ -1760,8 +1762,7 @@ footer {
     .header-left {
         gap: 0.6rem;
     }
-    .header-right {
-        gap: 1rem; /* Reduce gap between nav and button */
+    .header-right {        gap: 1rem; /* Reduce gap between nav and button */
     }
     header nav {
         gap: 1rem; /* Reduce gap between nav links */
@@ -1773,20 +1774,20 @@ footer {
         padding: 0.4rem 1rem;
         font-size: 0.85rem;
     }
-    
+
     /* Testimonials responsive */
     .testimonials-section {
         padding: 5rem 1.5rem;
     }
-    
+
     .testimonials-header {
         margin-bottom: 3rem;
     }
-    
+
     .testimonials-header h2 {
         font-size: 2.2rem;
     }
-    
+
     .testimonials-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 2rem;
@@ -1803,37 +1804,37 @@ footer {
     margin-right: auto;
     gap: 1.2rem;
   }
-  
+
   .hero-buttons .btn {
     width: 100%;
     min-width: 100%;
   }
-  
+
   .metrics-row {
     display: none;
   }
-  
+
   .earlybird-section {
     width: 95%;
     max-width: 1050px;
     margin: 1.5rem auto;
   }
-  
+
   .earlybird-content {
     padding: 1.5rem 1rem;
     width: 100%;
   }
-  
+
   /* Adjust feature cards for very small screens */
   .mobile-feature-cards .feature-card {
     width: 95%;
     padding: 1.5rem;
   }
-  
+
   .mobile-feature-cards {
     padding: 0 0.8rem;
   }
-  
+
   .hero h1 {
     font-size: 2rem;
     line-height: 1.3;
@@ -1845,20 +1846,20 @@ footer {
   .hero {
       padding: 4rem 0 2rem 0;
   }
-  
+
   .social-proof-header h3 {
       font-size: 1.4rem;
   }
-  
+
   .social-proof-header span {
       font-size: 0.85rem;
   }
-  
+
   .avatar {
       width: 48px;
       height: 48px;
   }
-  
+
   .username {
       font-size: 0.8rem;
   }
@@ -1882,41 +1883,41 @@ footer {
   .counter-container p {
      font-size: 0.85rem;
   }
-  
+
   /* Testimonials for mobile */
   .testimonials-section {
      padding: 4rem 1rem;
   }
-  
+
   .testimonials-header h2 {
      font-size: 1.8rem;
   }
-  
+
   .testimonials-header p {
      font-size: 0.95rem;
   }
-  
+
   .testimonials-grid {
      grid-template-columns: 1fr;
      gap: 1.5rem;
   }
-  
+
   .testimonial-card {
      max-width: 320px;
      margin: 0 auto;
   }
-  
+
   .testimonial-content {
      padding: 1.5rem;
   }
-  
+
   .testimonial-text {
      font-size: 0.95rem;
      margin-bottom: 0;
      padding-bottom: 1.5rem;
      text-align: left;
   }
-  
+
   .author-image {
      width: 40px;
      height: 40px;
@@ -1962,8 +1963,10 @@ footer {
       font-size: 0.75rem;
   }
   .mockup {
-    width: 300px; /* Maintain iPhone proportions but slightly smaller for mobile */
-    /* Height controlled by !important rule in main mockup class */
+    /* Don't adjust width here, we'll handle scaling with transforms instead */
+    transform: scale(0.85);
+    transform-origin: center top;
+    margin: 0 auto;
   }
   .section {
       padding: 3rem 1rem;
@@ -1979,6 +1982,13 @@ footer {
          font-size: 0.8rem;
     }
   .chart-line {
-    top: 30%;
+    top: 18%; /* Move chart higher in mobile view only */
+  }
+}
+
+/* Chart position at glass box breakpoint where layout changes to stacked */
+@media (max-width: 900px) {
+  .chart-line {
+    top: 15%; /* Moved even higher at the exact layout change breakpoint */
   }
 }
