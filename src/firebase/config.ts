@@ -11,7 +11,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
 
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyBcyvh_ub5KohvY3-O25XMVPjRPmVXiv28",
 
   authDomain: "bitnet-cb34f.firebaseapp.com",
 
