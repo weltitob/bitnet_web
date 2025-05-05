@@ -11,7 +11,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyBcyvh_ub5KohvY3-O25XMVPjRPmVXiv28",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
 
   authDomain: "bitnet-cb34f.firebaseapp.com",
 
@@ -28,7 +28,6 @@ const firebaseConfig = {
   measurementId: "G-BW6W8M4M4J"
 
 };
-
 
 // Initialize Firebase
 declare global {
