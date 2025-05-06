@@ -40,7 +40,10 @@ declare global {
   }
 }
 const app = initializeApp(firebaseConfig);
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+if (import.meta.env.DEV == true) {
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+
+}
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider('6LdqgS4rAAAAAKFgtcYebZ4jjWxCtV9p7sVBOpew'),
 
