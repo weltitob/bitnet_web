@@ -60,14 +60,45 @@ const LazyImage: React.FC<LazyImageProps> = ({
     backgroundColor: placeholderColor,
   };
 
+  // Create a containerStyle that includes position properties and margin/padding from style
+  const containerStyle = {
+    position: 'relative' as const,
+    overflow: 'hidden' as const,
+    height: style.height,
+    width: style.width,
+    margin: style.margin,
+    marginTop: style.marginTop,
+    marginRight: style.marginRight,
+    marginBottom: style.marginBottom,
+    marginLeft: style.marginLeft,
+    padding: style.padding,
+    paddingTop: style.paddingTop,
+    paddingRight: style.paddingRight,
+    paddingBottom: style.paddingBottom,
+    paddingLeft: style.paddingLeft,
+  };
+
+  // Remove margin and padding from the image style to avoid duplication
+  const imageStyle = { ...combinedStyles };
+  delete imageStyle.margin;
+  delete imageStyle.marginTop;
+  delete imageStyle.marginRight;
+  delete imageStyle.marginBottom;
+  delete imageStyle.marginLeft;
+  delete imageStyle.padding;
+  delete imageStyle.paddingTop;
+  delete imageStyle.paddingRight;
+  delete imageStyle.paddingBottom;
+  delete imageStyle.paddingLeft;
+
   return (
-    <div ref={imgRef} style={{ position: 'relative', overflow: 'hidden', height: style.height, width: style.width }}>
+    <div ref={imgRef} style={containerStyle}>
       {isInView && (
         <img
           src={src}
           alt={alt}
           className={className}
-          style={combinedStyles}
+          style={imageStyle}
           onLoad={() => setIsLoaded(true)}
           loading="lazy"
           srcSet={srcSet}
