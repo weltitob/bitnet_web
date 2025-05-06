@@ -570,7 +570,7 @@ const HeroSection = () => {
       <div className="social-proof-section">
         <div className="social-proof-header">
           <span>Limited Early Access</span>
-          <h3>Revolutionary Bitcoin-native platform coming soon</h3>
+          <h3>The first easy and cheap Bitcoin wallet for web3 coming soon</h3>
         </div>
 
 
