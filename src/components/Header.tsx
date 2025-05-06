@@ -163,14 +163,15 @@ const Header = () => {
             display: 'block',
           }}
         />
-        <h1 
+        <div 
+          className="site-logo-text"
           style={{
             fontSize: responsiveStyles.headerTitle.fontSize,
             fontWeight: 700,
           }}
         >
           BitNet
-        </h1>
+        </div>
       </div>
       
       {/* Hamburger menu for mobile */}
