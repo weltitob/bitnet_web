@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logo from '../assets/logoclean.png'
+import logo from '../assets/logoclean.webp'
 
 const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -284,6 +284,20 @@ const Header = () => {
               Investors
             </a>
             <a 
+              href="/blog" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Blog
+            </a>
+            <a 
               href={window.location.pathname === '/' ? '#contact' : '/#contact'} 
               style={{
                 textDecoration: 'none',
@@ -398,6 +412,19 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Investors
+            </a>
+            <a 
+              href="/blog" 
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
             </a>
             <a 
               href={window.location.pathname === '/' ? '#contact' : '/#contact'} 

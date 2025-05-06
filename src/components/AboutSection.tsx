@@ -1,6 +1,7 @@
-import tobiasImage from '../assets/team/tobias.jpeg';
-import izakImage from '../assets/team/izak.jpg';
-import ulrichImage from '../assets/team/ulrich.png';
+import tobiasImage from '../assets/team/tobias.webp';
+import izakImage from '../assets/team/izak.webp';
+import ulrichImage from '../assets/team/ulrich.webp';
+import LazyImage from './LazyImage';
 
 const AboutSection = () => {
   return (
@@ -24,19 +25,19 @@ const AboutSection = () => {
           
           <div className="about-team-grid">
             <div className="team-member">
-              <img src={tobiasImage} alt="Tobias Welti" className="member-image" style={{ objectFit: 'cover' }} />
+              <LazyImage src={tobiasImage} alt="Tobias Welti - Techlead, Founder & CEO" className="member-image" style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%' }} />
               <h3>Tobias Welti</h3>
               <span>Techlead, Founder & CEO</span>
             </div>
             
             <div className="team-member">
-              <img src={izakImage} alt="Izak Abdullah Al" className="member-image" style={{ objectFit: 'cover' }} />
+              <LazyImage src={izakImage} alt="Izak Abdullah Al - Fullstack Developer" className="member-image" style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%' }} />
               <h3>Izak Abdullah Al</h3>
               <span>Fullstack Developer</span>
             </div>
             
             <div className="team-member">
-              <img src={ulrichImage} alt="Edwin Daitche" className="member-image" style={{ objectFit: 'cover' }} />
+              <LazyImage src={ulrichImage} alt="Edwin Daitche - IT Security & Infrastructure Specialist" className="member-image" style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%' }} />
               <h3>Edwin Daitche</h3>
               <span>IT Security & Infrastructure Specialist</span>
             </div>

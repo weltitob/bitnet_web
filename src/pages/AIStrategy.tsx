@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const AIStrategy = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -16,6 +17,12 @@ const AIStrategy = () => {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <SEO 
+        title="AI Strategy | Bitcoin for AI Payments | BitNet"
+        description="Discover why Bitcoin and Lightning Network provide the ideal payment infrastructure for AI systems. Learn how BitNet connects AI and Bitcoin."
+        canonical="https://www.bitnet.com/aistrategy"
+        keywords="bitcoin, AI payments, artificial intelligence, lightning network, bitcoin wallet, AI strategy"
+      />
       <Header />
       <main style={{ flexGrow: 1, padding: 'clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem)', background: '#0b0b0b' }}>
         <div style={{ maxWidth: '1050px', margin: '0 auto' }}>

@@ -1,15 +1,28 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import tobiasImage from '../assets/team/tobias.jpeg';
-import izakImage from '../assets/team/izak.jpg';
-import ulrichImage from '../assets/team/ulrich.png';
+import SEO from '../components/SEO';
+import tobiasImage from '../assets/team/tobias.webp';
+import izakImage from '../assets/team/izak.webp';
+import ulrichImage from '../assets/team/ulrich.webp';
+import LazyImage from '../components/LazyImage';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#050505' }}>
+      <SEO 
+        title="About BitNet - Our Team and Mission | Bitcoin Wallet"
+        description="Learn about the BitNet team and our mission to create the most secure, user-friendly Bitcoin wallet with self-custody and Lightning Network support."
+        canonical="https://www.bitnet.com/about"
+      />
       <Header />
       <main className="about-us-page">
+        <div className="about-us-container" style={{ padding: '1rem 2rem 0' }}>
+          <Breadcrumbs 
+            customPaths={[{ path: '/about', label: 'About Us' }]} 
+          />
+        </div>
         <div className="about-us-hero">
           <div className="about-us-hero-content">
             <span className="about-subtitle">About Us</span>
@@ -44,19 +57,19 @@ const AboutUs = () => {
               </div>
 
               <div className="team-member">
-                <img src={tobiasImage} alt="Tobias Welti" className="member-image" />
+                <LazyImage src={tobiasImage} alt="Tobias Welti - Techlead, Founder & CEO" className="member-image" style={{ width: '140px', height: '140px', borderRadius: '50%' }} />
                 <h3>Tobias Welti</h3>
                 <span>Techlead, Founder & CEO</span>
               </div>
 
               <div className="team-member">
-                <img src={izakImage} alt="Izak Abdullah Al" className="member-image" />
+                <LazyImage src={izakImage} alt="Izak Abdullah Al - Fullstack Developer" className="member-image" style={{ width: '140px', height: '140px', borderRadius: '50%' }} />
                 <h3>Izak Abdullah Al</h3>
                 <span>Fullstack Developer</span>
               </div>
 
               <div className="team-member">
-                <img src={ulrichImage} alt="Edwin Daitche" className="member-image" />
+                <LazyImage src={ulrichImage} alt="Edwin Daitche - IT Security & Infrastructure Specialist" className="member-image" style={{ width: '140px', height: '140px', borderRadius: '50%' }} />
                 <h3>Edwin Daitche</h3>
                 <span>IT Security & Infrastructure Specialist</span>
               </div>
@@ -133,8 +146,30 @@ const AboutUs = () => {
           padding: 8rem 2rem 4rem;
           text-align: center;
           background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/assets/genisisstone.webp') center/cover no-repeat;
+                      url('/src/assets/genisisstone-480.webp') center/cover no-repeat;
           position: relative;
+        }
+        
+        /* Media queries need to be separate in styled-jsx */
+        @media (min-width: 480px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('/src/assets/genisisstone-768.webp') center/cover no-repeat;
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('/src/assets/genisisstone-1280.webp') center/cover no-repeat;
+          }
+        }
+        
+        @media (min-width: 1280px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('/src/assets/genisisstone.webp') center/cover no-repeat;
+          }
         }
 
         .about-us-hero::after {

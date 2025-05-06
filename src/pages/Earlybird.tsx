@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { addEarlybirdSignup, useEarlybirdCount } from '../firebase/services';
 
 const EarlybirdPage = () => {
@@ -83,6 +84,12 @@ const EarlybirdPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0b0b0b' }}>
+      <SEO 
+        title="Early Access | BitNet Bitcoin Wallet | Get Exclusive Benefits"
+        description="Sign up for early access to BitNet's Bitcoin wallet and secure exclusive benefits. Limited spots available for our self-custody Bitcoin solution with Lightning Network support."
+        canonical="https://www.bitnet.com/earlybird"
+        keywords="bitcoin wallet, early access, bitcoin app, self-custody, lightning network, exclusive benefits"
+      />
       <Header />
       
       <main style={{ flex: 1 }}>

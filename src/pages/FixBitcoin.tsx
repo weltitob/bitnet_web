@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const FixBitcoin = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -15,6 +16,12 @@ const FixBitcoin = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <SEO 
+        title="Fix Bitcoin, Fix the World | BitNet Solutions"
+        description="Discover why hyperbitcoinization is key to fixing our broken financial system. Learn how Bitcoin can restore freedom, ownership, and long-term value."
+        canonical="https://www.bitnet.com/fixbitcoin"
+        keywords="bitcoin, hyperbitcoinization, fix bitcoin, bitcoin wallet, financial freedom, bitcoin solutions"
+      />
       <Header />
       <main style={{ flexGrow: 1, padding: 'clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem)', background: '#0b0b0b' }}>
         <div style={{ maxWidth: '1050px', margin: '0 auto' }}>
