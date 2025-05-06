@@ -43,7 +43,7 @@ const HeroSection = () => {
     // Elements to animate
     const metricsRow = document.querySelector('.metrics-row');
     const heroHeading = document.querySelector('.hero h1');
-    const heroSubheading = document.querySelector('.hero p');
+    const heroSubheading = document.querySelector('.hero h2.subtitle');
     const heroCta = document.querySelector('.hero-buttons');
     const mockupPhone = phoneRef.current;
 
@@ -314,6 +314,7 @@ const HeroSection = () => {
       </div>
       <h1 className="animate-hidden" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
       <h2 className="animate-hidden subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
         <a href="/earlybird" className="btn primary" style={{
           padding: '0.65rem 3rem', 
@@ -344,7 +345,8 @@ const HeroSection = () => {
       </div>
 
       <div className="phone-features-container" style={{ 
-        flexDirection: isMobile ? 'column' : 'row'
+        flexDirection: isMobile ? 'column' : 'row',
+        marginTop: isMobile ? '35px' : '0'
       }}>
         {/* Mockup phone */}
         <div 
