@@ -50,8 +50,8 @@ const AboutUs = () => {
               </div>
 
               <div className="team-member">
-                <img src={izakImage} alt="Izak Abdullah Al" className="member-image" />
-                <h3>Izak Abdullah Al</h3>
+                <img src={izakImage} alt="Abdullah Al Zin" className="member-image" />
+                <h3>Abdullah Al Zin</h3>
                 <span>Fullstack Developer</span>
               </div>
 
@@ -63,7 +63,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          
+
 
           {/* Values section third */}
           <div className="about-us-section">

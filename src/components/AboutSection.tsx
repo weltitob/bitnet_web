@@ -10,10 +10,10 @@ const AboutSection = () => {
           <span className="about-subtitle">About Us</span>
           <h2>Building the Future of Bitcoin</h2>
         </div>
-        
+
         <div className="about-content">
           <p style={{ color: '#aaa', fontSize: '1.2rem', margin: '0 auto 4rem', maxWidth: '1000px', textAlign: 'center' }}>We're forging a financial revolution through self-custody, security, and speed. BitNet builds technology that puts the power of Bitcoin in your hands — no middlemen, no gatekeepers, just freedom. We're not just creating a wallet; we're building a gateway to a world where you truly own your financial future.</p>
-          
+
           <div className="about-you-section">
             <h2>You</h2>
             <p>The Customer is King</p>
@@ -21,20 +21,20 @@ const AboutSection = () => {
               <p>At BitNet, everything we build starts and ends with you. Your feedback shapes our product, your needs drive our innovation, and your financial freedom is our mission. We exist to serve you with the best Bitcoin experience possible.</p>
             </div>
           </div>
-          
+
           <div className="about-team-grid">
             <div className="team-member">
               <img src={tobiasImage} alt="Tobias Welti" className="member-image" style={{ objectFit: 'cover' }} />
               <h3>Tobias Welti</h3>
               <span>Techlead, Founder & CEO</span>
             </div>
-            
+
             <div className="team-member">
-              <img src={izakImage} alt="Izak Abdullah Al" className="member-image" style={{ objectFit: 'cover' }} />
-              <h3>Izak Abdullah Al</h3>
+              <img src={izakImage} alt="Abdullah Al Zin" className="member-image" style={{ objectFit: 'cover' }} />
+              <h3>Abdullah Al Zin</h3>
               <span>Fullstack Developer</span>
             </div>
-            
+
             <div className="team-member">
               <img src={ulrichImage} alt="Edwin Daitche" className="member-image" style={{ objectFit: 'cover' }} />
               <h3>Edwin Daitche</h3>
@@ -43,7 +43,7 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         .about-section {
           padding: 7rem 2rem;
