@@ -1,6 +1,7 @@
-import atashImage from '../assets/feedbackimages/atash.png';
-import robinImage from '../assets/feedbackimages/robin.png';
-import jonahImage from '../assets/feedbackimages/jonah.png';
+import atashImage from '../assets/feedbackimages/atash.webp';
+import robinImage from '../assets/feedbackimages/robin.webp';
+import jonahImage from '../assets/feedbackimages/jonah.webp';
+import LazyImage from './LazyImage';
 
 const TestimonialsSection = () => {
   return (
@@ -82,9 +83,9 @@ const TestimonialsSection = () => {
                 height: '85px',  /* Fixed height for all author sections */
                 flexShrink: 0    /* Prevent shrinking */
               }}>
-                <img 
+                <LazyImage 
                   src={atashImage} 
-                  alt="Atash Hauschild" 
+                  alt="Atash Hauschild - Bitcoiner & ITler"
                   style={{
                     width: '56px', 
                     height: '56px', 
@@ -165,9 +166,9 @@ const TestimonialsSection = () => {
                 height: '85px',  /* Fixed height for all author sections */
                 flexShrink: 0    /* Prevent shrinking */
               }}>
-                <img 
+                <LazyImage 
                   src={robinImage} 
-                  alt="Robin Göpper" 
+                  alt="Robin Göpper - Cryptobeginner" 
                   style={{
                     width: '56px', 
                     height: '56px', 
@@ -248,9 +249,9 @@ const TestimonialsSection = () => {
                 height: '85px',  /* Fixed height for all author sections */
                 flexShrink: 0    /* Prevent shrinking */
               }}>
-                <img 
+                <LazyImage 
                   src={jonahImage} 
-                  alt="Jonah Ike" 
+                  alt="Jonah Ike - NFT Artist"
                   style={{
                     width: '56px', 
                     height: '56px', 

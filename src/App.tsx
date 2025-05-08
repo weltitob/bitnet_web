@@ -7,20 +7,23 @@ import AboutSection from './components/AboutSection'
 import CareersSection from './components/CareersSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 import EarlybirdPage from './pages/Earlybird'
-import EarlybirdMobilePage from './pages/EarlybirdMobile'
 import InvestorRelations from './pages/InvestorRelations'
 import FixBitcoin from './pages/FixBitcoin'
 import AIStrategy from './pages/AIStrategy'
 import APIDocumentation from './pages/APIDocumentation'
 import DeveloperPortal from './pages/DeveloperPortal'
-import IdeasSubmission from './pages/IdeasSubmission'; // Added IdeasSubmission page
-import AboutUs from './pages/AboutUs'; // Added AboutUs page
+import IdeasSubmission from './pages/IdeasSubmission'
+import AboutUs from './pages/AboutUs'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import './App.css'
 
 const HomePage = () => {
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <SEO />
       <Header />
       <main>
         <HeroSection />
@@ -45,8 +48,10 @@ function App() {
         <Route path="/aistrategy" element={<AIStrategy />} />
         <Route path="/api" element={<APIDocumentation />} />
         <Route path="/developer-portal" element={<DeveloperPortal />} />
-        <Route path="/ideas" element={<IdeasSubmission />} /> {/* Added route for IdeasSubmission */}
-        <Route path="/about" element={<AboutUs />} /> {/* Added route for AboutUs */}
+        <Route path="/ideas" element={<IdeasSubmission />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:postId" element={<BlogPost />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,4 @@
-import logo from '../assets/logoclean.png'
+import logo from '../assets/logoclean.webp'
 
 const Footer = () => {
   return (
@@ -39,7 +39,8 @@ const Footer = () => {
               <ul>
                 <li><a href="/fixbitcoin">Fix Bitcoin Initiative</a></li>
                 <li><a href="/aistrategy">AI & Bitcoin Strategy</a></li>
-                <li><a href="/investorrelations">Investor Relations</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/investors">Investor Relations</a></li>
                 <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
               </ul>
             </div>

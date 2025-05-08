@@ -43,7 +43,7 @@ const HeroSection = () => {
     // Elements to animate
     const metricsRow = document.querySelector('.metrics-row');
     const heroHeading = document.querySelector('.hero h1');
-    const heroSubheading = document.querySelector('.hero p');
+    const heroSubheading = document.querySelector('.hero h2.subtitle');
     const heroCta = document.querySelector('.hero-buttons');
     const mockupPhone = phoneRef.current;
 
@@ -312,8 +312,9 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      <h1 className="animate-hidden">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
-      <p className="animate-hidden">Fix Bitcoin. Fix the world. One Block at a Time.</p>
+      <h1 className="animate-hidden" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
+      <h2 className="animate-hidden subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
         <a href="/earlybird" className="btn primary" style={{
           padding: '0.65rem 3rem', 
@@ -344,7 +345,8 @@ const HeroSection = () => {
       </div>
 
       <div className="phone-features-container" style={{ 
-        flexDirection: isMobile ? 'column' : 'row'
+        flexDirection: isMobile ? 'column' : 'row',
+        marginTop: isMobile ? '35px' : '0'
       }}>
         {/* Mockup phone */}
         <div 
@@ -449,7 +451,7 @@ const HeroSection = () => {
               </div>
               <div className="feature-content">
                 <h3>Instant Payments</h3>
-                <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
+                <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
               </div>
             </div>
 
@@ -481,7 +483,7 @@ const HeroSection = () => {
               </div>
               <div className="feature-content">
                 <h3>Bitcoin Made Better</h3>
-                <p>Web3 apps and digital collectibles, all on Bitcoin</p>
+                <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
               </div>
             </div>
 
@@ -512,7 +514,7 @@ const HeroSection = () => {
               </div>
               <div className="feature-content">
                 <h3>Marketplace</h3>
-                <p>Buy, sell, and collect digital treasures on Bitcoin</p>
+                <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
               </div>
             </div>
           </>
@@ -530,7 +532,7 @@ const HeroSection = () => {
             </div>
             <div className="feature-content">
               <h3>Instant Payments</h3>
-              <p>Lightning-fast Bitcoin transfers, anytime, anywhere</p>
+              <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
             </div>
           </div>
 
@@ -544,7 +546,7 @@ const HeroSection = () => {
             </div>
             <div className="feature-content">
               <h3>Bitcoin Made Better</h3>
-              <p>Web3 apps and digital collectibles, all on Bitcoin</p>
+              <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
             </div>
           </div>
 
@@ -558,7 +560,7 @@ const HeroSection = () => {
             </div>
             <div className="feature-content">
               <h3>Marketplace</h3>
-              <p>Buy, sell, and collect digital treasures on Bitcoin</p>
+              <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
             </div>
           </div>
         </div>
@@ -570,7 +572,7 @@ const HeroSection = () => {
       <div className="social-proof-section">
         <div className="social-proof-header">
           <span>Limited Early Access</span>
-          <h3>Revolutionary Bitcoin-native platform coming soon</h3>
+          <h3>The first easy and cheap Bitcoin wallet for web3 coming soon</h3>
         </div>
 
 

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const InvestorRelations = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,6 +23,12 @@ const InvestorRelations = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <SEO 
+        title="Investor Relations | BitNet Bitcoin Wallet | Investment Opportunities"
+        description="Discover investment opportunities with BitNet, the future of Bitcoin wallets. Learn about our vision, strategy, and revolutionary Bitcoin solutions."
+        canonical="https://www.bitnet.com/investors"
+        keywords="bitcoin investment, bitcoin wallet investor, taproot assets, bitcoin lightning, investment opportunities"
+      />
       <Header />
       <main style={{ flexGrow: 1, padding: isMobile ? '2rem 1rem' : '4rem 2rem', background: '#0b0b0b' }}>
         <div style={{ maxWidth: '1050px', margin: '0 auto' }}>
@@ -133,9 +141,9 @@ const InvestorRelations = () => {
                   borderRadius: '10px',
                   marginBottom: '1.5rem'
                 }}>
-                  <img 
-                    src="/assets/team/tobias.jpeg" 
-                    alt="Tobias Welti" 
+                  <LazyImage 
+                    src="/assets/team/tobias.webp" 
+                    alt="Tobias Welti - Founder" 
                     style={{
                       width: isMobile ? '45px' : '50px',
                       height: isMobile ? '45px' : '50px',
