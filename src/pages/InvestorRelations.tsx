@@ -169,16 +169,16 @@ const InvestorRelations = () => {
             </h3>
             
             {/* Current State of Bitcoin - Section */}
-            <div style={{ 
-              borderRadius: '20px',
-              overflow: 'hidden',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-              marginBottom: '2.5rem',
-              position: 'relative',
+            <div style={{
               background: 'rgba(25, 25, 35, 0.6)',
               backdropFilter: 'blur(10px)',
+              borderRadius: isMobile ? '16px' : '20px',
               border: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '2.5rem',
+              padding: isMobile ? '1.5rem' : '2.5rem',
+              marginBottom: isMobile ? '2rem' : '3rem',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+              position: 'relative',
+              overflow: 'hidden',
               color: '#e0e0e0'
             }}>
               {/* Orange glow effect */}
@@ -192,13 +192,13 @@ const InvestorRelations = () => {
                 borderRadius: '50%',
                 zIndex: 0
               }}></div>
-              
-              <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: isMobile ? 'column' : 'row', 
-                  alignItems: isMobile ? 'center' : 'flex-start', 
-                  marginBottom: '1.5rem' 
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'center' : 'flex-start',
+                  marginBottom: '1.5rem'
                 }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #ff8c00, #ff5500)',
@@ -429,13 +429,13 @@ const InvestorRelations = () => {
             <div style={{
               background: 'rgba(25, 25, 35, 0.6)',
               backdropFilter: 'blur(10px)',
-              borderRadius: '20px',
+              borderRadius: isMobile ? '16px' : '20px',
               border: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '2.5rem',
+              padding: isMobile ? '1.5rem' : '2.5rem',
+              marginBottom: isMobile ? '2rem' : '3rem',
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
               position: 'relative',
               overflow: 'hidden',
-              marginBottom: '3rem',
               color: '#e0e0e0'
             }}>
               {/* Blue glow effect */}
@@ -449,13 +449,13 @@ const InvestorRelations = () => {
                 borderRadius: '50%',
                 zIndex: 0
               }}></div>
-              
-              <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: isMobile ? 'column' : 'row', 
-                  alignItems: isMobile ? 'center' : 'flex-start', 
-                  marginBottom: '1.5rem' 
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'center' : 'flex-start',
+                  marginBottom: '1.5rem'
                 }}>
                   <div style={{
                     background: 'linear-gradient(135deg, #4a8eff, #2d68c4)',
@@ -743,13 +743,13 @@ const InvestorRelations = () => {
             <div style={{
               background: 'rgba(25, 25, 35, 0.6)',
               backdropFilter: 'blur(10px)',
-              borderRadius: '20px',
+              borderRadius: isMobile ? '16px' : '20px',
               border: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '2.5rem',
+              padding: isMobile ? '1.5rem' : '2.5rem',
+              marginBottom: isMobile ? '2rem' : '3rem',
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
               position: 'relative',
-              overflow: 'hidden',
-              marginBottom: '3rem'
+              overflow: 'hidden'
             }}>
               <div style={{
                 position: 'absolute',
@@ -761,7 +761,7 @@ const InvestorRelations = () => {
                 borderRadius: '50%',
                 zIndex: 0
               }}></div>
-              
+
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ 
                   display: 'flex', 
