@@ -18,6 +18,10 @@ import IdeasSubmission from './pages/IdeasSubmission'
 import AboutUs from './pages/AboutUs'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import FAQ from './pages/FAQ'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsConditions from './pages/TermsConditions'
+import NotFound from './pages/NotFound'
 import './App.css'
 
 const HomePage = () => {
@@ -52,6 +56,10 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

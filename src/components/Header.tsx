@@ -221,14 +221,28 @@ const Header = () => {
             gap: responsiveStyles.headerRight.gap,
           }}
         >
-          <nav 
+          <nav
             style={{
               display: 'flex',
               gap: responsiveStyles.nav.gap,
             }}
           >
-            <a 
-              href="/about" 
+            <a
+              href="https://bitnet.ai/"
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Home
+            </a>
+            <a
+              href="/about"
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -352,7 +366,7 @@ const Header = () => {
           alignItems: 'center',
           transition: 'all 0.3s',
         }}>
-          <nav 
+          <nav
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -361,8 +375,21 @@ const Header = () => {
               marginBottom: '2rem',
             }}
           >
-            <a 
-              href="/about" 
+            <a
+              href="https://bitnet.ai/"
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="/about"
               style={{
                 textDecoration: 'none',
                 color: '#fff',

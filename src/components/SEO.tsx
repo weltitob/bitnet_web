@@ -12,16 +12,16 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = 'BitNet - Complete Bitcoin Ecosystem in One Wallet',
-  description = 'BitNet - Your Complete Bitcoin Ecosystem in One Wallet. Self-Custody, Lightning-Fast, and Community-Driven Bitcoin Solutions for Web3.',
-  keywords = 'bitcoin wallet, web3, self-custody, bitcoin ecosystem, lightning network, bitcoin payments, blockchain, digital collectibles',
+  title = 'Trusted Secure Crypto Wallet Solution Online | BitNet',
+  description = 'Protect your digital assets with a trusted, secure crypto wallet. Access your funds anytime, anywhere with top-tier encryption and user-friendly features.',
+  keywords = 'Crypto Wallet Private Key, mobile crypto wallet, crypto wallet for beginners, secure crypto wallet solution, Buy digital collectibles, Create NFT marketplace, NFT collection platform, NFT trading platform, NFT wallet integration',
   image = '/logo.png',
-  url = 'https://www.bitnet.com',
+  url = 'https://bitnet.ai',
   type = 'website',
-  canonical = 'https://www.bitnet.com',
+  canonical = 'https://bitnet.ai',
   children,
 }: SEOProps) => {
-  const siteUrl = 'https://www.bitnet.com';
+  const siteUrl = 'https://bitnet.ai';
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
   return (

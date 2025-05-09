@@ -23,11 +23,11 @@ const InvestorRelations = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <SEO 
-        title="Investor Relations | BitNet Bitcoin Wallet | Investment Opportunities"
-        description="Discover investment opportunities with BitNet, the future of Bitcoin wallets. Learn about our vision, strategy, and revolutionary Bitcoin solutions."
-        canonical="https://www.bitnet.com/investors"
-        keywords="bitcoin investment, bitcoin wallet investor, taproot assets, bitcoin lightning, investment opportunities"
+      <SEO
+        title="Manage Full Bitcoin Ecosystem in One Wallet | BitNet"
+        description="Easily manage your entire Bitcoin ecosystem in one secure wallet—buy, sell, store, and interact with Bitcoin tools, apps, and services from a single platform."
+        canonical="https://bitnet.ai/investors"
+        keywords="Bitcoin Interest Wallet, Bitcoin Ecosystem In One Wallet, Bitcoin Investment Wallet, Bitcoin Savings Wallet, blockchain based assets, Bitcoin Smart Wallet, Crypto Wallet For Web3, Mobile Bitcoin Wallet, best bitcoin wallet, best wallet for bitcoin, secure bitcoin wallet app, Secure web3 wallet app, web3 asset management, taproot asset wallet"
       />
       <Header />
       <main style={{ flexGrow: 1, padding: isMobile ? '2rem 1rem' : '4rem 2rem', background: '#0b0b0b' }}>
@@ -41,7 +41,7 @@ const InvestorRelations = () => {
               backgroundClip: 'text',
               marginBottom: isMobile ? '1rem' : '1.5rem'
             }}>
-              Investor Relations
+              Bitcoin Investment Wallet
             </h1>
             <p style={{ 
               color: '#aaa', 
@@ -50,7 +50,7 @@ const InvestorRelations = () => {
               maxWidth: '1000px', 
               textAlign: 'center' 
             }}>
-              BitNet is building the future of Bitcoin wallets. Learn about our vision, strategy, and investment opportunities.
+              BitNet is building the future of best bitcoin wallet. Learn about our vision, strategy, and investment opportunities.
             </p>
           </div>
           
@@ -497,7 +497,7 @@ const InvestorRelations = () => {
                   marginBottom: '1.5rem',
                   textAlign: isMobile ? 'center' : 'left' 
                 }}>
-                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>transactions in less than a second</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
+                  Our groundbreaking platform delivers <strong style={{ color: '#fff' }}>transactions in less than a second</strong> with fees under $0.01, while maintaining Bitcoin's core principles of security and decentralization. By unlocking Bitcoin's massive $1.2T network for practical utility through Web3 Wallet Integration, we're creating an ecosystem where digital assets, tokens, and applications can flourish on Bitcoin's unmatched foundation.
                 </p>
                 
                 <div style={{
@@ -799,7 +799,7 @@ const InvestorRelations = () => {
                   fontSize: isMobile ? '1rem' : '1.1rem',
                   textAlign: isMobile ? 'center' : 'left'
                 }}>
-                  User feedback from our initial testing has been gold, and recent developments like Tether's Bitcoin integration via Taproot Assets Protocol perfectly align with our strategy. The momentum is building, and BitNet is ready to capitalize on fast and easy payments, digital assets and tokens coming to bitcoin in a big way.
+                  User feedback from our initial testing has been gold, and recent developments like Tether's Web3 Bitcoin Integration via Taproot Assets Protocol perfectly align with our strategy. The momentum is building, and BitNet is ready to capitalize on fast and easy payments, digital assets and tokens coming to bitcoin in a big way.
                 </p>
               </div>
             </div>
