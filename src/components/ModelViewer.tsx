@@ -167,8 +167,8 @@ function Model({ path }) {
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
 
-        // Adjust scale based on size - make it fill more space horizontally
-        const scale = 2.8 / maxDim;
+        // Adjust scale based on size - smaller scale for more distance
+        const scale = 1.9 / maxDim;
 
         // Apply scale to group ref when available
         if (group.current) {
@@ -244,8 +244,8 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
             borderRadius: '8px'
           }}
           camera={{
-            position: [0, 0, 4.2], // Move camera slightly back
-            fov: 40, // Even narrower field of view for better focus
+            position: [0, 0, 5.0], // Move camera further back for more distance
+            fov: 35, // Narrower field of view to keep model in frame despite distance
             near: 0.1,
             far: 1000
           }}
