@@ -312,14 +312,14 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      <h1 className="animate-hidden" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
-      <h2 className="animate-hidden subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      <h1 className="animate-hidden" id="main-heading" data-seo-heading="true">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
+      <h2 className="animate-hidden subtitle" data-seo-heading="true">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
       <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
-        <a href="/earlybird" className="btn primary" style={{
-          padding: '0.65rem 3rem', 
-          minWidth: '180px', 
-          borderRadius: '999px', 
+        <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener" style={{
+          padding: '0.65rem 3rem',
+          minWidth: '180px',
+          borderRadius: '999px',
           fontWeight: '600',
           fontSize: '1rem',
           lineHeight: '1.5',
@@ -329,10 +329,10 @@ const HeroSection = () => {
           height: '48px',
           boxSizing: 'border-box'
         }}>Get Started</a>
-        <a href="/fixbitcoin" className="btn secondary" style={{
-          padding: '0.65rem 3rem', 
-          minWidth: '180px', 
-          borderRadius: '999px', 
+        <a href="/fixbitcoin" aria-label="Learn More About BitNet" className="btn secondary" rel="noopener" style={{
+          padding: '0.65rem 3rem',
+          minWidth: '180px',
+          borderRadius: '999px',
           fontWeight: '600',
           fontSize: '1rem',
           lineHeight: '1.5',
@@ -450,8 +450,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Instant Payments</h3>
-                <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
+                <h3><a href="/aistrategy" aria-label="Learn about instant payments" title="BitNet's Instant Payments" style={{ color: 'inherit', textDecoration: 'none' }}>Instant Payments</a></h3>
+                <p>Lightning-fast <a href="/aistrategy" aria-label="Learn about BitNet's lightning-fast Bitcoin transfers" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
               </div>
             </div>
 
@@ -482,8 +482,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Bitcoin Made Better</h3>
-                <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
+                <h3><a href="/fixbitcoin" aria-label="Learn how BitNet improves Bitcoin" title="BitNet Bitcoin Improvements" style={{ color: 'inherit', textDecoration: 'none' }}>Bitcoin Made Better</a></h3>
+                <p><a href="/developer-portal" aria-label="Explore BitNet web3 applications" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" aria-label="Get early access to BitNet digital collectibles" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
               </div>
             </div>
 
@@ -513,8 +513,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Marketplace</h3>
-                <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
+                <h3><a href="/earlybird" aria-label="Explore the BitNet marketplace" title="BitNet Digital Asset Marketplace" style={{ color: 'inherit', textDecoration: 'none' }}>Marketplace</a></h3>
+                <p>Buy, sell, and collect <a href="/fixbitcoin" aria-label="Learn about BitNet's Bitcoin ecosystem" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
               </div>
             </div>
           </>
@@ -531,8 +531,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Instant Payments</h3>
-              <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
+              <h3><a href="/aistrategy" aria-label="Learn about instant payments" title="BitNet's Instant Payments" style={{ color: 'inherit', textDecoration: 'none' }}>Instant Payments</a></h3>
+              <p>Lightning-fast <a href="/aistrategy" aria-label="Learn about BitNet's lightning-fast Bitcoin transfers" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
             </div>
           </div>
 
@@ -545,8 +545,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Bitcoin Made Better</h3>
-              <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
+              <h3><a href="/fixbitcoin" aria-label="Learn how BitNet improves Bitcoin" title="BitNet Bitcoin Improvements" style={{ color: 'inherit', textDecoration: 'none' }}>Bitcoin Made Better</a></h3>
+              <p><a href="/developer-portal" aria-label="Explore BitNet web3 applications" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" aria-label="Get early access to BitNet digital collectibles" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
             </div>
           </div>
 
@@ -559,8 +559,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Marketplace</h3>
-              <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
+              <h3><a href="/earlybird" aria-label="Explore the BitNet marketplace" title="BitNet Digital Asset Marketplace" style={{ color: 'inherit', textDecoration: 'none' }}>Marketplace</a></h3>
+              <p>Buy, sell, and collect <a href="/fixbitcoin" aria-label="Learn about BitNet's Bitcoin ecosystem" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
             </div>
           </div>
         </div>
@@ -662,7 +662,7 @@ const HeroSection = () => {
               </div>
 
               <div className="button-wrapper">
-                <a href="/earlybird" className="btn primary">Reserve Your Spot</a>
+                <a href="/earlybird" aria-label="Reserve your early access to BitNet" title="Get early access to BitNet" className="btn primary" rel="noopener">Reserve Your Spot</a>
               </div>
 
               <div className="counter-container">

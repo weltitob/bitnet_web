@@ -18,7 +18,26 @@ export default defineConfig({
     ]
   },
   build: {
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps in production for smaller files
+    minify: 'terser', // Use Terser for better minification
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console logs in production
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.debug', 'console.info']
+      }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor code for better caching
+          'vendor': ['react', 'react-dom', 'react-router-dom'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei']
+        }
+      }
+    },
+    // Enable chunk size reporting
+    chunkSizeWarningLimit: 1000
   },
   optimizeDeps: {
     include: ['three', '@react-three/fiber', '@react-three/drei'],

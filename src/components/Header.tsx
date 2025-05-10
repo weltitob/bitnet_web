@@ -144,35 +144,34 @@ const Header = () => {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <div 
-          className="header-left"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: responsiveStyles.headerLeft.gap,
-          cursor: 'pointer',
-        }}
-        onClick={() => window.location.href = '/'}
-      >
-        <img 
-          src={logo} 
-          alt="BitNet Logo" 
-          style={{
-            height: responsiveStyles.headerLogo.height,
-            width: 'auto',
-            display: 'block',
-          }}
-        />
-        <div 
-          className="site-logo-text"
-          style={{
-            fontSize: responsiveStyles.headerTitle.fontSize,
-            fontWeight: 700,
-          }}
-        >
-          BitNet
+        <div className="header-left">
+          <a href="/" aria-label="BitNet Homepage" style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: responsiveStyles.headerLeft.gap,
+            textDecoration: 'none',
+            color: 'inherit'
+          }}>
+            <img
+              src={logo}
+              alt="BitNet Logo"
+              style={{
+                height: responsiveStyles.headerLogo.height,
+                width: 'auto',
+                display: 'block',
+              }}
+            />
+            <div
+              className="site-logo-text"
+              style={{
+                fontSize: responsiveStyles.headerTitle.fontSize,
+                fontWeight: 700,
+              }}
+            >
+              BitNet
+            </div>
+          </a>
         </div>
-      </div>
       
       {/* Hamburger menu for mobile */}
       {windowWidth <= 768 && (

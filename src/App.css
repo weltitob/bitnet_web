@@ -645,6 +645,41 @@
   margin-bottom: 0.5rem !important;
 }
 
+/* Ensure headings are visible to SEO tools while maintaining animation for users */
+[data-seo-heading="true"] {
+  position: relative;
+}
+
+/* This creates a duplicate, SEO-visible h1 */
+h1[data-seo-heading="true"]::after {
+  content: "Your Complete Bitcoin Ecosystem in One Wallet.";
+  position: absolute;
+  z-index: -9999;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* This ensures it's not hidden from SEO tools */
+  opacity: 1 !important;
+}
+
+/* This creates a duplicate, SEO-visible h2 */
+h2[data-seo-heading="true"]::after {
+  content: "Fix Bitcoin. Fix the world. One Block at a Time.";
+  position: absolute;
+  z-index: -9999;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* This ensures it's not hidden from SEO tools */
+  opacity: 1 !important;
+}
+
 .animate-reveal {
   opacity: 1 !important;
   transform: translateY(0) !important;
