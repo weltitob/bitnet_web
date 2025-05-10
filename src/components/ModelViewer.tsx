@@ -133,10 +133,11 @@ function Model({ path }) {
     }
   );
 
-  // Auto-rotation effect
+  // Auto-rotation effect - very slight rotation only
   useFrame(() => {
     if (group.current) {
-      group.current.rotation.y += 0.005;
+      // Slower rotation and no position changes
+      group.current.rotation.y += 0.0025;
     }
   });
 
@@ -167,8 +168,8 @@ function Model({ path }) {
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
 
-        // Adjust scale based on size - smaller scale for more distance
-        const scale = 1.9 / maxDim;
+        // Adjust scale based on size - moderate scale
+        const scale = 1.8 / maxDim;
 
         // Apply scale to group ref when available
         if (group.current) {
@@ -244,8 +245,8 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
             borderRadius: '8px'
           }}
           camera={{
-            position: [0, 0, 5.0], // Move camera further back for more distance
-            fov: 35, // Narrower field of view to keep model in frame despite distance
+            position: [0, 0, 6.0], // Move camera even further back
+            fov: 30, // Very narrow field of view to prevent distortion
             near: 0.1,
             far: 1000
           }}
@@ -283,8 +284,8 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
                 azimuth={[-Math.PI / 3, Math.PI / 3]}
                 config={{ mass: 1, tension: 170, friction: 26 }}
                 snap={{ mass: 2, tension: 150, friction: 20 }}
-                speed={1.2}
-                zoom={1.0} // No zoom adjustment
+                speed={1.0} // Normal speed
+                zoom={0.0} // Disable zoom completely
               >
                 {/* Simplified lighting setup for better performance */}
                 <ambientLight intensity={0.7} /> {/* Increased ambient light to compensate for fewer lights */}
