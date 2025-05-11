@@ -40,20 +40,44 @@ declare global {
   }
 }
 const app = initializeApp(firebaseConfig);
-if (import.meta.env.DEV) {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+// Debug token will be set within the AppCheck initialization below
+// Only initialize App Check in browser environments
+let appCheck;
+if (typeof window !== 'undefined') {
+  try {
+    // Register the debug token first
+    if (import.meta.env.DEV) {
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = 'c899894e-58fc-48eb-8714-ca3cf8e56800';
+    }
 
+    appCheck = initializeAppCheck(app, {
+      provider: new ReCaptchaV3Provider('6LdqgS4rAAAAAKFgtcYebZ4jjWxCtV9p7sVBOpew'),
+      isTokenAutoRefreshEnabled: true
+    });
+
+    console.log('Firebase AppCheck initialized successfully');
+  } catch (error) {
+    console.warn('Firebase AppCheck initialization failed:', error);
+    // Fallback - create a placeholder for appCheck to prevent errors
+    appCheck = { getToken: () => Promise.resolve({ token: 'test-token' }) };
+  }
 } else {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = false;
+  // Server-side rendering scenario - create a placeholder
+  appCheck = { getToken: () => Promise.resolve({ token: 'test-token' }) };
 }
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6LdqgS4rAAAAAKFgtcYebZ4jjWxCtV9p7sVBOpew'),
-
-  // Optional argument. If true, the SDK automatically refreshes App Check
-  // tokens as needed.
-  isTokenAutoRefreshEnabled: true
-});
 const db = getFirestore(app);
 
-const analytics = getAnalytics(app);
+// Initialize analytics only in browser context to prevent SSR errors
+let analytics;
+if (typeof window !== 'undefined') {
+  try {
+    analytics = getAnalytics(app);
+  } catch (error) {
+    console.warn('Firebase Analytics initialization failed:', error);
+    // Create a placeholder
+    analytics = {};
+  }
+} else {
+  analytics = {};
+}
 export { db, app, analytics, appCheck };

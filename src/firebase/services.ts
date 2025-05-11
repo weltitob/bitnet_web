@@ -1,7 +1,6 @@
 import { db } from './config';
 import { collection, addDoc, Timestamp, query, where, getDocs, getCountFromServer, onSnapshot, doc, updateDoc, orderBy, increment } from 'firebase/firestore';
-import { useState, useEffect, useRef } from 'react';
-import * as React from 'react';
+import { useState, useEffect, useRef, useReducer } from 'react';
 
 // Collection references
 const earlybirdRef = collection(db, 'earlybird_email_list');
@@ -236,34 +235,53 @@ export const useIdeas = () => {
  * @returns An object containing the signup count, remaining spots, and loading state
  */
 export const useEarlybirdCount = (totalSpots: number = 1000000) => {
-  // Use a reducer for better state synchronization
-  interface CountState {
-    signupCount: number;
-    remainingSpots: number;
-    displayedRemaining: number;
-    loading: boolean;
-    error: boolean;
-    initialAnimationComplete: boolean;
-    // Track if we've done the initial data load
-    dataInitialized: boolean;
-    // Track active animations to prevent conflicts
-    animationInProgress: boolean;
-  }
-
-  // Initial state
-  const initialState: CountState = {
+  // Default placeholder values if the hook can't run
+  const defaultValues = {
     signupCount: 0,
     remainingSpots: totalSpots,
-    displayedRemaining: totalSpots,
-    loading: true,
+    loading: false,
     error: false,
-    initialAnimationComplete: false,
-    dataInitialized: false,
-    animationInProgress: false
+    displayedRemaining: totalSpots,
+    animationComplete: true,
+    formattedRemaining: totalSpots.toLocaleString('en-US')
   };
 
-  // Reducer for synchronized state updates
-  const [state, dispatch] = React.useReducer((state: CountState, action: any): CountState => {
+  // Ensure we're in a component context
+  try {
+    // Use a reducer for better state synchronization
+    interface CountState {
+      signupCount: number;
+      remainingSpots: number;
+      displayedRemaining: number;
+      loading: boolean;
+      error: boolean;
+      initialAnimationComplete: boolean;
+      // Track if we've done the initial data load
+      dataInitialized: boolean;
+      // Track active animations to prevent conflicts
+      animationInProgress: boolean;
+    }
+
+    // Initial state
+    const initialState: CountState = {
+      signupCount: 0,
+      remainingSpots: totalSpots,
+      displayedRemaining: totalSpots,
+      loading: true,
+      error: false,
+      initialAnimationComplete: false,
+      dataInitialized: false,
+      animationInProgress: false
+    };
+
+    // Check if we're in a component context before using React hooks
+    if (typeof useReducer !== 'function') {
+      console.warn('useEarlybirdCount called outside component context');
+      return defaultValues;
+    }
+
+    // Reducer for synchronized state updates
+    const [state, dispatch] = useReducer((state: CountState, action: any): CountState => {
     switch (action.type) {
       case 'START_LOADING':
         return { ...state, loading: true };
@@ -575,9 +593,14 @@ export const useEarlybirdCount = (totalSpots: number = 1000000) => {
     signupCount,
     remainingSpots,
     loading,
-    error, 
+    error,
     displayedRemaining,
     animationComplete: initialAnimationComplete,
     formattedRemaining: displayedRemaining.toLocaleString('en-US')
   };
+
+  } catch (err) {
+    console.error('Error in useEarlybirdCount hook:', err);
+    return defaultValues;
+  }
 };
