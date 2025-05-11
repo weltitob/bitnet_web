@@ -136,8 +136,13 @@ function Model({ path }) {
   // Auto-rotation effect - very slight rotation only
   useFrame(() => {
     if (group.current) {
-      // Slower rotation and no position changes
+      // Only rotate, never change position
       group.current.rotation.y += 0.0025;
+
+      // Ensure position stays fixed at center
+      group.current.position.x = 0;
+      group.current.position.y = 0;
+      group.current.position.z = 0;
     }
   });
 
@@ -245,8 +250,8 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
             borderRadius: '8px'
           }}
           camera={{
-            position: [0, 0, 6.0], // Move camera even further back
-            fov: 30, // Very narrow field of view to prevent distortion
+            position: [0, 0, 6.5], // Balanced camera distance
+            fov: 30, // Standard field of view
             near: 0.1,
             far: 1000
           }}
@@ -280,11 +285,11 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
               <PresentationControls
                 global
                 rotation={[0, 0, 0]} // No initial rotation
-                polar={[-Math.PI / 3, Math.PI / 3]}
-                azimuth={[-Math.PI / 3, Math.PI / 3]}
+                polar={[-Math.PI / 4, Math.PI / 4]} // Reduced rotation range
+                azimuth={[-Math.PI / 4, Math.PI / 4]} // Reduced rotation range
                 config={{ mass: 1, tension: 170, friction: 26 }}
                 snap={{ mass: 2, tension: 150, friction: 20 }}
-                speed={1.0} // Normal speed
+                speed={0.8} // Slightly slower speed for better control
                 zoom={0.0} // Disable zoom completely
               >
                 {/* Simplified lighting setup for better performance */}
