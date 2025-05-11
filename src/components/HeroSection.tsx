@@ -99,51 +99,63 @@ const HeroSection = () => {
       });
     });
 
-    // Feature cards sequential animation (after phone)
-    const revealCards = () => {
-      // Only run if not on mobile and not already revealed
-      if (isMobile || cardsRevealedRef.current) return;
-
-      cardsRevealedRef.current = true;
-
-      // Define the order of appearance
-      const cardOrder = [
-        featureCardsRef.current.rightCard,  // First
-        featureCardsRef.current.leftCard,   // Second
-        featureCardsRef.current.bottomCard  // Last
-      ];
-
-      // Reveal in the specified order
-      cardOrder.forEach((card, index) => {
-        if (card) {
-          // Add much longer sequential delay between cards
-          // Each card will appear with 700ms delay after the previous
-          setTimeout(() => {
-            // Add transition for smooth animation
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.opacity = '1';
-
-            // Apply the appropriate transform
-            if (card === featureCardsRef.current.leftCard) {
-              // Left card is at top 50%
-              card.style.transform = 'translateY(-50%)';
-            } else if (card === featureCardsRef.current.rightCard) {
-              // Right card is at top 30%
-              card.style.transform = 'translateY(-50%)';
-            } else if (card === featureCardsRef.current.bottomCard) {
-              // Keep bottom card at its original position
-              card.style.transform = 'translateY(0)';
-            }
-          }, index * 700); // Much longer delays between cards
-        }
-      });
+    // Feature card animations with scroll trigger
+    const isInViewport = (element: HTMLElement, threshold = 0.5) => {
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Only return true if we've scrolled at least 100px
+      return rect.top <= (windowHeight * threshold) && window.scrollY > 100;
     };
 
-    // Trigger card reveal AFTER phone animation completes
-    setTimeout(revealCards, 2000); // Start 600ms after phone animation starts
+    // Reveal cards one by one on scroll
+    const revealCards = () => {
+      // If we're on mobile or already revealed, exit
+      if (isMobile || cardsRevealedRef.current) return;
+
+      const heroSection = document.querySelector('.hero');
+
+      // Check if we've scrolled enough to reveal cards
+      if (heroSection && isInViewport(heroSection as HTMLElement, 0.6)) {
+        cardsRevealedRef.current = true;
+
+        // Define the order of appearance
+        const cardOrder = [
+          featureCardsRef.current.rightCard,  // First
+          featureCardsRef.current.leftCard,   // Second
+          featureCardsRef.current.bottomCard  // Last
+        ];
+
+        // Reveal in the specified order
+        cardOrder.forEach((card, index) => {
+          if (card) {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              // Maintain the transforms we set in the inline styles
+              if (card === featureCardsRef.current.leftCard) {
+                // Left card is at top 50%
+                card.style.transform = 'translateY(-50%)';
+              } else if (card === featureCardsRef.current.rightCard) {
+                // Right card is at top 30%
+                card.style.transform = 'translateY(-50%)';
+              } else if (card === featureCardsRef.current.bottomCard) {
+                // Keep bottom card at its original position
+                card.style.transform = 'translateY(0)';
+              }
+            }, 300 + (index * 500));
+          }
+        });
+      }
+    };
+
+    // Add scroll listener for card reveals
+    window.addEventListener('scroll', revealCards);
 
     // Clean up
     return () => {
+      // Remove scroll listener
+      window.removeEventListener('scroll', revealCards);
+
+      // Remove rarity tab listeners
       rarityTabs.forEach(tab => {
         tab.removeEventListener('click', function(this: HTMLElement) {
           const rarity = this.getAttribute('data-rarity');
