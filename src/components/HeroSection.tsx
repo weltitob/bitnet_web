@@ -42,7 +42,7 @@ const HeroSection = () => {
   useEffect(() => {
     // Elements to animate
     const metricsRow = document.querySelector('.metrics-row');
-    const heroHeading = document.querySelector('.hero h1');
+    const heroHeading = document.querySelector('.hero h1:not(.sr-only)'); // Skip the SEO-only heading
     const heroSubheading = document.querySelector('.hero h2.subtitle');
     const heroCta = document.querySelector('.hero-buttons');
     const mockupPhone = phoneRef.current;
@@ -99,61 +99,51 @@ const HeroSection = () => {
       });
     });
 
-    // Feature card animations
-    const isInViewport = (element: HTMLElement, threshold = 0.5) => {
-      const rect = element.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      // Only return true if we've scrolled at least 100px
-      return rect.top <= (windowHeight * threshold) && window.scrollY > 100;
-    };
-
-    // Reveal cards one by one
+    // Feature cards sequential animation (after phone)
     const revealCards = () => {
-      // If we're on mobile or already revealed, exit
+      // Only run if not on mobile and not already revealed
       if (isMobile || cardsRevealedRef.current) return;
 
-      const heroSection = document.querySelector('.hero');
+      cardsRevealedRef.current = true;
 
-      // Check if we've scrolled enough to reveal cards
-      if (heroSection && isInViewport(heroSection as HTMLElement, 0.6)) {
-        cardsRevealedRef.current = true;
+      // Define the order of appearance
+      const cardOrder = [
+        featureCardsRef.current.rightCard,  // First
+        featureCardsRef.current.leftCard,   // Second
+        featureCardsRef.current.bottomCard  // Last
+      ];
 
-        // Define the order of appearance
-        const cardOrder = [
-          featureCardsRef.current.rightCard,  // First
-          featureCardsRef.current.leftCard,   // Second
-          featureCardsRef.current.bottomCard  // Last
-        ];
+      // Reveal in the specified order
+      cardOrder.forEach((card, index) => {
+        if (card) {
+          // Add much longer sequential delay between cards
+          // Each card will appear with 700ms delay after the previous
+          setTimeout(() => {
+            // Add transition for smooth animation
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.opacity = '1';
 
-        // Reveal in the specified order
-        cardOrder.forEach((card, index) => {
-          if (card) {
-            setTimeout(() => {
-              card.style.opacity = '1';
-              // Maintain the transforms we set in the inline styles
-              if (card === featureCardsRef.current.leftCard) {
-                // Left card is at top 50%
-                card.style.transform = 'translateY(-50%)';
-              } else if (card === featureCardsRef.current.rightCard) {
-                // Right card is at top 30%
-                card.style.transform = 'translateY(-50%)';
-              } else if (card === featureCardsRef.current.bottomCard) {
-                // Keep bottom card at its original position
-                card.style.transform = 'translateY(0)';
-              }
-            }, 300 + (index * 500)); 
-          }
-        });
-      }
+            // Apply the appropriate transform
+            if (card === featureCardsRef.current.leftCard) {
+              // Left card is at top 50%
+              card.style.transform = 'translateY(-50%)';
+            } else if (card === featureCardsRef.current.rightCard) {
+              // Right card is at top 30%
+              card.style.transform = 'translateY(-50%)';
+            } else if (card === featureCardsRef.current.bottomCard) {
+              // Keep bottom card at its original position
+              card.style.transform = 'translateY(0)';
+            }
+          }, index * 700); // Much longer delays between cards
+        }
+      });
     };
 
-    // Add scroll listener for card reveals
-    window.addEventListener('scroll', revealCards);
+    // Trigger card reveal AFTER phone animation completes
+    setTimeout(revealCards, 2000); // Start 600ms after phone animation starts
 
     // Clean up
     return () => {
-      window.removeEventListener('scroll', revealCards);
-
       rarityTabs.forEach(tab => {
         tab.removeEventListener('click', function(this: HTMLElement) {
           const rarity = this.getAttribute('data-rarity');
@@ -312,8 +302,15 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      <h1 className="animate-hidden" id="main-heading" data-seo-heading="true">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
-      <h2 className="animate-hidden subtitle" data-seo-heading="true">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      {/* SEO-friendly heading for crawlers only */}
+      <h1 className="sr-only">Your Complete Bitcoin Ecosystem in One Wallet.</h1>
+      {/* Visible animated heading - DO NOT add animate-hidden here, it will be added by JS */}
+      <h1 className="" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
+
+      {/* SEO-friendly subheading for crawlers only */}
+      <h2 className="sr-only">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      {/* Visible animated subheading - DO NOT add animate-hidden here, it will be added by JS */}
+      <h2 className="subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
       <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
         <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener" style={{
@@ -433,7 +430,8 @@ const HeroSection = () => {
                 left: '80px',
                 transform: 'translateY(-50%)',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.leftCard,
@@ -463,7 +461,8 @@ const HeroSection = () => {
                 right: '60px',
                 transform: 'translateY(-50%)',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.rightCard,
@@ -494,7 +493,8 @@ const HeroSection = () => {
                 bottom: '115px',
                 right: '130px',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.bottomCard,
