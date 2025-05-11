@@ -645,19 +645,12 @@
   margin-bottom: 0.5rem !important;
 }
 
-/* SEO-friendly headings that are visually hidden but detectable by crawlers */
-.sr-only {
-  /* Visible to SEO tools and screen readers, but not to visual users */
+/* SEO-friendly content */
+noscript {
+  /* Hidden but detectable by crawlers */
   position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+  left: -9999px;
+  top: -9999px;
 }
 
 .animate-reveal {

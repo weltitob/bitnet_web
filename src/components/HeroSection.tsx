@@ -125,21 +125,39 @@ const HeroSection = () => {
           featureCardsRef.current.bottomCard  // Last
         ];
 
-        // Reveal in the specified order
+        // Reveal in the specified order with different animations
         cardOrder.forEach((card, index) => {
           if (card) {
+            // Add unique starting positions for animation
+            if (card === featureCardsRef.current.leftCard) {
+              // Left card starts shifted left and invisible
+              card.style.transform = 'translateY(-50%) translateX(-30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            } else if (card === featureCardsRef.current.rightCard) {
+              // Right card starts shifted right and invisible
+              card.style.transform = 'translateY(-50%) translateX(30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            } else if (card === featureCardsRef.current.bottomCard) {
+              // Bottom card also starts shifted right and invisible
+              card.style.transform = 'translateX(30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            }
+
             setTimeout(() => {
               card.style.opacity = '1';
-              // Maintain the transforms we set in the inline styles
+              // Apply final positions with animations
               if (card === featureCardsRef.current.leftCard) {
-                // Left card is at top 50%
+                // Left card sliding in from left
                 card.style.transform = 'translateY(-50%)';
               } else if (card === featureCardsRef.current.rightCard) {
-                // Right card is at top 30%
+                // Right card sliding in from right
                 card.style.transform = 'translateY(-50%)';
               } else if (card === featureCardsRef.current.bottomCard) {
-                // Keep bottom card at its original position
-                card.style.transform = 'translateY(0)';
+                // Bottom card sliding in from right
+                card.style.transform = 'translateX(0)';
               }
             }, 300 + (index * 500));
           }
@@ -314,15 +332,17 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      {/* SEO-friendly heading for crawlers only */}
-      <h1 className="sr-only">Your Complete Bitcoin Ecosystem in One Wallet.</h1>
-      {/* Visible animated heading - DO NOT add animate-hidden here, it will be added by JS */}
-      <h1 className="" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
+      {/* Single H1 tag with SEO-friendly noscript fallback for crawlers */}
+      <h1 className="" id="main-heading">
+        <noscript>Your Complete Bitcoin Ecosystem in One Wallet.</noscript>
+        Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.
+      </h1>
 
-      {/* SEO-friendly subheading for crawlers only */}
-      <h2 className="sr-only">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
-      {/* Visible animated subheading - DO NOT add animate-hidden here, it will be added by JS */}
-      <h2 className="subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
+      {/* Single H2 tag with SEO-friendly noscript fallback for crawlers */}
+      <h2 className="subtitle">
+        <noscript>Fix Bitcoin. Fix the world. One Block at a Time.</noscript>
+        Fix Bitcoin. Fix the world. One Block at a Time.
+      </h2>
       <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
         <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener" style={{
