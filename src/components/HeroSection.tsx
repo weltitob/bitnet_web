@@ -345,7 +345,7 @@ const HeroSection = () => {
       </h2>
       <div style={{ height: "25px" }}></div>
       <div className="hero-buttons animate-hidden">
-        <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener" style={{
+        <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener noreferrer" style={{
           padding: '0.65rem 3rem',
           minWidth: '180px',
           borderRadius: '999px',
@@ -358,7 +358,7 @@ const HeroSection = () => {
           height: '48px',
           boxSizing: 'border-box'
         }}>Get Started</a>
-        <a href="/fixbitcoin" aria-label="Learn More About BitNet" className="btn secondary" rel="noopener" style={{
+        <a href="/fixbitcoin" aria-label="Learn More About BitNet" className="btn secondary" rel="noopener noreferrer" style={{
           padding: '0.65rem 3rem',
           minWidth: '180px',
           borderRadius: '999px',

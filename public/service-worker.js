@@ -1,5 +1,5 @@
 // Service worker for BitNet website
-const CACHE_NAME = 'bitnet-cache-v1';
+const CACHE_NAME = 'bitnet-cache-v2'; // Updated cache version
 
 const STATIC_ASSETS = [
   '/',
@@ -48,18 +48,45 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event - Cache first with network fallback strategy
+// Fetch event - modified to handle module scripts properly
 self.addEventListener('fetch', event => {
   // Skip non-GET requests and non-HTTP/HTTPS URLs
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
-  // Skip API calls and analytics requests
-  if (event.request.url.includes('/api/') || 
+  // Skip API calls, analytics requests and module scripts
+  if (event.request.url.includes('/api/') ||
       event.request.url.includes('google-analytics.com') ||
       event.request.url.includes('analytics') ||
       event.request.url.includes('firebase')) {
+    return;
+  }
+
+  // Check if this is a request for a JavaScript module
+  const isModuleRequest = event.request.destination === 'script' &&
+                         (event.request.url.includes('/src/') ||
+                          event.request.url.includes('/@vite/') ||
+                          event.request.url.includes('/@react-refresh'));
+
+  // Don't intercept module requests in development
+  if (isModuleRequest) {
+    return;
+  }
+
+  // Special handling for routes that should serve the index.html file (SPA routing)
+  const url = new URL(event.request.url);
+  const isSPARoute = STATIC_ASSETS.some(route => {
+    return route !== '/' && route !== '/index.html' && url.pathname === route;
+  });
+
+  if (isSPARoute && !url.pathname.includes('.')) {
+    event.respondWith(
+      caches.match('/index.html')
+        .then(response => {
+          return response || fetch('/index.html');
+        })
+    );
     return;
   }
 
@@ -96,8 +123,8 @@ self.addEventListener('fetch', event => {
           })
           .catch(error => {
             console.error('Fetch failed:', error);
-            // Optionally return a custom offline page for HTML requests
-            if (event.request.headers.get('accept').includes('text/html')) {
+            // Return index.html for navigation requests
+            if (event.request.mode === 'navigate') {
               return caches.match('/index.html');
             }
             return new Response('Network error', { status: 408, statusText: 'Network error' });

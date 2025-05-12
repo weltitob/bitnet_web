@@ -5,6 +5,7 @@
     <link rel="icon" type="image/webp" href="/src/assets/logoclean.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fix scripts - load early to patch browser APIs -->
+    <script src="/browser-polyfill.js"></script>
     <script src="/vite-hmr-fix.js"></script>
     <script src="/metamask-handler.js"></script>
     <meta name="description" content="BitNet - Your Complete Bitcoin Ecosystem in One Wallet. Self-Custody, Lightning-Fast, and Community-Driven Bitcoin Solutions for Web3." />
@@ -30,13 +31,37 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-              console.log('Service Worker registered:', registration);
-            })
-            .catch(error => {
-              console.log('Service Worker registration failed:', error);
-            });
+          // First, try to unregister any existing service workers to avoid conflicts
+          navigator.serviceWorker.getRegistrations().then(registrations => {
+            for (let registration of registrations) {
+              registration.unregister();
+            }
+
+            // After unregistering, register the new service worker
+            setTimeout(() => {
+              navigator.serviceWorker.register('/service-worker.js', {
+                scope: '/'
+              })
+                .then(registration => {
+                  console.log('Service Worker registered:', registration);
+
+                  // If there's an update, reload the page
+                  registration.onupdatefound = () => {
+                    const installingWorker = registration.installing;
+                    installingWorker.onstatechange = () => {
+                      if (installingWorker.state === 'installed' &&
+                          navigator.serviceWorker.controller) {
+                        // Reload the page to activate the new service worker
+                        window.location.reload();
+                      }
+                    };
+                  };
+                })
+                .catch(error => {
+                  console.log('Service Worker registration failed:', error);
+                });
+            }, 1000);
+          });
         });
       }
     </script>
