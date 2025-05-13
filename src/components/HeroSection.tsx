@@ -42,30 +42,83 @@ const HeroSection = () => {
   useEffect(() => {
     // Elements to animate
     const metricsRow = document.querySelector('.metrics-row');
-    const heroHeading = document.querySelector('.hero h1:not(.sr-only)'); // Skip the SEO-only heading
+    const heroHeading = document.querySelector('.hero h1');
     const heroSubheading = document.querySelector('.hero h2.subtitle');
     const heroCta = document.querySelector('.hero-buttons');
     const mockupPhone = phoneRef.current;
 
     // Immediately hide all elements that will be animated
-    if (metricsRow) metricsRow.classList.add('animate-hidden');
-    if (heroHeading) heroHeading.classList.add('animate-hidden');
-    if (heroSubheading) heroSubheading.classList.add('animate-hidden');
-    if (heroCta) heroCta.classList.add('animate-hidden');
-    if (mockupPhone) mockupPhone.classList.add('animate-hidden');
+    if (metricsRow) {
+      metricsRow.style.opacity = '0';
+      metricsRow.style.transform = 'translateY(20px)';
+      metricsRow.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroHeading) {
+      heroHeading.style.opacity = '0';
+      heroHeading.style.transform = 'translateY(20px)';
+      heroHeading.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroSubheading) {
+      heroSubheading.style.opacity = '0';
+      heroSubheading.style.transform = 'translateY(20px)';
+      heroSubheading.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroCta) {
+      heroCta.style.opacity = '0';
+      heroCta.style.transform = 'translateY(20px)';
+      heroCta.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      heroCta.style.marginTop = '0';
+    }
+    if (mockupPhone) {
+      mockupPhone.style.opacity = '0';
+      mockupPhone.style.transform = 'translateY(20px)';
+      mockupPhone.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+
+    // Force a reflow to apply the initial styles before starting animations
+    document.body.offsetHeight;
 
     // Function to trigger sequential fade-in
     const startHeroAnimation = () => {
       // Sequential reveal with increasing delays
-      setTimeout(() => metricsRow?.classList.add('animate-reveal'), 100);
-      setTimeout(() => heroHeading?.classList.add('animate-reveal'), 500);
-      setTimeout(() => heroSubheading?.classList.add('animate-reveal'), 800);
-      setTimeout(() => heroCta?.classList.add('animate-reveal'), 1100);
-      setTimeout(() => mockupPhone?.classList.add('animate-reveal'), 1400);
+      setTimeout(() => {
+        if (metricsRow) {
+          metricsRow.style.opacity = '1';
+          metricsRow.style.transform = 'translateY(0)';
+        }
+      }, 100);
+      
+      setTimeout(() => {
+        if (heroHeading) {
+          heroHeading.style.opacity = '1';
+          heroHeading.style.transform = 'translateY(0)';
+        }
+      }, 400);
+      
+      setTimeout(() => {
+        if (heroSubheading) {
+          heroSubheading.style.opacity = '1';
+          heroSubheading.style.transform = 'translateY(0)';
+        }
+      }, 700);
+      
+      setTimeout(() => {
+        if (heroCta) {
+          heroCta.style.opacity = '1';
+          heroCta.style.transform = 'translateY(0)';
+        }
+      }, 900);
+      
+      setTimeout(() => {
+        if (mockupPhone) {
+          mockupPhone.style.opacity = '1';
+          mockupPhone.style.transform = 'translateY(0)';
+        }
+      }, 1100);
     };
 
     // Start animations after a brief initial delay
-    setTimeout(startHeroAnimation, 300);
+    setTimeout(startHeroAnimation, 100);
 
     // We don't need scroll effects for the phone anymore
     return () => {};
@@ -325,7 +378,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="metrics-row animate-hidden">
+      <div className="metrics-row">
         <span className="metric-item">Self-Custody</span>
         <span className="metric-separator">|</span>
         <span className="metric-item">Lightning-Fast</span>
@@ -343,8 +396,7 @@ const HeroSection = () => {
         <noscript>Fix Bitcoin. Fix the world. One Block at a Time.</noscript>
         Fix Bitcoin. Fix the world. One Block at a Time.
       </h2>
-      <div style={{ height: "25px" }}></div>
-      <div className="hero-buttons animate-hidden">
+      <div className="hero-buttons">
         <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener noreferrer" style={{
           padding: '0.65rem 3rem',
           minWidth: '180px',
@@ -380,7 +432,7 @@ const HeroSection = () => {
         {/* Mockup phone */}
         <div 
           ref={phoneRef}
-          className="mockup animate-hidden" 
+          className="mockup" 
           style={{ 
             display: 'flex', 
             flexDirection: 'column',
