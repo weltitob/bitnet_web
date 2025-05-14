@@ -227,7 +227,7 @@ const Header = () => {
             }}
           >
             <a
-              href="https://bitnet.ai/"
+              href="/"
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -375,7 +375,7 @@ const Header = () => {
             }}
           >
             <a
-              href="https://bitnet.ai/"
+              href="/"
               style={{
                 textDecoration: 'none',
                 color: '#fff',

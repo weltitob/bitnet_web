@@ -8,6 +8,12 @@ import ulrichImage from '../assets/team/ulrich.webp';
 import LazyImage from '../components/LazyImage';
 import Breadcrumbs from '../components/Breadcrumbs';
 
+// Import background images
+import bgSmall from '../assets/genisisstone-480.webp';
+import bgMedium from '../assets/genisisstone-768.webp';
+import bgLarge from '../assets/genisisstone-1280.webp';
+import bgXLarge from '../assets/genisisstone.webp';
+
 const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#050505' }}>
@@ -145,30 +151,44 @@ const AboutUs = () => {
         .about-us-hero {
           padding: 8rem 2rem 4rem;
           text-align: center;
-          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-480.webp') center/cover no-repeat;
           position: relative;
         }
-        
+
         /* Media queries need to be separate in styled-jsx */
         @media (min-width: 480px) {
           .about-us-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-768.webp') center/cover no-repeat;
           }
         }
-        
+
         @media (min-width: 768px) {
           .about-us-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-1280.webp') center/cover no-repeat;
           }
         }
-        
+
         @media (min-width: 1280px) {
           .about-us-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone.webp') center/cover no-repeat;
+          }
+        }
+      `}</style>
+
+      {/* Add background images with inline styles */}
+      <style jsx>{`
+        .about-us-hero {
+          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bgSmall}) center/cover no-repeat;
+        }
+        @media (min-width: 480px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bgMedium}) center/cover no-repeat;
+          }
+        }
+        @media (min-width: 768px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bgLarge}) center/cover no-repeat;
+          }
+        }
+        @media (min-width: 1280px) {
+          .about-us-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bgXLarge}) center/cover no-repeat;
           }
         }
 
