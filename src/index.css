@@ -277,6 +277,13 @@ nav a:hover {
   width: 100%;
 }
 
+/* Animation Helper Class */
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
 /* Metrics Row */
 .metrics-row {
   display: flex;

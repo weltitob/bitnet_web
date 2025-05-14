@@ -378,7 +378,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="metrics-row">
+      <div className="metrics-row animate-hidden">
         <span className="metric-item">Self-Custody</span>
         <span className="metric-separator">|</span>
         <span className="metric-item">Lightning-Fast</span>
@@ -386,17 +386,17 @@ const HeroSection = () => {
         <span className="metric-item">Community-driven</span>
       </div>
       {/* Single H1 tag with SEO-friendly noscript fallback for crawlers */}
-      <h1 className="" id="main-heading">
+      <h1 className="animate-hidden" id="main-heading">
         <noscript>Your Complete Bitcoin Ecosystem in One Wallet.</noscript>
         Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.
       </h1>
 
       {/* Single H2 tag with SEO-friendly noscript fallback for crawlers */}
-      <h2 className="subtitle">
+      <h2 className="subtitle animate-hidden">
         <noscript>Fix Bitcoin. Fix the world. One Block at a Time.</noscript>
         Fix Bitcoin. Fix the world. One Block at a Time.
       </h2>
-      <div className="hero-buttons">
+      <div className="hero-buttons animate-hidden">
         <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener noreferrer" style={{
           padding: '0.65rem 3rem',
           minWidth: '180px',
@@ -430,11 +430,11 @@ const HeroSection = () => {
         marginTop: isMobile ? '35px' : '0'
       }}>
         {/* Mockup phone */}
-        <div 
+        <div
           ref={phoneRef}
-          className="mockup" 
-          style={{ 
-            display: 'flex', 
+          className="mockup animate-hidden"
+          style={{
+            display: 'flex',
             flexDirection: 'column',
             width: '330px',  // Reverting to previous width
             height: '690px', // Reverting to previous height
