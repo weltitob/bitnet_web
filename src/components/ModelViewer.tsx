@@ -50,10 +50,12 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <mesh>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#ff5500" />
-        </mesh>
+        <group>
+          <mesh scale={[0.8, 0.8, 0.8]} rotation={[0, Math.PI / 4, 0]}>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color="#333333" wireframe opacity={0.5} transparent />
+          </mesh>
+        </group>
       );
     }
 
@@ -120,6 +122,13 @@ function Model({ path }) {
       modelCache.set(currentPathToTry, gltf);
     }
     setIsLoaded(true);
+    
+    // Signal to parent component that model is loaded
+    if (window.dispatchEvent) {
+      window.dispatchEvent(new CustomEvent('modelLoaded', { 
+        detail: { path: currentPathToTry } 
+      }));
+    }
   }, [currentPathToTry]);
 
   // Load the model with the current path
@@ -146,13 +155,15 @@ function Model({ path }) {
     }
   });
 
-  // Show fallback if model fails to load
+  // Show elegant fallback if model fails to load
   if (error) {
     return (
-      <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#ff5500" />
-      </mesh>
+      <group>
+        <mesh scale={[0.8, 0.8, 0.8]} rotation={[0, Math.PI / 4, 0]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="#333333" wireframe opacity={0.5} transparent />
+        </mesh>
+      </group>
     );
   }
 
@@ -196,6 +207,16 @@ function Model({ path }) {
 // Main ModelViewer component
 export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', height = 200 }) {
   const [canvasError, setCanvasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Add loading state timeout to show initial animation
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800); // Show loading animation for a short period
+    
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   // Trigger preloading when component mounts
   useEffect(() => {
@@ -205,7 +226,7 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
     }, 100);
   }, []);
 
-  // Simple fallback component when 3D fails
+  // Clean fallback component when 3D fails
   const Fallback = () => (
     <div style={{
       width: '100%',
@@ -213,15 +234,18 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#aaa'
+      color: '#aaa',
+      backgroundColor: backgroundColor || '#1a1a20',
+      borderRadius: '8px'
     }}>
       <img
         src="/assets/fallbacks/model-fallback.svg"
-        alt="3D Preview Unavailable"
+        alt="Loading 3D Model"
         style={{
-          width: '80%',
+          width: '70%',
           height: 'auto',
-          maxHeight: '80%'
+          maxHeight: '70%',
+          opacity: 0.8
         }}
       />
     </div>
@@ -231,54 +255,85 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
     <div style={{
       width: '100%',
       height,
-      backgroundColor,
+      backgroundColor: backgroundColor || '#1a1a20',
       borderRadius: '12px 12px 0 0',
       overflow: 'hidden',
       padding: '6px 0', // 6px top/bottom, 0px left/right
       margin: 0,
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.1)'
     }}>
       {canvasError ? (
         <Fallback />
+      ) : isLoading ? (
+        // Show a clean loading state before the canvas is ready
+        <div style={{
+          width: '100%',
+          height: 'calc(100% - 12px)',
+          borderRadius: '8px',
+          backgroundColor: backgroundColor || '#1a1a20',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transition: 'opacity 0.3s ease'
+        }}>
+          <img
+            src="/assets/fallbacks/model-fallback.svg"
+            alt="Loading 3D Model"
+            style={{
+              width: '50%',
+              height: 'auto',
+              opacity: 0.7,
+              transition: 'opacity 0.3s ease'
+            }}
+          />
+        </div>
       ) : (
         <Canvas
           style={{
             width: '100%',
             height: 'calc(100% - 12px)', // Account for 6px top + 6px bottom padding
-            borderRadius: '8px'
+            borderRadius: '8px',
+            transition: 'opacity 0.3s ease'
           }}
           camera={{
             position: [0, 0, 6.5], // Balanced camera distance
-            fov: 30, // Standard field of view
+            fov: 25, // More focused field of view
             near: 0.1,
             far: 1000
           }}
           gl={{
-            preserveDrawingBuffer: false, // Changed to false to improve performance
-            powerPreference: 'high-performance', // Prefer high performance rendering
-            antialias: true, // Enable antialiasing
-            depth: true, // Enable depth buffer
-            stencil: false, // Disable stencil buffer to save memory
-            alpha: false, // Disable alpha channel to improve performance
+            preserveDrawingBuffer: false, 
+            powerPreference: 'high-performance',
+            antialias: true,
+            depth: true,
+            stencil: false,
+            alpha: false,
             failIfMajorPerformanceCaveat: false
           }}
-          dpr={window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio} // Limit device pixel ratio for performance
-          performance={{ min: 0.5 }} // Set minimum performance threshold
-          linear={true} // Enable linear color encoding for better performance
-          flat={false} // Enable smooth shading for better look
+          dpr={window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio}
+          performance={{ min: 0.5 }}
+          linear={true}
+          flat={false}
           onCreated={state => {
             state.gl.setClearColor(new THREE.Color(backgroundColor));
-            // Set pixel ratio explicitly
             state.gl.setPixelRatio(window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio);
           }}
         >
           <Suspense fallback={
-            <mesh>
-              <sphereGeometry args={[0.5, 16, 16]} />
-              <meshBasicMaterial color="#333333" wireframe />
-            </mesh>
+            <group>
+              {/* Minimalist loading indicator */}
+              <mesh rotation={[0, Math.PI / 4, 0]}>
+                <torusGeometry args={[1, 0.2, 16, 32]} />
+                <meshBasicMaterial color="#ffffff" opacity={0.15} transparent wireframe />
+              </mesh>
+              <mesh rotation={[Math.PI / 2, 0, 0]}>
+                <ringGeometry args={[0.5, 0.7, 32]} />
+                <meshBasicMaterial color="#ffffff" opacity={0.3} transparent />
+              </mesh>
+            </group>
           }>
             <ErrorBoundary onError={() => setCanvasError(true)}>
               {/* Modified PresentationControls */}
@@ -301,10 +356,16 @@ export default function ModelViewer({ modelPath, backgroundColor = '#1a1a20', he
 
                 {/* The 3D model */}
                 <Model path={modelPath} />
+                
+                {/* Subtle ambient animation elements */}
+                <mesh position={[0, 0, -3]} rotation={[0, 0, 0]}>
+                  <sphereGeometry args={[2, 16, 16]} />
+                  <meshBasicMaterial color={backgroundColor || "#1a1a20"} transparent opacity={0.1} />
+                </mesh>
               </PresentationControls>
 
-              {/* Simple environment for basic lighting only */}
-              <Environment preset="sunset" background={false} intensity={0.3} />
+              {/* Improved environment for better lighting and reflections */}
+              <Environment preset="city" background={false} intensity={0.3} />
             </ErrorBoundary>
           </Suspense>
         </Canvas>
