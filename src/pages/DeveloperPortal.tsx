@@ -21,7 +21,7 @@ const DeveloperPortal = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     const isCheckbox = type === 'checkbox';
-    
+
     setFormData({
       ...formData,
       [name]: isCheckbox ? (e.target as HTMLInputElement).checked : value
@@ -34,7 +34,7 @@ const DeveloperPortal = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // In a real implementation, this would call an API to generate and store the key
     // For demo purposes, we'll just generate a mock API key
     const mockApiKey = `bitnet_${accountType}_${Math.random().toString(36).substring(2, 15)}`;
@@ -51,19 +51,12 @@ const DeveloperPortal = () => {
         keywords="blockchain wallet for developers"
       />
       <Header />
-      
+
       <main style={{ flex: '1', paddingTop: '2rem' }}>
         <div className="developer-container">
           <div className="developer-header">
             <h1>BitNet Developer Portal</h1>
-            <h2 style={{ fontSize: '1.4rem', color: '#ccc', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Blockchain Wallet For Developers</h2>
-            <p className="developer-description">
-              Access the power of Bitcoin through our developer-friendly blockchain wallet APIs.
-              Our comprehensive toolkit for developers provides everything you need to build, test, and deploy powerful Web3 applications.
-            </p>
-            <p className="developer-description" style={{ marginTop: '1rem' }}>
-              With BitNet's blockchain wallet for developers, you can integrate seamless crypto transactions, manage digital assets, and create cutting-edge DeFi solutions with full control over your development environment.
-            </p>
+
           </div>
 
           <div className="developer-card info-section">
@@ -76,21 +69,21 @@ const DeveloperPortal = () => {
                     BitNet provides a comprehensive blockchain wallet for developers seeking to integrate Bitcoin functionality into their applications. Our easy-to-use API empowers you to create secure, scalable crypto solutions without the complexity traditionally associated with blockchain development.
                   </p>
                 </div>
-                
+
                 <div className="info-paragraph">
                   <h3>Flexible Development Tools</h3>
                   <p>
                     Whether you're building a decentralized application, implementing payment processing, or creating a custom wallet experience, our developer tools offer the flexibility and security your projects demand. With BitNet's wallet infrastructure, you can focus on creating value for your users while we handle the complexities of blockchain interactions.
                   </p>
                 </div>
-                
+
                 <div className="info-paragraph">
                   <h3>End-to-End Wallet Solutions</h3>
                   <p>
                     Our blockchain wallet solutions offer end-to-end capabilities including secure key management, transaction processing, and real-time blockchain data access. The BitNet API is designed with developers in mind, featuring comprehensive documentation, language-specific SDKs, and a dedicated support team to help you succeed.
                   </p>
                 </div>
-                
+
                 <div className="info-paragraph">
                   <h3>Enterprise-Ready Infrastructure</h3>
                   <p>
@@ -157,25 +150,25 @@ const DeveloperPortal = () => {
               </div>
             </div>
           </div>
-          
+
           {!submitted ? (
             <div className="developer-card">
               <h2>Get Your API Key</h2>
               <p>
-                Complete the form below to receive your API key. This key will give you access 
+                Complete the form below to receive your API key. This key will give you access
                 to our suite of Bitcoin services and functionalities.
               </p>
-              
+
               <form onSubmit={handleSubmit} className="api-form">
                 <div className="form-section">
                   <h3>Account Type</h3>
                   <div className="account-type-options">
                     <label className={`account-type-option ${accountType === 'individual' ? 'selected' : ''}`}>
-                      <input 
-                        type="radio" 
-                        name="accountType" 
-                        value="individual" 
-                        checked={accountType === 'individual'} 
+                      <input
+                        type="radio"
+                        name="accountType"
+                        value="individual"
+                        checked={accountType === 'individual'}
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
@@ -191,13 +184,13 @@ const DeveloperPortal = () => {
                         <p>Personal projects and small applications</p>
                       </div>
                     </label>
-                    
+
                     <label className={`account-type-option ${accountType === 'organization' ? 'selected' : ''}`}>
-                      <input 
-                        type="radio" 
-                        name="accountType" 
-                        value="organization" 
-                        checked={accountType === 'organization'} 
+                      <input
+                        type="radio"
+                        name="accountType"
+                        value="organization"
+                        checked={accountType === 'organization'}
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
@@ -213,13 +206,13 @@ const DeveloperPortal = () => {
                         <p>Business and enterprise applications</p>
                       </div>
                     </label>
-                    
+
                     <label className={`account-type-option ${accountType === 'ai-agent' ? 'selected' : ''}`}>
-                      <input 
-                        type="radio" 
-                        name="accountType" 
-                        value="ai-agent" 
-                        checked={accountType === 'ai-agent'} 
+                      <input
+                        type="radio"
+                        name="accountType"
+                        value="ai-agent"
+                        checked={accountType === 'ai-agent'}
                         onChange={handleAccountTypeChange}
                       />
                       <div className="account-type-icon" style={{
@@ -241,43 +234,43 @@ const DeveloperPortal = () => {
                     </label>
                   </div>
                 </div>
-                
+
                 <div className="form-section">
                   <h3>Your Details</h3>
-                  
+
                   <div className="form-group">
                     <label htmlFor="name">Full Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      required 
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Enter your full name"
                     />
                   </div>
-                  
+
                   <div className="form-group">
                     <label htmlFor="email">Email Address</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      required 
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="Enter your email address"
                     />
                   </div>
-                  
+
                   {accountType === 'organization' && (
                     <div className="form-group">
                       <label htmlFor="organization">Organization Name</label>
-                      <input 
-                        type="text" 
-                        id="organization" 
-                        name="organization" 
+                      <input
+                        type="text"
+                        id="organization"
+                        name="organization"
                         required={accountType === 'organization'}
                         value={formData.organization}
                         onChange={handleInputChange}
@@ -285,13 +278,13 @@ const DeveloperPortal = () => {
                       />
                     </div>
                   )}
-                  
+
                   {accountType === 'ai-agent' && (
                     <div className="form-group">
                       <label htmlFor="agentDetails">AI Agent Details</label>
-                      <textarea 
-                        id="agentDetails" 
-                        name="agentDetails" 
+                      <textarea
+                        id="agentDetails"
+                        name="agentDetails"
                         required={accountType === 'ai-agent'}
                         value={formData.agentDetails}
                         onChange={handleInputChange}
@@ -300,13 +293,13 @@ const DeveloperPortal = () => {
                       />
                     </div>
                   )}
-                  
+
                   <div className="form-group">
                     <label htmlFor="useCase">Intended Use Case</label>
-                    <textarea 
-                      id="useCase" 
-                      name="useCase" 
-                      required 
+                    <textarea
+                      id="useCase"
+                      name="useCase"
+                      required
                       value={formData.useCase}
                       onChange={handleInputChange}
                       placeholder="Describe how you plan to use the BitNet API"
@@ -314,13 +307,13 @@ const DeveloperPortal = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="form-group terms-group">
                   <label className="checkbox-container">
-                    <input 
-                      type="checkbox" 
-                      name="terms" 
-                      required 
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      required
                       checked={formData.terms}
                       onChange={handleInputChange}
                     />
@@ -328,7 +321,7 @@ const DeveloperPortal = () => {
                     <span>I agree to the <a href="#" className="terms-link">Terms of Service</a> and <a href="#" className="terms-link">API Usage Policy</a></span>
                   </label>
                 </div>
-                
+
                 <div className="form-actions">
                   <button type="submit" className="submit-button">Generate API Key</button>
                 </div>
@@ -344,10 +337,10 @@ const DeveloperPortal = () => {
               </div>
               <h2>Your API Key is Ready!</h2>
               <p>Keep your API key secure. Do not share it publicly or commit it to version control systems.</p>
-              
+
               <div className="api-key-container">
                 <code className="api-key">{apiKey}</code>
-                <button 
+                <button
                   className="copy-button"
                   onClick={() => {
                     navigator.clipboard.writeText(apiKey);
@@ -360,7 +353,7 @@ const DeveloperPortal = () => {
                   </svg>
                 </button>
               </div>
-              
+
               <div className="next-steps">
                 <h3>Next Steps</h3>
                 <ul>
@@ -392,7 +385,7 @@ const DeveloperPortal = () => {
               </div>
             </div>
           )}
-          
+
           <div className="developer-card info-card">
             <h2>API Features</h2>
             <div className="features-grid">
@@ -405,7 +398,7 @@ const DeveloperPortal = () => {
                 <h3>Wallet Management</h3>
                 <p>Create and manage Bitcoin wallets programmatically</p>
               </div>
-              
+
               <div className="feature">
                 <div className="feature-icon" style={{ background: 'linear-gradient(135deg, #4cd964, #2e8a3a)' }}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2">
@@ -418,7 +411,7 @@ const DeveloperPortal = () => {
                 <h3>Transaction Processing</h3>
                 <p>Send, receive, and verify Bitcoin transactions</p>
               </div>
-              
+
               <div className="feature">
                 <div className="feature-icon" style={{ background: 'linear-gradient(135deg, #ff8c00, #d17300)' }}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2">
@@ -431,7 +424,7 @@ const DeveloperPortal = () => {
                 <h3>Blockchain Data</h3>
                 <p>Access and query real-time blockchain information</p>
               </div>
-              
+
               <div className="feature">
                 <div className="feature-icon" style={{ background: 'linear-gradient(135deg, #a855f7, #6b21a8)' }}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" strokeWidth="2">
@@ -448,7 +441,7 @@ const DeveloperPortal = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="developer-card pricing-card">
             <h2>API Pricing</h2>
             <div className="pricing-tiers">
@@ -469,7 +462,7 @@ const DeveloperPortal = () => {
                   <span className="tier-badge">Current</span>
                 </div>
               </div>
-              
+
               <div className="pricing-tier">
                 <div className="tier-header">
                   <h3>Business</h3>
@@ -490,7 +483,7 @@ const DeveloperPortal = () => {
                   <button className="upgrade-button">Upgrade</button>
                 </div>
               </div>
-              
+
               <div className="pricing-tier">
                 <div className="tier-header">
                   <h3>Enterprise</h3>
@@ -514,9 +507,9 @@ const DeveloperPortal = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
-      
+
       <style jsx>{`
         .developer-container {
           max-width: 1200px;

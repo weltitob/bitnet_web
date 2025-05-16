@@ -31,37 +31,35 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          // First, try to unregister any existing service workers to avoid conflicts
-          navigator.serviceWorker.getRegistrations().then(registrations => {
-            for (let registration of registrations) {
-              registration.unregister();
-            }
+          // Check if we already have a controller (active service worker)
+          if (navigator.serviceWorker.controller) {
+            console.log('Service Worker already active:', navigator.serviceWorker.controller);
+            return; // Skip registration if we already have an active service worker
+          }
+          
+          // Register the service worker if none exists
+          navigator.serviceWorker.register('/service-worker.js', {
+            scope: '/'
+          })
+            .then(registration => {
+              console.log('Service Worker registered:', registration);
 
-            // After unregistering, register the new service worker
-            setTimeout(() => {
-              navigator.serviceWorker.register('/service-worker.js', {
-                scope: '/'
-              })
-                .then(registration => {
-                  console.log('Service Worker registered:', registration);
-
-                  // If there's an update, reload the page
-                  registration.onupdatefound = () => {
-                    const installingWorker = registration.installing;
-                    installingWorker.onstatechange = () => {
-                      if (installingWorker.state === 'installed' &&
-                          navigator.serviceWorker.controller) {
-                        // Reload the page to activate the new service worker
-                        window.location.reload();
-                      }
-                    };
-                  };
-                })
-                .catch(error => {
-                  console.log('Service Worker registration failed:', error);
-                });
-            }, 1000);
-          });
+              // If there's an update, reload the page
+              registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                installingWorker.onstatechange = () => {
+                  if (installingWorker.state === 'installed' &&
+                      navigator.serviceWorker.controller) {
+                    console.log('New service worker installed, page will refresh on next visit');
+                    // Remove the automatic reload - let the user reload naturally
+                    // window.location.reload();
+                  }
+                };
+              };
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
         });
       }
     </script>

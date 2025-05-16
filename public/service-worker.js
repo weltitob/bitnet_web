@@ -76,16 +76,12 @@ self.addEventListener('fetch', event => {
 
   // Special handling for routes that should serve the index.html file (SPA routing)
   const url = new URL(event.request.url);
-  const isSPARoute = STATIC_ASSETS.some(route => {
-    return route !== '/' && route !== '/index.html' && url.pathname === route;
-  });
-
-  if (isSPARoute && !url.pathname.includes('.')) {
+  
+  // If it's a navigation request with no file extension, always go to the network first
+  if (event.request.mode === 'navigate' && !url.pathname.includes('.')) {
     event.respondWith(
-      caches.match('/index.html')
-        .then(response => {
-          return response || fetch('/index.html');
-        })
+      fetch(event.request)
+        .catch(() => caches.match('/index.html'))
     );
     return;
   }

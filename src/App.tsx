@@ -3,17 +3,13 @@ import { lazy, Suspense } from 'react'
 // Import components used on the homepage directly to optimize first paint
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
-import MissionSection from './components/MissionSection'
-import WalletFeatureSection from './components/WalletFeatureSection'
-import TestimonialsSection from './components/TestimonialsSection'
-import AboutSection from './components/AboutSection'
-import CareersSection from './components/CareersSection'
-import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import SEO from './components/SEO'
 // Use lazy loading for other components and pages
 const MissionSection = lazy(() => import('./components/MissionSection'))
 const TestimonialsSection = lazy(() => import('./components/TestimonialsSection'))
+const WalletFeatureSection = lazy(() => import('./components/WalletFeatureSection'))
+
 const AboutSection = lazy(() => import('./components/AboutSection'))
 const CareersSection = lazy(() => import('./components/CareersSection'))
 const ContactSection = lazy(() => import('./components/ContactSection'))
