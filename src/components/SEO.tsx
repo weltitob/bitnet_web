@@ -12,16 +12,16 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = 'BitNet - Complete Bitcoin Ecosystem in One Wallet',
-  description = 'BitNet - Your Complete Bitcoin Ecosystem in One Wallet. Secure crypto wallet solution with self-custody private keys. Buy digital collectibles and access our NFT marketplace platform for Bitcoin.',
-  keywords = 'bitcoin wallet, web3, self-custody, bitcoin ecosystem, lightning network, bitcoin payments, blockchain, digital collectibles, crypto wallet private key, mobile crypto wallet, crypto wallet for beginners, secure crypto wallet solution, NFT marketplace, NFT collection platform, NFT trading platform, NFT wallet integration',
+  title = 'Trusted Secure Crypto Wallet Solution Online | BitNet',
+  description = 'Protect your digital assets with a trusted, secure crypto wallet. Access your funds anytime, anywhere with top-tier encryption and user-friendly features.',
+  keywords = 'Crypto Wallet Private Key, mobile crypto wallet, crypto wallet for beginners, secure crypto wallet solution, Buy digital collectibles, Create NFT marketplace, NFT collection platform, NFT trading platform, NFT wallet integration',
   image = '/logo.png',
-  url = 'https://www.bitnet.com',
+  url = 'https://bitnet.ai',
   type = 'website',
-  canonical = 'https://www.bitnet.com',
+  canonical = 'https://bitnet.ai',
   children,
 }: SEOProps) => {
-  const siteUrl = 'https://www.bitnet.com';
+  const siteUrl = 'https://bitnet.ai';
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
   return (
@@ -41,15 +41,16 @@ const SEO = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={url} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:site" content="@BitNet69" />
+      <meta property="twitter:url" content={url} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={imageUrl} />
 
       {/* Additional meta tags */}
       <meta name="author" content="BitNet" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
+
       {/* Additional meta tags or structured data provided as children */}
       {children}
     </Helmet>

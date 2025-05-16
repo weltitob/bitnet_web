@@ -1,8 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#1a1a20" />
-  <path d="M100 40L160 80L100 120L40 80L100 40Z" stroke="#ff8c00" fill="none" stroke-width="2" />
-  <path d="M40 80V160L100 200V120" stroke="#ff8c00" fill="none" stroke-width="2" />
-  <path d="M160 80V160L100 200" stroke="#ff8c00" fill="none" stroke-width="2" />
-  <path d="M100 40V120" stroke="#ff8c00" fill="none" stroke-width="2" />
-  <text x="100" y="170" fill="#aaa" font-family="sans-serif" font-size="10" text-anchor="middle">3D Model Preview</text>
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.2; }
+    }
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loader-circle {
+      transform-origin: center;
+      animation: rotate 3s linear infinite;
+    }
+    .pulse-element {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  </style>
+  
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181818" />
+      <stop offset="100%" stop-color="#121212" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg-gradient)" />
+  
+  <!-- Centered loader elements -->
+  <g class="loader-circle">
+    <circle cx="100" cy="100" r="50" stroke="#333333" stroke-width="2" fill="none" />
+    <circle cx="100" cy="100" r="50" stroke="#555555" stroke-width="2" fill="none" stroke-dasharray="30 30" />
+    
+    <!-- Accent points -->
+    <circle cx="100" cy="50" r="4" fill="#ffffff" opacity="0.8" />
+    <circle cx="150" cy="100" r="3" fill="#ffffff" opacity="0.6" />
+    <circle cx="100" cy="150" r="2" fill="#ffffff" opacity="0.4" />
+  </g>
+  
+  <!-- Cube wireframe that pulses -->
+  <g class="pulse-element">
+    <path d="M85 75L115 75L115 125L85 125Z" stroke="#ffffff" fill="none" stroke-width="1" opacity="0.2" />
+    <path d="M75 85L125 85L125 115L75 115Z" stroke="#ffffff" fill="none" stroke-width="1" opacity="0.2" />
+    <line x1="85" y1="75" x2="75" y2="85" stroke="#ffffff" stroke-width="1" opacity="0.2" />
+    <line x1="115" y1="75" x2="125" y2="85" stroke="#ffffff" stroke-width="1" opacity="0.2" />
+    <line x1="85" y1="125" x2="75" y2="115" stroke="#ffffff" stroke-width="1" opacity="0.2" />
+    <line x1="115" y1="125" x2="125" y2="115" stroke="#ffffff" stroke-width="1" opacity="0.2" />
+  </g>
 </svg>

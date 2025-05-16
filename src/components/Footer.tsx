@@ -7,7 +7,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src={logo} alt="BitNet Logo" className="logo-image" />
+              <a href="https://bitnet.ai/" title="BitNet Homepage">
+                <img src={logo} alt="BitNet Logo" className="logo-image" />
+              </a>
               <h3>BitNet</h3>
             </div>
             <p className="brand-description">Fix Bitcoin. Fix the world.</p>
@@ -31,6 +33,9 @@ const Footer = () => {
                 <li><a href="/#contact">Contact Us</a></li>
                 <li><a href="https://t.me/weltitob" target="_blank" rel="noopener noreferrer">Telegram</a></li>
                 <li><a href="https://x.com/BitNet69" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                <li><a href="https://www.linkedin.com/company/bitnet" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/BitNetWallet" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.instagram.com/bitnetwallet" target="_blank" rel="noopener noreferrer">Instagram</a></li>
               </ul>
             </div>
 
@@ -41,6 +46,9 @@ const Footer = () => {
                 <li><a href="/aistrategy">AI & Bitcoin Strategy</a></li>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/investors">Investor Relations</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-conditions">Terms & Conditions</a></li>
                 <li><a href="mailto:contact@mybitnet.com">Email Us</a></li>
               </ul>
             </div>

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import LazyImage from '../components/LazyImage';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { Link } from 'react-router-dom';
 
@@ -46,73 +45,180 @@ const BLOG_POSTS = [
   }
 ];
 
+// Simplified Blog component without hooks for better stability
 const Blog: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0b0b0b' }}>
       <SEO 
         title="BitNet Blog | Bitcoin Wallet News and Insights"
         description="Get the latest insights on Bitcoin, self-custody, Lightning Network, and digital collectibles from the BitNet team."
-        canonical="https://www.bitnet.com/blog"
+        canonical="https://bitnet.ai/blog"
         keywords="bitcoin blog, cryptocurrency news, bitcoin wallet, self-custody, lightning network, digital collectibles"
       />
       <Header />
       
-      <main className="blog-page">
-        <div className="blog-hero">
-          <div className="blog-hero-content">
-            <span className="blog-subtitle">Our Blog</span>
-            <h1>BitNet Insights</h1>
-            <p>Stay updated with the latest on Bitcoin, self-custody, Lightning Network, and digital collectibles</p>
+      <main style={{ 
+        flex: '1', 
+        background: 'linear-gradient(180deg, #0b0b0b 0%, #141419 100%)',
+        color: '#fff' 
+      }}>
+        <div style={{ 
+          padding: '6rem 2rem 4rem',
+          textAlign: 'center',
+          background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/src/assets/genisisstone-768.webp") center/cover no-repeat',
+          position: 'relative'
+        }}>
+          <div style={{ 
+            position: 'relative',
+            zIndex: 2,
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <span style={{
+              display: 'inline-block',
+              color: '#ff8c00',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              marginBottom: '1rem'
+            }}>Our Blog</span>
+            <h1 style={{
+              fontSize: '3rem',
+              margin: '0 0 1rem',
+              lineHeight: '1.2',
+              color: 'white'
+            }}>BitNet Insights</h1>
+            <p style={{
+              color: '#ddd',
+              fontSize: '1.2rem',
+              margin: '0 auto',
+              maxWidth: '600px'
+            }}>Stay updated with the latest on Bitcoin, self-custody, Lightning Network, and digital collectibles</p>
           </div>
         </div>
         
-        <div className="blog-container">
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '4rem 2rem'
+        }}>
           <Breadcrumbs 
             customPaths={[{ path: '/blog', label: 'Blog' }]} 
             style={{ marginBottom: '2rem' }}
           />
-          <div className="blog-grid">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+            gap: '2.5rem'
+          }}>
             {BLOG_POSTS.map(post => (
-              <div key={post.id} className="blog-card">
-                <div className="blog-card-image">
-                  <LazyImage 
+              <div key={post.id} style={{
+                background: 'rgba(25, 25, 35, 0.6)',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                <div style={{
+                  position: 'relative',
+                  height: '240px'
+                }}>
+                  <img 
                     src={post.image} 
                     alt={post.title}
-                    style={{ width: '100%', height: '240px', borderRadius: '12px 12px 0 0' }}
+                    style={{ 
+                      width: '100%', 
+                      height: '240px', 
+                      borderRadius: '12px 12px 0 0',
+                      objectFit: 'cover'
+                    }}
                   />
-                  <div className="blog-category">{post.category}</div>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '15px',
+                    right: '15px',
+                    background: 'rgba(255, 140, 0, 0.9)',
+                    color: 'white',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    padding: '0.4rem 0.8rem',
+                    borderRadius: '20px',
+                    zIndex: 2
+                  }}>{post.category}</div>
                 </div>
                 
-                <div className="blog-card-content">
-                  <Link to={`/blog/${post.id}`} className="blog-title-link">
-                    <h2>{post.title}</h2>
+                <div style={{
+                  padding: '2rem',
+                  flex: '1',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}>
+                  <Link to={`/blog/${post.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h2 style={{
+                      fontSize: '1.5rem',
+                      color: '#fff',
+                      margin: '0 0 1rem',
+                      lineHeight: '1.4'
+                    }}>{post.title}</h2>
                   </Link>
-                  <p className="blog-excerpt">{post.excerpt}</p>
+                  <p style={{
+                    fontSize: '1rem',
+                    color: '#aaa',
+                    margin: '0 0 1.5rem',
+                    lineHeight: '1.6',
+                    flex: '1'
+                  }}>{post.excerpt}</p>
                   
-                  <div className="blog-meta">
-                    <div className="blog-author">
-                      <LazyImage 
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1.5rem',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      color: '#ddd',
+                      fontSize: '0.9rem'
+                    }}>
+                      <img 
                         src={post.authorImage} 
                         alt={post.author}
-                        style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+                        style={{ 
+                          width: '40px', 
+                          height: '40px', 
+                          borderRadius: '50%',
+                          objectFit: 'cover'
+                        }}
                       />
                       <span>{post.author}</span>
                     </div>
-                    <div className="blog-date">{post.date}</div>
+                    <div style={{
+                      fontSize: '0.85rem',
+                      color: '#888'
+                    }}>{post.date}</div>
                   </div>
                   
-                  <Link to={`/blog/${post.id}`} className="read-more-btn">
+                  <Link to={`/blog/${post.id}`} style={{
+                    display: 'inline-block',
+                    background: 'transparent',
+                    color: '#ff8c00',
+                    border: '1px solid #ff8c00',
+                    padding: '0.6rem 1.5rem',
+                    borderRadius: '30px',
+                    fontSize: '0.9rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    alignSelf: 'flex-start'
+                  }}>
                     Read More
                   </Link>
                 </div>
@@ -123,224 +229,6 @@ const Blog: React.FC = () => {
       </main>
       
       <Footer />
-      
-      <style jsx>{`
-        .blog-page {
-          flex: 1;
-          background: linear-gradient(180deg, #0b0b0b 0%, #141419 100%);
-          color: #fff;
-        }
-        
-        .blog-hero {
-          padding: 6rem 2rem 4rem;
-          text-align: center;
-          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-480.webp') center/cover no-repeat;
-          position: relative;
-        }
-        
-        /* Media queries need to be separate in styled-jsx */
-        @media (min-width: 480px) {
-          .blog-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-768.webp') center/cover no-repeat;
-          }
-        }
-        
-        @media (min-width: 768px) {
-          .blog-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                      url('/src/assets/genisisstone-1280.webp') center/cover no-repeat;
-          }
-        }
-        
-        .blog-hero::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 100px;
-          background: linear-gradient(to top, #0b0b0b, transparent);
-        }
-        
-        .blog-hero-content {
-          position: relative;
-          z-index: 2;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        
-        .blog-subtitle {
-          display: inline-block;
-          color: #ff8c00;
-          font-size: 1rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          margin-bottom: 1rem;
-        }
-        
-        .blog-hero h1 {
-          font-size: 3.5rem;
-          background: linear-gradient(135deg, #ffffff, #aaaaaa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          margin: 0 0 1rem;
-          line-height: 1.2;
-        }
-        
-        .blog-hero p {
-          color: #ddd;
-          font-size: 1.2rem;
-          margin: 0 auto;
-          max-width: 600px;
-        }
-        
-        .blog-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 4rem 2rem;
-        }
-        
-        .blog-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-          gap: 2.5rem;
-        }
-        
-        .blog-card {
-          background: rgba(25, 25, 35, 0.6);
-          border-radius: 12px;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .blog-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .blog-card-image {
-          position: relative;
-          height: 240px;
-        }
-        
-        .blog-category {
-          position: absolute;
-          bottom: 15px;
-          right: 15px;
-          background: rgba(255, 140, 0, 0.9);
-          color: white;
-          font-size: 0.8rem;
-          font-weight: 600;
-          padding: 0.4rem 0.8rem;
-          border-radius: 20px;
-          z-index: 2;
-        }
-        
-        .blog-card-content {
-          padding: 2rem;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .blog-title-link {
-          text-decoration: none;
-          color: inherit;
-        }
-        
-        .blog-card h2 {
-          font-size: 1.5rem;
-          color: #fff;
-          margin: 0 0 1rem;
-          line-height: 1.4;
-          transition: color 0.2s ease;
-        }
-        
-        .blog-card h2:hover {
-          color: #ff8c00;
-        }
-        
-        .blog-excerpt {
-          font-size: 1rem;
-          color: #aaa;
-          margin: 0 0 1.5rem;
-          line-height: 1.6;
-          flex: 1;
-        }
-        
-        .blog-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1.5rem;
-          padding-top: 1rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .blog-author {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          color: #ddd;
-          font-size: 0.9rem;
-        }
-        
-        .blog-date {
-          font-size: 0.85rem;
-          color: #888;
-        }
-        
-        .read-more-btn {
-          display: inline-block;
-          background: transparent;
-          color: #ff8c00;
-          border: 1px solid #ff8c00;
-          padding: 0.6rem 1.5rem;
-          border-radius: 30px;
-          font-size: 0.9rem;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          align-self: flex-start;
-        }
-        
-        .read-more-btn:hover {
-          background: rgba(255, 140, 0, 0.1);
-          transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-          .blog-hero {
-            padding: 5rem 1.5rem 3rem;
-          }
-          
-          .blog-hero h1 {
-            font-size: 2.5rem;
-          }
-          
-          .blog-hero p {
-            font-size: 1rem;
-          }
-          
-          .blog-container {
-            padding: 3rem 1.5rem;
-          }
-          
-          .blog-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };

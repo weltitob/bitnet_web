@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import LazyImage from '../components/LazyImage';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 // Mock blog post data - would come from an API in a real app
@@ -34,16 +33,6 @@ const BLOG_POSTS = [
         <li><strong>Scalability</strong>: The network can theoretically handle millions of transactions per second, compared to Bitcoin's 7 TPS limit.</li>
         <li><strong>Privacy</strong>: Lightning transactions are more private than on-chain transactions.</li>
       </ul>
-      
-      <h2>Lightning Network and BitNet</h2>
-      <p>At BitNet, we're leveraging the Lightning Network to provide our users with the fastest, most cost-effective Bitcoin transactions possible. Our wallet seamlessly integrates Lightning capabilities, allowing you to switch between on-chain and Lightning transactions depending on your needs.</p>
-      
-      <p>Whether you're making a large payment that requires the security of the main Bitcoin blockchain or sending a small tip to a content creator, BitNet's wallet gives you the flexibility to choose the right option for every situation.</p>
-      
-      <h2>The Future of Bitcoin Payments</h2>
-      <p>As the Lightning Network grows, it's becoming an increasingly vital part of the Bitcoin ecosystem. The ability to conduct micro-transactions opens up new use cases for Bitcoin, from streaming money for content to machine-to-machine payments in the Internet of Things.</p>
-      
-      <p>With BitNet, you're not just using current technology – you're helping to build the future of finance, one block at a time.</p>
     `
   },
   {
@@ -64,33 +53,6 @@ const BLOG_POSTS = [
       <p>When you keep your Bitcoin on an exchange or other custodial service, you're essentially trusting that third party with your assets. History has shown that this trust can sometimes be misplaced, with numerous exchange hacks and bankruptcies resulting in users losing access to their funds.</p>
       
       <p>Self-custody eliminates this counterparty risk. When you control your private keys, you're not dependent on the security or integrity of any third party. Your Bitcoin is truly yours.</p>
-      
-      <h2>The Three Pillars of Self-Custody</h2>
-      <ol>
-        <li><strong>Control</strong>: You have complete authority over your funds, with no intermediary able to freeze or confiscate them.</li>
-        <li><strong>Security</strong>: When implemented correctly, self-custody can provide superior security compared to keeping funds on exchanges.</li>
-        <li><strong>Privacy</strong>: Self-custody can enhance your financial privacy, as you don't need to share personal information with exchanges or comply with their surveillance policies.</li>
-      </ol>
-      
-      <h2>Common Concerns with Self-Custody</h2>
-      <p>Many people avoid self-custody because they worry about:</p>
-      <ul>
-        <li>Complexity of managing keys</li>
-        <li>Fear of losing access to funds</li>
-        <li>Technical challenges of securing their Bitcoin</li>
-      </ul>
-      
-      <p>At BitNet, we believe self-custody shouldn't be intimidating. Our wallet is designed to provide the security benefits of self-custody with an intuitive user experience that anyone can navigate.</p>
-      
-      <h2>BitNet's Approach to Self-Custody</h2>
-      <p>Our wallet puts you in control of your Bitcoin without technical complexity. We've built a user-friendly interface that guides you through secure key management, backup procedures, and safe usage practices.</p>
-      
-      <p>With BitNet, you get the best of both worlds – the security and freedom of self-custody with the convenience of a modern digital financial tool.</p>
-      
-      <h2>Getting Started with Self-Custody</h2>
-      <p>Making the switch to self-custody doesn't have to happen all at once. You can start by moving a small amount of Bitcoin to your BitNet wallet, getting comfortable with the process, and gradually transitioning more of your holdings.</p>
-      
-      <p>Remember, self-custody is a journey, not a destination. It's about developing good security practices and taking responsibility for your financial sovereignty.</p>
     `
   },
   {
@@ -117,105 +79,137 @@ const BLOG_POSTS = [
         <li>Loyalty points and rewards</li>
         <li>Digital identity credentials</li>
       </ul>
-      
-      <h2>How Taproot Assets Works</h2>
-      <p>Taproot Assets uses a combination of technologies to enable asset functionality on Bitcoin:</p>
-      
-      <ol>
-        <li><strong>Taproot Commitments</strong>: Assets are created by committing asset data to Bitcoin transactions using Taproot's scripting capabilities.</li>
-        <li><strong>Merkle Trees</strong>: Complex asset data is stored efficiently using Merkle trees, with only the Merkle root stored on-chain.</li>
-        <li><strong>Lightning Network</strong>: Assets can be transferred instantly over Lightning, inheriting its speed and low-cost properties.</li>
-      </ol>
-      
-      <p>This approach allows for scalable asset creation and transfer while maintaining Bitcoin's security properties.</p>
-      
-      <h2>BitNet's Integration with Taproot Assets</h2>
-      <p>At BitNet, we're committed to bringing the best of Bitcoin technology to our users. Our wallet fully supports Taproot Assets, allowing you to:</p>
-      
-      <ul>
-        <li>Create and issue your own digital assets</li>
-        <li>View and manage your digital collectibles</li>
-        <li>Send and receive assets instantly over Lightning</li>
-        <li>Explore the emerging ecosystem of Bitcoin-native digital assets</li>
-      </ul>
-      
-      <h2>The Future of Digital Assets on Bitcoin</h2>
-      <p>Taproot Assets represents a significant evolution in Bitcoin's capabilities. By enabling complex digital assets without sacrificing Bitcoin's core principles, it opens new possibilities for creators, developers, and users.</p>
-      
-      <p>As the ecosystem grows, we expect to see innovative applications in areas like:</p>
-      <ul>
-        <li>Digital art and collectibles backed by Bitcoin's security</li>
-        <li>Loyalty and reward programs with global reach and interoperability</li>
-        <li>Decentralized identity solutions using Bitcoin's trusted infrastructure</li>
-        <li>Asset tokenization with Lightning-fast transfers</li>
-      </ul>
-      
-      <p>With BitNet, you'll be at the forefront of this exciting development in the Bitcoin ecosystem.</p>
     `
   }
 ];
 
+// Simplified BlogPost component that doesn't rely on hooks
 const BlogPost: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
+  const { postId } = useParams<{ postId?: string }>();
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   
   // Find the post with the matching ID
   const post = BLOG_POSTS.find(p => p.id === postId);
   
-  useEffect(() => {
-    // If post doesn't exist, redirect to the blog page
-    if (!post) {
-      navigate('/blog');
-      return;
-    }
-    
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [post, navigate]);
-  
-  // If post isn't found, show loading (would normally redirect in useEffect)
+  // If post isn't found, redirect to the blog list page
   if (!post) {
-    return <div>Loading...</div>;
+    // Use setTimeout to avoid immediate state updates during render
+    setTimeout(() => navigate('/blog'), 0);
+    
+    // Show a loading state while redirecting
+    return (
+      <div style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        background: '#0b0b0b',
+        color: 'white'
+      }}>
+        Redirecting to blog...
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0b0b0b' }}>
+    <div style={{ 
+      minHeight: '100vh', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      background: '#0b0b0b' 
+    }}>
       <SEO 
         title={`${post.title} | BitNet Blog`}
         description={post.description}
-        canonical={`https://www.bitnet.com/blog/${post.id}`}
+        canonical={`https://bitnet.ai/blog/${post.id}`}
         keywords={post.tags.join(', ').toLowerCase()}
         image={post.image}
       />
       <Header />
       
-      <main className="blog-post-page">
-        <div className="blog-post-hero">
-          <div className="post-category">{post.category}</div>
-          <h1>{post.title}</h1>
+      <main style={{
+        flex: 1,
+        background: 'linear-gradient(180deg, #0b0b0b 0%, #141419 100%)',
+        color: '#fff'
+      }}>
+        <div style={{
+          padding: '6rem 2rem 2rem',
+          textAlign: 'center',
+          background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('${post.image}') center/cover no-repeat`,
+          position: 'relative'
+        }}>
+          <div style={{
+            display: 'inline-block',
+            background: 'rgba(255, 140, 0, 0.9)',
+            color: 'white',
+            fontSize: '0.9rem',
+            fontWeight: '600',
+            padding: '0.4rem 1rem',
+            borderRadius: '30px',
+            marginBottom: '1.5rem'
+          }}>{post.category}</div>
           
-          <div className="post-meta">
-            <div className="post-author">
-              <LazyImage 
+          <h1 style={{
+            fontSize: '2.5rem',
+            color: 'white',
+            margin: '0 auto 2rem',
+            lineHeight: '1.3',
+            maxWidth: '900px'
+          }}>{post.title}</h1>
+          
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '2rem',
+            position: 'relative',
+            zIndex: 2,
+            flexWrap: 'wrap'
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem'
+            }}>
+              <img 
                 src={post.authorImage} 
                 alt={post.author}
-                style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                style={{ 
+                  width: '50px', 
+                  height: '50px', 
+                  borderRadius: '50%',
+                  objectFit: 'cover'
+                }}
               />
-              <div className="author-info">
-                <span className="author-name">{post.author}</span>
-                <span className="author-title">{post.authorTitle}</span>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                textAlign: 'left'
+              }}>
+                <span style={{
+                  fontSize: '1.1rem',
+                  color: '#fff',
+                  fontWeight: '500'
+                }}>{post.author}</span>
+                <span style={{
+                  fontSize: '0.9rem',
+                  color: '#aaa'
+                }}>{post.authorTitle}</span>
               </div>
             </div>
-            <div className="post-date">{post.date}</div>
+            <div style={{
+              fontSize: '0.95rem',
+              color: '#aaa'
+            }}>{post.date}</div>
           </div>
         </div>
         
-        <div className="blog-post-container">
+        <div style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '4rem 2rem'
+        }}>
           <Breadcrumbs 
             customPaths={[
               { path: '/blog', label: 'Blog' },
@@ -223,26 +217,70 @@ const BlogPost: React.FC = () => {
             ]} 
             style={{ marginBottom: '2rem' }}
           />
-          <div className="blog-post-image">
-            <LazyImage 
+          
+          <div style={{
+            marginBottom: '3rem'
+          }}>
+            <img 
               src={post.image} 
               alt={post.title}
-              style={{ width: '100%', borderRadius: '12px' }}
+              style={{ 
+                width: '100%', 
+                borderRadius: '12px',
+                maxHeight: '400px',
+                objectFit: 'cover' 
+              }}
             />
           </div>
           
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div 
+            style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              color: '#ddd'
+            }}
+            dangerouslySetInnerHTML={{ __html: post.content }} 
+          />
           
-          <div className="blog-post-tags">
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '0.8rem',
+            marginTop: '3rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
             {post.tags.map((tag, index) => (
-              <Link key={index} to={`/blog/tag/${tag.toLowerCase()}`} className="post-tag">
+              <Link 
+                key={index} 
+                to={`/blog/tag/${tag.toLowerCase()}`} 
+                style={{
+                  display: 'inline-block',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  color: '#ddd',
+                  padding: '0.4rem 1rem',
+                  borderRadius: '30px',
+                  fontSize: '0.9rem',
+                  textDecoration: 'none'
+                }}
+              >
                 {tag}
               </Link>
             ))}
           </div>
           
-          <div className="post-navigation">
-            <Link to="/blog" className="back-to-blog">
+          <div style={{
+            marginTop: '4rem'
+          }}>
+            <Link 
+              to="/blog" 
+              style={{
+                display: 'inline-block',
+                color: '#ff8c00',
+                textDecoration: 'none',
+                fontWeight: '500'
+              }}
+            >
               &larr; Back to Blog
             </Link>
           </div>
@@ -250,203 +288,6 @@ const BlogPost: React.FC = () => {
       </main>
       
       <Footer />
-      
-      <style jsx>{`
-        .blog-post-page {
-          flex: 1;
-          background: linear-gradient(180deg, #0b0b0b 0%, #141419 100%);
-          color: #fff;
-        }
-        
-        .blog-post-hero {
-          padding: 6rem 2rem 2rem;
-          text-align: center;
-          background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                      url('${post.image}') center/cover no-repeat;
-          position: relative;
-        }
-        
-        .blog-post-hero::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 100px;
-          background: linear-gradient(to top, #0b0b0b, transparent);
-        }
-        
-        .post-category {
-          display: inline-block;
-          background: rgba(255, 140, 0, 0.9);
-          color: white;
-          font-size: 0.9rem;
-          font-weight: 600;
-          padding: 0.4rem 1rem;
-          border-radius: 30px;
-          margin-bottom: 1.5rem;
-        }
-        
-        .blog-post-hero h1 {
-          font-size: 3rem;
-          background: linear-gradient(135deg, #ffffff, #aaaaaa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          margin: 0 auto 2rem;
-          line-height: 1.3;
-          max-width: 900px;
-        }
-        
-        .post-meta {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-          position: relative;
-          z-index: 2;
-        }
-        
-        .post-author {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
-        
-        .author-info {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          text-align: left;
-        }
-        
-        .author-name {
-          font-size: 1.1rem;
-          color: #fff;
-          font-weight: 500;
-        }
-        
-        .author-title {
-          font-size: 0.9rem;
-          color: #aaa;
-        }
-        
-        .post-date {
-          font-size: 0.95rem;
-          color: #aaa;
-        }
-        
-        .blog-post-container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 4rem 2rem;
-        }
-        
-        .blog-post-image {
-          margin-bottom: 3rem;
-        }
-        
-        .blog-post-content {
-          font-size: 1.1rem;
-          line-height: 1.8;
-          color: #ddd;
-        }
-        
-        .blog-post-content h2 {
-          font-size: 2rem;
-          color: #fff;
-          margin: 2.5rem 0 1.5rem;
-        }
-        
-        .blog-post-content p {
-          margin-bottom: 1.5rem;
-        }
-        
-        .blog-post-content ul, 
-        .blog-post-content ol {
-          padding-left: 2rem;
-          margin-bottom: 1.5rem;
-        }
-        
-        .blog-post-content li {
-          margin-bottom: 0.5rem;
-        }
-        
-        .blog-post-content strong {
-          color: #fff;
-          font-weight: 600;
-        }
-        
-        .blog-post-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.8rem;
-          margin-top: 3rem;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .post-tag {
-          display: inline-block;
-          background: rgba(255, 255, 255, 0.05);
-          color: #ddd;
-          padding: 0.4rem 1rem;
-          border-radius: 30px;
-          font-size: 0.9rem;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        
-        .post-tag:hover {
-          background: rgba(255, 140, 0, 0.1);
-          color: #ff8c00;
-        }
-        
-        .post-navigation {
-          margin-top: 4rem;
-          display: flex;
-          justify-content: space-between;
-        }
-        
-        .back-to-blog {
-          display: inline-block;
-          color: #ff8c00;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s ease;
-        }
-        
-        .back-to-blog:hover {
-          transform: translateX(-5px);
-        }
-        
-        @media (max-width: 768px) {
-          .blog-post-hero {
-            padding: 5rem 1.5rem 2rem;
-          }
-          
-          .blog-post-hero h1 {
-            font-size: 2.2rem;
-          }
-          
-          .post-meta {
-            flex-direction: column;
-            gap: 1rem;
-          }
-          
-          .blog-post-container {
-            padding: 3rem 1.5rem;
-          }
-          
-          .blog-post-content {
-            font-size: 1rem;
-          }
-          
-          .blog-post-content h2 {
-            font-size: 1.7rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };

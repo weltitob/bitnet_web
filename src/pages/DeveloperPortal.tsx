@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const DeveloperPortal = () => {
   const [accountType, setAccountType] = useState('individual');
@@ -43,15 +44,25 @@ const DeveloperPortal = () => {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#0b0b0b', color: '#fff' }}>
+      <SEO
+        title="Next-Gen Blockchain Wallet for Developers | BitNet"
+        description="Build, test, and deploy with the next-gen blockchain wallet designed for developers—integrated tools, APIs, and full control over your Web3 projects."
+        canonical="https://bitnet.ai/developer-portal"
+        keywords="blockchain wallet for developers"
+      />
       <Header />
       
       <main style={{ flex: '1', paddingTop: '2rem' }}>
         <div className="developer-container">
           <div className="developer-header">
             <h1>BitNet Developer Portal</h1>
+            <h2 style={{ fontSize: '1.4rem', color: '#ccc', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Blockchain Wallet For Developers</h2>
             <p className="developer-description">
-              Access the power of Bitcoin through our developer-friendly API. 
-              Get your API key and start building the future of decentralized finance.
+              Access the power of Bitcoin through our developer-friendly blockchain wallet APIs.
+              Our comprehensive toolkit for developers provides everything you need to build, test, and deploy powerful Web3 applications.
+            </p>
+            <p className="developer-description" style={{ marginTop: '1rem' }}>
+              With BitNet's blockchain wallet for developers, you can integrate seamless crypto transactions, manage digital assets, and create cutting-edge DeFi solutions with full control over your development environment.
             </p>
           </div>
 

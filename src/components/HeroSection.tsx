@@ -48,24 +48,77 @@ const HeroSection = () => {
     const mockupPhone = phoneRef.current;
 
     // Immediately hide all elements that will be animated
-    if (metricsRow) metricsRow.classList.add('animate-hidden');
-    if (heroHeading) heroHeading.classList.add('animate-hidden');
-    if (heroSubheading) heroSubheading.classList.add('animate-hidden');
-    if (heroCta) heroCta.classList.add('animate-hidden');
-    if (mockupPhone) mockupPhone.classList.add('animate-hidden');
+    if (metricsRow) {
+      metricsRow.style.opacity = '0';
+      metricsRow.style.transform = 'translateY(20px)';
+      metricsRow.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroHeading) {
+      heroHeading.style.opacity = '0';
+      heroHeading.style.transform = 'translateY(20px)';
+      heroHeading.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroSubheading) {
+      heroSubheading.style.opacity = '0';
+      heroSubheading.style.transform = 'translateY(20px)';
+      heroSubheading.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+    if (heroCta) {
+      heroCta.style.opacity = '0';
+      heroCta.style.transform = 'translateY(20px)';
+      heroCta.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      heroCta.style.marginTop = '0';
+    }
+    if (mockupPhone) {
+      mockupPhone.style.opacity = '0';
+      mockupPhone.style.transform = 'translateY(20px)';
+      mockupPhone.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
+
+    // Force a reflow to apply the initial styles before starting animations
+    document.body.offsetHeight;
 
     // Function to trigger sequential fade-in
     const startHeroAnimation = () => {
       // Sequential reveal with increasing delays
-      setTimeout(() => metricsRow?.classList.add('animate-reveal'), 100);
-      setTimeout(() => heroHeading?.classList.add('animate-reveal'), 500);
-      setTimeout(() => heroSubheading?.classList.add('animate-reveal'), 800);
-      setTimeout(() => heroCta?.classList.add('animate-reveal'), 1100);
-      setTimeout(() => mockupPhone?.classList.add('animate-reveal'), 1400);
+      setTimeout(() => {
+        if (metricsRow) {
+          metricsRow.style.opacity = '1';
+          metricsRow.style.transform = 'translateY(0)';
+        }
+      }, 100);
+      
+      setTimeout(() => {
+        if (heroHeading) {
+          heroHeading.style.opacity = '1';
+          heroHeading.style.transform = 'translateY(0)';
+        }
+      }, 400);
+      
+      setTimeout(() => {
+        if (heroSubheading) {
+          heroSubheading.style.opacity = '1';
+          heroSubheading.style.transform = 'translateY(0)';
+        }
+      }, 700);
+      
+      setTimeout(() => {
+        if (heroCta) {
+          heroCta.style.opacity = '1';
+          heroCta.style.transform = 'translateY(0)';
+        }
+      }, 900);
+      
+      setTimeout(() => {
+        if (mockupPhone) {
+          mockupPhone.style.opacity = '1';
+          mockupPhone.style.transform = 'translateY(0)';
+        }
+      }, 1100);
     };
 
     // Start animations after a brief initial delay
-    setTimeout(startHeroAnimation, 300);
+    setTimeout(startHeroAnimation, 100);
 
     // We don't need scroll effects for the phone anymore
     return () => {};
@@ -99,7 +152,7 @@ const HeroSection = () => {
       });
     });
 
-    // Feature card animations
+    // Feature card animations with scroll trigger
     const isInViewport = (element: HTMLElement, threshold = 0.5) => {
       const rect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -107,7 +160,7 @@ const HeroSection = () => {
       return rect.top <= (windowHeight * threshold) && window.scrollY > 100;
     };
 
-    // Reveal cards one by one
+    // Reveal cards one by one on scroll
     const revealCards = () => {
       // If we're on mobile or already revealed, exit
       if (isMobile || cardsRevealedRef.current) return;
@@ -125,23 +178,41 @@ const HeroSection = () => {
           featureCardsRef.current.bottomCard  // Last
         ];
 
-        // Reveal in the specified order
+        // Reveal in the specified order with different animations
         cardOrder.forEach((card, index) => {
           if (card) {
+            // Add unique starting positions for animation
+            if (card === featureCardsRef.current.leftCard) {
+              // Left card starts shifted left and invisible
+              card.style.transform = 'translateY(-50%) translateX(-30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            } else if (card === featureCardsRef.current.rightCard) {
+              // Right card starts shifted right and invisible
+              card.style.transform = 'translateY(-50%) translateX(30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            } else if (card === featureCardsRef.current.bottomCard) {
+              // Bottom card also starts shifted right and invisible
+              card.style.transform = 'translateX(30px)';
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            }
+
             setTimeout(() => {
               card.style.opacity = '1';
-              // Maintain the transforms we set in the inline styles
+              // Apply final positions with animations
               if (card === featureCardsRef.current.leftCard) {
-                // Left card is at top 50%
+                // Left card sliding in from left
                 card.style.transform = 'translateY(-50%)';
               } else if (card === featureCardsRef.current.rightCard) {
-                // Right card is at top 30%
+                // Right card sliding in from right
                 card.style.transform = 'translateY(-50%)';
               } else if (card === featureCardsRef.current.bottomCard) {
-                // Keep bottom card at its original position
-                card.style.transform = 'translateY(0)';
+                // Bottom card sliding in from right
+                card.style.transform = 'translateX(0)';
               }
-            }, 300 + (index * 500)); 
+            }, 300 + (index * 500));
           }
         });
       }
@@ -152,8 +223,10 @@ const HeroSection = () => {
 
     // Clean up
     return () => {
+      // Remove scroll listener
       window.removeEventListener('scroll', revealCards);
 
+      // Remove rarity tab listeners
       rarityTabs.forEach(tab => {
         tab.removeEventListener('click', function(this: HTMLElement) {
           const rarity = this.getAttribute('data-rarity');
@@ -312,14 +385,22 @@ const HeroSection = () => {
         <span className="metric-separator">|</span>
         <span className="metric-item">Community-driven</span>
       </div>
-      <h1 className="animate-hidden" id="main-heading">Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.</h1>
-      <h2 className="animate-hidden subtitle">Fix Bitcoin. Fix the world. One Block at a Time.</h2>
-      <div style={{ height: "25px" }}></div>
+      {/* Single H1 tag with SEO-friendly noscript fallback for crawlers */}
+      <h1 className="animate-hidden" id="main-heading">
+        <noscript>Your Complete Bitcoin Ecosystem in One Wallet.</noscript>
+        Your <span style={{ color: '#ff8c00' }}>Complete</span> Bitcoin <span style={{ color: '#ff8c00' }}>Ecosystem</span> in One <span style={{ color: '#ff8c00' }}>Wallet</span>.
+      </h1>
+
+      {/* Single H2 tag with SEO-friendly noscript fallback for crawlers */}
+      <h2 className="subtitle animate-hidden">
+        <noscript>Fix Bitcoin. Fix the world. One Block at a Time.</noscript>
+        Fix Bitcoin. Fix the world. One Block at a Time.
+      </h2>
       <div className="hero-buttons animate-hidden">
-        <a href="/earlybird" className="btn primary" style={{
-          padding: '0.65rem 3rem', 
-          minWidth: '180px', 
-          borderRadius: '999px', 
+        <a href="/earlybird" aria-label="Get Early Access Now" className="btn primary" rel="noopener noreferrer" style={{
+          padding: '0.65rem 3rem',
+          minWidth: '180px',
+          borderRadius: '999px',
           fontWeight: '600',
           fontSize: '1rem',
           lineHeight: '1.5',
@@ -329,10 +410,10 @@ const HeroSection = () => {
           height: '48px',
           boxSizing: 'border-box'
         }}>Get Started</a>
-        <a href="/fixbitcoin" className="btn secondary" style={{
-          padding: '0.65rem 3rem', 
-          minWidth: '180px', 
-          borderRadius: '999px', 
+        <a href="/fixbitcoin" aria-label="Learn More About BitNet" className="btn secondary" rel="noopener noreferrer" style={{
+          padding: '0.65rem 3rem',
+          minWidth: '180px',
+          borderRadius: '999px',
           fontWeight: '600',
           fontSize: '1rem',
           lineHeight: '1.5',
@@ -349,11 +430,11 @@ const HeroSection = () => {
         marginTop: isMobile ? '35px' : '0'
       }}>
         {/* Mockup phone */}
-        <div 
+        <div
           ref={phoneRef}
-          className="mockup animate-hidden" 
-          style={{ 
-            display: 'flex', 
+          className="mockup animate-hidden"
+          style={{
+            display: 'flex',
             flexDirection: 'column',
             width: '330px',  // Reverting to previous width
             height: '690px', // Reverting to previous height
@@ -433,7 +514,8 @@ const HeroSection = () => {
                 left: '80px',
                 transform: 'translateY(-50%)',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.leftCard,
@@ -450,8 +532,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Instant Payments</h3>
-                <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
+                <h3><a href="/aistrategy" aria-label="Learn about instant payments" title="BitNet's Instant Payments" style={{ color: 'inherit', textDecoration: 'none' }}>Instant Payments</a></h3>
+                <p>Lightning-fast <a href="/aistrategy" aria-label="Learn about BitNet's lightning-fast Bitcoin transfers" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
               </div>
             </div>
 
@@ -463,7 +545,8 @@ const HeroSection = () => {
                 right: '60px',
                 transform: 'translateY(-50%)',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.rightCard,
@@ -482,8 +565,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Bitcoin Made Better</h3>
-                <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
+                <h3><a href="/fixbitcoin" aria-label="Learn how BitNet improves Bitcoin" title="BitNet Bitcoin Improvements" style={{ color: 'inherit', textDecoration: 'none' }}>Bitcoin Made Better</a></h3>
+                <p><a href="/developer-portal" aria-label="Explore BitNet web3 applications" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" aria-label="Get early access to BitNet digital collectibles" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
               </div>
             </div>
 
@@ -494,7 +577,8 @@ const HeroSection = () => {
                 bottom: '115px',
                 right: '130px',
                 position: 'absolute',
-                width: '280px'
+                width: '280px',
+                opacity: '0' // Start hidden
               }}
               onMouseEnter={() => handleCardMouseEnter(
                 featureCardsRef.current.bottomCard,
@@ -513,8 +597,8 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="feature-content">
-                <h3>Marketplace</h3>
-                <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
+                <h3><a href="/earlybird" aria-label="Explore the BitNet marketplace" title="BitNet Digital Asset Marketplace" style={{ color: 'inherit', textDecoration: 'none' }}>Marketplace</a></h3>
+                <p>Buy, sell, and collect <a href="/fixbitcoin" aria-label="Learn about BitNet's Bitcoin ecosystem" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
               </div>
             </div>
           </>
@@ -531,8 +615,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Instant Payments</h3>
-              <p>Lightning-fast <a href="/aistrategy" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
+              <h3><a href="/aistrategy" aria-label="Learn about instant payments" title="BitNet's Instant Payments" style={{ color: 'inherit', textDecoration: 'none' }}>Instant Payments</a></h3>
+              <p>Lightning-fast <a href="/aistrategy" aria-label="Learn about BitNet's lightning-fast Bitcoin transfers" title="Learn about BitNet's lightning-fast Bitcoin payments" style={{ color: '#ff8c00', textDecoration: 'none' }}>Bitcoin transfers</a>, anytime, anywhere</p>
             </div>
           </div>
 
@@ -545,8 +629,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Bitcoin Made Better</h3>
-              <p><a href="/developer-portal" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
+              <h3><a href="/fixbitcoin" aria-label="Learn how BitNet improves Bitcoin" title="BitNet Bitcoin Improvements" style={{ color: 'inherit', textDecoration: 'none' }}>Bitcoin Made Better</a></h3>
+              <p><a href="/developer-portal" aria-label="Explore BitNet web3 applications" title="Explore BitNet web3 applications" style={{ color: '#ff8c00', textDecoration: 'none' }}>Web3 apps</a> and <a href="/earlybird" aria-label="Get early access to BitNet digital collectibles" title="Get early access to BitNet digital collectibles" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital collectibles</a>, all on Bitcoin</p>
             </div>
           </div>
 
@@ -559,8 +643,8 @@ const HeroSection = () => {
               </svg>
             </div>
             <div className="feature-content">
-              <h3>Marketplace</h3>
-              <p>Buy, sell, and collect <a href="/fixbitcoin" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
+              <h3><a href="/earlybird" aria-label="Explore the BitNet marketplace" title="BitNet Digital Asset Marketplace" style={{ color: 'inherit', textDecoration: 'none' }}>Marketplace</a></h3>
+              <p>Buy, sell, and collect <a href="/fixbitcoin" aria-label="Learn about BitNet's Bitcoin ecosystem" title="Learn about BitNet's Bitcoin ecosystem" style={{ color: '#ff8c00', textDecoration: 'none' }}>digital treasures</a> on Bitcoin</p>
             </div>
           </div>
         </div>
@@ -662,7 +746,7 @@ const HeroSection = () => {
               </div>
 
               <div className="button-wrapper">
-                <a href="/earlybird" className="btn primary">Reserve Your Spot</a>
+                <a href="/earlybird" aria-label="Reserve your early access to BitNet" title="Get early access to BitNet" className="btn primary" rel="noopener">Reserve Your Spot</a>
               </div>
 
               <div className="counter-container">

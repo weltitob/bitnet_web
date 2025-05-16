@@ -635,20 +635,12 @@
   }
 }
 
-/* Hero section animations */
-.animate-hidden {
-  opacity: 0 !important;
-  transform: translateY(20px) !important;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  /* Set will-change for better performance */
-  will-change: opacity, transform;
-  margin-bottom: 0.5rem !important;
-}
-
-.animate-reveal {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  margin-bottom: 0.5rem !important;
+/* SEO-friendly content */
+noscript {
+  /* Hidden but detectable by crawlers */
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
 }
 
 /* Utility classes that might be complex for Tailwind */

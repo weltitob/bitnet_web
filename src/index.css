@@ -277,6 +277,13 @@ nav a:hover {
   width: 100%;
 }
 
+/* Animation Helper Class */
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
 /* Metrics Row */
 .metrics-row {
   display: flex;
@@ -318,7 +325,7 @@ nav a:hover {
   margin-bottom: 0.5rem;
 }
 .hero h2.subtitle {
-  margin: 0.5rem auto 5rem;
+  margin: 0.5rem auto 2rem; /* Set bottom margin to 2rem */
   font-size: 1.2rem;
   max-width: 800px;
   color: #aaa;

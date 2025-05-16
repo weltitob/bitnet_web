@@ -144,35 +144,34 @@ const Header = () => {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <div 
-          className="header-left"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: responsiveStyles.headerLeft.gap,
-          cursor: 'pointer',
-        }}
-        onClick={() => window.location.href = '/'}
-      >
-        <img 
-          src={logo} 
-          alt="BitNet Logo" 
-          style={{
-            height: responsiveStyles.headerLogo.height,
-            width: 'auto',
-            display: 'block',
-          }}
-        />
-        <div 
-          className="site-logo-text"
-          style={{
-            fontSize: responsiveStyles.headerTitle.fontSize,
-            fontWeight: 700,
-          }}
-        >
-          BitNet
+        <div className="header-left">
+          <a href="/" aria-label="BitNet Homepage" style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: responsiveStyles.headerLeft.gap,
+            textDecoration: 'none',
+            color: 'inherit'
+          }}>
+            <img
+              src={logo}
+              alt="BitNet Logo"
+              style={{
+                height: responsiveStyles.headerLogo.height,
+                width: 'auto',
+                display: 'block',
+              }}
+            />
+            <div
+              className="site-logo-text"
+              style={{
+                fontSize: responsiveStyles.headerTitle.fontSize,
+                fontWeight: 700,
+              }}
+            >
+              BitNet
+            </div>
+          </a>
         </div>
-      </div>
       
       {/* Hamburger menu for mobile */}
       {windowWidth <= 768 && (
@@ -221,14 +220,28 @@ const Header = () => {
             gap: responsiveStyles.headerRight.gap,
           }}
         >
-          <nav 
+          <nav
             style={{
               display: 'flex',
               gap: responsiveStyles.nav.gap,
             }}
           >
-            <a 
-              href="/about" 
+            <a
+              href="/"
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: responsiveStyles.navLink.fontSize,
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#aaa'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#fff'}
+            >
+              Home
+            </a>
+            <a
+              href="/about"
               style={{
                 textDecoration: 'none',
                 color: '#fff',
@@ -352,7 +365,7 @@ const Header = () => {
           alignItems: 'center',
           transition: 'all 0.3s',
         }}>
-          <nav 
+          <nav
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -361,8 +374,21 @@ const Header = () => {
               marginBottom: '2rem',
             }}
           >
-            <a 
-              href="/about" 
+            <a
+              href="/"
+              style={{
+                textDecoration: 'none',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '1.2rem',
+                transition: 'color 0.3s',
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="/about"
               style={{
                 textDecoration: 'none',
                 color: '#fff',
