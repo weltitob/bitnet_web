@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import MissionSection from './components/MissionSection'
+import WalletFeatureSection from './components/WalletFeatureSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import AboutSection from './components/AboutSection'
 import CareersSection from './components/CareersSection'
@@ -28,6 +29,7 @@ const HomePage = () => {
       <main>
         <HeroSection />
         <MissionSection />
+        <WalletFeatureSection />
         <TestimonialsSection />
         <CareersSection />
         <ContactSection />

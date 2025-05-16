@@ -25,9 +25,9 @@ const InvestorRelations = () => {
     <div className="min-h-screen flex flex-col" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <SEO 
         title="Investor Relations | BitNet Bitcoin Wallet | Investment Opportunities"
-        description="Discover investment opportunities with BitNet, the future of Bitcoin wallets. Learn about our vision, strategy, and revolutionary Bitcoin solutions."
+        description="Discover BitNet's Bitcoin ecosystem in one wallet. The best Bitcoin investment wallet with Taproot asset integration, secure Bitcoin wallet app, and web3 capabilities."
         canonical="https://www.bitnet.com/investors"
-        keywords="bitcoin investment, bitcoin wallet investor, taproot assets, bitcoin lightning, investment opportunities"
+        keywords="Bitcoin interest wallet, Bitcoin ecosystem in one wallet, Bitcoin investment wallet, Bitcoin savings wallet, blockchain based assets, Bitcoin smart wallet, crypto wallet for web3, mobile Bitcoin wallet, best wallet for bitcoin, secure bitcoin wallet app, secure web3 wallet app, web3 asset management, taproot asset wallet"
       />
       <Header />
       <main style={{ flexGrow: 1, padding: isMobile ? '2rem 1rem' : '4rem 2rem', background: '#0b0b0b' }}>
@@ -805,6 +805,117 @@ const InvestorRelations = () => {
             </div>
           </div>
           
+          {/* Investment Opportunity Section with Keywords */}
+          <div style={{
+            background: 'rgba(25, 25, 35, 0.6)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '20px',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            padding: isMobile ? '1.8rem' : '2.5rem',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+            position: 'relative',
+            overflow: 'hidden',
+            marginBottom: '3rem',
+            maxWidth: '1050px',
+            margin: '0 auto 3rem'
+          }}>
+            {/* Purple glow effect */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-150px',
+              left: '-150px',
+              width: '400px',
+              height: '400px',
+              background: 'radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(138, 43, 226, 0) 70%)',
+              borderRadius: '50%',
+              zIndex: 0
+            }}></div>
+            
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <h2 style={{ 
+                color: '#ffffff',
+                textAlign: 'center',
+                fontSize: isMobile ? '1.6rem' : '1.8rem',
+                marginTop: 0,
+                marginBottom: '0.5rem'
+              }}>Bitcoin Investment Wallet</h2>
+              <span style={{
+                display: 'block',
+                textAlign: 'center',
+                fontSize: isMobile ? '0.9rem' : '1rem',
+                color: '#ff8c00',
+                marginBottom: '1.5rem',
+                fontWeight: '500'
+              }}>The Future of Bitcoin Wallet Technology</span>
+              
+              <p style={{ 
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                color: '#e0e0e0',
+                textAlign: 'center',
+                margin: '0 auto 1.5rem',
+                maxWidth: '900px'
+              }}>
+                BitNet is revolutionizing the Bitcoin ecosystem with our complete <strong>Bitcoin ecosystem in one wallet</strong>. As a premier <strong>Bitcoin investment wallet</strong> solution, we empower users to securely manage their digital assets while capitalizing on the tremendous growth potential of the world's leading cryptocurrency.
+              </p>
+              
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                gap: '2rem',
+                marginBottom: '1.5rem'
+              }}>
+                <div style={{
+                  background: 'rgba(20, 20, 25, 0.5)',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  border: '1px solid rgba(255, 255, 255, 0.05)'
+                }}>
+                  <h3 style={{ 
+                    fontSize: '1.25rem', 
+                    color: '#ff8c00', 
+                    marginTop: 0,
+                    marginBottom: '1rem',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>Next-Generation Wallet Solutions</h3>
+                  <p style={{ 
+                    fontSize: '1rem',
+                    lineHeight: '1.6',
+                    color: '#e0e0e0',
+                    textAlign: isMobile ? 'center' : 'left',
+                    margin: 0
+                  }}>
+                    Our <strong>Bitcoin smart wallet</strong> combines interest-bearing capabilities with self-custody security. Unlike traditional <strong>Bitcoin interest wallets</strong>, BitNet provides seamless access to yield opportunities while maintaining the highest security standards. Our <strong>secure Bitcoin wallet app</strong> offers a sophisticated <strong>Bitcoin savings wallet</strong> experience with uncompromising protection for your assets.
+                  </p>
+                </div>
+                
+                <div style={{
+                  background: 'rgba(20, 20, 25, 0.5)',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  border: '1px solid rgba(255, 255, 255, 0.05)'
+                }}>
+                  <h3 style={{ 
+                    fontSize: '1.25rem', 
+                    color: '#ff8c00', 
+                    marginTop: 0,
+                    marginBottom: '1rem',
+                    textAlign: isMobile ? 'center' : 'left'
+                  }}>Web3 Innovation & Taproot Assets</h3>
+                  <p style={{ 
+                    fontSize: '1rem',
+                    lineHeight: '1.6',
+                    color: '#e0e0e0',
+                    textAlign: isMobile ? 'center' : 'left',
+                    margin: 0
+                  }}>
+                    As the first <strong>Taproot asset wallet</strong> with comprehensive <strong>web3 asset management</strong>, BitNet bridges Bitcoin with next-generation financial applications. Our <strong>mobile Bitcoin wallet</strong> and <strong>secure web3 wallet app</strong> enable users to interact with <strong>blockchain-based assets</strong> seamlessly. BitNet is recognized as the <strong>best wallet for Bitcoin</strong> with integrated <strong>crypto wallet for web3</strong> capabilities.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div style={{
             background: 'rgba(20, 20, 25, 0.5)',
             borderRadius: '1rem',

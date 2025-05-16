@@ -54,6 +54,98 @@ const DeveloperPortal = () => {
               Get your API key and start building the future of decentralized finance.
             </p>
           </div>
+
+          <div className="developer-card info-section">
+            <h2>Blockchain Wallet for Developers</h2>
+            <div className="info-content">
+              <div className="info-text">
+                <div className="info-paragraph">
+                  <h3>Simplified Blockchain Integration</h3>
+                  <p>
+                    BitNet provides a comprehensive blockchain wallet for developers seeking to integrate Bitcoin functionality into their applications. Our easy-to-use API empowers you to create secure, scalable crypto solutions without the complexity traditionally associated with blockchain development.
+                  </p>
+                </div>
+                
+                <div className="info-paragraph">
+                  <h3>Flexible Development Tools</h3>
+                  <p>
+                    Whether you're building a decentralized application, implementing payment processing, or creating a custom wallet experience, our developer tools offer the flexibility and security your projects demand. With BitNet's wallet infrastructure, you can focus on creating value for your users while we handle the complexities of blockchain interactions.
+                  </p>
+                </div>
+                
+                <div className="info-paragraph">
+                  <h3>End-to-End Wallet Solutions</h3>
+                  <p>
+                    Our blockchain wallet solutions offer end-to-end capabilities including secure key management, transaction processing, and real-time blockchain data access. The BitNet API is designed with developers in mind, featuring comprehensive documentation, language-specific SDKs, and a dedicated support team to help you succeed.
+                  </p>
+                </div>
+                
+                <div className="info-paragraph">
+                  <h3>Enterprise-Ready Infrastructure</h3>
+                  <p>
+                    Join thousands of developers already building on BitNet's infrastructure and discover why our platform is the preferred choice for blockchain integration. From startups to enterprise solutions, our scalable architecture grows with your needs while maintaining the highest security standards in the industry.
+                  </p>
+                </div>
+              </div>
+              <div className="info-features">
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <span>RESTful API</span>
+                </div>
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                      <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                  </div>
+                  <span>Multi-platform SDKs</span>
+                </div>
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <span>Enterprise-grade Security</span>
+                </div>
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </div>
+                  <span>Global Availability</span>
+                </div>
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="1 4 1 10 7 10"></polyline>
+                      <polyline points="23 20 23 14 17 14"></polyline>
+                      <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                    </svg>
+                  </div>
+                  <span>Automated Backups</span>
+                </div>
+                <div className="dev-feature">
+                  <div className="dev-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                  </div>
+                  <span>99.9% Uptime SLA</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
           {!submitted ? (
             <div className="developer-card">
@@ -966,6 +1058,78 @@ const DeveloperPortal = () => {
           }
         }
         
+        .info-section {
+          padding: 2.5rem;
+        }
+        
+        .info-content {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+        
+        .info-paragraph {
+          margin-bottom: 1.8rem;
+        }
+        
+        .info-paragraph:last-child {
+          margin-bottom: 0;
+        }
+        
+        .info-paragraph h3 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #ff8c00;
+          margin-bottom: 0.6rem;
+        }
+        
+        .info-paragraph p {
+          margin: 0;
+          line-height: 1.7;
+        }
+        
+        .info-features {
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 12px;
+          padding: 1.5rem;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .dev-feature {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.2rem;
+        }
+        
+        .dev-feature:last-child {
+          margin-bottom: 0;
+        }
+        
+        .dev-feature-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1rem;
+          background: linear-gradient(135deg, #ff8a00, #ff5e00);
+          color: white;
+          flex-shrink: 0;
+        }
+        
+        .dev-feature span {
+          font-size: 1rem;
+          color: #ddd;
+        }
+
+        @media (max-width: 900px) {
+          .info-content {
+            grid-template-columns: 1fr;
+          }
+        }
+        
         @media (max-width: 600px) {
           .developer-header h1 {
             font-size: 2rem;
@@ -993,6 +1157,10 @@ const DeveloperPortal = () => {
           
           .step-number {
             margin-bottom: 1rem;
+          }
+          
+          .info-section {
+            padding: 1.5rem;
           }
         }
       `}</style>

@@ -13,8 +13,8 @@ interface SEOProps {
 
 const SEO = ({
   title = 'BitNet - Complete Bitcoin Ecosystem in One Wallet',
-  description = 'BitNet - Your Complete Bitcoin Ecosystem in One Wallet. Self-Custody, Lightning-Fast, and Community-Driven Bitcoin Solutions for Web3.',
-  keywords = 'bitcoin wallet, web3, self-custody, bitcoin ecosystem, lightning network, bitcoin payments, blockchain, digital collectibles',
+  description = 'BitNet - Your Complete Bitcoin Ecosystem in One Wallet. Secure crypto wallet solution with self-custody private keys. Buy digital collectibles and access our NFT marketplace platform for Bitcoin.',
+  keywords = 'bitcoin wallet, web3, self-custody, bitcoin ecosystem, lightning network, bitcoin payments, blockchain, digital collectibles, crypto wallet private key, mobile crypto wallet, crypto wallet for beginners, secure crypto wallet solution, NFT marketplace, NFT collection platform, NFT trading platform, NFT wallet integration',
   image = '/logo.png',
   url = 'https://www.bitnet.com',
   type = 'website',
