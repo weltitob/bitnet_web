@@ -9,8 +9,8 @@ const Footer = () => {
             <div className="footer-logo">
               <a href="https://bitnet.ai/" title="BitNet Homepage">
                 <img src={logo} alt="BitNet Logo" className="logo-image" />
+                <h3>BitNet</h3>
               </a>
-              <h3>BitNet</h3>
             </div>
             <p className="brand-description">Fix Bitcoin. Fix the world.</p>
             <a href="/ideas" className="submit-idea-btn">

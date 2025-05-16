@@ -182,7 +182,7 @@ const WalletFeatureSection = () => {
         }
         
         .nft-feature-header {
-          margin-top: 5rem;
+          margin-top: 16rem;
         }
         
         .wallet-feature-subtitle {

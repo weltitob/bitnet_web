@@ -656,7 +656,7 @@ const HeroSection = () => {
       <div className="social-proof-section">
         <div className="social-proof-header">
           <span>Limited Early Access</span>
-          <h3>The first easy and cheap Bitcoin wallet for web3 coming soon</h3>
+          <h3 style={{ marginTop: '0.7rem' }}>The first easy and cheap Bitcoin wallet for web3 coming soon</h3>
         </div>
 
 
