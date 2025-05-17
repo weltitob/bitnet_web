@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 // Import components used on the homepage directly to optimize first paint
 import Header from './components/Header'
@@ -75,6 +75,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        
+        {/* Redirect duplicate index URLs to main site */}
+        <Route path="/index.html" element={<Navigate to="/" replace />} />
+        <Route path="/index.php" element={<Navigate to="/" replace />} />
         <Route path="/earlybird" element={
           <Suspense fallback={<LoadingIndicator />}>
             <EarlybirdPage />
@@ -85,10 +89,14 @@ function App() {
             <InvestorRelations />
           </Suspense>
         } />
-        <Route path="/fixbitcoin" element={
+        <Route path="/fix-bitcoin" element={
           <Suspense fallback={<LoadingIndicator />}>
             <FixBitcoin />
           </Suspense>
+        } />
+        {/* 301 redirect from old URL */}
+        <Route path="/fixbitcoin" element={
+          <Navigate to="/fix-bitcoin" replace />
         } />
         <Route path="/aistrategy" element={
           <Suspense fallback={<LoadingIndicator />}>

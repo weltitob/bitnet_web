@@ -1,5 +1,38 @@
-User-agent: *
-Allow: 
-Disallow: 
+# robots.txt for BitNet website
+# https://bitnet.ai/
 
+User-agent: *
+Allow: /
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /404
+Disallow: /search
+
+# Block temporary files and backend routes
+User-agent: *
+Disallow: /api/private/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Allow all bots to index the site 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Slow down Crawling
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap location
 Sitemap: https://bitnet.ai/sitemap.xml

@@ -2,17 +2,21 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-  <url><loc>https://bitnet.ai/</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/about</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/investors</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/blog</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/earlybird</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/fixbitcoin</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/aistrategy</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/developer-portal</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/api</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/blog/bitcoin-lightning-network</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/blog/self-custody-importance</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
-  <url><loc>https://bitnet.ai/blog/taproot-assets-explained</loc><lastmod>2025-05-06T20:53:54+00:00</lastmod></url>
+  <!-- Updated sitemap with all website pages -->
+  <url><loc>https://bitnet.ai/</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>1.0</priority></url>
+  <url><loc>https://bitnet.ai/about</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/investors</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/blog</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/earlybird</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/fix-bitcoin</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/aistrategy</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bitnet.ai/developer-portal</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bitnet.ai/api</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bitnet.ai/ideas</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.6</priority></url>
+  <url><loc>https://bitnet.ai/faq</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bitnet.ai/privacy-policy</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.5</priority></url>
+  <url><loc>https://bitnet.ai/terms-conditions</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.5</priority></url>
+  <url><loc>https://bitnet.ai/blog/bitcoin-lightning-network</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.6</priority></url>
+  <url><loc>https://bitnet.ai/blog/self-custody-importance</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.6</priority></url>
+  <url><loc>https://bitnet.ai/blog/taproot-assets-explained</loc><lastmod>2025-05-17T00:00:00+00:00</lastmod><priority>0.6</priority></url>
 </urlset>
